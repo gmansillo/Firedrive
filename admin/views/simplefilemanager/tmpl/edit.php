@@ -29,12 +29,9 @@ $maxFileSize    = SimplefilemanagerHelper::getMaxFileUploadSize();
     })
 
     Joomla.submitbutton = function(task){
-        if(task=='cancel'){
+        if(task=='simplefilemanager.cancel'){
             submitform(task);
         }else{
-
-            //alert(jQuery('#jform1_uploader').files[0].size);
-
             var f = document.adminForm;
             if(document.formvalidator.isValid(f)){
                 submitform(task);

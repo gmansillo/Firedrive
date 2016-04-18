@@ -106,9 +106,9 @@ $sortFields = $this->getSortFields();
 			<table class="table table-striped" id="simplefilemanagerList">
 				<thead>
 					<tr>
-						<th width="1%" class="nowrap center hidden-phone">
+						<!--<th width="1%" class="nowrap center hidden-phone">
 							<?php echo JHtml::_('grid.sort', '<i class="icon-menu-2"></i>', 'a.ordering', $listDirn, $listOrder, null, 'asc', 'JGRID_HEADING_ORDERING'); ?>
-						</th>
+						</th>-->
 
 						<th width="1%" class="center hidden-phone">
 							<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
@@ -160,7 +160,7 @@ $sortFields = $this->getSortFields();
 				?>
 
 					<tr class="row<?php echo $i % 2; ?>" sortable-group-id="1">
-						<td class="order nowrap center hidden-phone">
+						<!--<td class="order nowrap center hidden-phone">
 						<?php if ($canChange) :
 							$disableClassName = '';
 							$disabledLabel	  = '';
@@ -177,7 +177,7 @@ $sortFields = $this->getSortFields();
 								<i class="icon-menu"></i>
 							</span>
 						<?php endif; ?>
-						</td>
+						</td>-->
 
 						<td class="center hidden-phone">
 							<?php echo JHtml::_('grid.id', $i, $item->id); ?>

@@ -3,7 +3,7 @@
 /**
  *
  * @package     Simple File Manager
- * @author		Giovanni Mansillo
+ * @author        Giovanni Mansillo
  *
  * @copyright   Copyright (C) 2005 - 2014 Giovanni Mansillo. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -17,20 +17,22 @@ require_once JPATH_COMPONENT . '/controller.php';
 /**
  * Simplefilemanager controller class.
  */
-class SimplefilemanagerControllerSimplefilemanager extends SimplefilemanagerController {
+class SimplefilemanagerControllerSimplefilemanager extends SimplefilemanagerController
+{
 
 
     /**
      * Method to check out an item for editing and redirect to the edit form.
      *
-     * @since	1.6
+     * @since    1.6
      */
-    public function edit() {
+    public function edit()
+    {
         $app = JFactory::getApplication();
 
         // Get the previous edit id (if any) and the current edit id.
-        $previousId = (int) $app->getUserState('com_simplefilemanager.edit.simplefilemanager.id');
-        $editId = $app->input->getInt('id', null, 'array');
+        $previousId = (int)$app->getUserState('com_simplefilemanager.edit.simplefilemanager.id');
+        $editId     = $app->input->getInt('id', null, 'array');
 
         // Set the user id for the user to edit in the session.
         $app->setUserState('com_simplefilemanager.edit.simplefilemanager.id', $editId);
@@ -39,12 +41,14 @@ class SimplefilemanagerControllerSimplefilemanager extends SimplefilemanagerCont
         $model = $this->getModel('Simplefilemanager', 'SimplefilemanagerModel');
 
         // Check out the item
-        if ($editId) {
+        if ($editId)
+        {
             $model->checkout($editId);
         }
 
         // Check in the previous user.
-        if ($previousId && $previousId !== $editId) {
+        if ($previousId && $previousId !== $editId)
+        {
             $model->checkin($previousId);
         }
 
@@ -55,16 +59,18 @@ class SimplefilemanagerControllerSimplefilemanager extends SimplefilemanagerCont
     /**
      * Method to save a user's profile data.
      *
-     * @return	void
-     * @since	1.6
+     * @return    void
+     * @since    1.6
      */
-    public function publish() {
+    public function publish()
+    {
         // Initialise variables.
         $app = JFactory::getApplication();
 
         //Checking if the user can remove object
         $user = JFactory::getUser();
-        if ($user->authorise('core.edit', 'com_simplefilemanager') || $user->authorise('core.edit.state', 'com_simplefilemanager')) {
+        if ($user->authorise('core.edit', 'com_simplefilemanager') || $user->authorise('core.edit.state', 'com_simplefilemanager'))
+        {
             $model = $this->getModel('Simplefilemanager', 'SimplefilemanagerModel');
 
             // Get the user data.
@@ -75,7 +81,8 @@ class SimplefilemanagerControllerSimplefilemanager extends SimplefilemanagerCont
             $return = $model->publish($id, $state);
 
             // Check for errors.
-            if ($return === false) {
+            if ($return === false)
+            {
                 $this->setMessage(JText::sprintf('Save failed: %s', $model->getError()), 'warning');
             }
 
@@ -87,27 +94,34 @@ class SimplefilemanagerControllerSimplefilemanager extends SimplefilemanagerCont
 
             // Redirect to the list screen.
             $this->setMessage(JText::_('COM_SIMPLEFILEMANAGER_ITEM_SAVED_SUCCESSFULLY'));
-            $menu = & JSite::getMenu();
+            $menu = &JSite::getMenu();
             $item = $menu->getActive();
-            if (!$item) {
+            if (!$item)
+            {
                 // If there isn't any menu item active, redirect to list view
                 $this->setRedirect(JRoute::_('index.php?option=com_simplefilemanager&view=simplefilemanagers', false));
-            } else {
+            }
+            else
+            {
                 $this->setRedirect(JRoute::_($item->link . $menuitemid, false));
             }
-        } else {
+        }
+        else
+        {
             throw new Exception(500);
         }
     }
 
-    public function remove() {
+    public function remove()
+    {
 
         // Initialise variables.
         $app = JFactory::getApplication();
 
         //Checking if the user can remove object
         $user = JFactory::getUser();
-        if ($user->authorise($user->authorise('core.delete', 'com_simplefilemanager'))) {
+        if ($user->authorise($user->authorise('core.delete', 'com_simplefilemanager')))
+        {
             $model = $this->getModel('Simplefilemanager', 'SimplefilemanagerModel');
 
             // Get the user data.
@@ -118,11 +132,15 @@ class SimplefilemanagerControllerSimplefilemanager extends SimplefilemanagerCont
 
 
             // Check for errors.
-            if ($return === false) {
+            if ($return === false)
+            {
                 $this->setMessage(JText::sprintf('Delete failed', $model->getError()), 'warning');
-            } else {
+            }
+            else
+            {
                 // Check in the profile.
-                if ($return) {
+                if ($return)
+                {
                     $model->checkin($return);
                 }
 
@@ -136,10 +154,12 @@ class SimplefilemanagerControllerSimplefilemanager extends SimplefilemanagerCont
             }
 
             // Redirect to the list screen.
-            $menu = & JSite::getMenu();
+            $menu = &JSite::getMenu();
             $item = $menu->getActive();
             $this->setRedirect(JRoute::_($item->link, false));
-        } else {
+        }
+        else
+        {
             throw new Exception(500);
         }
     }

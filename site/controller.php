@@ -5,9 +5,11 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.controller');
 
-class SimplefilemanagerController extends JControllerLegacy {
+class SimplefilemanagerController extends JControllerLegacy
+{
 
-    public function display($cachable = false, $urlparams = false) {
+    public function display($cachable = false, $urlparams = false)
+    {
         require_once JPATH_COMPONENT . '/helpers/simplefilemanager.php';
 
         $view = JFactory::getApplication()->input->getCmd('view', 'simplefilemanagers');
@@ -17,6 +19,6 @@ class SimplefilemanagerController extends JControllerLegacy {
 
         return $this;
     }
-    
-   
+
+
 }

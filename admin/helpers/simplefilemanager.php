@@ -15,20 +15,24 @@ class SimplefilemanagerHelper
 
     public static function getActions($categoryId = 0)
     {
-        $user = JFactory::getUser();
+        $user      = JFactory::getUser();
         $result = new JObject();
 
-        if (empty($categoryId)) {
+        if (empty($categoryId))
+        {
             $assetName = 'com_simplefilemanager';
             $level = 'component';
-        } else {
-            $assetName = 'com_simplefilemanager.category.' . (int) $categoryId;
-            $level = 'category';
+        }
+        else
+        {
+            $assetName = 'com_simplefilemanager.category.' . (int)$categoryId;
+            $level     = 'category';
         }
 
         $actions = JAccess::getActions('com_simplefilemanager', $level);
 
-        foreach ($actions as $action) {
+        foreach ($actions as $action)
+        {
             $result->set($action->name, $user->authorise($action->name, $assetName));
         }
 
@@ -39,7 +43,8 @@ class SimplefilemanagerHelper
     {
         JHtmlSidebar::addEntry(JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_SIMPLEFILEMANAGERS'), 'index.php?option=com_simplefilemanager&view=simplefilemanagers', $vName == 'simplefilemanagers');
         JHtmlSidebar::addEntry(JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_CATEGORIES'), 'index.php?option=com_categories&extension=com_simplefilemanager', $vName == 'categories');
-        if ($vName == 'categories') {
+        if ($vName == 'categories')
+        {
             JToolbarHelper::title(JText::sprintf('COM_CATEGORIES_CATEGORIES_TITLE', JText::_('com_simplefilemanager')), 'simplefilemanagers-categories');
         }
         JHtmlSidebar::addEntry(JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_SUMMARY'), 'index.php?option=com_simplefilemanager&view=summary', $vName == 'summary');
@@ -55,15 +60,17 @@ class SimplefilemanagerHelper
     {
         jimport('joomla.filesystem.file');
 
-        $app = &JFactory::getApplication();
-        $params = JComponentHelper::getParams('com_simplefilemanager');
+        $app         = &JFactory::getApplication();
+        $params      = JComponentHelper::getParams('com_simplefilemanager');
         $forbiddenExtensions = $params->get('forbiddenExtensions');
         $forbiddenExtensions = preg_replace(" ", "", $forbiddenExtensions);
-        $dangExtList = explode(",",$forbiddenExtensions);
+        $dangExtList = explode(",", $forbiddenExtensions);
 
         $ext = strtolower(JFile::getExt($filename));
         if (in_array($ext, $dangExtList))
+        {
             return false;
+        }
 
         return true;
     }
@@ -84,10 +91,14 @@ class SimplefilemanagerHelper
         $src = $tmp_name;
         $dest = JPATH_COMPONENT_ADMINISTRATOR . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . uniqid("", true) . DIRECTORY_SEPARATOR . JFile::makeSafe(JFile::getName($file_name));
 
-        if (! JFile::upload($src, $dest))
+        if (!JFile::upload($src, $dest))
+        {
             return false;
+        }
         else
+        {
             return $dest;
+        }
     }
 
     /**
@@ -113,12 +124,12 @@ class SimplefilemanagerHelper
     public static function sendMail(&$form)
     {
         // Check requisites for email sending
-        if($form["state"]!=1)
+        if ($form["state"] != 1)
         {
             JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_SENDMAIL_UNPUBLISHED_DOCUMENT_ERROR'), 'warning');
             return false;
         }
-        elseif($form["visibility"] != 3)
+        elseif ($form["visibility"] != 3)
         {
             JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_SENDMAIL_UNSUPPORTED_VISIBILITY_ERROR'), 'warning');
             return false;
@@ -134,12 +145,15 @@ class SimplefilemanagerHelper
         $config = JFactory::getConfig();
 
         // Mail sender
-        $sender = array( $config->get('config.mailfrom'), $config->get('config.fromname') );
+        $sender = array($config->get('config.mailfrom'), $config->get('config.fromname'));
         $mailer->setSender($sender);
 
         // Mail recipient
-        $user = JFactory::getUser((int) $form["reserved_user"]);
-        if($user->guest) JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_SENDMAIL_NO_RECIPIENT_SPECIFIED_ERROR'), 'warning');
+        $user = JFactory::getUser((int)$form["reserved_user"]);
+        if ($user->guest)
+        {
+            JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_SENDMAIL_NO_RECIPIENT_SPECIFIED_ERROR'), 'warning');
+        }
         $recipient = $user->email;
         $mailer->addRecipient($recipient);
 
@@ -154,25 +168,33 @@ class SimplefilemanagerHelper
 
         if (!$send)
         {
-           return JFactory::getApplication()->enqueueMessage(JText::_('JERROR') . ": " . $send->__toString(), 'error');
+            return JFactory::getApplication()->enqueueMessage(JText::_('JERROR') . ": " . $send->__toString(), 'error');
         }
     }
 
-    private static function return_bytes ($size_str)
+    public static function getMaxFileUploadSize()
     {
-        switch (substr ($size_str, -1))
-        {
-            case 'M': case 'm': return (int)$size_str * 1048576;
-            case 'K': case 'k': return (int)$size_str * 1024;
-            case 'G': case 'g': return (int)$size_str * 1073741824;
-            default: return $size_str;
-        }
-    }
-
-    public static function getMaxFileUploadSize(){
         return min(
             SimplefilemanagerHelper::return_bytes(ini_get('post_max_size')),
             SimplefilemanagerHelper::return_bytes(ini_get('upload_max_filesize'))
         );
+    }
+
+    private static function return_bytes($size_str)
+    {
+        switch (substr($size_str, -1))
+        {
+            case 'M':
+            case 'm':
+                return (int)$size_str * 1048576;
+            case 'K':
+            case 'k':
+                return (int)$size_str * 1024;
+            case 'G':
+            case 'g':
+                return (int)$size_str * 1073741824;
+            default:
+                return $size_str;
+        }
     }
 }

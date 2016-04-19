@@ -6,88 +6,93 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
- .simplefilemanager.sfm-grid .sfm-item{
-	text-align:center;
-	display: inline-block;
-	vertical-align: top;
-	margin-right:0.5%;
-	width: 24%;
+.simplefilemanager.sfm-grid .sfm-item {
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5%;
+    width: 24%;
 }
 
 .simplefilemanager.sfm-list .sfm-item {
- margin-bottom:7px;
+    margin-bottom: 7px;
 }
-.simplefilemanager.sfm-list .sfm-item .float{
-	display: inline-block;
-	vertical-align: top;
-	margin-right:0.5%;
+
+.simplefilemanager.sfm-list .sfm-item .float {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 0.5%;
 }
-.simplefilemanager.sfm-list .sfm-item .float.icon{
-	text-align:center;
+
+.simplefilemanager.sfm-list .sfm-item .float.icon {
+    text-align: center;
 }
+
 img.sfm-icon {
-	max-width:100%;
-	opacity:0.8;
-	filter:alpha(opacity=80); /* For IE8 and earlier */
-}
-img.sfm-icon:hover{
-	opacity:1.0;
-	filter:alpha(opacity=100); /* For IE8 and earlier */
-}
-img.sfm-icon:active{
-	opacity:0.5;
-	filter:alpha(opacity=50); /* For IE8 and earlier */
-}
- .simplefilemanager table {
-max-width: 100%;
-background-color: transparent;
-border-collapse: collapse;
-border-spacing: 0;
+    max-width: 100%;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
 }
 
- .simplefilemanager .table {
-width: 100%;
-margin-bottom: 18px;
+img.sfm-icon:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
 }
 
- .simplefilemanager .table th, .simplefilemanager .table td {
-padding: 8px;
-line-height: 18px;
-text-align: left;
-vertical-align: top;
-border-top: 1px solid #ddd;
+img.sfm-icon:active {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 
-
- .simplefilemanager .label{
-display: inline-block;
-padding: 2px 4px;
-font-size: 10.998px;
-font-weight: bold;
-line-height: 14px;
-color: #fff;
-vertical-align: baseline;
-white-space: nowrap;
-text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-background-color: #999;
+.simplefilemanager table {
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
- .simplefilemanager .label {
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
+.simplefilemanager .table {
+    width: 100%;
+    margin-bottom: 18px;
 }
 
- .simplefilemanager  .label-warning {
-background-color: #f89406;
+.simplefilemanager .table th, .simplefilemanager .table td {
+    padding: 8px;
+    line-height: 18px;
+    text-align: left;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
 }
 
- .simplefilemanager .label-important {
-background-color: #b94a48;
+.simplefilemanager .label {
+    display: inline-block;
+    padding: 2px 4px;
+    font-size: 10.998px;
+    font-weight: bold;
+    line-height: 14px;
+    color: #fff;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #999;
 }
+
+.simplefilemanager .label {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.simplefilemanager .label-warning {
+    background-color: #f89406;
+}
+
+.simplefilemanager .label-important {
+    background-color: #b94a48;
+}
+
 /* @since: v4.4.4 */
 
-.simplefilemanager .nomedia p
-{
-	text-align:center;
+.simplefilemanager .nomedia p {
+    text-align: center;
 }

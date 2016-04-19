@@ -10,6 +10,7 @@
 
 defined('_JEXEC') or die;
 
-class SimplefilemanagersFrontendHelper {
+class SimplefilemanagersFrontendHelper
+{
 
 }

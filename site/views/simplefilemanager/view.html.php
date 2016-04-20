@@ -28,14 +28,15 @@ class SimplefilemanagerViewSimplefilemanager extends JViewLegacy
      */
     public function display($tpl = null)
     {
-
         $this->doc    = JFactory::getDocument();
         $this->app    = JFactory::getApplication();
         $this->params = $this->app->getParams();
         $this->menu   = $this->app->getMenu()->getActive();
-        //$this->subview = $this->menu->params->get('subview');
         $this->subview = 'table';
         $this->defIcon = $this->params->get('defaulticon', "./media/com_simplefilemanager/images/download.gif");
+
+        // TODO: choose display mode table, grid or list using joomla layouts
+        // $this->subview = $this->menu->params->get('subview');
 
         $this->showDate          = $this->app->input->get('showDate', $this->params->get('showDate', 1, "int"));
         $this->showIcon          = $this->app->input->get('showIcon', $this->params->get('showIcon', 1, "int"));
@@ -79,7 +80,6 @@ class SimplefilemanagerViewSimplefilemanager extends JViewLegacy
 
         if ($this->_layout == 'edit')
         {
-
             $authorised = $user->authorise('core.create', 'com_simplefilemanager');
 
             if ($authorised !== true)
@@ -114,6 +114,7 @@ class SimplefilemanagerViewSimplefilemanager extends JViewLegacy
             $this->params->def('page_heading', $this->item->title);
         }
         $title = $this->params->get('page_title', '');
+
         if (empty($title))
         {
             $title = $app->getCfg('sitename');
@@ -128,17 +129,17 @@ class SimplefilemanagerViewSimplefilemanager extends JViewLegacy
         }
         $this->document->setTitle($title);
 
-        if ($this->params->get('menu-meta_description'))
+        if ($this->params->get('menu-meta_description', null))
         {
             $this->document->setDescription($this->params->get('menu-meta_description'));
         }
 
-        if ($this->params->get('menu-meta_keywords'))
+        if ($this->params->get('menu-meta_keywords', null))
         {
             $this->document->setMetadata('keywords', $this->params->get('menu-meta_keywords'));
         }
 
-        if ($this->params->get('robots'))
+        if ($this->params->get('robots', null))
         {
             $this->document->setMetadata('robots', $this->params->get('robots'));
         }

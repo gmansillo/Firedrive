@@ -11,9 +11,9 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_simplefile
 }
 ?>
 
-<h2>
-    <?php echo $this->params->get('page_heading'); ?>
-</h2>
+<h3>
+    <?php // TODO: print category name $this->params->get('page_heading'); ?>
+</h3>
 
 <?php if ($this->item) : ?>
 

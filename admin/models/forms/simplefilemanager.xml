@@ -1,129 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-	<fieldset>
-		<field name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL"
-			readonly="true" class="readonly"
-			description="JGLOBAL_FIELD_ID_DESC"/>
+    <fieldset>
+        <field name="id" type="text" default="0" label="JGLOBAL_FIELD_ID_LABEL"
+               readonly="true" class="readonly"
+               description="JGLOBAL_FIELD_ID_DESC"/>
 
-		<field name="title" type="text" class="input-xxlarge input-large-text"
-			size="40" label="JGLOBAL_TITLE"
-			description="COM_SIMPLEFILEMANAGER_FIELD_TITLE_DESC" required="true" />
+        <field name="title" type="text" class="input-xxlarge input-large-text"
+               size="40" label="JGLOBAL_TITLE"
+               description="COM_SIMPLEFILEMANAGER_FIELD_TITLE_DESC" required="true"/>
 
-		<field name="alias" type="text" class="inputbox"
-			size="40" label="JFIELD_ALIAS_LABEL"
-			description="COM_SIMPLEFILEMANAGER_FIELD_ALIAS_DESC" />
+        <field name="alias" type="text" class="inputbox"
+               size="40" label="JFIELD_ALIAS_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_ALIAS_DESC"/>
 
-		<field
-			name="catid"
-			type="category"
-			extension="com_simplefilemanager"
-			required="required"
-			default=""
-			label="COM_SIMPLEFILEMANAGER_FIELD_CATID_LABEL"
-			description="COM_SIMPLEFILEMANAGER_FIELD_CATID_DESC"
-		>
-			<option value="">JOPTION_SELECT_CATEGORY</option>
-		</field>
-		
-		<field name="state" type="list"
-			label="JSTATUS" description="JFIELD_PUBLISHED_DESC"
-			class="chzn-color-state" default="1" >
-			<option value="1">JPUBLISHED</option>
-			<option value="0">JUNPUBLISHED</option>
-			<option value="2">JARCHIVED</option>
-			<option value="-2">JTRASHED</option>
-		</field>
+        <field
+                name="catid"
+                type="category"
+                extension="com_simplefilemanager"
+                required="required"
+                default=""
+                label="COM_SIMPLEFILEMANAGER_FIELD_CATID_LABEL"
+                description="COM_SIMPLEFILEMANAGER_FIELD_CATID_DESC"
+                >
+            <option value="">JOPTION_SELECT_CATEGORY</option>
+        </field>
 
-		<field name="icon" type="media" directory="com_simplefilemanager" label="COM_SIMPLEFILEMANAGER_FIELD_IMAGE_LABEL" description="COM_SIMPLEFILEMANAGER_FIELD_IMAGE_DESC" />
-		
-		<field name="description" type="editor" class="inputbox span12" filter="safehtml" rows="6" label="JGLOBAL_DESCRIPTION"/>
-			
-		<field name="license" type="text" class="inputbox" filter="safehtml" rows="6" label="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_LABEL"
-			description="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_DESC" />
+        <field name="state" type="list"
+               label="JSTATUS" description="JFIELD_PUBLISHED_DESC"
+               class="chzn-color-state" default="1">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
 
-		<field name="license_link" type="text" class="inputbox" label="COM_SIMPLEFILEMANAGER_FIELD_LICENSE-LINK_LABEL"
-			description="COM_SIMPLEFILEMANAGER_FIELD_LICENSE-LINK_DESC" />
-		
-		<field name="created_by" type="user" class="inputbox" />
+        <field name="icon" type="media" directory="com_simplefilemanager"
+               label="COM_SIMPLEFILEMANAGER_FIELD_IMAGE_LABEL" description="COM_SIMPLEFILEMANAGER_FIELD_IMAGE_DESC"/>
+
+        <field name="description" type="editor" class="inputbox span12" filter="safehtml" rows="6"
+               label="JGLOBAL_DESCRIPTION"/>
+
+        <field name="license" type="text" class="inputbox" filter="safehtml" rows="6"
+               label="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_DESC"/>
+
+        <field name="license_link" type="text" class="inputbox" label="COM_SIMPLEFILEMANAGER_FIELD_LICENSE-LINK_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_LICENSE-LINK_DESC"/>
+
+        <field name="created_by" type="user" class="inputbox"/>
 
         <field name="version" type="text" class="inputbox" label="COM_SIMPLEFILEMANAGER_FIELD_VERSION_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_VERSION_DESC" />
+               description="COM_SIMPLEFILEMANAGER_FIELD_VERSION_DESC"/>
 
         <field name="author" type="user" class="inputbox" label="COM_SIMPLEFILEMANAGER_FIELD_AUTHOR_LABEL"
-			description="COM_SIMPLEFILEMANAGER_FIELD_AUTHOR_DESC" />
+               description="COM_SIMPLEFILEMANAGER_FIELD_AUTHOR_DESC"/>
 
-		<field name="notes" rows="6" type="text" class="span12 inputbox" label="COM_SIMPLEFILEMANAGER_FIELD_NOTES_LABEL"
-			description="COM_SIMPLEFILEMANAGER_FIELD_NOTES_DESC" />
-			
-		<field name="visibility" type="list" class="chzn-color" label="COM_SIMPLEFILEMANAGER_FIELD_VISIBILITY_LABEL"
-			description="COM_SIMPLEFILEMANAGER_FIELD_VISIBILITY_DESC" default="1" >
-			<option value="1">COM_SIMPLEFILEMANAGER_VISIBILITY_PUBLIC</option>
-			<option value="2">COM_SIMPLEFILEMANAGER_VISIBILITY_REGISTRED</option>
-			<option value="3">COM_SIMPLEFILEMANAGER_VISIBILITY_USER</option>
-			<option value="4">COM_SIMPLEFILEMANAGER_VISIBILITY_GROUP</option>
-			<option value="5">COM_SIMPLEFILEMANAGER_VISIBILITY_AUTHOR</option>
-		</field>
+        <field name="notes" rows="6" type="text" class="span12 inputbox" label="COM_SIMPLEFILEMANAGER_FIELD_NOTES_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_NOTES_DESC"/>
 
-		<field name="reserved_user" type="user" label="COM_SIMPLEFILEMANAGER_FIELD_USERID_LABEL" description="COM_SIMPLEFILEMANAGER_FIELD_USERID_DESC" />
-			
-		<field name="reserved_group" type="usergroup" label="COM_SIMPLEFILEMANAGER_FIELD_GROUP_LABEL" description="COM_SIMPLEFILEMANAGER_FIELD_GROUP_DESC" />	
-			
-		<field name="file_name" required="true" type="text" label="COM_SIMPLEFILEMANAGER_FIELD_FILE_LABEL" />
+        <field name="visibility" type="list" class="chzn-color" label="COM_SIMPLEFILEMANAGER_FIELD_VISIBILITY_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_VISIBILITY_DESC" default="1">
+            <option value="1">COM_SIMPLEFILEMANAGER_VISIBILITY_PUBLIC</option>
+            <option value="2">COM_SIMPLEFILEMANAGER_VISIBILITY_REGISTRED</option>
+            <option value="3">COM_SIMPLEFILEMANAGER_VISIBILITY_USER</option>
+            <option value="4">COM_SIMPLEFILEMANAGER_VISIBILITY_GROUP</option>
+            <option value="5">COM_SIMPLEFILEMANAGER_VISIBILITY_AUTHOR</option>
+        </field>
 
-		<field name="download_counter" readonly="true" type="text" class="readonly" label="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOAD_LABEL"
-			description="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOAD_DESC" />	
+        <field name="reserved_user" type="user" label="COM_SIMPLEFILEMANAGER_FIELD_USERID_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_USERID_DESC"/>
 
-		<field name="download_last" readonly="true" type="text" class="readonly" label="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOADLAST_LABEL" />	
+        <field name="reserved_group" type="usergroup" label="COM_SIMPLEFILEMANAGER_FIELD_GROUP_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_GROUP_DESC"/>
 
-        <field name="featured" default="0" type="radio" class="radio btn-group btn-group-yesno" label="COM_SIMPLEFILEMANAGER_FIELD_FEATURED" >
+        <field name="file_name" required="true" type="text" label="COM_SIMPLEFILEMANAGER_FIELD_FILE_LABEL"/>
+
+        <field name="download_counter" readonly="true" type="text" class="readonly"
+               label="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOAD_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOAD_DESC"/>
+
+        <field name="download_last" readonly="true" type="text" class="readonly"
+               label="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOADLAST_LABEL"/>
+
+        <field name="featured" default="0" type="radio" class="radio btn-group btn-group-yesno"
+               label="COM_SIMPLEFILEMANAGER_FIELD_FEATURED">
             <option value="1">JYES</option>
             <option value="0">JNO</option>
-        </field>  
+        </field>
 
-		<field name="md5hash" readonly="true" type="text" class="readonly" label="COM_SIMPLEFILEMANAGER_FIELD_HASH_LABEL"
-			description="COM_SIMPLEFILEMANAGER_FIELD_HASH_DESC" />
-			
-		<field name="file_size" readonly="true" type="text" class="readonly" label="COM_SIMPLEFILEMANAGER_FIELD_FILESIZE_LABEL" description="COM_SIMPLEFILEMANAGER_FIELD_FILESIZE_DESC" />
+        <field name="md5hash" readonly="true" type="text" class="readonly"
+               label="COM_SIMPLEFILEMANAGER_FIELD_HASH_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_HASH_DESC"/>
 
-		<field name="file_created" readonly="true" type="text" class="readonly" label="COM_SIMPLEFILEMANAGER_FIELD_CREATED_LABEL"/>
-		
-		<field name="test" type="file" label="COM_SIMPLEFILEMANAGER_FIELD_FILE_LABEL" filter="unset" />
-		
-		<field name="fl_send_mail" type="checkbox" label="COM_SIMPLEFILEMANAGER_FL_SENDMAIL_LABEL" value="1" />			
-		
-	</fieldset>
+        <field name="file_size" readonly="true" type="text" class="readonly"
+               label="COM_SIMPLEFILEMANAGER_FIELD_FILESIZE_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_FILESIZE_DESC"/>
 
-	<fields name="metadata" label="JGLOBAL_FIELDSET_METADATA_OPTIONS">
-		<fieldset name="jmetadata"
-			label="JGLOBAL_FIELDSET_METADATA_OPTIONS">
+        <field name="file_created" readonly="true" type="text" class="readonly"
+               label="COM_SIMPLEFILEMANAGER_FIELD_CREATED_LABEL"/>
 
-			<field name="robots"
-				type="list"
-				label="JFIELD_METADATA_ROBOTS_LABEL"
-				description="JFIELD_METADATA_ROBOTS_DESC"
-			>
-				<option value="">JGLOBAL_USE_GLOBAL</option>
-				<option value="index, follow">JGLOBAL_INDEX_FOLLOW</option>
-				<option value="noindex, follow">JGLOBAL_NOINDEX_FOLLOW</option>
-				<option value="index, nofollow">JGLOBAL_INDEX_NOFOLLOW</option>
-				<option value="noindex, nofollow">JGLOBAL_NOINDEX_NOFOLLOW</option>
-			</field>
+        <field name="test" type="file" label="COM_SIMPLEFILEMANAGER_FIELD_FILE_LABEL" filter="unset"/>
 
-			<field name="author" type="text"
-				label="JAUTHOR" description="JFIELD_METADATA_AUTHOR_DESC"
-				size="20"
-			/>
+        <field name="fl_send_mail" type="checkbox" label="COM_SIMPLEFILEMANAGER_FL_SENDMAIL_LABEL" value="1"/>
 
-			<field name="metakey" type="textarea"
-			label="JFIELD_META_KEYWORDS_LABEL" description="JFIELD_META_KEYWORDS_DESC"
-			rows="3" cols="30" />
+    </fieldset>
 
-			<field name="metadesc" type="textarea"
-				label="JFIELD_META_DESCRIPTION_LABEL" description="JFIELD_META_DESCRIPTION_DESC"
-				rows="3" cols="30"
-			/>
-			
-		</fieldset>
-		
-		</fields>	
+    <fields name="metadata" label="JGLOBAL_FIELDSET_METADATA_OPTIONS">
+        <fieldset name="jmetadata"
+                  label="JGLOBAL_FIELDSET_METADATA_OPTIONS">
+
+            <field name="robots"
+                   type="list"
+                   label="JFIELD_METADATA_ROBOTS_LABEL"
+                   description="JFIELD_METADATA_ROBOTS_DESC"
+                    >
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="index, follow">JGLOBAL_INDEX_FOLLOW</option>
+                <option value="noindex, follow">JGLOBAL_NOINDEX_FOLLOW</option>
+                <option value="index, nofollow">JGLOBAL_INDEX_NOFOLLOW</option>
+                <option value="noindex, nofollow">JGLOBAL_NOINDEX_NOFOLLOW</option>
+            </field>
+
+            <field name="author" type="text"
+                   label="JAUTHOR" description="JFIELD_METADATA_AUTHOR_DESC"
+                   size="20"
+                    />
+
+            <field name="metakey" type="textarea"
+                   label="JFIELD_META_KEYWORDS_LABEL" description="JFIELD_META_KEYWORDS_DESC"
+                   rows="3" cols="30"/>
+
+            <field name="metadesc" type="textarea"
+                   label="JFIELD_META_DESCRIPTION_LABEL" description="JFIELD_META_DESCRIPTION_DESC"
+                   rows="3" cols="30"
+                    />
+
+        </fieldset>
+
+    </fields>
 </form>

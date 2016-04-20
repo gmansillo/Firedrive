@@ -2,7 +2,7 @@
 /**
  *
  * @package     Simple File Manager
- * @author		Giovanni Mansillo
+ * @author        Giovanni Mansillo
  *
  * @copyright   Copyright (C) 2005 - 2014 Giovanni Mansillo. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -11,228 +11,230 @@ defined('_JEXEC') or die;
 
 class SimplefilemanagerModelSimplefilemanager extends JModelAdmin
 {
-	protected $text_prefix = 'COM_SIMPLEFILEMANAGER';
+    protected $text_prefix = 'COM_SIMPLEFILEMANAGER';
 
-	protected function canDelete($record)
-	{
-		if (!empty($record->id))
-		{
-			if ($record->state != -2)
-			{
-				return;
-			}
-			$user = JFactory::getUser();
+    public function getForm($data = array(), $loadData = true)
+    {
+        $app = JFactory::getApplication();
 
-			if ($record->catid)
-			{
-				return $user->authorise('core.delete', 'com_simplefilemanager.category.'.(int) $record->catid);
-			}
-			else
-			{
-				return parent::canDelete($record);
-			}
-		}
-	}
+        $form = $this->loadForm('com_simplefilemanager.simplefilemanager', 'simplefilemanager', array('control' => 'jform', 'load_data' => $loadData));
+        if (empty($form))
+        {
+            return false;
+        }
 
-	protected function canEditState($record)
-	{
-		$user = JFactory::getUser();
+        return $form;
+    }
 
-		if (!empty($record->catid))
-		{
-			return $user->authorise('core.edit.state', 'com_simplefilemanager.category.'.(int) $record->catid);
-		}
-		else
-		{
-			return parent::canEditState($record);
-		}
-	}
+    public function featured($pks, $value = 0)
+    {
+        // Sanitize the ids.
+        $pks = (array)$pks;
+        JArrayHelper::toInteger($pks);
 
-	public function getTable($type = 'Simplefilemanager', $prefix = 'SimplefilemanagerTable', $config = array())
-	{
-		return JTable::getInstance($type, $prefix, $config);
-	}
+        if (empty($pks))
+        {
+            $this->setError(JText::_('COM_SIMPLEFILEMANAGER_NO_ITEM_SELECTED'));
+            return false;
+        }
 
-	public function getForm($data = array(), $loadData = true)
-	{
-		$app = JFactory::getApplication();
+        try
+        {
+            $db = $this->getDbo();
 
-		$form = $this->loadForm('com_simplefilemanager.simplefilemanager', 'simplefilemanager', array('control' => 'jform', 'load_data' => $loadData));
-		if (empty($form))
-		{
-			return false;
-		}
+            $db->setQuery(
+                'UPDATE #__simplefilemanager' .
+                ' SET featured = ' . (int)$value .
+                ' WHERE id IN (' . implode(',', $pks) . ')'
+            );
+            $db->execute();
 
-		return $form;
-	}
+        }
+        catch (Exception $e)
+        {
+            $this->setError($e->getMessage());
+            return false;
+        }
 
-	protected function loadFormData()
-	{
-		$data = JFactory::getApplication()->getUserState('com_simplefilemanager.edit.simplefilemanager.data', array());
+        $this->cleanCache();
 
-		if (empty($data))
-		{
-			$data = $this->getItem();
-		}
+        return true;
+    }
 
-		return $data;
-	}
+    public function delete(&$pks)
+    {
+        $dispatcher = JEventDispatcher::getInstance();
+        $pks        = (array)$pks;
+        $table      = $this->getTable();
+        jimport('joomla.filesystem.file');
+        jimport('joomla.filesystem.folder');
 
-	protected function prepareTable($table)
-	{
-		$table->title		= htmlspecialchars_decode($table->title, ENT_QUOTES);
-	}
+        $db = JFactory::getDbo();
 
-	public function featured($pks, $value = 0)
-	{
-		// Sanitize the ids.
-		$pks = (array) $pks;
-		JArrayHelper::toInteger($pks);
+        // Include the content plugins for the on delete events.
+        JPluginHelper::importPlugin('content');
 
-		if (empty($pks))
-		{
-			$this->setError(JText::_('COM_SIMPLEFILEMANAGER_NO_ITEM_SELECTED'));
-			return false;
-		}
+        // Iterate the items to delete each one.
+        foreach ($pks as $i => $pk)
+        {
 
-		try
-		{
-			$db = $this->getDbo();
+            if ($table->load($pk))
+            {
 
-			$db->setQuery(
-				'UPDATE #__simplefilemanager' .
-					' SET featured = ' . (int) $value .
-					' WHERE id IN (' . implode(',', $pks) . ')'
-			);
-			$db->execute();
+                if ($this->canDelete($table))
+                {
 
-		}
-		catch (Exception $e)
-		{
-			$this->setError($e->getMessage());
-			return false;
-		}
+                    $context = $this->option . '.' . $this->name;
 
-		$this->cleanCache();
+                    // Trigger the onContentBeforeDelete event.
+                    $result = $dispatcher->trigger($this->event_before_delete, array($context, $table));
 
-		return true;
-	}
+                    if (in_array(false, $result, true))
+                    {
+                        $this->setError($table->getError());
+                        return false;
+                    }
 
-	public function getItem($pk = null)
-	{
-		if ($item = parent::getItem($pk))
-		{
-			// Convert the metadata field to an array.
-			$registry = new JRegistry;
-			$registry->loadString($item->metadata);
-			$item->metadata = $registry->toArray();
+                    $query = $db->getQuery(true);
+                    $query
+                        ->select($db->quoteName('file_name'))
+                        ->from($db->quoteName('#__simplefilemanager'))
+                        ->where($db->quoteName('id') . ' = ' . $pk);
+                    $db->setQuery($query);
 
-			if (!empty($item->id))
-			{
-				$item->tags = new JHelperTags;
-				$item->tags->getTagIds($item->id, 'com_simplefilemanager.simplefilemanager');
-				$item->metadata['tags'] = $item->tags;
-			}
-		}
+                    $file_name = $db->loadResult();
 
-		return $item;
-	}
+                    if (!$table->delete($pk))
+                    {
+                        $this->setError($table->getError());
+                        return false;
+                    }
+                    else
+                    {
 
-	public function delete(&$pks)
-	{
-		$dispatcher = JEventDispatcher::getInstance();
-		$pks = (array) $pks;
-		$table = $this->getTable();
-		jimport('joomla.filesystem.file');
-		jimport('joomla.filesystem.folder');
+                        if (!JFile::delete($file_name))
+                        {
+                            JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_ERROR_DELETING') . ': ' . $file_name, 'error');
+                        }
+                        else
+                        {
+                            $path_parts = pathinfo($file_name);
+                            JFolder::delete($path_parts['dirname']);
+                        }
 
-		$db = JFactory::getDbo();
+                    }
+                    // Trigger the onContentAfterDelete event.
+                    $dispatcher->trigger($this->event_after_delete, array($context, $table));
 
-		// Include the content plugins for the on delete events.
-		JPluginHelper::importPlugin('content');
+                }
+                else
+                {
 
-		// Iterate the items to delete each one.
-		foreach ($pks as $i => $pk)
-		{
+                    // Prune items that you can't change.
+                    unset($pks[$i]);
+                    $error = $this->getError();
+                    if ($error)
+                    {
+                        JLog::add($error, JLog::WARNING, 'jerror');
+                        return false;
+                    }
+                    else
+                    {
+                        JLog::add(JText::_('JLIB_APPLICATION_ERROR_DELETE_NOT_PERMITTED'), JLog::WARNING, 'jerror');
+                        return false;
+                    }
+                }
 
-			if ($table->load($pk))
-			{
+            }
+            else
+            {
+                $this->setError($table->getError());
+                return false;
+            }
+        }
 
-				if ($this->canDelete($table))
-				{
+        // Clear the component's cache
+        $this->cleanCache();
 
-					$context = $this->option . '.' . $this->name;
+        return true;
 
-					// Trigger the onContentBeforeDelete event.
-					$result = $dispatcher->trigger($this->event_before_delete, array($context, $table));
+    }
 
-					if (in_array(false, $result, true))
-					{
-						$this->setError($table->getError());
-						return false;
-					}
+    public function getTable($type = 'Simplefilemanager', $prefix = 'SimplefilemanagerTable', $config = array())
+    {
+        return JTable::getInstance($type, $prefix, $config);
+    }
 
-					$query = $db->getQuery(true);
-					$query
-						->select( $db->quoteName('file_name') )
-						->from( $db->quoteName('#__simplefilemanager') )
-						->where( $db->quoteName('id') . ' = '. $pk);
-					$db->setQuery($query);
+    protected function canDelete($record)
+    {
+        if (!empty($record->id))
+        {
+            if ($record->state != -2)
+            {
+                return;
+            }
+            $user = JFactory::getUser();
 
-					$file_name = $db->loadResult();
+            if ($record->catid)
+            {
+                return $user->authorise('core.delete', 'com_simplefilemanager.category.' . (int)$record->catid);
+            }
+            else
+            {
+                return parent::canDelete($record);
+            }
+        }
+    }
 
-					if (!$table->delete($pk))
-					{
-						$this->setError($table->getError());
-						return false;
-					}
-					else
-					{
+    protected function canEditState($record)
+    {
+        $user = JFactory::getUser();
 
-						if(!JFile::delete($file_name))
-							JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_ERROR_DELETING').': '.$file_name,'error');
-						else
-						{
-							$path_parts = pathinfo($file_name);
-							JFolder::delete($path_parts['dirname']);
-						}
+        if (!empty($record->catid))
+        {
+            return $user->authorise('core.edit.state', 'com_simplefilemanager.category.' . (int)$record->catid);
+        }
+        else
+        {
+            return parent::canEditState($record);
+        }
+    }
 
-					}
-					// Trigger the onContentAfterDelete event.
-					$dispatcher->trigger($this->event_after_delete, array($context, $table));
+    protected function loadFormData()
+    {
+        $data = JFactory::getApplication()->getUserState('com_simplefilemanager.edit.simplefilemanager.data', array());
 
-				}
-				else
-				{
+        if (empty($data))
+        {
+            $data = $this->getItem();
+        }
 
-					// Prune items that you can't change.
-					unset($pks[$i]);
-					$error = $this->getError();
-					if ($error)
-					{
-						JLog::add($error, JLog::WARNING, 'jerror');
-						return false;
-					}
-					else
-					{
-						JLog::add(JText::_('JLIB_APPLICATION_ERROR_DELETE_NOT_PERMITTED'), JLog::WARNING, 'jerror');
-						return false;
-					}
-				}
+        return $data;
+    }
 
-			}
-			else
-			{
-				$this->setError($table->getError());
-				return false;
-			}
-		}
+    public function getItem($pk = null)
+    {
+        if ($item = parent::getItem($pk))
+        {
+            // Convert the metadata field to an array.
+            $registry = new JRegistry;
+            $registry->loadString($item->metadata);
+            $item->metadata = $registry->toArray();
 
-		// Clear the component's cache
-		$this->cleanCache();
+            if (!empty($item->id))
+            {
+                $item->tags = new JHelperTags;
+                $item->tags->getTagIds($item->id, 'com_simplefilemanager.simplefilemanager');
+                $item->metadata['tags'] = $item->tags;
+            }
+        }
 
-		return true;
+        return $item;
+    }
 
-	}
+    protected function prepareTable($table)
+    {
+        $table->title = htmlspecialchars_decode($table->title, ENT_QUOTES);
+    }
 
 }

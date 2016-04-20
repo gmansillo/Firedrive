@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
-	<name>com_simplefilemanager</name>
-	<author>Giovanni Mansillo</author>
-	<creationDate>Feb 2016</creationDate>
-	<copyright>(C) 2014 Giovanni Mansillo. All rights reserved.
-	</copyright>
-	<license>GNU General Public License version 2 or later; see
-		LICENSE.txt
-	</license>
-	<authorEmail>support@simplefilemanager.eu</authorEmail>
-	<authorUrl>http://www.simplefilemanager.eu</authorUrl>
-	<version>5.0.6</version>
-	<description></description>
+    <name>com_simplefilemanager</name>
+    <author>Giovanni Mansillo</author>
+    <creationDate>Sep 2014</creationDate>
+    <copyright>(C) 2014 Giovanni Mansillo. All rights reserved.</copyright>
+    <license>GNU General Public License version 3 or later</license>
+    <authorEmail>support@simplefilemanager.eu</authorEmail>
+    <authorUrl>http://www.simplefilemanager.eu</authorUrl>
+    <version>5.0.7</version>
+    <description></description>
 
-	<scriptfile>script.php</scriptfile>
+    <scriptfile>script.php</scriptfile>
 
-	<install>
-		<sql>
-			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
-		</sql>
-	</install>
-	<uninstall>
-		<sql>
-			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
-		</sql>
-	</uninstall>
-	<update>
-		<schemas>
-			<schemapath type="mysql">sql/updates/mysql</schemapath>
-		</schemas>
-	</update>
-	<files folder="site">
-		<filename>index.html</filename>
-		<filename>controller.php</filename>
-		<filename>simplefilemanager.php</filename>
-		<folder>controllers</folder>
-		<folder>helpers</folder>
-		<folder>language</folder>
-		<folder>models</folder>
-		<folder>views</folder>
-	</files>
-	<media destination="com_simplefilemanager" folder="media">
-		<filename>index.html</filename>
-		<folder>images</folder>
-		<folder>css</folder>
-	</media>
-	<administration>
-		<menu img="class:categories">COM_SIMPLEFILEMANAGER_MENU</menu>
-		<submenu>
-			<menu link="option=com_simplefilemanager" view="simplefilemanagers">com_simplefilemanager_simplefilemanagers</menu>
-			<menu link="option=com_categories&amp;extension=com_simplefilemanager"
-				view="categories">com_simplefilemanager_categories</menu>
-			<!--<menu link="option=com_simplefilemanager&amp;view=summary">com_simplefilemanager_summary</menu>-->
-		</submenu>
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
 
-		<files folder="admin">
-			<filename>index.html</filename>
-			<filename>access.xml</filename>
-			<filename>config.xml</filename>
-			<filename>controller.php</filename>
-			<filename>simplefilemanager.php</filename>
-			<folder>controllers</folder>
-			<folder>helpers</folder>
-			<folder>language</folder>
-			<folder>models</folder>
-			<folder>sql</folder>
-			<folder>tables</folder>
-			<folder>uploads</folder>
-			<folder>views</folder>
-		</files>
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>controller.php</filename>
+        <filename>simplefilemanager.php</filename>
+        <folder>controllers</folder>
+        <folder>helpers</folder>
+        <folder>language</folder>
+        <folder>models</folder>
+        <folder>views</folder>
+    </files>
+    <media destination="com_simplefilemanager" folder="media">
+        <filename>index.html</filename>
+        <folder>images</folder>
+        <folder>css</folder>
+    </media>
+    <administration>
+        <menu img="class:categories">COM_SIMPLEFILEMANAGER_MENU</menu>
+        <submenu>
+            <menu link="option=com_simplefilemanager" view="simplefilemanagers">
+                com_simplefilemanager_simplefilemanagers
+            </menu>
+            <menu link="option=com_categories&amp;extension=com_simplefilemanager"
+                  view="categories">com_simplefilemanager_categories
+            </menu>
+        </submenu>
+        <files folder="admin">
+            <filename>index.html</filename>
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>controller.php</filename>
+            <filename>simplefilemanager.php</filename>
+            <folder>controllers</folder>
+            <folder>helpers</folder>
+            <folder>language</folder>
+            <folder>models</folder>
+            <folder>sql</folder>
+            <folder>tables</folder>
+            <folder>uploads</folder>
+            <folder>views</folder>
+        </files>
+    </administration>
 
-	</administration>
-	<updateservers>
-		<server type="extension" priority="1"
-			name="Simple File Manager Update Server">http://www.simplefilemanager.eu/releases/update.php?v=5</server>
-	</updateservers>
+    <updateservers>
+        <server type="extension" priority="1"
+                name="Simple File Manager Update Server">http://www.simplefilemanager.eu/releases/update.php?v=5
+        </server>
+    </updateservers>
 </extension>

@@ -21,24 +21,27 @@ class SimplefilemanagerViewDownload extends JViewLegacy
      */
     public function display($tpl = null)
     {
-        if (! empty($this->item)) {
+        if (!empty($this->item))
+        {
 
             $this->form = $this->get('Form');
         }
 
         // Check for errors.
-        if (count($errors = $this->get('Errors'))) {
+        if (count($errors = $this->get('Errors')))
+        {
             throw new Exception(implode("\n", $errors));
         }
 
         // Check for errors.
-        if (count($errors = $this->get('Errors'))) {
+        if (count($errors = $this->get('Errors')))
+        {
             throw new Exception(implode("\n", $errors));
         }
 
         // Get API
         $jinput = JFactory::getApplication()->input;
-        $user = JFactory::getUser();
+        $user   = JFactory::getUser();
         $this->params = JComponentHelper::getParams('com_simplefilemanager');
 
         $id = $jinput->getInt('id', 0);
@@ -53,23 +56,29 @@ class SimplefilemanagerViewDownload extends JViewLegacy
         $query->where($db->quoteName('id') . ' = ' . $id);
         $db->setQuery($query);
         $row = $db->loadAssoc();
-        
+
 
         // Check if file exists in database
         if (!$row)
+        {
             throw new Exception("No input file", 403);
+        }
 
         // Check if file exists on file system
         if (!file_exists($row['file_name']))
+        {
             throw new Exception("File not found", 404);
+        }
 
         // Check permissions
-        if ($row['state'] != '1' or ($row['visibility'] == 2 and ! $user->id) or // Registred
+        if ($row['state'] != '1' or ($row['visibility'] == 2 and !$user->id) or // Registred
             ($row['visibility'] == 3 and $user->id != $row['reserved_user']) or // User
-            ($row['visibility'] == 4 and ! in_array($row['reserved_group'], JAccess::getGroupsByUser($user->id))) or // Group
+            ($row['visibility'] == 4 and !in_array($row['reserved_group'], JAccess::getGroupsByUser($user->id))) or // Group
             ($row['visibility'] == 5 and $user->id != $row['author']) // Author
-		)
+        )
+        {
             throw new Exception("No access", 403);
+        }
 
         // Increment download counter
         $db1 = JFactory::getDbo();

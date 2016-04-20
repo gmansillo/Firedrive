@@ -145,7 +145,7 @@ class SimplefilemanagerHelper
         $config = JFactory::getConfig();
 
         // Mail sender
-        $sender = array($config->get('config.mailfrom'), $config->get('config.fromname'));
+        $sender = array($config->get('mailfrom'), $config->get('fromname'));
         $mailer->setSender($sender);
 
         // Mail recipient
@@ -170,6 +170,8 @@ class SimplefilemanagerHelper
         {
             return JFactory::getApplication()->enqueueMessage(JText::_('JERROR') . ": " . $send->__toString(), 'error');
         }
+
+        return true;
     }
 
     public static function getMaxFileUploadSize()

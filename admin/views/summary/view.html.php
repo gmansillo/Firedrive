@@ -14,7 +14,6 @@ class SimplefilemanagerViewSummary extends JViewLegacy
 
     public function display($tpl = null)
     {
-
         SimplefilemanagerHelper::addSubmenu('summary');
 
         if (count($errors = $this->get('Errors')))
@@ -26,7 +25,7 @@ class SimplefilemanagerViewSummary extends JViewLegacy
         $this->addToolbar();
         $this->sidebar = JHtmlSidebar::render();
 
-        parent::display($tpl);
+        return parent::display($tpl);
     }
 
     protected function addToolbar()

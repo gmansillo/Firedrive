@@ -36,7 +36,7 @@ class SimplefilemanagerViewSimplefilemanagers extends JViewLegacy
         $this->addToolbar();
         $this->sidebar = JHtmlSidebar::render();
 
-        parent::display($tpl);
+        return parent::display($tpl);
     }
 
     protected function addToolbar()

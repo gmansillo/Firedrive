@@ -25,10 +25,6 @@ $canDelete = $user->authorise('core.delete', 'com_simplefilemanager');
     <?php echo $this->params->get('page_heading'); ?>
 </h2>
 
-<h3>
-    <?php echo $this->params->get('page_heading'); ?>
-</h3>
-
 <div class="cat-desc">
     <?php echo $this->catDesc; ?>
 </div>

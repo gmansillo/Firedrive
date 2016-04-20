@@ -278,7 +278,6 @@ class SimplefilemanagerControllerSimplefilemanagerForm extends Simplefilemanager
 
     public function remove()
     {
-
         // Initialise variables.
         $app = JFactory::getApplication();
         $model = $this->getModel('SimplefilemanagerForm', 'SimplefilemanagerModel');

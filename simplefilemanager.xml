@@ -3,10 +3,8 @@
     <name>com_simplefilemanager</name>
     <author>Giovanni Mansillo</author>
     <creationDate>Sep 2014</creationDate>
-    <copyright>(C) 2014 Giovanni Mansillo. All rights reserved.
-    </copyright>
-    <license>GNU General Public License version 2 or later; see LICENSE.txt
-    </license>
+    <copyright>(C) 2014 Giovanni Mansillo. All rights reserved.</copyright>
+    <license>GNU General Public License version 3 or later</license>
     <authorEmail>support@simplefilemanager.eu</authorEmail>
     <authorUrl>http://www.simplefilemanager.eu</authorUrl>
     <version>5.0.7</version>
@@ -54,7 +52,6 @@
             <menu link="option=com_categories&amp;extension=com_simplefilemanager"
                   view="categories">com_simplefilemanager_categories
             </menu>
-            <!--<menu link="option=com_simplefilemanager&amp;view=summary">com_simplefilemanager_summary</menu>-->
         </submenu>
         <files folder="admin">
             <filename>index.html</filename>

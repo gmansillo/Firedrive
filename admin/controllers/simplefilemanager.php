@@ -25,7 +25,7 @@ class SimplefilemanagerControllerSimplefilemanager extends JControllerForm
         jimport('joomla.utilities.date');
 
         // Load data
-        $this->form   = JFactory::getApplication()->input->post->get('jform', NULL, NULL);
+        $this->form = JFactory::getApplication()->input->post->get('jform', NULL, 'RAW');
         $this->files  = JFactory::getApplication()->input->files->get('jform1');
         $this->params = JComponentHelper::getParams('com_simplefilemanager');
 

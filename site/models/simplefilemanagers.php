@@ -35,25 +35,6 @@ class SimplefilemanagerModelSimplefilemanagers extends JModelList
         return $items;
     }
 
-    public function getPagination()
-    {
-        if (empty($this->pagination))
-        {
-            // Import the pagination library
-            JLoader::import('joomla.html.pagination');
-
-            // Prepare pagination values
-            $total      = $this->getTotal();
-            $limitstart = $this->getState('limitstart');
-            $limit      = $this->getState('limit');
-
-            // Create the pagination object
-            $this->pagination = new JPagination($total, $limitstart, $limit);
-        }
-
-        return $this->pagination;
-    }
-
     /**
      * Method to auto-populate the model state.
      *
@@ -68,9 +49,15 @@ class SimplefilemanagerModelSimplefilemanagers extends JModelList
         $params = JComponentHelper::getParams('com_simplefilemanager');
         $catid  = JRequest::getInt('catid', 0);
 
+        $limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->getCfg('list_limit'), 'uint');
+        $this->setState('list.limit', $limit);
+
+        $limitstart           = $app->input->get('limitstart', 0, 'uint');
+        $this->setState('list.start', $limitstart);
+
         // Load the parameters.
         $defOrderingField     = $app->input->getString('orderBy', 'file_created');
-        $defOrderingDirection = $app->input->getString('showIcon', 'ASC');
+        $defOrderingDirection = $app->input->getString('order', 'ASC');
 
         $this->setState('params', $params);
         $this->setState('catid', $catid);

@@ -7,7 +7,7 @@
     <license>GNU General Public License version 3 or later</license>
     <authorEmail>support@simplefilemanager.eu</authorEmail>
     <authorUrl>http://www.simplefilemanager.eu</authorUrl>
-    <version>5.0.8</version>
+    <version>5.0.9</version>
     <description></description>
 
     <scriptfile>script.php</scriptfile>
@@ -72,7 +72,7 @@
 
     <updateservers>
         <server type="extension" priority="1"
-                name="Simple File Manager Update Server">http://www.simplefilemanager.eu/releases/update.php?v=5
+                name="Simple File Manager Update Server">http://www.simplefilemanager.eu/releases/update.php
         </server>
     </updateservers>
 </extension>

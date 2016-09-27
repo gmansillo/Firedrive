@@ -73,7 +73,7 @@ $maxFileSize = SimplefilemanagerHelper::getMaxFileUploadSize();
                                     <div class="input-append">
                                         <?php echo $this->form->getInput('file_name'); ?>
                                         <a target="_blank" class="btn btn-primary"
-                                           href="index.php?option=com_simplefilemanager&view=download&id=<?php echo $this->item->id; ?>"><i
+                                           href="index.php?option=com_simplefilemanager&task=download&id=<?php echo $this->item->id; ?>"><i
                                                 class="icon-download">&nbsp;</i></a>
                                     </div>
                                 </div>

@@ -161,7 +161,7 @@ class SimplefilemanagerControllerSimplefilemanagerForm extends Simplefilemanager
      */
     protected function prepareDataBeforeSave(&$data, $files)
     {
-
+        $user = JFactory::getUser();
         $param = JComponentHelper::getParams('com_simplefilemanager');
 
         // Check if it's a new item
@@ -235,7 +235,11 @@ class SimplefilemanagerControllerSimplefilemanagerForm extends Simplefilemanager
             $data["author"] = JFactory::getUser()->id;
         }
 
-        $data["state"] = 0;
+        // Suspend publication if user not authorized to edit state
+        if (!$user->authorise( 'core.manage', 'com_simplefilemanager'))
+        {
+            $data["state"] = 0;
+        }
 
         // Updating dates
         if ($isNew)

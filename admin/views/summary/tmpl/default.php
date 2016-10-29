@@ -9,11 +9,14 @@
  */
 defined('_JEXEC') or die;
 
+$document = JFactory::getDocument();
+$document->addScript('/media/com_simplefilemanager/js/chartist.min.js');
+$document->addStyleSheet('/media/com_simplefilemanager/css/chartist.min.css');
+
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 ?>
 
 <?php $db = JFactory::getDBO(); ?>
-
 
 <div name="adminForm" id="adminForm">
     <?php if (!empty($this->sidebar)) : ?>
@@ -25,8 +28,48 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
         <div id="j-main-container">
             <?php endif; ?>
 
-
             <fieldset class="adminform span12">
+
+                <h5><?php echo JText::_('COM_SIMPLEFILEMANAGER_SUMMARY_DOWNLOAD_MOST'); ?></h5>
+
+                <div class="row">
+
+                    <div class="span12">
+
+                        <?php
+
+                        // Highest hits stats
+                        $db->setQuery("SELECT download_counter, title FROM #__simplefilemanager ORDER BY download_counter DESC LIMIT 10");
+                        $highestHits = $db->loadObjectList();
+
+                        if (!empty($highestHits)):
+                            ?>
+
+                            <div class="ct-chart" id="last-week-stats"></div>
+
+                            <script>
+                                var data = {
+                                    labels: [<?php foreach($highestHits as $h) echo "'".$h->title."', "; ?>],
+                                    series: [
+                                        [<?php foreach($highestHits as $h) echo "'".$h->download_counter."', "; ?>]
+                                    ]
+                                };
+                                var options = {
+                                    seriesBarDistance: 15,
+                                    height: 200,
+                                    axisY: {
+                                        onlyInteger: true
+                                    }
+                                };
+                                new Chartist.Bar('#last-week-stats', data, options);
+                            </script>
+
+                        <?php endif; ?>
+
+                    </div>
+
+                </div>
+
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -54,33 +97,8 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
                         <td>
                             <?php
                             $res = $db->setQuery("SELECT MAX(download_last) AS last FROM #__simplefilemanager")->loadResult();
-                            if ($res > 0)
-                            {
+                            if ($res > 0) {
                                 echo date(JText::_('DATE_FORMAT_LC3'), strtotime($res));
-                            }
-                            ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><?php echo JText::_('COM_SIMPLEFILEMANAGER_SUMMARY_DOWNLOAD_MOST'); ?></td>
-                        <td>
-                            <?php
-                            $db->setQuery("SELECT MAX(download_counter) from #__simplefilemanager");
-                            $max = $db->loadResult();
-                            if ($max > 0)
-                            {
-                                $db->setQuery("SELECT title FROM #__simplefilemanager WHERE download_counter = " . $max);
-                                $res = array();
-                                $res = $db->loadRowList();
-
-                                foreach ($res as $i => $key)
-                                {
-                                    if ($i > 0)
-                                    {
-                                        echo ', ';
-                                    }
-                                    echo $key[0];
-                                }
                             }
                             ?>
                         </td>
@@ -117,7 +135,6 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
                     </tr>
                     </tbody>
                 </table>
-
 
             </fieldset>
 

@@ -42,6 +42,7 @@
         <filename>index.html</filename>
         <folder>images</folder>
         <folder>css</folder>
+        <folder>js</folder>
     </media>
     <administration>
         <menu img="class:categories">COM_SIMPLEFILEMANAGER_MENU</menu>

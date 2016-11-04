@@ -43,11 +43,12 @@ class SimplefilemanagerHelper
     {
         JHtmlSidebar::addEntry(JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_SIMPLEFILEMANAGERS'), 'index.php?option=com_simplefilemanager&view=simplefilemanagers', $vName == 'simplefilemanagers');
         JHtmlSidebar::addEntry(JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_CATEGORIES'), 'index.php?option=com_categories&extension=com_simplefilemanager', $vName == 'categories');
+
         if ($vName == 'categories')
         {
+            // Categories page title
             JToolbarHelper::title(JText::sprintf('COM_CATEGORIES_CATEGORIES_TITLE', JText::_('com_simplefilemanager')), 'simplefilemanagers-categories');
         }
-        JHtmlSidebar::addEntry(JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_SUMMARY'), 'index.php?option=com_simplefilemanager&view=summary', $vName == 'summary');
     }
 
     /**

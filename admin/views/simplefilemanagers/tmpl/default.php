@@ -1,40 +1,33 @@
 <?php
-/**
- *
- * @package     Simple File Manager
- * @author        Giovanni Mansillo
- *
- * @copyright   Copyright (C) 2005 - 2014 Giovanni Mansillo. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
-defined('_JEXEC') or die;
-JHTML::_('behavior.modal');
+    /**
+     * @package       Simple File Manager
+     * @author        Giovanni Mansillo
+     * @copyright     Copyright (C) 2005 - 2014 Giovanni Mansillo. All rights reserved.
+     * @license       GNU General Public License version 2 or later; see LICENSE.txt
+     */
+    defined('_JEXEC') or die;
+    JHTML::_('behavior.modal');
 
-//Get category options
-JFormHelper::addFieldPath(JPATH_COMPONENT . '/models/fields');
-JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
-$user      = JFactory::getUser();
-$userId    = $user->get('id');
-$listOrder = $this->escape($this->state->get('list.ordering'));
-$listDirn  = $this->escape($this->state->get('list.direction'));
-$canOrder  = $user->authorise('core.edit.state', 'com_simplefilemanager.category');
-$saveOrder = $listOrder == 'a.ordering';
-$archived  = $this->state->get('filter.state') == 2 ? true : false;
-$trashed   = $this->state->get('filter.state') == -2 ? true : false;
+    //Get category options
+    JFormHelper::addFieldPath(JPATH_COMPONENT . '/models/fields');
+    JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
+    $user = JFactory::getUser();
+    $userId = $user->get('id');
+    $listOrder = $this->escape($this->state->get('list.ordering'));
+    $listDirn = $this->escape($this->state->get('list.direction'));
+    $canOrder = $user->authorise('core.edit.state', 'com_simplefilemanager.category');
+    $saveOrder = $listOrder == 'a.ordering';
+    $archived = $this->state->get('filter.state') == 2 ? true : false;
+    $trashed = $this->state->get('filter.state') == -2 ? true : false;
 
-if ($saveOrder)
-{
-    $saveOrderingUrl = 'index.php?option=com_content&task=articles.saveOrderAjax&tmpl=component';
-    JHtml::_('sortablelist.sortable', 'articleList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
-}
+    if ($saveOrder)
+    {
+        $saveOrderingUrl = 'index.php?option=com_content&task=articles.saveOrderAjax&tmpl=component';
+        JHtml::_('sortablelist.sortable', 'articleList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
+    }
 
+    $sortFields = $this->getSortFields();
 
-if ($saveOrder)
-{
-    $saveOrderingUrl = 'index.php?option=com_simplefilemanager&task=simplefilemanagers.saveOrderAjax&tmpl=component';
-    JHtml::_('sortablelist.sortable', 'simplefilemanagerList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
-}
-$sortFields = $this->getSortFields();
 ?>
 <script type="text/javascript">
     Joomla.orderTable = function () {
@@ -171,17 +164,17 @@ $sortFields = $this->getSortFields();
                     <tbody>
                     <?php foreach ($this->items as $i => $item) :
                         $canCheckin = $user->authorise('core.manage', 'com_checkin') || $item->checked_out == $user->get('id') || $item->checked_out == 0;
-                        $canChange  = $user->authorise('core.edit.state', 'com_simplefilemanager') && $canCheckin;
-                        $canEdit    = $user->authorise('core.edit', 'com_simplefilemanager.category.' . $item->catid);
+                        $canChange = $user->authorise('core.edit.state', 'com_simplefilemanager') && $canCheckin;
+                        $canEdit = $user->authorise('core.edit', 'com_simplefilemanager.category.' . $item->catid);
                         ?>
 
                         <tr class="row<?php echo $i % 2; ?>" sortable-group-id="1">
                             <!--<td class="order nowrap center hidden-phone">
 						<?php if ($canChange) :
                                 $disableClassName = '';
-                                $disabledLabel    = '';
+                                $disabledLabel = '';
                                 if (!$saveOrder) :
-                                    $disabledLabel    = JText::_('JORDERINGDISABLED');
+                                    $disabledLabel = JText::_('JORDERINGDISABLED');
                                     $disableClassName = 'inactive tip-top';
                                 endif; ?>
 							<span class="sortable-handler hasTooltip <?php echo $disableClassName ?>" title="<?php echo $disabledLabel ?>">
@@ -204,15 +197,15 @@ $sortFields = $this->getSortFields();
                                     <?php echo JHtml::_('jgrid.published', $item->state, $i, 'simplefilemanagers.', $canChange, 'cb', $item->publish_up, $item->publish_down); ?>
                                     <?php echo JHtml::_('contentadministrator.featured', $item->featured, $i, $canChange); ?>
                                     <?php
-                                    // Create dropdown items
-                                    $action = $archived ? 'unarchive' : 'archive';
-                                    JHtml::_('actionsdropdown.' . $action, 'cb' . $i, 'simplefilemanagers');
+                                        // Create dropdown items
+                                        $action = $archived ? 'unarchive' : 'archive';
+                                        JHtml::_('actionsdropdown.' . $action, 'cb' . $i, 'simplefilemanagers');
 
-                                    $action = $trashed ? 'untrash' : 'trash';
-                                    JHtml::_('actionsdropdown.' . $action, 'cb' . $i, 'simplefilemanagers');
+                                        $action = $trashed ? 'untrash' : 'trash';
+                                        JHtml::_('actionsdropdown.' . $action, 'cb' . $i, 'simplefilemanagers');
 
-                                    // Render dropdown list
-                                    echo JHtml::_('actionsdropdown.render', $this->escape($item->title));
+                                        // Render dropdown list
+                                        echo JHtml::_('actionsdropdown.render', $this->escape($item->title));
                                     ?>
                                 </div>
                             </td>
@@ -237,29 +230,29 @@ $sortFields = $this->getSortFields();
 
                             <td class="small hidden-phone">
                                 <?php
-                                switch ($item->visibility)
-                                {
-                                    case 1:
-                                        echo JText::_("COM_SIMPLEFILEMANAGER_VISIBILITY_PUBLIC");
-                                        break;
-                                    case 2:
-                                        echo JText::_("COM_SIMPLEFILEMANAGER_VISIBILITY_REGISTRED");
-                                        break;
-                                    case 3:
-                                        echo '<a target="_blank" href="index.php?option=com_users&task=user.edit&id=' . $item->reserved_user . '">' . JFactory::getUser($item->reserved_user)->name . '</a>';
-                                        break;
-                                    case 4:
-                                        $db    = JFactory::getDBO();
-                                        $query = $db->getQuery(true);
-                                        $query->select('id, title')->from('#__usergroups')->where('id = ' . $item->reserved_group);
-                                        $db->setQuery($query);
-                                        $row = $db->loadRow();
-                                        echo '<a target="_blank" href="index.php?option=com_users&view=group&layout=edit&id=' . $row[0] . '">' . $row[1] . '</a>';
-                                        break;
-                                    case 5:
-                                        echo '<a target="_blank" href="index.php?option=com_users&task=user.edit&id=' . $item->author . '">' . JFactory::getUser($item->author)->name . '</a>';
-                                        break;
-                                }
+                                    switch ($item->visibility)
+                                    {
+                                        case 1:
+                                            echo JText::_("COM_SIMPLEFILEMANAGER_VISIBILITY_PUBLIC");
+                                            break;
+                                        case 2:
+                                            echo JText::_("COM_SIMPLEFILEMANAGER_VISIBILITY_REGISTRED");
+                                            break;
+                                        case 3:
+                                            echo '<a target="_blank" href="index.php?option=com_users&task=user.edit&id=' . $item->reserved_user . '">' . JFactory::getUser($item->reserved_user)->name . '</a>';
+                                            break;
+                                        case 4:
+                                            $db = JFactory::getDBO();
+                                            $query = $db->getQuery(true);
+                                            $query->select('id, title')->from('#__usergroups')->where('id = ' . $item->reserved_group);
+                                            $db->setQuery($query);
+                                            $row = $db->loadRow();
+                                            echo '<a target="_blank" href="index.php?option=com_users&view=group&layout=edit&id=' . $row[0] . '">' . $row[1] . '</a>';
+                                            break;
+                                        case 5:
+                                            echo '<a target="_blank" href="index.php?option=com_users&task=user.edit&id=' . $item->author . '">' . JFactory::getUser($item->author)->name . '</a>';
+                                            break;
+                                    }
 
                                 ?>
                             </td>
@@ -295,48 +288,6 @@ $sortFields = $this->getSortFields();
             <?php echo JHtml::_('form.token'); ?>
         </div>
 </form>
-
-
-<div id="importMassive" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
-
-    <div class="modal-header">
-        <h2 id="myModalLabel" class="text-center">
-            <?php if (count($this->massiveFileImportQueue) == 0): ?>
-                Carica i tuoi file
-            <?php else: ?>
-                Pronti per l'importazione!
-            <?php endif; ?>
-        </h2>
-    </div>
-
-    <div class="modal-body">
-        <?php if (count($this->massiveFileImportQueue) == 0): ?>
-            <p class="text-center"><?php echo JText::_('COM_SIMPLEFILEMANAGER_MASSIMPORT_DESCRIPTION'); ?></p>
-        <?php else: ?>
-            <form class="text-center" method="post"
-                  action="<?php echo JRoute::_('index.php?option=com_simplefilemanager&view=simplefilemanagers&task=massiveImport'); ?>">
-                <p class="text-center"><?php echo JText::sprintf("COM_SIMPLEFILEMANAGER_MASSIMPORT_SUMMARY", count($this->massiveFileImportQueue)); ?></p>
-
-                <p><input type="submit" value="Avvia" class="btn btn-large btn-success"/></p>
-
-                <p class="small"><?php echo JText::_('COM_SIMPLEFILEMANAGER_MASSIMPORT_FILELIST'); ?><?php echo implode($this->massiveFileImportQueue, ", "); ?></p>
-
-                <input type="hidden" name="fileCount" value="<?php echo count($this->massiveFileImportQueue); ?>">
-
-                <?php foreach ($this->massiveFileImportQueue as $key => $i): ?>
-                    <input type="hidden" name="item[<?php echo $key; ?>]" value="<?php echo $i; ?>">
-                <?php endforeach; ?>
-
-            </form>
-        <?php endif; ?>
-    </div>
-
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true"><?php echo JText::_("JCANCEL"); ?></button>
-    </div>
-
-</div>
 
 <script type="text/javascript">
 

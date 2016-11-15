@@ -124,7 +124,7 @@ class SimplefilemanagerViewSimplefilemanagers extends JViewLegacy
         return array(
             'a.ordering' => JText::_('JGRID_HEADING_ORDERING'),
             'a.visibility' => JText::_('COM_SIMPLEFILEMANAGER_FIELD_VISIBILITY_LABEL'),
-            'a.file_created' => JText::_('COM_SIMPLEFILEMANAGER_HEADING_CREATED'),
+            'a.file_created' => JText::_('COM_SIMPLEFILEMANAGER_HEADING_CREATION'),
             'a.author' => JText::_('JAUTHOR'),
             'a.download_counter' => JText::_('COM_SIMPLEFILEMANAGER_HEADING_HITS'),
             'a.state' => JText::_('JSTATUS'),

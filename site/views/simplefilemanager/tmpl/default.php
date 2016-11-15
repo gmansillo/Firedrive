@@ -1,14 +1,12 @@
 <?php
+    // no direct access
+    defined('_JEXEC') or die;
 
-
-// no direct access
-defined('_JEXEC') or die;
-
-$canEdit = JFactory::getUser()->authorise('core.edit', 'com_simplefilemanager');
-if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_simplefilemanager'))
-{
-    $canEdit = JFactory::getUser()->id == $this->item->created_by;
-}
+    $canEdit = JFactory::getUser()->authorise('core.edit', 'com_simplefilemanager');
+    if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_simplefilemanager'))
+    {
+        $canEdit = JFactory::getUser()->id == $this->item->created_by;
+    }
 ?>
 
 <h2>
@@ -16,6 +14,18 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_simplefile
 </h2>
 
 <?php if ($this->item) : ?>
+
+    <?php if ($this->showIcon): ?>
+        <p>
+            <a href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&view=download&id=' . (int)$this->item->id); ?>">
+                <img alt="<?php echo $this->item->title; ?>" src="<?php echo $this->item->icon; ?>"
+                     class="sfm-icon"/>
+            </a>
+        </p>
+
+    <?php endif; ?>
+
+
 
     <div class="item_fields">
         <table class="table">
@@ -27,7 +37,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_simplefile
                 <td><?php echo $this->item->title; ?></td>
             </tr>
 
-            <?php if ($this->showDesc): ?>
+            <?php if ($this->showDesc && $this->item->description): ?>
                 <tr>
                     <th><?php echo JText::_('COM_SIMPLEFILEMANAGER_HEADING_DESCRIPTION'); ?></th>
                     <td><?php echo $this->item->description; ?></td>
@@ -36,7 +46,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_simplefile
 
             <?php if ($this->showDate): ?>
                 <tr>
-                    <th><?php echo JText::_('COM_SIMPLEFILEMANAGER_HEADING_CREATED'); ?></th>
+                    <th><?php echo JText::_('COM_SIMPLEFILEMANAGER_HEADING_CREATION'); ?></th>
                     <td><?php echo JHTML::_('date', $this->item->file_created, JText::_('DATE_FORMAT_LC1')); ?></td>
                 </tr>
             <?php endif; ?>
@@ -50,7 +60,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_simplefile
 
             <?php if ($this->showSize): ?>
                 <tr>
-                    <th><?php echo JText::_('COM_SIMPLEFILEMANAGER_HEADING_DIMENSION'); ?></th>
+                    <th><?php echo JText::_('COM_SIMPLEFILEMANAGER_HEADING_SIZE'); ?></th>
                     <td><?php echo round($this->item->file_size * .0009765625, 2); ?>Kb</td>
                 </tr>
             <?php endif; ?>
@@ -69,13 +79,12 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_simplefile
                 </tr>
             <?php endif; ?>
 
-            <tr>
-                <th><?php echo JText::_('COM_SIMPLEFILEMANAGER_HEADING_VERSION'); ?></th>
-                <td><?php if ($this->item->version)
-                    {
-                        echo $this->item->version;
-                    } ?></td>
-            </tr>
+            <?php if ($this->item->version): ?>
+                <tr>
+                    <th><?php echo JText::_('COM_SIMPLEFILEMANAGER_HEADING_VERSION'); ?></th>
+                    <td><?php echo $this->item->version; ?></td>
+                </tr>
+            <?php endif; ?>
 
             <?php if ($this->showMD5): ?>
                 <tr>
@@ -88,17 +97,11 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_simplefile
                 <tr>
                     <th><?php echo JText::_('COM_SIMPLEFILEMANAGER_HEADING_FILE'); ?></th>
                     <td>
-                        <?php if ($this->showIcon): ?>
-                            <a href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&view=download&id=' . (int)$this->item->id); ?>">
-                                <img alt="<?php echo $this->item->title; ?>" src="<?php echo $this->item->icon; ?>"
-                                     class="sfm-icon"/>
-                            </a>
-                        <?php else: ?>
-                            <a class="btn"
-                               href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&view=download&id=' . (int)$this->item->id); ?>">
-                                <?php echo JText::_("COM_SIMPLEFILEMANAGER_DOWNLOAD_TEXT"); ?>
-                            </a>
-                        <?php endif; ?>
+                        <a class="btn"
+                           href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&view=download&id=' . (int)$this->item->id); ?>">
+                            <?php echo JText::_("COM_SIMPLEFILEMANAGER_DOWNLOAD_TEXT"); ?>
+                        </a>
+
                     </td>
                 </tr>
             <?php endif; ?>
@@ -116,7 +119,7 @@ if (!$canEdit && JFactory::getUser()->authorise('core.edit.own', 'com_simplefile
            href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&task=simplefilemanager.remove&id=' . $this->item->id, false, 2); ?>"><?php echo JText::_("COM_SIMPLEFILEMANAGER_DELETE_ITEM"); ?></a>
     <?php endif; ?>
 
-    <?php
+<?php
 else:
     echo JText::_('COM_SIMPLEFILEMANAGER_ITEM_NOT_LOADED');
 endif;

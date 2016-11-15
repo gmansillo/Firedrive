@@ -1,98 +1,45 @@
 /**
  * @package     Simple File Manager
- * @author			Giovanni Mansillo
+ * @author		Giovanni Mansillo
  *
  * @copyright   Copyright (C) 2005 - 2014 Flow Solutions. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-.simplefilemanager.sfm-grid .sfm-item {
-    text-align: center;
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 0.5%;
-    width: 24%;
+/* Frontend List view */
+
+#filter-bar {
+    padding: 7px 0 22px;
 }
 
-.simplefilemanager.sfm-list .sfm-item {
-    margin-bottom: 7px;
+#sfm-category-list {
+    list-style: none;
+    margin: 0 0 9px 0px;
 }
 
-.simplefilemanager.sfm-list .sfm-item .float {
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 0.5%;
+#sfm-category-list h4 {
+    margin: 3px 0;
 }
 
-.simplefilemanager.sfm-list .sfm-item .float.icon {
-    text-align: center;
+#sfm-category-list .media > .pull-left {
+    margin-right: 10px;
+
 }
 
-img.sfm-icon {
-    max-width: 100%;
-    opacity: 0.8;
-    filter: alpha(opacity=80); /* For IE8 and earlier */
+#sfm-category-list .media > .pull-left > img {
+    min-height: 32px;
+    width: auto;
 }
 
-img.sfm-icon:hover {
-    opacity: 1.0;
-    filter: alpha(opacity=100); /* For IE8 and earlier */
+#sfm-category-list .media > hr {
+    margin: 12px 0
 }
 
-img.sfm-icon:active {
-    opacity: 0.5;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
+#sfm-category-list .media .btn {
+    margin-top: 5px;
 }
 
-.simplefilemanager table {
-    max-width: 100%;
-    background-color: transparent;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-.simplefilemanager .table {
-    width: 100%;
-    margin-bottom: 18px;
-}
-
-.simplefilemanager .table th, .simplefilemanager .table td {
-    padding: 8px;
-    line-height: 18px;
-    text-align: left;
-    vertical-align: top;
-    border-top: 1px solid #ddd;
-}
-
-.simplefilemanager .label {
-    display: inline-block;
-    padding: 2px 4px;
-    font-size: 10.998px;
-    font-weight: bold;
-    line-height: 14px;
-    color: #fff;
-    vertical-align: baseline;
-    white-space: nowrap;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    background-color: #999;
-}
-
-.simplefilemanager .label {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-
-.simplefilemanager .label-warning {
-    background-color: #f89406;
-}
-
-.simplefilemanager .label-important {
-    background-color: #b94a48;
-}
-
-/* @since: v4.4.4 */
-
-.simplefilemanager .nomedia p {
-    text-align: center;
+#sfm-category-list .media .media-info {
+    color: grey;
+    font-size: .9em;
 }

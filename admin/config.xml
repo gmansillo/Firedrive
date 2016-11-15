@@ -30,7 +30,7 @@
             <option value="0">JNO</option>
         </field>
 
-        <field name="showAuth" type="radio" class="radio btn-group btn-group-yesno" default="1"
+        <field name="showAuth" type="radio" class="radio btn-group btn-group-yesno" default="0"
                label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_AUTHOR_LABEL" description="">
             <option value="1">JYES</option>
             <option value="0">JNO</option>
@@ -48,13 +48,13 @@
             <option value="0">JNO</option>
         </field>
 
-        <field name="showMD5" type="radio" class="radio btn-group btn-group-yesno" default="1"
+        <field name="showMD5" type="radio" class="radio btn-group btn-group-yesno" default="0"
                label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_MD5_LABEL" description="">
             <option value="1">JYES</option>
             <option value="0">JNO</option>
         </field>
 
-        <field name="showLicence" type="radio" class="radio btn-group btn-group-yesno" default="1"
+        <field name="showLicence" type="radio" class="radio btn-group btn-group-yesno" default="0"
                label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_LICENCE_LABEL" description="">
             <option value="1">JYES</option>
             <option value="0">JNO</option>

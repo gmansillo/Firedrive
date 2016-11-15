@@ -83,7 +83,7 @@
                     label="COM_SIMPLEFILEMANAGER_FIELD_ORDERBY_LABEL"
                     >
                 <option value="a.ordering">JFIELD_ORDERING_LABEL</option>
-                <option value="a.file_created">COM_SIMPLEFILEMANAGER_HEADING_CREATED</option>
+                <option value="a.file_created">COM_SIMPLEFILEMANAGER_HEADING_CREATION</option>
                 <option value="a.title">COM_SIMPLEFILEMANAGER_HEADING_TITLE</option>
                 <option value="a.file_size">COM_SIMPLEFILEMANAGER_HEADING_SIZE</option>
             </field>

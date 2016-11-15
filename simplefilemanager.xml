@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
     <name>com_simplefilemanager</name>
     <author>Giovanni Mansillo</author>
@@ -7,11 +7,9 @@
     <license>GNU General Public License version 3 or later</license>
     <authorEmail>support@simplefilemanager.eu</authorEmail>
     <authorUrl>http://www.simplefilemanager.eu</authorUrl>
-    <version>5.0.9</version>
-    <description></description>
-
+    <version>5.0.12</version>
+    <description><![CDATA[]]></description>
     <scriptfile>script.php</scriptfile>
-
     <install>
         <sql>
             <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
@@ -27,7 +25,6 @@
             <schemapath type="mysql">sql/updates/mysql</schemapath>
         </schemas>
     </update>
-
     <files folder="site">
         <filename>index.html</filename>
         <filename>controller.php</filename>
@@ -49,8 +46,7 @@
             <menu link="option=com_simplefilemanager" view="simplefilemanagers">
                 com_simplefilemanager_simplefilemanagers
             </menu>
-            <menu link="option=com_categories&amp;extension=com_simplefilemanager"
-                  view="categories">com_simplefilemanager_categories
+            <menu link="option=com_categories&amp;extension=com_simplefilemanager" view="categories">com_simplefilemanager_categories
             </menu>
         </submenu>
         <files folder="admin">
@@ -69,10 +65,8 @@
             <folder>views</folder>
         </files>
     </administration>
-
     <updateservers>
-        <server type="extension" priority="1"
-                name="Simple File Manager Update Server">http://www.simplefilemanager.eu/releases/update.php
+        <server type="extension" priority="1" name="Simple File Manager Update Server">http://www.simplefilemanager.eu/releases/update.php
         </server>
     </updateservers>
 </extension>

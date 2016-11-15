@@ -53,7 +53,11 @@ class SimplefilemanagerViewSimplefilemanager extends JViewLegacy
         {
             JToolbarHelper::apply('simplefilemanager.apply');
             JToolbarHelper::save('simplefilemanager.save');
-            JToolbarHelper::save2new('simplefilemanager.save2new');
+            if(!$isNew)
+            {
+                JToolbarHelper::save2new('simplefilemanager.save2new');
+                JToolbarHelper::save2copy('simplefilemanager.save2copy');
+            }
         }
 
         JToolBarHelper::cancel('simplefilemanager.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');

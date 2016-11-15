@@ -23,9 +23,7 @@ $maxFileSize = SimplefilemanagerHelper::getMaxFileUploadSize();
         jQuery('#jform1_uploader').change(function () {
             var f = this.files[0];
             var s = (f.size || f.fileSize);
-            if (<?php echo $maxFileSize ?> <
-            s
-            )
+            if (<?php echo $maxFileSize ?> < s )
             alert("<?php echo JText::sprintf('COM_SIMPLEFILEMANAGER_UPLOAD_MAX_SIZE_EXCEEDED_ERROR', $maxFileSize/1048576 ); ?>");
         })
     })
@@ -91,8 +89,7 @@ $maxFileSize = SimplefilemanagerHelper::getMaxFileUploadSize();
                                 </label>
                             </div>
                             <div class="controls choose">
-                                <input type="file" <?php if ($isNew)
-                                {
+                                <input type="file" <?php if ($isNew) {
                                     echo 'class="required" aria-require="true" required="required"';
                                 } ?> id="jform1_uploader" name="jform1[test][]"/>
                             </div>
@@ -100,19 +97,6 @@ $maxFileSize = SimplefilemanagerHelper::getMaxFileUploadSize();
                     </div>
 
                 </div>
-
-                <script>
-                    $(document).ready(function () {
-                        $('#jform1_uploader').on('change', function (evt) {
-                            if (<?php echo SimplefilemanagerHelper::getMaxFileUploadSize(); ?> >
-                            this.files[0].size
-                            )
-                            {
-                                alert("casso!");
-                            }
-                        })
-                    });
-                </script>
 
                 <div class="row-fluid form-horizontal-desktop">
                     <div class="span6">

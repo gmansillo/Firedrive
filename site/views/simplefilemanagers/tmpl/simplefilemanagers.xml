@@ -88,7 +88,7 @@
                     label="COM_SIMPLEFILEMANAGER_FIELD_ORDERBY_LABEL"
                     >
                 <option value="a.ordering">JFIELD_ORDERING_LABEL</option>
-                <option value="a.file_created">COM_SIMPLEFILEMANAGER_HEADING_CREATED</option>
+                <option value="a.file_created">COM_SIMPLEFILEMANAGER_HEADING_CREATION</option>
                 <option value="a.title">COM_SIMPLEFILEMANAGER_HEADING_TITLE</option>
                 <option value="a.file_size">COM_SIMPLEFILEMANAGER_HEADING_SIZE</option>
             </field>
@@ -100,6 +100,24 @@
                     >
                 <option value="ASC">JGLOBAL_ORDER_ASCENDING</option>
                 <option value="DESC">JGLOBAL_ORDER_DESCENDING</option>
+            </field>
+            <field
+                    name="subview"
+                    type="list"
+                    default="list"
+                    label="COM_SIMPLEFILEMANAGER_FIELD_LAYOUT_LABEL"
+                    >
+                <option value="list">COM_SIMPLEFILEMANAGER_FIELD_LAYOUT_LIST</option>
+                <option value="table">COM_SIMPLEFILEMANAGER_FIELD_LAYOUT_TABLE</option>
+            </field>
+            <field
+                    name="sortFieldSelection"
+                    type="list"
+                    default="1"
+                    label="COM_SIMPLEFILEMANAGER_FIELD_SORT_SELECTION"
+                    >
+                <option value="0">JHIDE</option>
+                <option value="1">JSHOW</option>
             </field>
 
             <field type="spacer" name="spacer" hr="true"/>

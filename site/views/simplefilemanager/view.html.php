@@ -32,11 +32,8 @@ class SimplefilemanagerViewSimplefilemanager extends JViewLegacy
         $this->app    = JFactory::getApplication();
         $this->params = $this->app->getParams();
         $this->menu   = $this->app->getMenu()->getActive();
-        $this->subview = 'table';
-        $this->defIcon = $this->params->get('defaulticon', "./media/com_simplefilemanager/images/download.gif");
 
-        // TODO: choose display mode table, grid or list using joomla layouts
-        // $this->subview = $this->menu->params->get('subview');
+        $this->defIcon = $this->params->get('defaulticon', "./media/com_simplefilemanager/images/document.png");
 
         $this->showDate          = $this->app->input->get('showDate', $this->params->get('showDate', 1, "int"));
         $this->showIcon          = $this->app->input->get('showIcon', $this->params->get('showIcon', 1, "int"));
@@ -48,7 +45,6 @@ class SimplefilemanagerViewSimplefilemanager extends JViewLegacy
         $this->showNew           = $this->app->input->get('showNew', $this->params->get('showNew', 1, "int"));
         $this->newfiledays       = $this->params->get('newfiledays', 7, "int");
         $this->show_page_heading = $this->app->input->get('show_page_heading', 1, "int");
-
 
         $app = JFactory::getApplication();
         $user = JFactory::getUser();
@@ -65,7 +61,7 @@ class SimplefilemanagerViewSimplefilemanager extends JViewLegacy
         $this->item->icon        = $this->item->icon ?: $this->defIcon;
         $this->item->canDownload = (
             ($this->item->visibility == 1)
-            || ($this->item->visibility == 3 && $this->item->reserved_user == $this->user->id)
+            || ($this->item->visibility == 3 && $this->item->reserved_user == $user->id)
             || ($this->item->visibility == 2 && $user->id)
             || ($this->item->visibility == 5 && $this->author == $user->id)
             || ($this->item->visibility == 4 && in_array($this->item->reserved_group, JAccess::getGroupsByUser($user->id)))

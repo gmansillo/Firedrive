@@ -13,38 +13,38 @@
             <?php echo JHTML::_('grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_TITLE', 'a.title', $this->sortDirection, $this->sortColumn); ?></th>
         </th>
 
-        <?php if($this->showDesc): ?>
+        <?php if ($this->showDesc): ?>
                         <th class='left'>
-                            <?php echo JHTML::_( 'grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_DESCRIPTION', 'a.description', $this->sortDirection, $this->sortColumn); ?></th>
+                            <?php echo JHTML::_('grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_DESCRIPTION', 'a.description', $this->sortDirection, $this->sortColumn); ?></th>
                         </th>
                     <?php endif; ?>
-        <?php if($this->showDate): ?>
+        <?php if ($this->showDate): ?>
                         <th class='left'>
-                            <?php echo JHTML::_( 'grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_CREATED', 'a.file_created', $this->sortDirection, $this->sortColumn); ?></th>
-                        </th>
-                    <?php endif; ?>
-
-        <?php if($this->showSize): ?>
-                        <th class='left'>
-                            <?php echo JHTML::_( 'grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_DIMENSION', 'a.file_size', $this->sortDirection, $this->sortColumn); ?></th>
+                            <?php echo JHTML::_('grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_CREATION', 'a.file_created', $this->sortDirection, $this->sortColumn); ?></th>
                         </th>
                     <?php endif; ?>
 
-        <?php if($this->showLicence): ?>
+        <?php if ($this->showSize): ?>
                         <th class='left'>
-                            <?php echo JHTML::_( 'grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_LICENSE', 'a.license', $this->sortDirection, $this->sortColumn); ?></th>
+                            <?php echo JHTML::_('grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_SIZE', 'a.file_size', $this->sortDirection, $this->sortColumn); ?></th>
                         </th>
                     <?php endif; ?>
 
-        <?php if($this->showMD5): ?>
+        <?php if ($this->showLicence): ?>
                         <th class='left'>
-                            <?php echo JHTML::_( 'grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_MD5', 'a.md5hash', $this->sortDirection, $this->sortColumn); ?></th>
+                            <?php echo JHTML::_('grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_LICENSE', 'a.license', $this->sortDirection, $this->sortColumn); ?></th>
                         </th>
                     <?php endif; ?>
 
-        <?php if($this->showAuth): ?>
+        <?php if ($this->showMD5): ?>
                         <th class='left'>
-                            <?php echo JHTML::_( 'grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_AUTHOR', 'a.author', $this->sortDirection, $this->sortColumn); ?></th>
+                            <?php echo JHTML::_('grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_MD5', 'a.md5hash', $this->sortDirection, $this->sortColumn); ?></th>
+                        </th>
+                    <?php endif; ?>
+
+        <?php if ($this->showAuth): ?>
+                        <th class='left'>
+                            <?php echo JHTML::_('grid.sort', 'COM_SIMPLEFILEMANAGER_HEADING_AUTHOR', 'a.author', $this->sortDirection, $this->sortColumn); ?></th>
                         </th>
                     <?php endif; ?>
 
@@ -97,18 +97,20 @@
 
             <td>
                 <?php if (isset($item->checked_out) && $item->checked_out && ($this->canEdit || $this->canChange)) : ?>
-                    <?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'simplefilemanager.', $canCheckin); ?>
+                    <?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'simplefilemanager.', $this->canCheckin); ?>
                 <?php endif; ?>
 
-                <?php if ($this->params->get('linkOnTitle', 1)): ?>
-                <a href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&view=simplefilemanager&id=' . (int)$item->id); ?>">
-                    <?php endif; ?>
+                <?php if ($this->linkOnEntryTitle): ?>
+                    <a href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&view=simplefilemanager&id=' . (int)$item->id); ?>">
+
+                        <?php echo $this->escape($item->title); ?>
+
+                    </a>
+                <?php else: ?>
 
                     <?php echo $this->escape($item->title); ?>
 
-                    <?php if ($this->params->get('linkOnTitle', 1)): ?>
-                </a>
-            <?php endif; ?>
+                <?php endif; ?>
 
                 <?php if (strtotime($item->file_created) > strtotime('-' . $this->newfiledays . ' day') AND $this->showNew): ?>
                     &nbsp;<span
@@ -141,12 +143,9 @@
 
             <?php if ($this->showLicence): ?>
                 <td>
-                    <?php if ($item->license_link)
-                    {
+                    <?php if ($item->license_link) {
                         echo '<a href="' . $item->license_link . '" target="_blank">' . $item->license . '</a>';
-                    }
-                    else
-                    {
+                    } else {
                         echo $item->license;
                     } ?>
                 </td>

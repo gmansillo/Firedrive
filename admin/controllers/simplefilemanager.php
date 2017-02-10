@@ -18,6 +18,8 @@
 
         public function save($key = null, $urlVar = null)
         {
+            JLog::add('Start save($key, $urlVar)... ', JLog::DEBUG, 'com_simplefilemanager');
+
             // Load libraries
             jimport('joomla.filesystem.file');
             jimport('joomla.utilities.date');
@@ -27,13 +29,16 @@
             $this->files = JFactory::getApplication()->input->files->get('jform1');
             $this->params = JComponentHelper::getParams('com_simplefilemanager');
 
+            JLog::add('$files: '.json_encode($this->files), JLog::DEBUG, 'com_simplefilemanager');
+            JLog::add('$form: '.json_encode($this->form), JLog::DEBUG, 'com_simplefilemanager');
+            JLog::add('$params: '.json_encode($this->params), JLog::DEBUG, 'com_simplefilemanager');
+
             // Check if user is creating a new file
-            $isNew = $this->form["file_name"] ? false : true;
+            $isNew = !isset($this->form["file_name"]);
 
             // Checking file selection
             if ($this->files['test'][0]["size"])
             {
-
                 // Checking file extension
                 if (!SimplefilemanagerHelper::hasSafeExtension($this->files['test'][0]["name"]))
                 {

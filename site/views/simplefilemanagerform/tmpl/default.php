@@ -69,7 +69,7 @@ $doc->addScript(JUri::base() . '/components/com_simplefilemanager/assets/js/form
                 <button type="submit" class="btn btn-primary">
                     <span class="icon-ok"></span> <?php echo JText::_('JSUBMIT'); ?>
                 </button>
-                <a class="btn"
+                <a class="btn btn-default"
                    href="<?php echo JRoute::_('index.php?option=com_simplefilemanager'); ?>"
                    title="<?php echo JText::_('JCANCEL'); ?>">
                     <span class="icon-cancel"></span>
@@ -84,22 +84,22 @@ $doc->addScript(JUri::base() . '/components/com_simplefilemanager/assets/js/form
                 <li class="active"><a href="#general"
                                       data-toggle="tab"><?php echo JText::_('COM_SIMPLEFILEMANAGER_DOCUMENT_GENERAL') ?></a>
                 </li>
-                <li><a href="#publishing"
-                       data-toggle="tab"><?php echo JText::_('COM_SIMPLEFILEMANAGER_DOCUMENT_PUBLISHING') ?></a></li>
             </ul>
 
             <div class="tab-content">
                 <div class="tab-pane active" id="general">
 
                     <?php echo $this->form->renderField('title'); ?>
+
                     <?php echo $this->form->renderField('catid'); ?>
+
                     <?php if (!empty($this->item->id)): ?>
                         <div class="control-group">
-                            <div
-                                class="control-label"><?php echo JText::_('COM_SIMPLEFILEMANAGER_SELECTED_FILE'); ?></div>
+                            <div class="control-label"><?php echo JText::_('COM_SIMPLEFILEMANAGER_SELECTED_FILE'); ?></div>
                             <div class="controls"><?php echo $this->form->getInput('file_name'); ?></div>
                         </div>
                     <?php endif; ?>
+
                     <div class="control-group">
                         <div class="control-label">
                             <?php echo ($this->item->id == 0) ? $this->form->getLabel('file_size') : JText::_('COM_SIMPLEFILEMANAGER_FILE_CHANGE'); ?>
@@ -108,51 +108,10 @@ $doc->addScript(JUri::base() . '/components/com_simplefilemanager/assets/js/form
                             <input type="file" name="jform1[test][]"/>
                         </div>
                     </div>
+
                     <?php echo $this->form->renderField('description'); ?>
 
                 </div>
-                <div class="tab-pane" id="publishing">
-
-                    <?php echo $this->form->renderField('icon'); ?>
-                    <?php echo $this->form->renderField('version'); ?>
-                    <?php echo $this->form->renderField('license'); ?>
-                    <?php echo $this->form->renderField('license_link'); ?>
-
-                    <?php if ($this->item->id > 0): ?>
-                        <div class="control-group">
-                            <div class="control-label"><?php echo $this->form->getLabel('id'); ?></div>
-                            <div class="controls"><?php echo $this->form->getInput('id'); ?></div>
-                        </div>
-                        <div class="control-group">
-                            <div class="control-label"><?php echo $this->form->getLabel('file_created'); ?></div>
-                            <div class="controls"><?php echo $this->form->getInput('file_created'); ?></div>
-                        </div>
-                        <div class="control-group">
-                            <div
-                                class="control-label"><?php echo JText::_('COM_SIMPLEFILEMANAGER_FIELD_FILESIZE_LABEL'); ?></div>
-                            <div class="controls"><?php echo $this->form->getInput('file_size'); ?></div>
-                        </div>
-                        <div class="control-group">
-                            <div class="control-label"><?php echo $this->form->getLabel('file_name'); ?></div>
-                            <div class="controls"><?php echo $this->form->getInput('file_name'); ?></div>
-                        </div>
-                        <div class="control-group">
-                            <div class="control-label"><?php echo $this->form->getLabel('download_counter'); ?></div>
-                            <div class="controls"><?php echo $this->form->getInput('download_counter'); ?></div>
-                        </div>
-                        <div class="control-group">
-                            <div class="control-label"><?php echo $this->form->getLabel('download_last'); ?></div>
-                            <div class="controls"><?php echo $this->form->getInput('download_last'); ?></div>
-                        </div>
-                        <div class="control-group">
-                            <div class="control-label"><?php echo $this->form->getLabel('md5hash'); ?></div>
-                            <div class="controls"><?php echo $this->form->getInput('md5hash'); ?></div>
-                        </div>
-
-                    <?php endif; ?>
-
-                </div>
-
             </div>
 
         </fieldset>

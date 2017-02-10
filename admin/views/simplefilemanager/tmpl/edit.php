@@ -45,7 +45,7 @@ $maxFileSize = SimplefilemanagerHelper::getMaxFileUploadSize();
 <form
     enctype="multipart/form-data"
     action="<?php echo JRoute::_('index.php?option=com_simplefilemanager&layout=edit&id=' . (int)$this->item->id); ?>"
-    method="post"
+    method="POST"
     name="adminForm"
     id="adminForm"
     class="form-validate"
@@ -218,7 +218,6 @@ $maxFileSize = SimplefilemanagerHelper::getMaxFileUploadSize();
             <?php echo JHtml::_('bootstrap.endTab'); ?>
         <?php endif; ?>
 
-        <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
         <input type="hidden" name="task" value=""/>
         <?php echo JHtml::_('form.token'); ?>
 

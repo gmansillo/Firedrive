@@ -174,8 +174,9 @@ class SimplefilemanagerModelSimplefilemanagers extends JModelList
     }
 
     /**
-     * Checks if a given date is valid and in an specified format (YYYY-MM-DD)
-     * @param string Contains the date to be checked
+     * Validates format of a given date
+     * @param string The date to be checked
+     * return bool TRUE if given date is valid and in an specified format (YYYY-MM-DD), and FALSE otherwise.
      */
     private function isValidDate($date)
     {

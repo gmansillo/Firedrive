@@ -31,25 +31,25 @@
                 <div class="btn-group">
 
                     <?php if (isset($this->items[0]->state) and ($this->canEdit || $this->canChange)): ?>
-                        <span class="btn btn-small disabled">
+                        <span class="btn btn-default btn-small disabled">
                         <?php if ($item->state == 1): ?>
-                            <i class="icon-publish"></i> <?php echo JText::_("JPUBLISHED"); ?>
+                            <i class="icon-publish"></i> <span class="hidden-phone"><?php echo JText::_("JPUBLISHED"); ?></span>
                         <?php else: ?>
-                            <i class="icon-unpublish"></i> <?php echo JText::_("JUNPUBLISHED"); ?>
+                            <i class="icon-unpublish"></i> <span class="hidden-phone"><?php echo JText::_("JUNPUBLISHED"); ?></span>
                         <?php endif; ?>
-
                         </span>
                     <?php endif; ?>
 
                     <?php if ($this->canEdit || $this->canDelete): ?>
                         <?php if ($this->canEdit): ?>
                             <a href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&task=simplefilemanagerform.edit&id=' . $item->id, false, 2); ?>"
-                               class="btn  btn-small" type="button">
+                               class="btn btn-default btn-small" type="button">
                                 <?php echo JText::_("COM_SIMPLEFILEMANAGER_EDIT_TEXT"); ?>
                             </a>
                         <?php endif; ?>
                         <?php if ($this->canDelete): ?>
-                            <button data-item-id="<?php echo $item->id; ?>" class="btn btn-small delete-button"
+                            <button data-item-id="<?php echo $item->id; ?>"
+                                    class="btn btn-default btn-small delete-button"
                                     type="button">
                                 <?php echo JText::_("COM_SIMPLEFILEMANAGER_DELETE_TEXT"); ?>
                             </button>
@@ -57,7 +57,7 @@
                     <?php endif; ?>
 
                     <?php if ($item->canDownload || $this->canCheckin): ?>
-                        <a class="btn btn-small" target="_blank"
+                        <a class="btn btn-default btn-small" target="_blank"
                            href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&view=download&id=' . (int)$item->id); ?>">
                             <?php echo JText::_("COM_SIMPLEFILEMANAGER_DOWNLOAD_TEXT"); ?>
                         </a>

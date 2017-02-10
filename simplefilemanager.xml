@@ -7,7 +7,7 @@
     <license>GNU General Public License version 3 or later</license>
     <authorEmail>support@simplefilemanager.eu</authorEmail>
     <authorUrl>http://www.simplefilemanager.eu</authorUrl>
-    <version>5.0.12</version>
+    <version>5.0.13</version>
     <description><![CDATA[]]></description>
     <scriptfile>script.php</scriptfile>
     <install>
@@ -39,6 +39,7 @@
         <filename>index.html</filename>
         <folder>images</folder>
         <folder>css</folder>
+        <folder>smartIcons</folder>
     </media>
     <administration>
         <menu img="class:categories">COM_SIMPLEFILEMANAGER_MENU</menu>

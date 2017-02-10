@@ -83,7 +83,7 @@
                     <?php $class = ($this->canEdit || $this->canChange) ? 'active' : 'disabled'; ?>
 
                     <td class="center">
-                        <a class="btn btn-micro <?php echo $class; ?>"
+                        <a class="btn btn-default btn-micro <?php echo $class; ?>"
                            href="<?php echo ($this->canEdit || $this->canChange) ? JRoute::_('index.php?option=com_simplefilemanager&task=simplefilemanager.publish&id=' . $item->id . '&state=' . (($item->state + 1) % 2), false, 2) : '#'; ?>">
                             <?php if ($item->state == 1): ?>
                                 <i class="icon-publish"></i>
@@ -174,7 +174,7 @@
                                  class="sfm-icon"/>
                         </a>
                     <?php else: ?>
-                        <a class="btn"
+                        <a class="btn btn-default"
                            href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&view=download&id=' . (int)$item->id); ?>">
                             <?php echo JText::_("COM_SIMPLEFILEMANAGER_DOWNLOAD_TEXT"); ?>
                         </a>
@@ -188,10 +188,11 @@
                 <td class="center">
                     <?php if ($this->canEdit): ?>
                         <a href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&task=simplefilemanagerform.edit&id=' . $item->id, false, 2); ?>"
-                           class="btn btn-mini" type="button"><i class="icon-edit"></i></a>
+                           class="btn btn-default btn-mini" type="button"><i class="icon-edit"></i></a>
                     <?php endif; ?>
                     <?php if ($this->canDelete): ?>
-                        <button data-item-id="<?php echo $item->id; ?>" class="btn btn-mini delete-button"
+                        <button
+                            data-item-id="<?php echo $item->id; ?>" class="btn btn-default btn-mini delete-button"
                                 type="button"><i class="icon-trash"></i></button>
                     <?php endif; ?>
                 </td>

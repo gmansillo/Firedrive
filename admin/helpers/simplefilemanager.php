@@ -45,22 +45,32 @@ class SimplefilemanagerHelper
     }
 
     /**
-     * Check if a file has a dangerous extension
+     * Check if a file has a safe extension
      *
-     * @param string $filename
-     *            Name of file to be checked
+     * @param string $filename Name of file to be checked
+     * @return bool FALSE if given file has a safe dangerous extension, TRUE otherwise
      */
     public static function hasSafeExtension($filename)
     {
-        jimport('joomla.filesystem.file');
+        JLog::add('Start hasSafeExtension($filename)... ', JLog::DEBUG, 'com_simplefilemanager');
+
+        $result = true;
 
         $params              = JComponentHelper::getParams('com_simplefilemanager');
         $forbiddenExtensions = $params->get('forbiddenExtensions');
         $forbiddenExtensions = preg_replace(" ", "", $forbiddenExtensions);
         $dangExtList         = explode(",", $forbiddenExtensions);
-        $ext                 = strtolower(JFile::getExt($filename));
+        $ext                 = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 
-        return !in_array($ext, $dangExtList);
+        JLog::add('Dangerous extensions: '.json_decode($dangExtList), JLog::DEBUG, 'com_simplefilemanager');
+
+        if(in_array($ext, $dangExtList))
+        {
+            $result = false;
+            JLog::add($ext.' is not a safe extension. ', JLog::INFO, 'com_simplefilemanager');
+        }
+
+        return $result;
     }
 
     /**
@@ -122,6 +132,8 @@ class SimplefilemanagerHelper
      */
     public static function sendMail(&$form)
     {
+        JLog::add('Start sendMail($form)... ', JLog::DEBUG, 'com_simplefilemanager');
+
         // Check requisites for email sending
         if ($form["state"] != 1) {
             JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_SENDMAIL_UNPUBLISHED_DOCUMENT_WARNING'), 'warning');

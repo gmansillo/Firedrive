@@ -40,6 +40,7 @@ JHtml::_('formbehavior.chosen', 'select');
         <div class="pull-right">
 
             <?php if ($this->enableOrderingSelect): ?>
+                &nbsp;
                 <select name="directionTable" id="directionTable" class="input-medium" onchange="Joomla.orderTable()">
                     <option value=""><?php echo JText::_('JFIELD_ORDERING_DESC'); ?></option>
                     <option value="asc" <?php echo $this->sortDirection == 'asc' ? 'selected="selected"' : ""; ?>>

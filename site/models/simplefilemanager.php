@@ -68,6 +68,8 @@ class SimplefilemanagerModelSimplefilemanager extends JModelItem
             $this->_item->created_by_name = JFactory::getUser($this->_item->created_by)->name;
         }
 
+        $this->_item->category_title = $this->getCategoryName($this->_item->catid);
+
         return $this->_item;
     }
 
@@ -153,7 +155,7 @@ class SimplefilemanagerModelSimplefilemanager extends JModelItem
             ->from('#__categories')
             ->where('id = ' . $id);
         $db->setQuery($query);
-        return $db->loadObject();
+        return $db->loadResult();
     }
 
     public function publish($id, $state)

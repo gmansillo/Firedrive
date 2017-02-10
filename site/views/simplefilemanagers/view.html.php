@@ -24,6 +24,18 @@ class SimplefilemanagerViewSimplefilemanagers extends JViewLegacy
     protected $state;
     protected $params;
 
+    /**
+     * Return an icon url for passed $fileName depending on its extension. If no icon available for that file extension, $defaultIcon will be returned.
+     * @param $extension
+     * @param $defaultIcon
+     */
+    public function getSmartIcon($fileName, $defaultIcon = null)
+    {
+        $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        $smartIcon = "/media/com_simplefilemanager/smartIcons/".$extension.".png";
+        return file_exists(JPATH_ROOT.$smartIcon) ?  JUri::base().$smartIcon : $defaultIcon;
+    }
+
     public function display($tpl = null)
     {
         $this->doc    = JFactory::getDocument();
@@ -70,7 +82,14 @@ class SimplefilemanagerViewSimplefilemanagers extends JViewLegacy
         $this->doc->addStyleSheet("./media/com_simplefilemanager/css/site.stylesheet.css");
 
         foreach ($this->items as $item) {
-            $item->icon        = $item->icon ?: $this->defIcon;
+
+            // Icon
+            if(!$item->icon){
+                $item->icon = $this->params->get('useSmartIcons', 1) ?
+                    $this->getSmartIcon($item->file_name, $this->defIcon) : $this->defIcon;
+            }
+
+            // Visibility
             $item->canDownload = (
                 ($item->visibility == 1)
                 || ($item->visibility == 3 && $item->reserved_user == $this->user->id)
@@ -95,8 +114,8 @@ class SimplefilemanagerViewSimplefilemanagers extends JViewLegacy
         $this->_prepareDocument();
 
         parent::display($tpl);
-
-        echo JText::_("COM_SIMPLEFILEMANAGER_CREDITS");
+		
+		echo JText::_("COM_SIMPLEFILEMANAGER_CREDITS");
     }
 
     /**
@@ -151,12 +170,14 @@ class SimplefilemanagerViewSimplefilemanagers extends JViewLegacy
     {
         $fields = array(
             'a.ordering' => JText::_('JGRID_HEADING_ORDERING'),
-            'a.state' => JText::_('JSTATUS'),
             'a.title' => JText::_('JGLOBAL_TITLE')
         );
 
-        if ($this->showDesc) {
+        if ($this->showDesc && $this->subview != 'list') {
             $fields['a.description'] = JText::_('JGLOBAL_DESCRIPTION');
+        }
+        if ($this->canChange) {
+            $fields['a.state'] = JText::_('JSTATUS');
         }
         if ($this->showAuth) {
             $fields['a.author'] = JText::_('JAUTHOR');

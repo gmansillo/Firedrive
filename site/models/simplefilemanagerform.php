@@ -174,6 +174,7 @@ class SimplefilemanagerModelSimplefilemanagerForm extends JModelForm
             JError::raiseError(403, JText::_('JERROR_ALERTNOAUTHOR'));
             return false;
         }
+
         $table = $this->getTable();
         if ($table->delete($data['id']) === true)
         {
@@ -183,8 +184,6 @@ class SimplefilemanagerModelSimplefilemanagerForm extends JModelForm
         {
             return false;
         }
-
-        return true;
     }
 
     /**

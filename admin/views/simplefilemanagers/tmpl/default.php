@@ -53,7 +53,7 @@
         <?php else : ?>
         <div id="j-main-container">
             <?php endif; ?>
-            <?php echo '<div class="alert alert-info">' . JText::_('COM_SIMPLEFILEMANAGER_UPGRADE_INSTRUCTIONS') . '</div>'; ?>
+			<?php echo '<div class="alert alert-info">' . JText::_('COM_SIMPLEFILEMANAGER_UPGRADE_INSTRUCTIONS') . '</div>'; ?>
 
             <div id="filter-bar" class="js-stools-container-bar clearfix">
                 <div class="filter-search btn-group pull-left">

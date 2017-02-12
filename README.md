@@ -11,7 +11,12 @@ Simple File Manger is a simple responsive document manager for Joomla! 3. There 
 -  not responsive
 -  not flexible enough
 -  not friendly
+-  not user oriented
 -  have unnecessary dependencies to other libraries
 -  more annoying things
 
-That's why Simple File Manager exists and its goal is to solve all of the above issues.
+That's why I developed Simple File Manager and its goal is to solve all of the above issues.
+
+##What is it made for?
+
+Simple File Manager's goal is to provide a simple, lightweight and safe file manager to responsively show documents on your Joomla! website. 

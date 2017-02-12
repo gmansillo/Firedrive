@@ -6,9 +6,7 @@
 
 *Checkout the documentation site at https://github.com/gmansillo/simplefilemanager/wiki*  
 
-*Checkout this lightning tutorial: https://www.youtube.com/watch?v=7JLy4mNRd_E*  
-
-Simple File Manager is a . It's very easy to use and configure. 
+*Checkout this lightning tutorial: https://www.youtube.com/watch?v=7JLy4mNRd_E*   
 
 Simple File Manger is a simple Joomla! component that gives the possibility to create private user areas and to organize documents in safe download centers. There are hundreds of nice document managers for joomla already out there, but they are either:
 

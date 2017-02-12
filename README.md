@@ -1,6 +1,6 @@
 # Big welcome to the SFM Project
 
-![](http://www.simplefilemanager.eu/images/document-touch-intro.png)
+![](http://www.simplefilemanager.eu/images/document-touch-intro.png#1)
 
 *Help me rating this Extension at https://extensions.joomla.org/extension/simple-file-manager/*  
 

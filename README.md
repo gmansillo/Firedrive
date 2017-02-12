@@ -22,4 +22,4 @@ That's why I developed Simple File Manager and its goal is to solve all of the a
 
 ##What is it made for?
 
-Simple File Manager's goal is to provide a simple, lightweight, responsive and safe way to share documents on your Joomla! website. 
+Simple File Manager's main goal is to provide a simple, lightweight, responsive and safe component to easily share documents on your website. It's important to understand that one of the main intentions of SFM is to **keep the workflow as simple as possible:** if you need advanced features (often not expected to be in a document manager) please seriously think about using another component. 

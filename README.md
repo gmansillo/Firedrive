@@ -1,5 +1,7 @@
 # Big welcome to the SFM Project
 
+![](http://www.simplefilemanager.eu/images/joomla-3-tag.png)  
+
 ![](http://www.simplefilemanager.eu/images/document-touch-intro.png#1)
 
 *Checkout the documentation site at https://github.com/gmansillo/simplefilemanager/wiki*  

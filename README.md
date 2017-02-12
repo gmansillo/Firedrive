@@ -4,7 +4,7 @@
 
 *Checkout the documentation site at https://github.com/gmansillo/simplefilemanager/wiki*  
 
-*Checkout this lightning tutorial that gives you an overview of Simple File Manager https://www.youtube.com/watch?v=7JLy4mNRd_E*  
+*Checkout this lightning tutorial: https://www.youtube.com/watch?v=7JLy4mNRd_E*  
 
 Simple File Manger is a simple responsive document manager for Joomla! 3. There are hundreds of nice document managers for joomla already out there, but they are either:
 

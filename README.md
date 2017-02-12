@@ -1,6 +1,6 @@
 # Big welcome to the SFM Project
 
-![](http://www.simplefilemanager.eu/images/joomla-3-tag.png)  
+![](http://www.simplefilemanager.eu/images/joomla-3-tag.png#1)  
 
 ![](http://www.simplefilemanager.eu/images/document-touch-intro.png#1)
 
@@ -8,12 +8,13 @@
 
 *Checkout this lightning tutorial: https://www.youtube.com/watch?v=7JLy4mNRd_E*  
 
-Simple File Manger is a simple responsive document manager for Joomla! 3. There are hundreds of nice document managers for joomla already out there, but they are either:
+Simple File Manager is a . It's very easy to use and configure. 
+
+Simple File Manger is a simple Joomla! component that gives the possibility to create private user areas and to organize documents in safe download centers. There are hundreds of nice document managers for joomla already out there, but they are either:
 
 -  not responsive
 -  not flexible enough
--  not friendly
--  not user oriented
+-  not user-friendly
 -  have unnecessary dependencies to other libraries
 -  more annoying things
 
@@ -21,4 +22,4 @@ That's why I developed Simple File Manager and its goal is to solve all of the a
 
 ##What is it made for?
 
-Simple File Manager's goal is to provide a simple, lightweight and safe file manager to responsively show documents on your Joomla! website. 
+Simple File Manager's goal is to provide a simple, lightweight, responsive and safe way to share documents on your Joomla! website. 

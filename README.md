@@ -1,5 +1,7 @@
 # Big welcome to the SFM Project
 
+![](http://www.simplefilemanager.eu/images/document-touch-intro.png)
+
 *Help me rating this Extension at https://extensions.joomla.org/extension/simple-file-manager/*  
 
 *Checkout the documentation site at https://github.com/gmansillo/simplefilemanager/wiki*  

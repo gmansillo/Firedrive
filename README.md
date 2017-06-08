@@ -1,8 +1,8 @@
 # Big welcome to the SFM Project
 
-![](http://www.simplefilemanager.eu/images/joomla-3-tag.png#1)  
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)  
 
-![](http://www.simplefilemanager.eu/images/document-touch-intro.png#1)
+![](http://www.simplefilemanager.eu/img/backend-simple.gif)  
 
 *Checkout the documentation site at https://github.com/gmansillo/simplefilemanager/wiki*  
 

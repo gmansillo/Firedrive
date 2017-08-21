@@ -48,6 +48,18 @@ body {
   background-color: #f7f7f7;
 }
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    font-weight: 800;
+    line-height: 1.1;
+    color: inherit;
+}
+
+h1, .h1 {
+    font-size: 2.25rem;
+}
+
 .page__container::after {
   height: 100%;
   margin-left: -4px;

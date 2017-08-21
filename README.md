@@ -18,19 +18,19 @@
 
 That's why I developed Simple File Manager and its goal is to solve all of the above issues.
 
-##What is it made for?
+## What is it made for?
 
 Simple File Manager's main goal is to provide a simple, lightweight, responsive and safe component to easily share documents on your website. It's important to understand that one of the main intentions of SFM is to **keep the workflow as simple as possible:** if you need advanced features (often not expected to be in a document manager) please seriously think about using another component. 
 
-##Example site
+## Example site
 
 You can visit this Site http://www.simplefilemanager.eu/demo/ which is a test platform for Simple File Manager. I'm still developing and constantly adding new features but you can already use Simple File Manager in your websites as it has reached a stable and reliable state already.
 
-##Version notes
+## Version notes
 
 I'm currently still heavily developing in order to make Simple File Manager better. Your help is needed! Please contribute to the project if you like the idea and the concept and suggest me what you think I should do in order to improve it.
 
-###Important missing stuff
+### Important missing stuff
 
 -  Bacth file import system
 -  Documentation: PHPDoc, Getting started documentation and landing page

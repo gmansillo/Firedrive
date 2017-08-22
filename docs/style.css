@@ -50,7 +50,6 @@ body {
   font-family:  "Times New Roman", Times, serif;
   font-weight: 300;
 }
-
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-bottom: 0.5rem;
     font-weight: 800;
@@ -58,30 +57,24 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: inherit;
     font-family: "Raleway", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
-
 h1, .h1 {
     font-size: 3.85rem;
 }
-
 b, strong {
   font-weight:800;
 }
-
 .lead {
   font-size: 1.65rem;
 }
-
 .page__container::after {
   height: 100%;
   margin-left: -4px;
   content: '';
 }
-
 .page__centre, .page__container::after {
   display: inline-block;
   vertical-align: middle;
 }
-
 .page__container {
   position: absolute;
   top: 0;
@@ -521,4 +514,30 @@ b, strong {
 .my-auto {
   margin-top: auto !important;
   margin-bottom: auto !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
 }

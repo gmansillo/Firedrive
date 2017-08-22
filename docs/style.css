@@ -47,8 +47,8 @@ table {
 body {
   background-color: #f7f7f7;
   color: rgb(114, 114, 114);
-  font-family:  "Times New Roman", Times, serif;
   font-weight: 300;
+  font-family: "Raleway", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 a {
   color: inherit;
@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 800;
     line-height: 1.1;
     color: inherit;
-    font-family: "Raleway", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+   
 }
 h1, .h1 {
     font-size: 3.85rem;
@@ -69,6 +69,7 @@ b, strong {
 .lead {
   font-size: 1.65rem;
   color: rgb(179, 179, 177);
+  font-family:  "Times New Roman", Times, serif;
 }
 .page__container::after {
   height: 100%;

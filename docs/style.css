@@ -36,6 +36,10 @@ h1, .h1 {
 }
 .btn-primary {
   background-color: #f5a732;
+  border-color: transparent;
   border-bottom: 4px solid #cd8722;
-  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #f5a732;
+  border: inherit;
 }

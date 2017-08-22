@@ -1,7 +1,7 @@
 /*** CUSTOM RULES ***/
 body {
   background-color: #f7f7f7;
-  color: rgb(114, 114, 114);
+  color: rgb(161, 161, 161);
   font-family: "Raleway", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 a {
@@ -14,6 +14,7 @@ h1, .h1 {
 .lead {
   font-size: 1.65rem;
   color: rgb(179, 179, 177);
+  font-weight: 200;
 }
 .page__container::after {
   height: 100%;

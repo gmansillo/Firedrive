@@ -18,6 +18,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $('#download__button').click(function(){
+      $.getJSON("https://api.github.com/repos/gmansillo/simplefilemanager/releases/latest", function(data) {
+          // var latestversion = data.tag_name;
+          var downloadurl = data.assets[0].browser_download_url;
+          location.href = downloadurl;
+      });
+    });
+   
+   </script>  
 </head>
 
 <body>
@@ -37,16 +48,5 @@
     </div>
   </div>
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
-    $('#download__button').click(function(){
-      $.getJSON("https://api.github.com/repos/gmansillo/simplefilemanager/releases/latest", function(data) {
-          // var latestversion = data.tag_name;
-          var downloadurl = data.assets[0].browser_download_url;
-          location.href = downloadurl;
-      });
-    });
-   
-   </script>
 </body>
 </html>

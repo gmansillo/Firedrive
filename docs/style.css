@@ -14,7 +14,6 @@ h1, .h1 {
 .lead {
   font-size: 1.65rem;
   color: rgb(179, 179, 177);
-  font-family:  "Times New Roman", Times, serif;
 }
 .page__container::after {
   height: 100%;
@@ -38,8 +37,4 @@ h1, .h1 {
   background-color: #f5a732;
   border-bottom: 4px solid #cd8722;
   color: #fff;
-}
-
-small, .small {
-  font-size:.8em;
 }

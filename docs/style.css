@@ -566,6 +566,42 @@ b, strong {
   text-align: center !important;
 }
 
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.font-weight-normal {
+  font-weight: normal;
+}
+
+.font-weight-bold {
+  font-weight: 800;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.text-muted {
+  color: #636c72 !important;
+}
+
 .btn-lg {
   padding: 0.75rem 1.5rem;
   font-size: 1.25rem;
@@ -574,8 +610,4 @@ b, strong {
 .btn-sm {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
-}
-
-.text-decoration-none {
-  text-decoration: none;
 }

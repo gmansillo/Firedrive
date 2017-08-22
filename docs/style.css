@@ -43,7 +43,6 @@ table {
   border-spacing: 0;
 }
 
-
 /*** CUSTOM RULES ***/
 body {
   background-color: #f7f7f7;
@@ -61,7 +60,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 h1, .h1 {
-    font-size: 2.85rem;
+    font-size: 3.85rem;
+}
+
+b, strong {
+  font-weight:800;
 }
 
 .lead {
@@ -89,13 +92,7 @@ h1, .h1 {
   text-align: center;
 }
 
-
-b, strong {
-  font-weight:800;
-}
-
 /*** UTILITIES ***/
-
 .w-25 {
   width: 25% !important;
 }

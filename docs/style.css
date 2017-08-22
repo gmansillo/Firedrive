@@ -26,7 +26,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
-  font-weight: 300;
 }
 ol, ul {
   list-style: none;
@@ -42,6 +41,57 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+
+/*** CUSTOM RULES ***/
+body {
+  background-color: #f7f7f7;
+  color: rgb(96, 96, 96);
+  font-family:  "Times New Roman", Times, serif;
+  font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: inherit;
+    font-family: "Raleway", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+h1, .h1 {
+    font-size: 2.25rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+}
+
+.page__container::after {
+  height: 100%;
+  margin-left: -4px;
+  content: '';
+}
+
+.page__centre, .page__container::after {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.page__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+
+b, strong {
+  font-weight:800;
 }
 
 /*** UTILITIES ***/
@@ -474,49 +524,4 @@ table {
 .my-auto {
   margin-top: auto !important;
   margin-bottom: auto !important;
-}
-
-
-/*** CUSTOM RULES ***/
-body {
-  background-color: #f7f7f7;
-  color: rgb(96, 96, 96);
-  font-family:  "Times New Roman", Times, serif;
-}
-
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    margin-bottom: 0.5rem;
-    font-weight: 800;
-    line-height: 1.1;
-    color: inherit;
-    font-family: "Raleway", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-}
-
-h1, .h1 {
-    font-size: 2.25rem;
-}
-
-.load {
-  font-size: 1.25rem;
-}
-
-.page__container::after {
-  height: 100%;
-  margin-left: -4px;
-  content: '';
-}
-
-.page__centre, .page__container::after {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.page__container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: auto;
-  width: 100%;
-  height: 100%;
-  text-align: center;
 }

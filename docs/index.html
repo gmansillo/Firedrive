@@ -33,11 +33,15 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
-    $.getJSON("https://api.github.com/repos/gmansillo/simplefilemanager/releases/latest", function(data) {
-      var latestversion = data.tag_name;
-      var downloadurl = data.assets[0].browser_download_url;
-      jQuery('#download__button').attr("href", downloadurl);
+     $(document).on("click", "#download__button", function(e) {
+        e.preventDefault();     
+        $.getJSON("https://api.github.com/repos/gmansillo/simplefilemanager/releases/latest", function(data) {
+          var latestversion = data.tag_name;
+          var downloadurl = data.assets[0].browser_download_url;
+          jQuery('#download__button').attr("href", downloadurl);
+      });
     });
-  </script>
+    
+   </script>
 </body>
 </html>

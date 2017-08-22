@@ -561,3 +561,13 @@ b, strong {
 .text-center {
   text-align: center !important;
 }
+
+.btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}

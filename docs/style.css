@@ -26,6 +26,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
   line-height: 1;
+  font-weight: 300;
 }
 ol, ul {
   list-style: none;
@@ -480,6 +481,7 @@ table {
 body {
   background-color: #f7f7f7;
   color: rgb(96, 96, 96);
+  font-family:  "Times New Roman", Times, serif;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -492,6 +494,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 h1, .h1 {
     font-size: 2.25rem;
+}
+
+.load {
+  font-size: 1.25rem;
 }
 
 .page__container::after {

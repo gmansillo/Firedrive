@@ -34,12 +34,11 @@ h1, .h1 {
   height: 100%;
   text-align: center;
 }
-.btn-primary {
+.btn-primary, .btn-primary:hover {
   background-color: #f5a732;
   border-color: transparent;
   border-bottom: 4px solid #cd8722;
 }
 .btn-primary:hover {
-  background-color: #f5a732;
-  border: inherit;
+  background-color: #F2990C;
 }

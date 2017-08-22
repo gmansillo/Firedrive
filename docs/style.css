@@ -96,16 +96,13 @@ b, strong {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   transition: all 0.2s ease-in-out;
+  letter-spacing: 2px;
+  border-radius: 0;
 }
 .btn-download {
-    color: #fff;
-    background-color: #ddd;
-    border-color: #ddd;
-}
-.btn-backlink {
-    color: #fff;
-    background-color: #eee;
-    border-color: #eee;
+  background-color: #f5a732;
+  border-bottom: 4px solid #cd8722;
+  color: #fff;
 }
 
 /*** UTILITIES ***/

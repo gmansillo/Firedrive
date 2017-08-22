@@ -33,13 +33,13 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
-     $(document).on("click", "#download__button", function(e) {
+     $("#download__button").click(function(e) {
         e.preventDefault();     
         $.getJSON("https://api.github.com/repos/gmansillo/simplefilemanager/releases/latest", function(data) {
-          var latestversion = data.tag_name;
-          var downloadurl = data.assets[0].browser_download_url;
-          window.location.href( downloadurl );
-      });
+            var latestversion = data.tag_name;
+            var downloadurl = data.assets[0].browser_download_url;
+            window.location.href( downloadurl );
+        });
     });
     
    </script>

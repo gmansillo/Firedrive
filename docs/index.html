@@ -20,16 +20,20 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
-    $('#download__button').click(function(e){
-      e.preventDefault();
-      $.getJSON("https://api.github.com/repos/gmansillo/simplefilemanager/releases/latest", function(data) {
-          // var latestversion = data.tag_name;
-          var downloadurl = data.assets[0].browser_download_url;
-        alert(downloadurl);
-          location.href = downloadurl;
-      });
+    
+    $(document).ready(function(){
+      $('#download__button').click(function(e) {
+          e.preventDefault();
+          alert('ok click');
+        
+          $.getJSON("https://api.github.com/repos/gmansillo/simplefilemanager/releases/latest", function(data) {
+            // var latestversion = data.tag_name;
+            var downloadurl = data.assets[0].browser_download_url;
+            alert(downloadurl);
+            window.open(downloadurl);
+          })
+      })    
     });
-   
    </script>  
 </head>
 

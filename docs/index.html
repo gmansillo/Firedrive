@@ -38,7 +38,7 @@
       });
       
       jQuery("#slider").slider({
-          value: 15, min: 10, max: 200, step: 5, slide: function (event, ui) {
+          value: 15, min: 15, max: 200, step: 5, slide: function (event, ui) {
               var sliderVal = ui.value;
               updateAmount(sliderVal);
           }
@@ -51,9 +51,9 @@
     function updateAmount(amount) {   
         var newText = '';
         if (amount <= 15)
-            newText = 'E come la pago la <b>villa a Miami?</b>';
+            newText = 'How can I pay my <strong>Miami attic</strong>?';
         else if (amount < 56)
-            newText = 'Coraggio...';
+            newText = 'Come on...';
         else if (amount < 96)
             newText = 'Ci sei quasi';
         else if (amount < 151)
@@ -85,8 +85,7 @@
         </p>
         <div id="backlink__panel" class="mb-5" style="display:none">
           <form id="donation" action="https://www.paypal.com/it/cgi-bin/webscr" method="post" name="_xclick" target="_blank">
-            <p class="small">You can remove the backlink with a small donation: feel free to choose the right amount but remember that <br/>your donation is the only way to support Simple's development. <br />At the end of the donation you'll get an email containing a download link. Use it for downloading always the latest version of Simple!</p>
-            <p class="small">Donations are handled by PayPal: you don't need to be registred to the service, <br />you can also use your credit card to donate.</p>                        
+            <p class="small">You can remove the backlink with a small donation: feel free to choose the right amount but remember that <br/>your donation is the only way to support Simple's development! <br />At the end of the donation you'll get an email containing a download link for downloading always the latest version of Simple. Donations are handled by PayPal.</p>                        
             <div class="row py-4">
               <div class="col-10">
                 <div id="slider"></div>
@@ -102,7 +101,7 @@
             <input name="business" value="WNWJ3V4CEHJ9S" type="hidden">
             <input name="item_name" value="Simple 5" type="hidden">
             <input name="amount" id="amount" value="15" type="hidden">
-            <button class="btn btn-primary m-2" type="submit">Remove backlink</button>
+            <button class="btn btn-primary m-2" type="submit">Remove the backlink</button>
           </form>          
         </div>
         <p class="small mb-5">Simple project is hosted on <u><a href="https://github.com/gmansillo/simplefilemanager">GitHub</a></u> where you can read the <u><a href="https://github.com/gmansillo/simplefilemanager/wiki">documentation</a></u>, report any <u><a href="https://github.com/gmansillo/simplefilemanager/issues">issue</a></u> and <u><a href="https://github.com/gmansillo/simplefilemanager/fork">fork</a></u> the project.</p>

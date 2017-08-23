@@ -25,6 +25,7 @@
       $.getJSON("https://api.github.com/repos/gmansillo/simplefilemanager/releases/latest", function(data) {
           // var latestversion = data.tag_name;
           var downloadurl = data.assets[0].browser_download_url;
+        alert(downloadurl);
           location.href = downloadurl;
       });
     });

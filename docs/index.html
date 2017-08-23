@@ -12,6 +12,7 @@
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800" type="text/css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="./style.min.css" type="text/css">
   
   <!--[if lt IE 9]>
@@ -19,6 +20,7 @@
   <![endif]-->
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script>
     $(document).ready(function(){
       $('#download__button').click(function(e) {
@@ -33,8 +35,39 @@
       $('#remove__backlink').click(function(e) {
           e.preventDefault();
           $("#backlink__panel").slideToggle("slow");
-      })    
+      });
+      
+      jQuery("#slider").slider({
+          value: 15, min: 10, max: 200, step: 5, slide: function (event, ui) {
+              var sliderVal = ui.value;
+              updateAmount(sliderVal);
+          }
+      });
+      var sliderVal = $("#slider").slider("value");
+      updateAmount(sliderVal);
+     
     });
+    
+    function updateAmount(amount) {   
+        var newText = '';
+        if (amount <= 15)
+            newText = 'E come la pago la <b>villa a Miami?</b>';
+        else if (amount < 56)
+            newText = 'Coraggio...';
+        else if (amount < 96)
+            newText = 'Ci sei quasi';
+        else if (amount < 151)
+            newText = 'Wow! <i class=\'fa fa-smile-o\'></i>';
+        else if (amount < 196)
+            newText = 'Preparo la <strong>cassaforte</strong>...';
+        else
+            newText = 'Il sogno di comprare <b>2.000 goleador</b> si avvera!</i>';
+
+        jQuery(".amountText").html(newText);
+        jQuery("#amount").val(sliderVal);
+        jQuery(".amount").text(sliderVal + "€");
+    }
+    
    </script>  
 </head>
 
@@ -50,7 +83,18 @@
             <img style="width:17px; height: auto;" alt="" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI2OC40NzYgMjY4LjQ3NiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjY4LjQ3NiAyNjguNDc2OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPGcgaWQ9IkRvd25sb2FkIj4KCTxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDsiIGQ9Ik0yMzIuOTQzLDIyMy43M0gzNS41MzNjLTEyLjIxLDAtMjIuMTA5LDEwLjAxNy0yMi4xMDksMjIuMzczICAgYzAsMTIuMzU2LDkuOSwyMi4zNzMsMjIuMTA5LDIyLjM3M2gxOTcuNDFjMTIuMjEsMCwyMi4xMDktMTAuMDE3LDIyLjEwOS0yMi4zNzNDMjU1LjA1MiwyMzMuNzQ3LDI0NS4xNTMsMjIzLjczLDIzMi45NDMsMjIzLjczeiAgICBNMTE3Ljg4MSwxOTkuMTM2YzQuMDM0LDQuMDQxLDkuMjE1LDYuMTQ3LDE0LjQ5MSw2LjUwOGMwLjYyNiwwLjA1MywxLjIyNywwLjE4OCwxLjg2NiwwLjE4OGMwLjYzMywwLDEuMjI4LTAuMTM1LDEuODQ3LTAuMTg2ICAgYzUuMjg0LTAuMzU3LDEwLjQ3My0yLjQ2NCwxNC41MTItNi41MWw3MC43NjMtNzAuOTY3YzguODYxLTguODc1LDguODYxLTIzLjI2NywwLTMyLjE0MmMtOC44Ni04Ljg3Ni0yMy4yMjUtOC44NzYtMzIuMDg2LDAgICBsLTMyLjY2MiwzMi43NTZWMjIuMzczQzE1Ni42MTIsMTAuMDE3LDE0Ni41OTYsMCwxMzQuMjM4LDBjLTEyLjM1NiwwLTIyLjM3MiwxMC4wMTctMjIuMzcyLDIyLjM3M3YxMDYuNDFMNzkuMjA0LDk2LjAyNyAgIGMtOC44Ni04Ljg3Ni0yMy4yMjYtOC44NzYtMzIuMDg2LDBjLTguODYsOC44NzUtOC44NiwyMy4yNjcsMCwzMi4xNDJMMTE3Ljg4MSwxOTkuMTM2eiIgZmlsbD0iI0ZGRkZGRiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" /> 
             Get it now</a> or <a href="#" id="remove__backlink">remove the backlink</a>.
         </p>
-        <div id="backlink__panel" class="my-3" style="display:none">Backlink removal form</div>
+        <div id="backlink__panel" class="mb-5" style="display:none">
+          <form id="donation" action="https://www.paypal.com/it/cgi-bin/webscr" method="post" name="_xclick" target="_blank">
+            <div id="slider"></div>
+            <input name="cmd" value="_donations" type="hidden">
+            <input name="notify_url" value="http://www.simplefilemanager.eu/static/paypal/Listener.php" type="hidden">
+            <input name="currency_code" value="EUR" type="hidden">
+            <input name="business" value="WNWJ3V4CEHJ9S" type="hidden">
+            <input name="item_name" value="Simple 5" type="hidden">
+            <input name="amount" id="amount" value="15" type="hidden">
+            <button class="btn btn-lg btn-warning m-2" type="submit">Dona ora! <i class="fa fa-heart"></i></button>
+          </form>          
+        </div>
         <p class="small mb-5">Simple project is hosted on <u><a href="https://github.com/gmansillo/simplefilemanager">GitHub</a></u> where you can read the <u><a href="https://github.com/gmansillo/simplefilemanager/wiki">documentation</a></u>, report any <u><a href="https://github.com/gmansillo/simplefilemanager/issues">issue</a></u> and <u><a href="https://github.com/gmansillo/simplefilemanager/fork">fork</a></u> the project.</p>
       </div>
     </div>

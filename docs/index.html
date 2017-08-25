@@ -25,7 +25,7 @@
     $(document).ready(function(){
       $('#download__button').click(function(e) {
           e.preventDefault();
-          $.getJSON("https://api.github.com/repos/gmansillo/simplefilemanager/releases/latest", function(data) {
+          $.getJSON("https://api.github.com/repos/gmansillo/simple/releases/latest", function(data) {
             // var latestversion = data.tag_name;
             var downloadurl = data.assets[0].browser_download_url;
             window.location.href = downloadurl;
@@ -103,7 +103,7 @@
             <p class="small">Donations are handled by PayPal.</p>
           </form>          
         </div>
-        <p class="small mb-5">Simple project is hosted on <u><a href="https://github.com/gmansillo/simplefilemanager">GitHub</a></u> where you can read the <u><a href="https://github.com/gmansillo/simplefilemanager/wiki">documentation</a></u>, report any <u><a href="https://github.com/gmansillo/simplefilemanager/issues">issue</a></u> and <u><a href="https://github.com/gmansillo/simplefilemanager/fork">fork</a></u> the project.</p>
+        <p class="small mb-5">Simple project is hosted on <u><a href="https://github.com/gmansillo/simple">GitHub</a></u> where you can read the <u><a href="https://github.com/gmansillo/simple/wiki">documentation</a></u>, report any <u><a href="https://github.com/gmansillo/simple/issues">issue</a></u> and <u><a href="https://github.com/gmansillo/simple/fork">fork</a></u> the project.</p>
       </div>
     </div>
   </div>

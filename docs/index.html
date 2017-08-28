@@ -63,33 +63,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script>
     
-    $(function () {
-      $('#download__button').on('click', 'a', function (e) {
-         e.preventDefault();
-          $.getJSON("https://api.github.com/repos/gmansillo/simple/releases/latest", function(data) {
-            // var latestversion = data.tag_name;
-            var downloadurl = data.assets[0].browser_download_url;
-            console.log(downloadurl);
-            window.location.href = downloadurl;
-          });         
-      });
-      
-      $('#remove__backlink').on('click', 'a', function (e) {
-        e.preventDefault();
-        $("#backlink__panel").slideToggle("slow");
-      });
-      
-      jQuery("#slider").slider({
-          value: 15, min: 15, max: 200, step: 5, slide: function (event, ui) {
-              var sliderVal = ui.value;
-              updateAmount(sliderVal);
-          }
-      });
-      var sliderVal = $("#slider").slider("value");
-      updateAmount(sliderVal);
-      
+    $('#download__button').on('click', 'a', function (e) {
+       e.preventDefault();
+        $.getJSON("https://api.github.com/repos/gmansillo/simple/releases/latest", function(data) {
+          // var latestversion = data.tag_name;
+          var downloadurl = data.assets[0].browser_download_url;
+          console.log(downloadurl);
+          window.location.href = downloadurl;
+        });         
     });
-    
+
+    $('#remove__backlink').on('click', 'a', function (e) {
+      e.preventDefault();
+      $("#backlink__panel").slideToggle("slow");
+    });
+
+    jQuery("#slider").slider({
+        value: 15, min: 15, max: 200, step: 5, slide: function (event, ui) {
+            var sliderVal = ui.value;
+            updateAmount(sliderVal);
+        }
+    });
+    var sliderVal = $("#slider").slider("value");
+    updateAmount(sliderVal);
+
     function updateAmount(amount) {   
         var newText = '';
         if (amount <= 15)

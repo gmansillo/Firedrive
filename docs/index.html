@@ -18,55 +18,6 @@
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('#download__button').click(function(e) {
-          e.preventDefault();
-          $.getJSON("https://api.github.com/repos/gmansillo/simple/releases/latest", function(data) {
-            // var latestversion = data.tag_name;
-            var downloadurl = data.assets[0].browser_download_url;
-            window.location.href = downloadurl;
-          })
-      });
-      
-      $('#remove__backlink').click(function(e) {
-          e.preventDefault();
-          $("#backlink__panel").slideToggle("slow");
-      });
-      
-      jQuery("#slider").slider({
-          value: 15, min: 15, max: 200, step: 5, slide: function (event, ui) {
-              var sliderVal = ui.value;
-              updateAmount(sliderVal);
-          }
-      });
-      var sliderVal = $("#slider").slider("value");
-      updateAmount(sliderVal);
-     
-    });
-    
-    function updateAmount(amount) {   
-        var newText = '';
-        if (amount <= 15)
-            newText = 'How can I ever pay my Miami attic?';
-        else if (amount < 55)
-            newText = 'Come on...';
-        else if (amount < 100)
-            newText = 'You\'re almost there!';
-        else if (amount < 160)
-            newText = 'Wow! You got it, my friend.';
-        else
-            newText = 'I\'m going to prepare the safe...';
-
-        jQuery(".amountText").html(newText);
-        jQuery("#amount").val(amount);
-        jQuery(".amount").text(amount + "€");
-    }
-    
-   </script>  
 </head>
 
 <body>
@@ -107,6 +58,57 @@
       </div>
     </div>
   </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script>
+    
+    $(function () {
+      $('#download__button').on('click', 'a', function (e) {
+         e.preventDefault();
+          $.getJSON("https://api.github.com/repos/gmansillo/simple/releases/latest", function(data) {
+            // var latestversion = data.tag_name;
+            var downloadurl = data.assets[0].browser_download_url;
+            console.log(downloadurl);
+            window.location.href = downloadurl;
+          });         
+      });
+      
+      $('#remove__backlink').on('click', 'a', function (e) {
+        e.preventDefault();
+        $("#backlink__panel").slideToggle("slow");
+      });
+      
+      jQuery("#slider").slider({
+          value: 15, min: 15, max: 200, step: 5, slide: function (event, ui) {
+              var sliderVal = ui.value;
+              updateAmount(sliderVal);
+          }
+      });
+      var sliderVal = $("#slider").slider("value");
+      updateAmount(sliderVal);
+      
+    });
+    
+    function updateAmount(amount) {   
+        var newText = '';
+        if (amount <= 15)
+            newText = 'How can I ever pay my Miami attic?';
+        else if (amount < 55)
+            newText = 'Come on...';
+        else if (amount < 100)
+            newText = 'You\'re almost there!';
+        else if (amount < 160)
+            newText = 'Wow! You got it, my friend.';
+        else
+            newText = 'I\'m going to prepare the safe...';
+
+        jQuery(".amountText").html(newText);
+        jQuery("#amount").val(amount);
+        jQuery(".amount").text(amount + "€");
+    }
+    
+   </script>
   
 </body>
 </html>

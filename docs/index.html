@@ -62,13 +62,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script>
-    
-    $('#remove__backlink').on('click', 'a', function (e) {
-      e.preventDefault();
-      $("#backlink__panel").slideToggle("slow");
+   
+    $( "#remove__backlink" ).click(function() {
+      $( "#backlink__panel" ).slideToggle( "slow", function() {
+      });
     });
 
-    jQuery("#slider").slider({
+    $("#slider").slider({
         value: 15, min: 15, max: 200, step: 5, slide: function (event, ui) {
             var sliderVal = ui.value;
             updateAmount(sliderVal);
@@ -90,9 +90,9 @@
         else
             newText = 'I\'m going to prepare the safe...';
 
-        jQuery(".amountText").html(newText);
-        jQuery("#amount").val(amount);
-        jQuery(".amount").text(amount + "€");
+        $(".amountText").html(newText);
+        $("#amount").val(amount);
+        $(".amount").text(amount + "€");
     }
     
    </script>

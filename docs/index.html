@@ -63,9 +63,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script>
    
+    $(function () {
+        $('#remove__backlink').on('click', 'a', function (e) {
+            console.log('this is the click');
+            e.preventDefault();
+        });
+    });
+    
     $(document).ready(function(){
         $("#remove__backlink").click(function(){
-            $("backlink__panel").slideToggle("slow");
+            $("#backlink__panel").slideToggle("slow");
         });
       
         $("#slider").slider({

@@ -1,63 +1,51 @@
 <?php
+
 /**
- * @package     Simple File Manager
- * @author    Giovanni Mansillo
- *
- * @copyright   Copyright (C) 2005 - 2014 Giovanni Mansillo. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     com_simplefilemanager
+ * @copyright   Copyright (C) 2015. Tutti i diritti riservati.
+ * @license     GNU General Public License versione 2 o successiva; vedi LICENSE.txt
+ * @author      Giovanni Mansillo
  */
+
 defined('_JEXEC') or die();
 
 
 class com_simplefilemanagerInstallerScript
 {
 
-    function install($parent)
-    {
-        $this->createHtaccess();
-        echo '<p>' . JText::_('COM_SIMPLEFILEMANAGER_INSTALL_TEXT') . '</p>';
-        // $parent->getParent()->setRedirectURL('index.php?option=com_simplefilemanager');
-    }
+	function install($parent)
+	{
+		// $parent->getParent()->setRedirectURL('index.php?option=com_simplefilemanager');
+	}
 
-    function createHtaccess()
-    {
-        jimport('joomla.filesystem.file');
+	function uninstall($parent)
+	{
+	}
 
-        $filePath = JPATH_COMPONENT_ADMINISTRATOR . DIRECTORY_SEPARATOR . "uploads";
+	function update($parent)
+	{
+	}
 
-        $controlfile = $filePath . '/.htaccess';
-        $controlfileContent = "Deny from all\r\nOptions None\r\nOptions +FollowSymLinks\r\n";
+	function preflight($type, $parent)
+	{
+		$jversion = new JVersion();
 
-        if (!JFolder::exists($filePath))
-        {
-            JFolder::create($filePath);
-        }
+		// Manifest file minimum Joomla version
+		$minimum_joomla_release = $parent->get("manifest")->attributes()->version;
 
-        if (!JFile::exists($controlfile))
-        {
-            ;
-        }
-        JFile::write($controlfile, $controlfileContent);
-    }
+		// abort if the current Joomla release is older
+		if (version_compare($jversion->getShortVersion(), $minimum_joomla_release, 'lt'))
+		{
+			$errorMessage = sprintf(JText::_('COM_SIMPLEFILEMANAGER_PREFLIGHT_VERSION_ERROR'), $minimum_joomla_release, $jversion->getShortVersion());
+			Jerror::raiseWarning(null, $errorMessage);
 
-    function uninstall($parent)
-    {
-        echo '<p>' . JText::_('COM_SIMPLEFILEMANAGER_UNINSTALL_TEXT') . '</p>';
-    }
+			return false;
+		}
 
-    function update($parent)
-    {
-        $this->createHtaccess();
-        echo '<p>' . JText::_('COM_SIMPLEFILEMANAGER_UPDATE_TEXT') . '</p>';
-    }
+		// echo '<p>' . JText::_('COM_SIMPLEFILEMANAGER_PREFLIGHT_' . $type . '_TEXT') . '</p>';
+	}
 
-    function preflight($type, $parent)
-    {
-        // echo '<p>' . JText::_('COM_SIMPLEFILEMANAGER_PREFLIGHT_' . $type . '_TEXT') . '</p>';
-    }
-
-    function postflight($type, $parent)
-    {
-        // echo '<p>' . JText::_('COM_SIMPLEFILEMANAGER_POSTFLIGHT_' . $type . '_TEXT') . '</p>';
-    }
+	function postflight($type, $parent)
+	{
+	}
 }

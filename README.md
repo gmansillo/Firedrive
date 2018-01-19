@@ -24,7 +24,7 @@ Simple's main goal is to provide a simple, lightweight, responsive and safe comp
 
 ## Example site
 
-You can visit this Site http://www.simplefilemanager.eu/demo/ which is a test platform for Simple. I'm still developing and constantly adding new features but you can already use Simple File Manager in your websites as it has reached a stable and reliable state already.
+You can visit this Site http://demo.simplefilemanager.eu/ which is a test platform for Simple. I'm still developing and constantly adding new features but you can already use Simple File Manager in your websites as it has reached a stable and reliable state already.
 
 ## Version notes
 

@@ -1,205 +1,193 @@
 <?php
+/**
+ * @package     Simple File Manager
+ * @author      Giovanni Mansillo
+ * @license     GNU General Public License version 2 or later; see LICENSE.md
+ */
+
+defined('_JEXEC') or die;
 
 /**
- *
- * @package Simple File Manager
- * @author Giovanni Mansillo
- *
- * @copyright Copyright (C) 2005 - 2014 Giovanni Mansillo. All rights reserved.
- * @license GNU General Public License version 2 or later; see LICENSE.txt
+ * Documents component helper.
  */
-defined('_JEXEC') or die();
-
-class SimplefilemanagerHelper
+class SimplefilemanagerHelper extends JHelperContent
 {
 
-    public static function getActions($categoryId = 0)
-    {
-        $user   = JFactory::getUser();
-        $result = new JObject();
+	/**
+	* Detects max size of file cab be uploaded to server
+	*
+	* Based on php.ini parameters "upload_max_filesize", "post_max_size" &
+	* "memory_limit". 
+	*
+	* @author Paul Melekhov, edited by lostinscope
+	* @return int Max file size in bytes
+	*/
+	public static function detectMaxUploadFileSize(){
+		/**
+		* Converts shorthands like "2M" or "512K" to bytes
+		*
+		* @param $size
+		* @return mixed
+		*/
+		$normalize = function($size) {
+			if (preg_match("/^([\d\.]+)([KMG])$/i", $size, $match)) {
+				$pos = array_search($match[2], array("K", "M", "G"));
+				if ($pos !== false) {
+					$size = $match[1] * pow(1024, $pos + 1);
+				}
+			}
+			return $size;
+		};
+		$max_upload = $normalize(ini_get("upload_max_filesize"));
+		
+		$max_post = (ini_get("post_max_size") == 0) ?
+		function(){throw new Exception("Check Your php.ini settings");}
+		: $normalize(ini_get("post_max_size"));
+		
+		$memory_limit = (ini_get("memory_limit") == -1) ?
+		$max_post : $normalize(ini_get("memory_limit"));
+		
+		if($memory_limit < $max_post || $memory_limit < $max_upload)
+		return $memory_limit;
+		
+		if($max_post < $max_upload)
+		return $max_post;
+		
+		$maxFileSize = min($max_upload, $max_post, $memory_limit);
+		return $maxFileSize;
+	}
 
-        if (empty($categoryId)) {
-            $assetName = 'com_simplefilemanager';
-            $level     = 'component';
-        } else {
-            $assetName = 'com_simplefilemanager.category.' . (int)$categoryId;
-            $level     = 'category';
-        }
+	/**
+	 * Update document icon in according with global params.
+	 *
+	 * @param  stdClass $document.
+	 *
+	 * @return  void
+	 */
+	public static function processDocumentIcon(&$document){
 
-        $actions = JAccess::getActions('com_simplefilemanager', $level);
+		$params = JComponentHelper::getParams('com_simplefilemanager');
+		
+		if(!is_null($document) && empty($document->icon))
+		{
+			$smartIconsDirectory = JPATH_ROOT."/media/com_simplefilemanager/smartIcons/";
+			$smartIconsUri = JURI::root()."/media/com_simplefilemanager/smartIcons/";
+			$availableSmartIcons = array_map('basename', glob($smartIconsDirectory . "*.png", GLOB_BRACE));
+			$neededSmartIcon = pathinfo($document->file_name, PATHINFO_EXTENSION).".png"; 
+			if($params->get('use_smart_icons', 1) && in_array($neededSmartIcon, $availableSmartIcons))
+			{
+				$document->icon = $smartIconsUri.$neededSmartIcon;
+			}
+			else
+			{
+				$document->icon = JURI::root()."/media/com_simplefilemanager/images/document.png";				
+			}
+		}
 
-        foreach ($actions as $action) {
-            $result->set($action->name, $user->authorise($action->name, $assetName));
-        }
+		return;
+	}
 
-        return $result;
-    }
+	/**
+	 * Convert size in bytes to a readable format.
+	 *
+	 * @param   string  $size  The size to format in byte.
+	 *
+	 * @return  string
+	 */
+	public static function convertToReadableSize($size){
 
-    public static function addSubmenu($vName = 'simplefilemanagers')
-    {
-        JHtmlSidebar::addEntry(JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_SIMPLEFILEMANAGERS'), 'index.php?option=com_simplefilemanager&view=simplefilemanagers', $vName == 'simplefilemanagers');
-        JHtmlSidebar::addEntry(JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_CATEGORIES'), 'index.php?option=com_categories&extension=com_simplefilemanager', $vName == 'categories');
-        if ($vName == 'categories') {
-            JToolbarHelper::title(JText::sprintf('COM_CATEGORIES_CATEGORIES_TITLE', JText::_('com_simplefilemanager')), 'simplefilemanagers-categories');
-        }
-    }
+		if(!($size > 0)) return "0 KB";
 
-    /**
-     * Check if a file has a safe extension
-     *
-     * @param string $filename Name of file to be checked
-     * @return bool FALSE if given file has a safe dangerous extension, TRUE otherwise
-     */
-    public static function hasSafeExtension($filename)
-    {
-        JLog::add('Start hasSafeExtension($filename)... ', JLog::DEBUG, 'com_simplefilemanager');
+		$base = log($size) / log(1024);
+		$suffix = array("", "KB", "MB", "GB", "TB");
+		$f_base = floor($base);
 
-        $result = true;
+		return round(pow(1024, $base - floor($base)), 1) . $suffix[$f_base];
+	}
 
-        $params              = JComponentHelper::getParams('com_simplefilemanager');
-        $forbiddenExtensions = $params->get('forbiddenExtensions');
-        $forbiddenExtensions = preg_replace(" ", "", $forbiddenExtensions);
-        $dangExtList         = explode(",", $forbiddenExtensions);
-        $ext                 = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+	 /**
+	 * Show upgrade instructions in a notice.
+	 *
+	 * @return  void
+	 */
+	public static function showUpgradeNotice(){
+		$message_type = "notice";
+		$app = JFactory::getApplication();
+		$app->enqueueMessage( JText::_('COM_SIMPLEFILEMANAGER_UPGRADE_INSTRUCTIONS') , $message_type );
+	}
 
-        JLog::add('Dangerous extensions: '.json_decode($dangExtList), JLog::DEBUG, 'com_simplefilemanager');
+	/**
+	 * Configure the Linkbar.
+	 *
+	 * @param   string  $vName  The name of the active view.
+	 *
+	 * @return  void
+	 */
+	public static function addSubmenu($vName)
+	{
+		JHtmlSidebar::addEntry(
+			JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_DOCUMENTS'),
+			'index.php?option=com_simplefilemanager',
+			$vName == 'documents'
+		);
 
-        if(in_array($ext, $dangExtList))
-        {
-            $result = false;
-            JLog::add($ext.' is not a safe extension. ', JLog::INFO, 'com_simplefilemanager');
-        }
+		JHtmlSidebar::addEntry(
+			JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_CATEGORIES'),
+			'index.php?option=com_categories&extension=com_simplefilemanager',
+			$vName == 'categories'
+		);
+	}
 
-        return $result;
-    }
+	/**
+	 * Adds Count Items for Category Manager.
+	 *
+	 * @param   stdClass[]  &$items  The document category objects
+	 *
+	 * @return  stdClass[]
+	 */
+	public static function countItems(&$items)
+	{
+		$db = JFactory::getDbo();
 
-    /**
-     * Upload Simple File Manager files in the right folder.
-     *
-     * @param string $tmp_name
-     *            Temporary path of the uploaded file on the server
-     * @param string $file_name
-     *            Name of the uploaded file
-     * @return uploaded file path (in case of success) or false (in case of error)
-     */
-    public static function uploadFile($tmp_name, $file_name)
-    {
-        jimport('joomla.filesystem.file');
+		foreach ($items as $item)
+		{
+			$item->count_trashed = 0;
+			$item->count_archived = 0;
+			$item->count_unpublished = 0;
+			$item->count_published = 0;
+			$query = $db->getQuery(true);
+			$query->select('state, count(*) AS count')
+				->from($db->qn('#__simplefilemanager'))
+				->where('catid = ' . (int) $item->id)
+				->group('state');
+			$db->setQuery($query);
+			$documents = $db->loadObjectList();
 
-        $src  = $tmp_name;
-        $dest = JPATH_COMPONENT_ADMINISTRATOR . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . uniqid("", true) . DIRECTORY_SEPARATOR . JFile::makeSafe(JFile::getName($file_name));
+			foreach ($documents as $document)
+			{
+				if ($document->state == 1)
+				{
+					$item->count_published = $document->count;
+				}
 
-        return JFile::upload($src, $dest) ? $dest : false;
-    }
+				if ($document->state == 0)
+				{
+					$item->count_unpublished = $document->count;
+				}
 
-    /**
-     * Copy Simple File Manager files in a new folder.
-     *
-     * @param string $source
-     *            Path of the uploaded file on the server
-     * @return copied file path (in case of success) or false (in case of error)
-     */
-    public static function copyFile($source)
-    {
-        jimport('joomla.filesystem.file');
+				if ($document->state == 2)
+				{
+					$item->count_archived = $document->count;
+				}
 
-        $fileName = pathinfo($source, PATHINFO_BASENAME);
-        $destFolder = JPATH_COMPONENT_ADMINISTRATOR . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . uniqid("", true) . DIRECTORY_SEPARATOR;
+				if ($document->state == -2)
+				{
+					$item->count_trashed = $document->count;
+				}
+			}
+		}
 
-        mkdir($destFolder);
-        return JFile::copy($source, $destFolder.$fileName) ? $destFolder.$fileName : false;
-    }
+		return $items;
+	}
 
-    /**
-     * Delete a document from the filesystem
-     *
-     * @param string $filename
-     *            Name of file to be deleted
-     * @return boolean true on success
-     */
-    public static function deleteFile($filename)
-    {
-        jimport('joomla.filesystem.file');
-
-        return JFile::delete($filename);
-    }
-
-    /**
-     * Send and email to notify a new file upload
-     *
-     * @param string $dest
-     * @return boolean true in case of success
-     */
-    public static function sendMail(&$form)
-    {
-        JLog::add('Start sendMail($form)... ', JLog::DEBUG, 'com_simplefilemanager');
-
-        // Check requisites for email sending
-        if ($form["state"] != 1) {
-            JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_SENDMAIL_UNPUBLISHED_DOCUMENT_WARNING'), 'warning');
-            return false;
-        } elseif ($form["visibility"] != 3) {
-            JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_SENDMAIL_UNSUPPORTED_VISIBILITY_ERROR'), 'warning');
-            return false;
-        } elseif ($form["reserved_user"] <= 0) {
-            JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_SENDMAIL_NO_RECIPIENT_SPECIFIED_ERROR'), 'warning');
-            return false;
-        }
-
-        // Load objects
-        $mailer = JFactory::getMailer();
-        $config = JFactory::getConfig();
-
-        // Mail sender
-        $sender = array($config->get('mailfrom'), $config->get('fromname'));
-        $mailer->setSender($sender);
-
-        // Mail recipient
-        $user = JFactory::getUser((int)$form["reserved_user"]);
-        if ($user->guest) {
-            JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_SENDMAIL_NO_RECIPIENT_SPECIFIED_ERROR'), 'warning');
-        }
-        $recipient = $user->email;
-        $mailer->addRecipient($recipient);
-
-        // Mail contents
-        $mailer->setSubject(JText::_('COM_SIMPLEFILEMANAGER_EMAIL_SUBJ'));
-        $body = JText::_('COM_SIMPLEFILEMANAGER_EMAIL_BODY');
-        $mailer->isHTML(true);
-        $mailer->Encoding = 'base64';
-        $mailer->setBody($body);
-
-        $send = $mailer->Send();
-
-        if (!$send) {
-            return JFactory::getApplication()->enqueueMessage(JText::_('JERROR') . ": " . $send->__toString(), 'error');
-        }
-
-        return true;
-    }
-
-    public static function getMaxFileUploadSize()
-    {
-        return min(
-            SimplefilemanagerHelper::return_bytes(ini_get('post_max_size')),
-            SimplefilemanagerHelper::return_bytes(ini_get('upload_max_filesize'))
-        );
-    }
-
-    private static function return_bytes($size_str)
-    {
-        switch (substr($size_str, -1)) {
-            case 'M':
-            case 'm':
-                return (int)$size_str * 1048576;
-            case 'K':
-            case 'k':
-                return (int)$size_str * 1024;
-            case 'G':
-            case 'g':
-                return (int)$size_str * 1073741824;
-            default:
-                return $size_str;
-        }
-    }
 }

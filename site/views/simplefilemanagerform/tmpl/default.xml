@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<metadata>
-    <layout title="COM_SIMPLEFILEMANAGER_TITLE_FORM_VIEW_SIMPLEFILEMANAGERFORM"
-            option="COM_SIMPLEFILEMANAGER_TITLE_FORM_VIEW_SIMPLEFILEMANAGERFORM">
-        <message>
-            <![CDATA[COM_SIMPLEFILEMANAGER_TITLE_FORM_VIEW_SIMPLEFILEMANAGERFORM_DESC]]>
-        </message>
-    </layout>
-</metadata>

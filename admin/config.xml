@@ -1,7 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-    <fieldset name="component"
-              label="COM_SIMPLEFILEMANAGER_COMPONENT_LABEL">
+    <fieldset 
+        name="category"
+        label="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORY_SETTINGS_LABEL"
+        description="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORY_SETTINGS_DESC"
+    >
+
+        <field name="showNew"
+               type="list"
+               label="COM_SIMPLEFILEMANAGER_FIELD_SHOWNEW_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_SHOWNEW_DESC"
+        >
+            <option value="0">JHIDE</option>
+            <option value="1">JSHOW</option>
+        </field>
+
+        <field name="showDesc"
+               type="radio"
+               class="radio btn-group btn-group-yesno"
+               default="1"
+               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DESC_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DESC_DESC"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="showAuth"
+               type="radio"
+               class="radio btn-group btn-group-yesno"
+               default="0"
+               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_AUTHOR_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_AUTHOR_DESC"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="showDate"
+               type="radio"
+               class="radio btn-group btn-group-yesno"
+               default="1"
+               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DATE_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DATE_DESC"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="showSize"
+               type="radio"
+               class="radio btn-group btn-group-yesno"
+               default="1"
+               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_SIZE_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_SIZE_DESC"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="showMD5"
+               type="radio"
+               class="radio btn-group btn-group-yesno"
+               default="0"
+               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_MD5_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_MD5_DESC"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="showLicense"
+               type="radio"
+               class="radio btn-group btn-group-yesno"
+               default="0"
+               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_LICENSE_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_LICENSE_DESC"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="showIcon"
+               type="radio"
+               class="radio btn-group btn-group-yesno"
+               default="1"
+               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_ICON_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_ICON_DESC"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+         <field name="forceListVisibility"
+               class="radio btn-group btn-group-yesno"
+               type="radio"
+               default="0"
+               label="COM_SIMPLEFILEMANAGER_FIELD_FORCELISTVISIBILITY_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_FORCELISTVISIBILITY_DESC"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="linkOnTitle"
+               class="radio btn-group btn-group-yesno"
+               type="radio"
+               default="1"
+               label="COM_SIMPLEFILEMANAGER_FIELD_LINK_ON_TITLE_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_LINK_ON_TITLE_DESC"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="nomediaMessage"
+               class="radio btn-group btn-group-yesno"
+               type="radio"
+               default="1"
+               label="COM_SIMPLEFILEMANAGER_FIELD_NOMEDIA_FRONTEND_MESSAGE_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_NOMEDIA_FRONTEND_MESSAGE_DESC">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+    </fieldset>
+
+    <fieldset 
+        name="document"
+        label="COM_SIMPLEFILEMANAGER_CONFIG_DOCUMENT_SETTINGS_LABEL"
+    >
+
         <field
                 name="sendmail"
                 type="radio"
@@ -20,14 +149,7 @@
                step="1"
                default="7"
                label="COM_SIMPLEFILEMANAGER_FIELD_NEWFILEDAYS_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_NEWFILEDAYS_DESC" />
-
-        <field name="showNew"
-               type="list"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOWNEW_LABEL">
-            <option value="0">JHIDE</option>
-            <option value="1">JSHOW</option>
-        </field>
+               description="COM_SIMPLEFILEMANAGER_FIELD_NEWFILEDAYS_DESC"/>
 
         <field name="force_download"
                type="radio"
@@ -39,77 +161,7 @@
             <option value="0">JNO</option>
         </field>
 
-        <field name="showDesc"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DESC_LABEL"
-               description="">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="showAuth"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="0"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_AUTHOR_LABEL"
-               description="">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="showDate"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DATE_LABEL"
-               description="">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="showSize"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_SIZE_LABEL"
-               description="">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="showMD5"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="0"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_MD5_LABEL"
-               description="">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="showLicence"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="0"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_LICENCE_LABEL"
-               description="">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="showIcon"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_ICON_LABEL"
-               description="">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="useSmartIcons"
+        <!-- <field name="useSmartIcons"
                type="radio"
                class="radio btn-group btn-group-yesno"
                default="1"
@@ -117,62 +169,58 @@
                description="COM_SIMPLEFILEMANAGER_FIELD_USE_SMART_ICONS_DESC">
             <option value="1">JYES</option>
             <option value="0">JNO</option>
-        </field>
+        </field> -->
 
         <field name="defaulticon"
                type="media"
                label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULTICON_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULTICON_DESC" />
+               description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULTICON_DESC"/>
 
-        <field name="forbiddenExtensions"
+        <!-- <field name="forbiddenExtensions"
                type="text"
                label="COM_SIMPLEFILEMANAGER_FIELD_FORBIDDEN_EXT_LABEL"
                description="COM_SIMPLEFILEMANAGER_FIELD_FORBIDDEN_EXT_DESC"
-               default="exe,js,css,dll,htaccess,php,php3,php4,phtml,pl,py,jsp,asp,htm,html,shtml,sh,cgi" />
+               default="js,css,htaccess,php,php3,php4,phtml,pl,py,jsp,asp,htm,html,shtml,sh"/> -->
 
-        <field name="forceListVisibility"
-               class="radio btn-group btn-group-yesno"
-               type="radio"
+        <field name="defaultState" 
+               type="list"
+               label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_STATE_LABEL" 
+               description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_STATE_DESC"
+               class="chzn-color-state" 
                default="0"
-               label="COM_SIMPLEFILEMANAGER_FIELD_FORCELISTVISIBILITY_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_FORCELISTVISIBILITY_DESC">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
+        >
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
         </field>
 
-        <field name="linkOnTitle"
-               class="radio btn-group btn-group-yesno"
-               type="radio"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_LINK_ON_TITLE_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_LINK_ON_TITLE_DESC">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="nomediaMessage"
-               class="radio btn-group btn-group-yesno"
-               type="radio"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_NOMEDIA_FRONTEND_MESSAGE_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_NOMEDIA_FRONTEND_MESSAGE_DESC">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
+        <field name="defaultVisibility"
+               type="list"
+               label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_VISIBILITY_LABEL" 
+               description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_VISIBILITY_DESC" 
+               default="5"
+        >
+            <option value="1">COM_SIMPLEFILEMANAGER_VISIBILITY_1_PUBLIC</option>
+            <option value="2">COM_SIMPLEFILEMANAGER_VISIBILITY_2_REGISTRED</option>
+            <option value="3">COM_SIMPLEFILEMANAGER_VISIBILITY_3_USER</option>
+            <option value="4">COM_SIMPLEFILEMANAGER_VISIBILITY_4_GROUP</option>
+            <option value="5">COM_SIMPLEFILEMANAGER_VISIBILITY_5_AUTHOR</option>
         </field>
 
     </fieldset>
 
-    <!--<fieldset name="import" label="COM_SIMPLEFILEMANAGER_TOOL_IMPORT_TITLE"><field name="import_path" type="text" default="images/sampledata/" label="COM_SIMPLEFILEMANAGER_TOOL_IMPORT_LABEL_SELECTPATH" /><field name="import_sub" type="checkbox" label="COM_SIMPLEFILEMANAGER_TOOL_IMPORT_LABEL_INCLUDESUB" value="1" default="0" /><field name="usecaptcha" type="radio" class="radio btn-group btn-group-yesno" default="0" label="COM_SIMPLEFILEMANAGER_FIELD_USE_CAPTCHA_LABEL" description=""><option value="1">JYES</option><option value="0">JNO</option></field></fieldset>-->
-
     <fieldset name="permissions"
               description="JCONFIG_PERMISSIONS_DESC"
-              label="JCONFIG_PERMISSIONS_LABEL">
+              label="JCONFIG_PERMISSIONS_LABEL"
+    >
+
         <field name="rules"
                type="rules"
                component="com_simplefilemanager"
                filter="rules"
                validate="rules"
                label="JCONFIG_PERMISSIONS_LABEL"
-               section="component" />
+               section="component"/>
     </fieldset>
 </config>

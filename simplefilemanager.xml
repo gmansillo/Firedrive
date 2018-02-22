@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="3.0" method="upgrade">
-    <name>com_simplefilemanager</name>
+<extension type="component" version="3.8.5" method="upgrade">
+    <name>COM_SIMPLEFILEMANAGER</name>
     <author>Giovanni Mansillo</author>
-    <creationDate>Sep 2014</creationDate>
+    <creationDate>Feb 2018</creationDate>
     <copyright>(C) 2014 Giovanni Mansillo. All rights reserved.</copyright>
     <license>GNU General Public License version 3 or later</license>
     <authorEmail>support@simplefilemanager.eu</authorEmail>
     <authorUrl>http://www.simplefilemanager.eu</authorUrl>
-    <version>5.0.13</version>
+    <version>5.1.4</version>
     <description><![CDATA[]]></description>
     <scriptfile>script.php</scriptfile>
     <install>
@@ -27,47 +27,48 @@
     </update>
     <files folder="site">
         <filename>index.html</filename>
-        <filename>controller.php</filename>
-        <filename>simplefilemanager.php</filename>
         <folder>controllers</folder>
         <folder>helpers</folder>
         <folder>language</folder>
         <folder>models</folder>
         <folder>views</folder>
+        <filename>controller.php</filename>
+        <filename>simplefilemanager.php</filename>
     </files>
     <media destination="com_simplefilemanager" folder="media">
         <filename>index.html</filename>
         <folder>images</folder>
-        <folder>css</folder>
         <folder>smartIcons</folder>
     </media>
     <administration>
-        <menu img="class:categories">COM_SIMPLEFILEMANAGER_MENU</menu>
+        <menu>COM_SIMPLEFILEMANAGER_MENU</menu>
         <submenu>
             <menu link="option=com_simplefilemanager" view="simplefilemanagers">
-                com_simplefilemanager_simplefilemanagers
+                COM_SIMPLEFILEMANAGER_MENU_DOCUMENTS
             </menu>
-            <menu link="option=com_categories&amp;extension=com_simplefilemanager" view="categories">com_simplefilemanager_categories
+            <menu link="option=com_categories&amp;extension=com_simplefilemanager" view="categories">
+                COM_SIMPLEFILEMANAGER_MENU_CATEGORIES
             </menu>
         </submenu>
         <files folder="admin">
             <filename>index.html</filename>
             <filename>access.xml</filename>
             <filename>config.xml</filename>
-            <filename>controller.php</filename>
             <filename>simplefilemanager.php</filename>
-            <folder>controllers</folder>
-            <folder>helpers</folder>
-            <folder>language</folder>
-            <folder>models</folder>
+            <filename>controller.php</filename>
             <folder>sql</folder>
-            <folder>tables</folder>
             <folder>uploads</folder>
+            <folder>language</folder>
             <folder>views</folder>
+            <folder>tables</folder>
+            <folder>models</folder>
+            <folder>helpers</folder>
+            <folder>controllers</folder>
         </files>
     </administration>
     <updateservers>
-        <server type="extension" priority="1" name="Simple File Manager Update Server">http://www.simplefilemanager.eu/releases/update.php
+        <server type="extension" priority="1" name="Simple Update Server">
+            http://service.simplefilemanager.eu/delivery/update.php
         </server>
     </updateservers>
 </extension>

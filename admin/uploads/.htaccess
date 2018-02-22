@@ -1,0 +1,7 @@
+Options -Indexes
+Require all denied
+
+# Previous lines are valid only for Apache 2.4+
+# If you are using Apache 2.2 please replace them with the following lines:
+# Options -Indexes
+# Order deny,allow

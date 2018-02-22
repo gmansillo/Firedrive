@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="document" addfieldpath="/administrator/components/com_simplefilemanager/models/fields">
+
+		<field
+			name="id"
+			type="text"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description="JGLOBAL_FIELD_ID_DESC"
+			default="0"
+			readonly="true"
+			class="readonly"
+		/>
+
+		<field
+			name="title"
+			type="text"
+			label="COM_SIMPLEFILEMANAGER_FIELD_TITLE_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_TITLE_DESC"
+			class="input-xxlarge input-large-text"
+			size="40"
+			required="true"
+		/>
+
+		<field
+			name="alias"
+			type="text"
+			label="JFIELD_ALIAS_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_ALIAS_DESC"
+			size="40"
+			hint="JFIELD_ALIAS_PLACEHOLDER"
+		/>
+
+		<field
+			name="catid"
+			type="categoryedit"
+			label="JCATEGORY"
+			description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_DESC"
+			extension="com_simplefilemanager"
+			required="true"
+			addfieldpath="/administrator/components/com_categories/models/fields"
+			default=""
+		/>
+
+		<field
+			name="state"
+			type="list"
+			label="JSTATUS"
+			description="COM_SIMPLEFILEMANAGER_FIELD_STATE_DESC"
+			class="chzn-color-state"
+			size="1"
+			default="1"
+			>
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+			<option value="2">JARCHIVED</option>
+			<option value="-2">JTRASHED</option>
+		</field>
+
+		<field
+			name="ordering"
+			type="ordering"
+			label="JFIELD_ORDERING_LABEL"
+			description="JFIELD_ORDERING_DESC"
+			table="#__simplefilemanager"
+		/>
+
+		<field
+			name="language"
+			type="contentlanguage"
+			label="JFIELD_LANGUAGE_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_LANGUAGE_DESC"
+			>
+			<option value="*">JALL</option>
+		</field>
+
+		<field
+			name="description"
+			type="editor"
+			label="JGLOBAL_DESCRIPTION"
+			description="COM_SIMPLEFILEMANAGER_FIELD_DESCRIPTION_DESC"
+			filter="JComponentHelper::filterText"
+			buttons="true"
+			hide="readmore,pagebreak,module,article,contact,menu"
+		/>
+
+        <field
+			name="visibility"
+			type="list"
+			label="COM_SIMPLEFILEMANAGER_FIELD_VISIBILITY_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_VISIBILITY_DESC"
+			default="1"
+		>
+			<option value="1">COM_SIMPLEFILEMANAGER_VISIBILITY_1_PUBLIC</option>
+			<option value="2">COM_SIMPLEFILEMANAGER_VISIBILITY_2_REGISTRED</option>
+			<option value="3">COM_SIMPLEFILEMANAGER_VISIBILITY_3_USER</option>
+			<option value="4">COM_SIMPLEFILEMANAGER_VISIBILITY_4_GROUP</option>
+			<option value="5">COM_SIMPLEFILEMANAGER_VISIBILITY_5_AUTHOR</option>
+        </field>
+
+        <field
+			name="reserved_user"
+			type="sql"
+			label="COM_SIMPLEFILEMANAGER_FIELD_RESERVED_USER_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_RESERVED_USER_DESC"
+			sql_select="u.id, CONCAT(u.name,' (',u.username,')') AS value"
+			sql_from="#__users AS u"
+			sql_order="u.name ASC"
+			key_field="id"
+			value_field="value"
+			multiple="multiple"
+			class="span12"
+        />
+
+        <field
+			name="reserved_group"
+			type="sql"
+			label="COM_SIMPLEFILEMANAGER_FIELD_RESERVED_GROUP_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_RESERVED_GROUP_DESC"
+			sql_select="ug.id, ug.title"
+			sql_from="#__usergroups AS ug"
+			sql_order="ug.title ASC"
+			key_field="id"
+			value_field="title"
+			multiple="multiple"
+			class="span12"
+        />
+
+        <field
+			name="file_name"
+			readonly="true"
+			class="readonly"
+			type="text"
+			required="true"
+			label="COM_SIMPLEFILEMANAGER_FIELD_FILE_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_FILE_DESC"
+		/>
+
+        <field
+			name="featured"
+			default="0"
+			type="radio"
+			class="radio btn-group btn-group-yesno"
+			label="COM_SIMPLEFILEMANAGER_FIELD_FEATURED_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_FEATURED_DESC"
+		>
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field
+			name="select_file"
+			type="file"
+			label="COM_SIMPLEFILEMANAGER_FIELD_SELECT_FILE_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_SELECT_FILE_DESC"
+			filter="unset"
+		/>
+
+		<field
+			name="replace_file"
+			type="file"
+			label="COM_SIMPLEFILEMANAGER_FIELD_REPLACE_FILE_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_REPLACE_FILE_DESC"
+			filter="unset"
+		/>
+
+        <field
+			name="fl_send_mail"
+			type="checkbox"
+			label="COM_SIMPLEFILEMANAGER_FL_SENDMAIL_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FL_SENDMAIL_DESC"
+			value="1"
+		/>
+		
+	</fieldset>
+
+	<fieldset name="publish" label="COM_SIMPLEFILEMANAGER_GROUP_LABEL_PUBLISHING_DETAILS">
+
+		<field
+			name="created"
+			type="calendar"
+			label="COM_SIMPLEFILEMANAGER_FIELD_CREATED_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_CREATED_DESC"
+			size="22"
+			translateformat="true"
+			showtime="true"
+			filter="user_utc"
+		/>
+
+		<field
+			name="created_by"
+			type="user"
+			label="COM_SIMPLEFILEMANAGER_FIELD_CREATED_BY_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_CREATED_BY_DESC"
+		/>
+
+		<field
+			name="modified"
+			type="calendar"
+			label="JGLOBAL_FIELD_MODIFIED_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_MODIFIED_DESC"
+			class="readonly"
+			size="22"
+			readonly="true"
+			translateformat="true"
+			showtime="true"
+			filter="user_utc"
+		/>
+
+		<field
+			name="modified_by"
+			type="user"
+			label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_MODIFIED_BY_DESC"
+			class="readonly"
+			readonly="true"
+			filter="unset"
+		/>
+
+		<field
+			name="version"
+			type="text"
+			label="COM_SIMPLEFILEMANAGER_FIELD_VERSION_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_VERSION_DESC"
+		/>
+
+		<field
+			name="publish_up"
+			type="calendar"
+			label="COM_SIMPLEFILEMANAGER_FIELD_PUBLISH_UP_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_PUBLISH_UP_DESC"
+			translateformat="true"
+			showtime="true"
+			size="22"
+			filter="user_utc"
+		/>
+
+		<field
+			name="publish_down"
+			type="calendar"
+			label="COM_SIMPLEFILEMANAGER_FIELD_PUBLISH_DOWN_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_PUBLISH_DOWN_DESC"
+			translateformat="true"
+			showtime="true"
+			size="22"
+			filter="user_utc"
+		/>
+	</fieldset>
+
+	<fieldset name="details" label="COM_SIMPLEFILEMANAGER_GROUP_LABEL_BANNER_DETAILS">
+	
+		<field
+			name="icon"
+			type="media"
+			directory="com_simplefilemanager"
+			label="COM_SIMPLEFILEMANAGER_FIELD_IMAGE_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_IMAGE_DESC"
+		/>
+
+		<field
+			name="license"
+			type="text"
+			class="inputbox"
+			filter="safehtml"
+			rows="6"
+			label="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_DESC"
+		/>
+
+		<field
+			name="license_link"
+			type="text"
+			class="inputbox"
+			label="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_LINK_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_LINK_DESC"
+		/>
+
+        <field
+			name="notes"
+			type="textarea"
+			class="inputbox"
+			label="COM_SIMPLEFILEMANAGER_FIELD_NOTES_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_NOTES_DESC"
+		/>
+	</fieldset>
+
+	<fieldset name="otherparams">
+		
+		<field
+			name="download_counter"
+			type="text"
+			class="readonly"
+			label="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOAD_COUNTER_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOAD_COUNTER_DESC"
+			default="0"
+			readonly="true"
+		/>
+
+		<field
+			name="md5hash"
+			readonly="true"
+			type="text"
+			class="readonly"
+			label="COM_SIMPLEFILEMANAGER_FIELD_HASH_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_HASH_DESC"
+		/>
+
+		 <field
+			name="download_last"
+			readonly="true"
+			type="calendar"
+			class="readonly"
+			format="%Y-%m-%d %H:%M"
+			showtime="true"
+			label="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOADLAST_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOADLAST_DESC"
+		/>
+
+		<field
+			name="file_size"
+			readonly="true"
+			type="text"
+			class="readonly"
+			label="COM_SIMPLEFILEMANAGER_FIELD_FILESIZE_LABEL"
+			description="COM_SIMPLEFILEMANAGER_FIELD_FILESIZE_DESC"
+		/>
+		
+	</fieldset>
+
+	<fieldset name="metadata" label="JGLOBAL_FIELDSET_METADATA_OPTIONS">
+
+		<field
+			name="metakey"
+			type="textarea"
+			label="JFIELD_META_KEYWORDS_LABEL"
+			description="JFIELD_META_KEYWORDS_DESC"
+			rows="3"
+			cols="30"
+		/>
+
+		<field
+			name="metadesc"
+			type="textarea"
+			label="JFIELD_META_DESCRIPTION_LABEL"
+			description="JFIELD_META_DESCRIPTION_DESC"
+			rows="3"
+			cols="30"
+		/>
+	</fieldset>
+
+</form>

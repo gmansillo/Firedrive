@@ -25,17 +25,27 @@ CREATE TABLE IF NOT EXISTS `#__simplefilemanager` (
   `featured` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `download_counter` int(11) DEFAULT 0,
   `download_last` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `file_created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `file_name` varchar(255) NOT NULL DEFAULT '',
   `file_size` int(11) NOT NULL DEFAULT 0,
-  `reserved_user` int(11),
-  `reserved_group` int(11),
   `license` varchar(250),
   `license_link` varchar(250),
-  `author` int(11),
   `version` varchar(250),
   `notes` TEXT,
   `md5hash` varchar(250),
   `visibility` tinyint(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `#__simplefilemanager_user_documents` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `document_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `#__simplefilemanager_group_documents` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `document_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

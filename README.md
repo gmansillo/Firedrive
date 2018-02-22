@@ -1,14 +1,14 @@
-# Big welcome to Simple
+# Big welcome to the SFM Project
 
-[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)  
+![](http://www.simplefilemanager.eu/images/joomla-3-tag.png#1)  
 
-![](http://www.simplefilemanager.eu/img/backend-simple.gif)  
+![](http://www.simplefilemanager.eu/images/document-touch-intro.png#1)
 
-*Checkout the documentation site at https://github.com/gmansillo/simple/wiki*  
+*Checkout the documentation site at https://github.com/gmansillo/simplefilemanager/wiki*  
 
 *Checkout this lightning video tutorial: https://www.youtube.com/watch?v=7JLy4mNRd_E*   
 
-**Simple** is an innovative Joomla! component that gives you the possibility to create private user areas and to organize documents in safe download centers. There are hundreds of nice document managers for joomla already out there, but they are either:
+**Simple File Manger** is a simple Joomla! component that gives you the possibility to create private user areas and to organize documents in safe download centers. There are hundreds of nice document managers for joomla already out there, but they are either:
 
 -  not responsive
 -  not flexible enough
@@ -18,19 +18,19 @@
 
 That's why I developed Simple and its goal is to solve all of the above issues.
 
-## What is it made for?
+##What is it made for?
 
 Simple's main goal is to provide a simple, lightweight, responsive and safe component to easily share documents on your website. It's important to understand that one of the main intentions of SFM is to **keep the workflow as simple as possible:** if you need advanced features (often not expected to be in a document manager) please seriously think about using another component. 
 
-## Example site
+##Example site
 
-You can visit this Site http://demo.simplefilemanager.eu/ which is a test platform for Simple. I'm still developing and constantly adding new features but you can already use Simple File Manager in your websites as it has reached a stable and reliable state already.
+You can visit this Site http://www.simplefilemanager.eu/demo/ which is a test platform for Simple. I'm still developing and constantly adding new features but you can already use Simple in your websites as it has reached a stable and reliable state already.
 
-## Version notes
+##Version notes
 
 I'm currently still heavily developing in order to make Simple better. Your help is needed! Please contribute to the project if you like the idea and the concept and suggest me what you think I should do in order to improve it.
 
-### Important missing stuff
+###Important missing stuff
 
 -  Bacth file import system
 -  Documentation: PHPDoc, Getting started documentation and landing page

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_SIMPLEFILEMANAGER_DOCUMENT_VIEW_DEFAULT_TITLE" option="COM_SIMPLEFILEMANAGER_DOCUMENT_VIEW_DEFAULT_OPTION">
+		<help
+			key = "JHELP_MENUS_MENU_ITEM_DOCUMENT_SINGLE_DOCUMENT"
+		/>
+		<message>
+			<![CDATA[COM_SIMPLEFILEMANAGER_DOCUMENT_VIEW_DEFAULT_DESC]]>
+		</message>
+	</layout>
+
+	<!-- Add fields to the request variables for the layout. -->
+	<fields name="request">
+		<fieldset name="request"
+			addfieldpath="/administrator/components/com_simplefilemanager/models/fields"
+		>
+			<field
+				name="id"
+				type="sql"
+				class="inputbox"
+				required="true"
+				label="COM_SIMPLEFILEMANAGER_SELECT_DOCUMENT_LABEL"
+				description="COM_SIMPLEFILEMANAGER_SELECT_DOCUMENT_DESC"				
+				query="SELECT id, CONCAT('[',id,'] ',title) as name FROM #__simplefilemanager"
+				key_field="id"
+				value_field="name"
+				select="true"
+				new="true"
+				edit="true"
+				clear="true"
+			/>
+		</fieldset>
+	</fields>
+
+	<!-- Add fields to the parameters object for the layout. -->
+	<fields name="params">
+
+		<!-- Basic options. -->
+		<fieldset name="params"
+			label="COM_SIMPLEFILEMANAGER_BASIC_OPTIONS_FIELDSET_LABEL"
+			addfieldpath="/administrator/components/com_fields/models/fields"
+		>
+			<!-- <field 
+				name="presentation_style"
+				type="list"
+				label="COM_SIMPLEFILEMANAGER_FIELD_PRESENTATION_LABEL"
+				description="COM_SIMPLEFILEMANAGER_FIELD_PRESENTATION_DESC"
+				useglobal="true"
+				>
+				<option value="sliders">COM_SIMPLEFILEMANAGER_FIELD_VALUE_SLIDERS</option>
+				<option value="tabs">COM_SIMPLEFILEMANAGER_FIELD_VALUE_TABS</option>
+				<option value="plain">COM_SIMPLEFILEMANAGER_FIELD_VALUE_PLAIN</option>
+			</field> -->
+
+			<field 
+				name="show_document_category"
+				type="list"
+				label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_CATEGORY_LABEL"
+				description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_CATEGORY_DESC"
+				useglobal="true"
+				class="chzn-color"
+				>
+				<option value="hide">JHIDE</option>
+				<option value="show_no_link">COM_SIMPLEFILEMANAGER_FIELD_VALUE_NO_LINK</option>
+				<option value="show_with_link">COM_SIMPLEFILEMANAGER_FIELD_VALUE_WITH_LINK</option>
+			</field>
+
+			<field
+				name="show_tags"
+				type="list"
+				label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_TAGS_LABEL"
+				description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_TAGS_DESC"
+				useglobal="true"
+				class="chzn-color"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field 
+				name="show_articles"
+				type="list"
+				label="COM_SIMPLEFILEMANAGER_FIELD_ARTICLES_SHOW_LABEL"
+				description="COM_SIMPLEFILEMANAGER_FIELD_ARTICLES_SHOW_DESC"
+				useglobal="true"
+				class="chzn-color"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+<!-- 
+			<field
+				name="show_user_custom_fields"
+				type="fieldgroups"
+				label="COM_SIMPLEFILEMANAGER_FIELD_USER_CUSTOM_FIELDS_SHOW_LABEL"
+				description="COM_SIMPLEFILEMANAGER_FIELD_USER_CUSTOM_FIELDS_SHOW_DESC"
+				multiple="true"
+				context="com_users.user"
+				>
+				<option value="-1">JALL</option>
+			</field> -->
+			
+		</fieldset>
+		
+	</fields>
+</metadata>

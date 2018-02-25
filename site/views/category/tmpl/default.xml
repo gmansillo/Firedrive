@@ -16,8 +16,8 @@
 			<field
 				name="id"
 				type="modal_category"
-				label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_LABEL"
-				description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_DESC"
+				label="COM_SIMPLEFILEMANAGER_FIELD_CATID_LABEL"
+				description="COM_SIMPLEFILEMANAGER_FIELD_CATID_DESC"
 				extension="com_simplefilemanager"
 				required="true"
 				select="true"

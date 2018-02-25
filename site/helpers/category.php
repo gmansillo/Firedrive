@@ -16,8 +16,6 @@ class SimplefilemanagerCategories extends JCategories
 	 * Class constructor
 	 *
 	 * @param   array  $options  Array of options
-	 *
-	 * @since   1.6
 	 */
 	public function __construct($options = array())
 	{

@@ -1,4 +1,9 @@
 <?php
+/**
+ * @package     Simple File Manager
+ * @author      Giovanni Mansillo
+ * @license     GNU General Public License version 2 or later; see LICENSE.md
+ */
 
 defined('_JEXEC') or die;
 

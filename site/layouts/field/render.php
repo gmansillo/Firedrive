@@ -1,11 +1,10 @@
 <?php
 /**
- * @package     Joomla.Site
- * @subpackage  com_simplefilemanager
- *
- * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     Simple File Manager
+ * @author      Giovanni Mansillo
+ * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
+
 defined('_JEXEC') or die;
 
 if (!key_exists('field', $displayData))

@@ -11,24 +11,16 @@ use Joomla\Registry\Registry;
 
 /**
  * Single item model for a document
- *
- * @package     Joomla.Site
- * @subpackage  com_simplefilemanager
- * @since       1.5
  */
-class SimplefilemanagerModelDocument extends JModelForm
+class SimplefilemanagerModelDocument extends JModelItem
 {
 	/**
 	 * The name of the view for a single item
-	 *
-	 * @since   1.6
 	 */
 	protected $view_item = 'document';
 
 	/**
 	 * A loaded item
-	 *
-	 * @since   1.6
 	 */
 	protected $_item = null;
 
@@ -45,8 +37,6 @@ class SimplefilemanagerModelDocument extends JModelForm
 	 * Note. Calling getState in this method will result in recursion.
 	 *
 	 * @return  void
-	 *
-	 * @since   1.6
 	 */
 	protected function populateState()
 	{
@@ -62,85 +52,6 @@ class SimplefilemanagerModelDocument extends JModelForm
 			$this->setState('filter.published', 1);
 			$this->setState('filter.archived', 2);
 		}
-	}
-
-	/**
-	 * Method to get the document form.
-	 * The base form is loaded from XML and then an event is fired
-	 *
-	 * @param   array    $data      An optional array of data for the form to interrogate.
-	 * @param   boolean  $loadData  True if the form is to load its own data (default case), false if not.
-	 *
-	 * @return  JForm  A JForm object on success, false on failure
-	 *
-	 * @since   1.6
-	 */
-	public function getForm($data = array(), $loadData = true)
-	{
-		$form = $this->loadForm('com_simplefilemanager.document', 'document', array('control' => 'jform', 'load_data' => true));
-
-		if (empty($form))
-		{
-			return false;
-		}
-
-		$temp = clone $this->getState('params');
-
-		$doc = $this->_item[$this->getState('document.id')];
-
-		$active = JFactory::getApplication()->getMenu()->getActive();
-
-		if ($active)
-		{
-			// If the current view is the active item and a document view for this document, then the menu item params take priority
-			if (strpos($active->link, 'view=document') && strpos($active->link, '&id=' . (int) $doc->id))
-			{
-				// $doc->params are the document params, $temp are the menu item params
-				// Merge so that the menu item params take priority
-				$doc->params->merge($temp);
-			}
-			else
-			{
-				// Current view is not a single document, so the document params take priority here
-				// Merge the menu item params with the document params so that the document params take priority
-				$temp->merge($doc->params);
-				$doc->params = $temp;
-			}
-		}
-		else
-		{
-			// Merge so that document params take priority
-			$temp->merge($doc->params);
-			$doc->params = $temp;
-		}
-
-		if (!$doc->params->get('show_email_copy', 0))
-		{
-			$form->removeField('document_email_copy');
-		}
-
-		return $form;
-	}
-
-	/**
-	 * Method to get the data that should be injected in the form.
-	 *
-	 * @return  array    The default data is an empty array.
-	 *
-	 * @since   1.6.2
-	 */
-	protected function loadFormData()
-	{
-		$data = (array) JFactory::getApplication()->getUserState('com_simplefilemanager.document.data', array());
-
-		if (empty($data['language']) && JLanguageMultilang::isEnabled())
-		{
-			$data['language'] = JFactory::getLanguage()->getTag();
-		}
-
-		$this->preprocessData('com_simplefilemanager.document', $data);
-
-		return $data;
 	}
 
 	/**

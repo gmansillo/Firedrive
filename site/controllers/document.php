@@ -9,8 +9,6 @@ defined('_JEXEC') or die;
 
 /**
  * Controller for single document view
- *
- * @since  1.5.19
  */
 class SimplefilemanagerControllerDocument extends JControllerForm
 {
@@ -22,8 +20,6 @@ class SimplefilemanagerControllerDocument extends JControllerForm
 	 * @param   array   $config  Configuration array for model. Optional.
 	 *
 	 * @return  JModelLegacy  The model.
-	 *
-	 * @since   1.6.4
 	 */
 	public function getModel($name = '', $prefix = '', $config = array('ignore_request' => true))
 	{

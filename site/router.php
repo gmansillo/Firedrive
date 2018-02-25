@@ -35,8 +35,7 @@ class SimplefilemanagerRouter extends JComponentRouterView
 		$document = new JComponentRouterViewconfiguration('document');
 		$document->setKey('id')->setParent($category, 'catid');
 		$this->registerView($document);
-		$this->registerView(new JComponentRouterViewconfiguration('featured'));
-
+		
 		parent::__construct($app, $menu);
 
 		$this->attachRule(new JComponentRouterRulesMenu($this));

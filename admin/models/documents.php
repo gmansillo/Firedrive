@@ -92,7 +92,6 @@ class SimplefilemanagerModelDocuments extends JModelList
 				. 'a.download_counter AS download_counter,'
 				. 'a.metakey AS metakey,'
 				. 'a.state AS state,'
-				. 'a.featured,'
 				. 'a.ordering AS ordering,'
 				. 'a.language,'
 				. 'a.publish_up,'

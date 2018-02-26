@@ -58,8 +58,10 @@ class SimplefilemanagerModelCategory extends JModelList
 				'id', 'a.id',
 				'title', 'a.title',
 				'state', 'a.state',
-				'country', 'a.country',
-				'ordering', 'a.ordering'
+				'ordering', 'a.ordering',
+				'description', 'a.description',
+				'created_by', 'a.created_by',
+				'file_size', 'a.file_size',
 			);
 		}
 
@@ -215,26 +217,12 @@ class SimplefilemanagerModelCategory extends JModelList
 		$params = JComponentHelper::getParams('com_simplefilemanager');
 
 		// List state information
-		$format = $app->input->getWord('format');
-
-		if ($format === 'feed')
-		{
-			$limit = $app->get('feed_limit');
-		}
-		else
-		{
-			$limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->get('list_limit'), 'uint');
-		}
+		$limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->get('list_limit'), 'uint');
 
 		$this->setState('list.limit', $limit);
 
 		$limitstart = $app->input->get('limitstart', 0, 'uint');
 		$this->setState('list.start', $limitstart);
-
-		// Optional filter text
-		$itemid = $app->input->get('Itemid', 0, 'int');
-		$search = $app->getUserStateFromRequest('com_simplefilemanager.category.list.' . $itemid . '.filter-search', 'filter-search', '', 'string');
-		$this->setState('list.filter', $search);
 
 		// Get list ordering default from the parameters
 		$menuParams = new Registry;
@@ -283,6 +271,7 @@ class SimplefilemanagerModelCategory extends JModelList
 
 		// Load the parameters.
 		$this->setState('params', $params);
+
 	}
 
 	/**

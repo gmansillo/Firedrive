@@ -61,8 +61,40 @@ class SimplefilemanagerViewCategory extends JViewCategory
 			$item->params->merge($temp);
 		}
 
+		$this->sortFields    = $this->getSortFields();
+		
 		return parent::display($tpl);
 	}
+
+	/**
+	 * Get the list of sort fields
+	 *
+	 * @return  $fields
+	 */
+	protected function getSortFields()
+    {
+        $fields = array(
+            'a.ordering' => JText::_('JGLOBAL_ORDERING'),
+            'a.title' => JText::_('JGLOBAL_TITLE')
+		);
+		
+		if ($this->params->get('show_description', 1))
+		{
+			$fields['a.description'] = JText::_('JGLOBAL_DESCRIPTION');
+		}
+
+		if ($this->params->get('show_created_by', 1))
+		{
+			$fields['a.created_by'] = JText::_('COM_SIMPLEFILEMANAGER_CREATED_BY');
+		}
+
+		if ($this->params->get('show_file_size', 1))
+		{
+			$fields['a.file_size'] = JText::_('COM_SIMPLEFILEMANAGER_FILE_SIZE');
+		}
+
+        return $fields;
+    }
 
 	/**
 	 * Prepares the document

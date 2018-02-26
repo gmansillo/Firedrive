@@ -22,7 +22,6 @@ CREATE TABLE IF NOT EXISTS `#__simplefilemanager` (
   `metadesc` text NOT NULL,
   `metadata` text NOT NULL,
   `params` text NOT NULL,
-  `featured` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `download_counter` int(11) DEFAULT 0,
   `download_last` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `file_name` varchar(255) NOT NULL DEFAULT '',

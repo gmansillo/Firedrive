@@ -704,48 +704,4 @@ class SimplefilemanagerModelDocument extends JModelAdmin
 		return JFactory::getUser()->authorise('core.create', 'com_simplefilemanager');
 	}
 
-	/**
-	 * Method to toggle the featured setting of documents.
-	 *
-	 * @param   array    $pks    The ids of the items to toggle.
-	 * @param   integer  $value  The value to toggle to.
-	 *
-	 * @return  boolean  True on success.
-	 */
-	public function featured($pks, $value = 0)
-	{
-		// Sanitize the ids.
-		$pks = (array) $pks;
-		JArrayHelper::toInteger($pks);
-
-		if (empty($pks))
-		{
-			$this->setError(JText::_('COM_SIMPLEFILEMANAGER_NO_ITEM_SELECTED'));
-
-			return false;
-		}
-
-		try
-		{
-			$db = $this->getDbo();
-
-			$db->setQuery(
-				'UPDATE #__simplefilemanager' .
-				' SET featured = ' . (int) $value .
-				' WHERE id IN (' . implode(',', $pks) . ')'
-			);
-			$db->execute();
-
-		}
-		catch (Exception $e)
-		{
-			$this->setError($e->getMessage());
-
-			return false;
-		}
-
-		$this->cleanCache();
-
-		return true;
-	}
 }

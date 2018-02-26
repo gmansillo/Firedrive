@@ -162,42 +162,62 @@ class SimplefilemanagerControllerDocument extends JControllerForm
 		{
 			// Check requisites for email sending
 			if ( $this->form["state"] != 1 ) {
-				JFactory::getApplication()->enqueueMessage( JText::_( 'COM_SIMPLEFILEMANAGER_SENDMAIL_UNPUBLISHED_DOCUMENT_ERROR' ), 'warning' );
-			} elseif ( $this->form["visibility"] != 3 ) {
+				if(!$isNew) {
+					JFactory::getApplication()->enqueueMessage( JText::_( 'COM_SIMPLEFILEMANAGER_SENDMAIL_UNPUBLISHED_DOCUMENT_ERROR' ), 'warning' );
+				}
+			} elseif ( !in_array($this->form["visibility"], array(3,4)) ) {
 				JFactory::getApplication()->enqueueMessage( JText::_( 'COM_SIMPLEFILEMANAGER_SENDMAIL_UNSUPPORTED_VISIBILITY_ERROR' ), 'warning' );
 			} else {
+				
 				// Get recipients email from db
-				$db    = JFactory::getDbo();
-				$query = $db->getQuery( true );
-				$query->select( 'user_id' )
-					->from( '#__simplefilemanager_user_documents' )
-					->where( 'document_id = ' . $this->form["id"] );
-				$db->setQuery( $query );
-				$recipients = $db->loadColumn();
+				$recipients = array();
+				if($this->form["visibility"] == 3)
+				{
+					$db    = JFactory::getDbo();
+					$query = $db->getQuery( true );
+					$query->select( 'user_id' )
+						->from( '#__simplefilemanager_user_documents' )
+						->where( 'document_id = ' . $this->form["id"] );
+					$db->setQuery( $query );
+					$recipients = $db->loadColumn();
+				} else if($this->form["visibility"] == 4) {
+					$db    = JFactory::getDbo();
+					$query = $db->getQuery( true );
+					$query->select( 'group_id' )
+						->from( '#__simplefilemanager_group_documents' )
+						->where( 'document_id = ' . $this->form["id"] );
+					$db->setQuery( $query );
+					$group_ids = $db->loadColumn();
 
-				if ( empty( $recipients ) ) {
-					JFactory::getApplication()->enqueueMessage( JText::_( 'COM_SIMPLEFILEMANAGER_SENDMAIL_NO_RECIPIENT_SPECIFIED_ERROR' ), 'warning' );
-				} else {
+					foreach($group_ids as $g_id){
+						$recipients = array_merge($recipients, JAccess::getUsersByGroup($g_id));
+					}
+
+					// Remove duplicates
+					$recipients = array_unique($recipients, SORT_REGULAR);
+				}
+				
+				if ( !empty( $recipients ) ) {
 
 					$config  = JFactory::getConfig();
 					$sender  = [ $config->get( 'mailfrom' ), $config->get( 'fromname' ) ];
-					$subject = JText::_( 'COM_SIMPLEFILEMANAGER_EMAIL_SUBJ' );
-					// TODO: Add tags to notification message body
-					$body    = JText::_( 'COM_SIMPLEFILEMANAGER_EMAIL_BODY' );
 
 					foreach ( $recipients as $recipient ) {
 
-						// Load objects
-						$mailer = JFactory::getMailer();
-
-						// Mail sender
-						$mailer->setSender( $sender );
-
-						// Mail recipient
 						$user = JFactory::getUser( (int) $recipient );
-						$mailer->addRecipient( $user->email );
+						
+						// Message subject
+						$subject = JText::_( 'COM_SIMPLEFILEMANAGER_EMAIL_SUBJ' );
 
-						// Mail contents
+						// Message body
+						$body = JText::_( 'COM_SIMPLEFILEMANAGER_EMAIL_BODY' );
+						$body = str_replace('{user_fullname}', $user->name, $body);
+						$body = str_replace('{document_title}', $item->title, $body);
+		
+						// Send email
+						$mailer = JFactory::getMailer();
+						$mailer->setSender( $sender );
+						$mailer->addRecipient( $user->email );
 						$mailer->setSubject( $subject );
 						$mailer->isHTML( true );
 						$mailer->Encoding = 'base64';

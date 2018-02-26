@@ -137,18 +137,6 @@
 		/>
 
         <field
-			name="featured"
-			default="0"
-			type="radio"
-			class="radio btn-group btn-group-yesno"
-			label="COM_SIMPLEFILEMANAGER_FIELD_FEATURED_LABEL"
-			description="COM_SIMPLEFILEMANAGER_FIELD_FEATURED_DESC"
-		>
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field
 			name="select_file"
 			type="file"
 			label="COM_SIMPLEFILEMANAGER_FIELD_SELECT_FILE_LABEL"

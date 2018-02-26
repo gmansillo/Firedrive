@@ -16,20 +16,71 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 	<p> <?php echo JText::_('COM_SIMPLEFILEMANAGER_NO_DOCUMENTS'); ?></p>
 <?php else : ?>
 
-	<form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
-	<?php if ($this->params->get('show_pagination_limit', 1)) : ?>
-	<fieldset class="filters btn-toolbar">
-		<?php if ($this->params->get('show_pagination_limit', 1)) : ?>
-			<div class="btn-group pull-right">
-				<label for="limit" class="element-invisible">
-					<?php echo JText::_('JGLOBAL_DISPLAY_NUM'); ?>
-				</label>
-				<?php echo $this->pagination->getLimitBox(); ?>
-			</div>
-		<?php endif; ?>
-	</fieldset>
-	<?php endif; ?>
+	<script language="javascript" type="text/javascript">
+		function tableOrdering( order, dir, task )
+		{
+			var form = document.adminForm;
 
+			form.filter_order.value = order;
+			form.filter_order_Dir.value = dir;
+			document.adminForm.submit( task );
+		}
+	</script>
+	<script type="text/javascript">
+		Joomla.orderTable = function() {
+			table = document.getElementById("sortTable");
+			direction = document.getElementById("directionTable");
+			order = table.options[table.selectedIndex].value;
+			if (order != '<?php echo $listOrder; ?>')
+			{
+				dirn = 'asc';
+			}
+			else {
+				dirn = direction.options[direction.selectedIndex].value;
+			}
+			Joomla.tableOrdering(order, dirn);
+		};
+	</script>
+
+	<form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
+	
+		<fieldset class="filters">
+			
+			<?php if ($this->params->get('show_pagination_limit', 1)) : ?>
+				<div class="pull-right">
+					&nbsp;
+					<label for="limit" class="element-invisible">
+						<?php echo JText::_('JGLOBAL_DISPLAY_NUM'); ?>
+					</label>
+					<?php echo $this->pagination->getLimitBox(); ?>
+				</div>
+			<?php endif; ?>
+
+			<?php if ($this->params->get('enable_ordering_select', 1)) : ?>
+				<div class="pull-right">
+					&nbsp;
+					<select name="directionTable" id="directionTable" class="input-medium" onchange="Joomla.orderTable()">
+						<option value=""><?php echo JText::_('JFIELD_ORDERING_LABEL'); ?></option>
+						<option value="asc" <?php echo $listDirn == 'asc' ? 'selected="selected"' : ""; ?>>
+							<?php echo JText::_('JGLOBAL_ORDER_ASCENDING'); ?>
+						</option>
+						<option value="desc" <?php echo $listDirn == 'desc' ? 'selected="selected"' : ""; ?>>
+							<?php echo JText::_('JGLOBAL_ORDER_DESCENDING'); ?>
+						</option>
+					</select>
+				</div>
+			
+				<div class="pull-right">
+					&nbsp;
+					<select name="sortTable" id="sortTable" class="input-medium" onchange="Joomla.orderTable()">
+						<option value=""><?php echo JText::_('JGLOBAL_SORT_BY'); ?></option>
+						<?php echo JHtml::_('select.options', $this->sortFields, 'value', 'text', $listOrder); ?>
+					</select>
+				</div>
+			<?php endif; ?>
+
+		</fieldset>
+		
 		<ul class="category row-striped">
 			<?php foreach ($this->items as $i => $item) : ?>
 
@@ -104,8 +155,10 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
 					<div class="span4 col-md-4">
 
-						<div class="hidden-phone hidden-xs"><?php echo $item->description; ?></div>
-					
+						<?php if ($this->params->get('show_description', 1)): ?>
+							<div class="hidden-phone hidden-xs"><?php echo $item->description; ?></div>
+						<?php endif; ?>
+
 					</div>
 
 					<div class="span2 col-md-2">
@@ -132,9 +185,11 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 			<?php echo $this->pagination->getPagesLinks(); ?>
 		</div>
 		<?php endif; ?>
+		
+		<?php echo $this->pagination->getListFooter(); ?>
 		<div>
 			<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
 			<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
 		</div>
-</form>
+	</form>
 <?php endif; ?>

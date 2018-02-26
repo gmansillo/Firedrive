@@ -15,9 +15,9 @@ $tparams = $this->item->params;
 ?>
 
 <div class="document<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Person">
-	<?php if ($tparams->get('show_page_heading')) : ?>
+	<?php if ($tparams->get('show_page_heading',1)) : ?>
 		<h1>
-			<?php echo $this->escape($tparams->get('page_heading')); ?>
+			<?php echo $this->escape($tparams->get('page_heading',1)); ?>
 		</h1>
 	<?php endif; ?>
 
@@ -120,9 +120,9 @@ $tparams = $this->item->params;
 		</dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('show_user_custom_fields') && $this->docUser) : ?>
-		<?php echo $this->loadTemplate('user_custom_fields'); ?>
-	<?php endif; ?>
+	<?php // if ($tparams->get('show_user_custom_fields') && $this->docUser) : ?>
+		<?php // echo $this->loadTemplate('user_custom_fields'); ?>
+	<?php // endif; ?>
 
 	<?php $downloadLink = JRoute::_('index.php?option=com_simplefilemanager&amp;view=document&amp;id=' . $this->doc->id . '&amp;format=raw'); ?>
 	

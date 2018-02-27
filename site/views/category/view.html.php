@@ -74,7 +74,7 @@ class SimplefilemanagerViewCategory extends JViewCategory
 	protected function getSortFields()
     {
         $fields = array(
-            'a.ordering' => JText::_('JGLOBAL_ORDERING'),
+            'a.ordering' => JText::_('COM_SIMPLEFILEMANAGER_ORDERING'),
             'a.title' => JText::_('JGLOBAL_TITLE')
 		);
 		

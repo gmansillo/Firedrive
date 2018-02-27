@@ -111,9 +111,12 @@ class SimplefilemanagerModelCategory extends JModelList
 	 */
 	protected function getListQuery()
 	{
+		jimport( 'joomla.access.access' );
+
 		$user = JFactory::getUser();
 		$groups = implode(',', $user->getAuthorisedViewLevels());
-
+		$user_groups = JAccess::getGroupsByUser($user->id, true);
+		
 		// Create a new query object.
 		$db = $this->getDbo();
 		$query = $db->getQuery(true);
@@ -135,21 +138,21 @@ class SimplefilemanagerModelCategory extends JModelList
 		$case_when1 .= $query->concatenate(array($c_id, 'c.alias'), ':');
 		$case_when1 .= ' ELSE ';
 		$case_when1 .= $c_id . ' END as catslug';
-		$query->select($this->getState('list.select', 'a.*') . ',' . $case_when . ',' . $case_when1)
+		$query->select($this->getState('list.select', 'DISTINCT a.*') . ',' . $case_when . ',' . $case_when1)
 		/**
 		 * TODO: we actually should be doing it but it's wrong this way
 		 *	. ' CASE WHEN CHAR_LENGTH(a.alias) THEN CONCAT_WS(\':\', a.id, a.alias) ELSE a.id END as slug, '
 		 *	. ' CASE WHEN CHAR_LENGTH(c.alias) THEN CONCAT_WS(\':\', c.id, c.alias) ELSE c.id END AS catslug ');
 		 */
 			->from($db->quoteName('#__simplefilemanager') . ' AS a')
-			->join('LEFT', '#__categories AS c ON c.id = a.catid')
-			->where('a.access IN (' . $groups . ')');
+			->join('LEFT', '#__categories AS c ON c.id = a.catid');
+			// Following statement not required since we do not use access column but we relay on simplefilemanager acls
+			// ->where('a.access IN (' . $groups . ')');
 
-				
 		// Join on user table.
+		// TODO: Check if following code can be removed
 		$query->select('u.name as created_by_name')
 		->join('LEFT', '#__users AS u on a.created_by = u.id');
-
 
 		// Filter by category.
 		if ($categoryId = $this->getState('category.id'))
@@ -164,6 +167,33 @@ class SimplefilemanagerModelCategory extends JModelList
 
 			->join('LEFT', '#__users AS ua ON ua.id = a.created_by')
 			->join('LEFT', '#__users AS uam ON uam.id = a.modified_by');
+			
+		// Filter by internal ACLs
+		$acl = [];
+
+		// Public documents
+		$acl[] = "  a.visibility = 1";
+
+		if (!$user->guest)
+		{
+			// Registred user documents
+			$acl[] = "a.visibility = 2";
+		
+			// Selected users documents
+			$query->join('LEFT', '#__simplefilemanager_user_documents ud ON a.id = ud.document_id AND a.visibility = 3');
+			$acl[] = $db->quoteName('ud.user_id') ." = $user->id";
+			
+			// Selected groups documents
+			$query->join('LEFT', '#__simplefilemanager_group_documents gd ON a.id = gd.document_id AND a.visibility = 4');
+			$acl[] = "gd.group_id IN (" . implode(',', $user_groups) . ")";
+
+			// Author documents
+			$acl[] = " a.visibility = 5 AND a.created_by = " . (int)$user->id;
+
+			// TODO: Add visibility base on access levels (using $groups instead of $user_groups) and filling 'access' db column
+		}
+
+		$query->where('(( '. implode(' ) OR ( ', $acl) . ' ))')->group('a.id');
 
 		// Filter by state
 		$state = $this->getState('filter.published');
@@ -185,6 +215,15 @@ class SimplefilemanagerModelCategory extends JModelList
 		{
 			$query->where('(a.publish_up = ' . $nullDate . ' OR a.publish_up <= ' . $nowDate . ')')
 				->where('(a.publish_down = ' . $nullDate . ' OR a.publish_down >= ' . $nowDate . ')');
+		}
+
+		// Filter by search in title
+		$search = $this->getState('list.filter');
+
+		if (!empty($search))
+		{
+			$search = $db->quote('%' . $db->escape($search, true) . '%');
+			$query->where('(a.title LIKE ' . $search . ')');
 		}
 
 		// Filter by language
@@ -223,6 +262,11 @@ class SimplefilemanagerModelCategory extends JModelList
 
 		$limitstart = $app->input->get('limitstart', 0, 'uint');
 		$this->setState('list.start', $limitstart);
+
+		// Optional filter text
+		$itemid = $app->input->get('Itemid', 0, 'int');
+		$search = $app->getUserStateFromRequest('com_simplefilemanager.category.list.' . $itemid . '.filter-search', 'filter-search', '', 'string');
+		$this->setState('list.filter', $search);
 
 		// Get list ordering default from the parameters
 		$menuParams = new Registry;

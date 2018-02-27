@@ -19,6 +19,7 @@ if($this->isNew) JFactory::getDocument()->addScriptDeclaration('
 		var input = document.getElementById("jform_select_file");
 		if(typeof input !== "undefined"){
 			input.classList.add("required");
+            input.attributes.required = "required";
 		}
 	});
 ');

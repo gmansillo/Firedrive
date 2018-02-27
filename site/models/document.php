@@ -204,27 +204,56 @@ class SimplefilemanagerModelDocument extends JModelItem
 	 *
 	 * @param   integer  $pk  Optional primary key of the document to increment.
 	 *
-	 * @return  boolean  True if successful; false otherwise
+	 * @return  void
 	 */
-	public function increaseDownloadCount()
+	public function countDownload()
 	{
-		
 		$pk = (int) $this->getState('document.id');
-
-		$db = JFactory::getDbo();
-		$query = $db->getQuery(true);
-		$now = JFactory::getDate()->toSql();
-
+		
+		$params = JComponentHelper::getParams('com_simplefilemanager');
+		$user   = JFactory::getUser();
+		$now    = JFactory::getDate();
+		$db     = JFactory::getDbo();
+		$nowDate = $now->toSql();
+		
+		$query  = $db->getQuery(true);
+		
 		$fields = array(
 			$db->quoteName('download_counter') . ' = ' . $db->quoteName('download_counter') . '+1',
-			$db->quoteName('download_last') . ' = ' . $db->quote($now)
+			$db->quoteName('download_last') . ' = ' . $db->quote($nowDate)
 		);
 		
-		$query->update($db->quoteName('#__simplefilemanager'))
-		->set($fields)
-		->where($db->quoteName('id') . ' = ' . $pk);
+		$query
+			->update($db->quoteName('#__simplefilemanager'))
+			->set($fields)
+			->where($db->quoteName('id') . ' = ' . $pk);
+			
 		$db->setQuery($query);
+		$db->execute();
+		
+		if($params->get('track_user_downloads', 1) && !$user->guest){
+			
+			// Create a new query object.
+			$query = $db->getQuery(true);
 
-		return $db->execute();
+			if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+				$ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
+			} else {
+				$ip_address = $_SERVER['REMOTE_ADDR'];
+			}
+			
+			$columns = array('document_id', 'user_id', 'download_time', 'ip_address');
+			$values = array($pk, $user->id, $db->quote($nowDate), $ip_address);
+
+			$query
+				->insert($db->quoteName('#__simplefilemanager_download_tracking'))
+				->columns($db->quoteName($columns))
+				->values(implode(',', $values));
+
+			$db->setQuery($query);
+			$db->execute();
+		}
+
+		return;
 	}
 }

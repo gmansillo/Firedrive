@@ -48,3 +48,12 @@ CREATE TABLE IF NOT EXISTS `#__simplefilemanager_group_documents` (
   `document_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `#__simplefilemanager_download_tracking` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `document_id` int(11) NOT NULL,
+  `user_id`  int(11) NULL,
+  `download_time` datetime NOT NULL,
+  'ip_address' varchar(255) NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

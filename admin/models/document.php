@@ -490,7 +490,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin
 			$item->metadata = $registry->toArray();
 
 			$item->tags = new JHelperTags;
-			$item->tags->getTagIds($item->id, 'com_simplefilemanager.simplefilemanager');
+			$item->tags->getTagIds($item->id, 'com_simplefilemanager.document');
 			$item->metadata['tags'] = $item->tags;
 
 			if ($item->id)

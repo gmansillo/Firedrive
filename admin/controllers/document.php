@@ -54,15 +54,6 @@ class SimplefilemanagerControllerDocument extends JControllerForm
 		// File management
 		if ($this->files[$uploadFieldName]["size"])
 		{
-			// Checking file extension
-			// if (!SimplefilemanagerHelper::hasSafeExtension($this->files['test'][0]["name"]))
-			// {
-			// 	JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_FIELD_DANGEROUS_FILE_ERROR'), 'error');
-			// 	parent::save($key, $urlVar);
-
-			// 	return;
-			// }
-
 			// Delete previous file
 			if (!$this->form["file_name"]){
 				JFile::delete($this->form["file_name"]);

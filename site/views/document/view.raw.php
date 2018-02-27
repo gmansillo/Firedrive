@@ -66,7 +66,7 @@ class SimplefilemanagerViewDocument extends JViewLegacy
 
 		try {
 			echo JFile::read($item->file_name);		
-			$model->increaseDownloadCount();
+			$model->countDownload();
 		}
 		catch(Exception $e){
 			// Save file safety avoiding to notify error details to the user 

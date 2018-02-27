@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset>
+
+        <field
+            name="id"
+            type="text"
+            default="0"
+            label="JGLOBAL_FIELD_ID_LABEL"
+            readonly="true"
+            class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC"
+        />
+
+        <field
+            name="title"
+            type="text"
+            class="input-xxlarge input-lg"
+            size="40"
+            label="JGLOBAL_TITLE"
+            description="COM_SIMPLEFILEMANAGER_FIELD_TITLE_DESC"
+            required="true"
+        />
+
+        <field
+            name="catid"
+            type="categoryedit"
+            label="JCATEGORY"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_DESC"
+            extension="com_simplefilemanager"
+            required="true"
+            addfieldpath="/administrator/components/com_categories/models/fields"
+            default=""
+        />
+
+        <field 
+            name="select_file"
+            type="file"
+            class="inputbox"
+            label="COM_SIMPLEFILEMANAGER_FIELD_SELECT_FILE_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_SELECT_FILE_DESC"
+        />
+
+        <field
+            name="description"
+            type="editor"
+            class="inputbox span12"
+            filter="safehtml"
+            rows="6"
+            label="JGLOBAL_DESCRIPTION"
+        />
+
+        <field
+            name="file_name"
+            type="text"
+        />
+
+        <field
+            name="file_size"
+            type="text"
+        />
+
+        <field
+            name="md5hash"
+            type="text"
+        />
+
+        <field
+            name="state"
+            type="text"
+        />
+
+        <field
+            name="visibility"
+            type="text"
+        />
+
+        <field
+            name="created"
+            type="text"
+        />
+
+        <field
+            name="created_by"
+            type="text"
+        />
+		
+    </fieldset>
+</form>

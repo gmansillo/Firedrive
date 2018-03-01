@@ -36,7 +36,8 @@ $canEditState = $user->authorise('core.edit.state', 'com_simplefilemanager');
 
 <div class="simplefilemanager-edit front-end-edit">
 
-    <?php echo $this->params->get('page_intro'); ?>
+    <?php // TODO: Get page_intro from menu item params
+    // echo $this->params->get('page_intro'); ?>
 
     <form   
         enctype="multipart/form-data"

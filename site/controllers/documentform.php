@@ -168,7 +168,7 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
 	{
 		jimport('joomla.filesystem.file');
 		
-		$param        = JComponentHelper::getParams('com_simplefilemanager');
+		$params        = JComponentHelper::getParams('com_simplefilemanager');
 		$user         = JFactory::getUser();
 		$canManage    = $user->authorise('core.manage', 'com_simplefilemanager');
 		$canEditState = $user->authorise('core.edit.state', 'com_simplefilemanager');
@@ -211,8 +211,8 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
 			
 		}
 		
-		$data['state'] = $param->get('defaultState', 0);
-		$data['visibility'] = $param->get('defaultVisibility', 5);
+		$data['state'] = $params->get('default_state', 0);
+		$data['visibility'] = $params->get('default_visibility', 5);
 		$data["created"] = JFactory::getDate()->toSql();
 		$data["created_by"] = $user->id;
 		

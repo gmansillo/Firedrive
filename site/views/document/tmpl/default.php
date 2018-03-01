@@ -81,7 +81,7 @@ $tparams = $this->item->params;
 		</dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('show_modified', 1) && !empty($this->doc->modified)) : ?>
+	<?php if ($tparams->get('show_modified', 1) && !empty($this->doc->modified) && $this->doc->modified != '0000-00-00 00:00:00') : ?>
 		<dl class="dl-horizontal">
 			<dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_MODIFIED_LABEL'); ?></dt>
 			<dd><?php echo $this->doc->modified; ?></dd>

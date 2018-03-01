@@ -60,7 +60,7 @@ class SimplefilemanagerModelCategory extends JModelList
 				'state', 'a.state',
 				'ordering', 'a.ordering',
 				'description', 'a.description',
-				'created_by', 'a.created_by',
+				'created', 'a.created',
 				'file_size', 'a.file_size',
 			);
 		}

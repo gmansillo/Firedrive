@@ -33,7 +33,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 			</div>
 		<?php endif; ?>
 
-		<?php if ($this->params->get('enable_ordering_select', 1)) : ?>
+		<?php if ($this->params->get('show_ordering_select', 1)) : ?>
 			<div class="pull-right">
 				&nbsp;
 				<select name="directionTable" id="directionTable" class="input-medium" onchange="Joomla.orderTable()">
@@ -98,7 +98,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 						<li class="row-fluid cat-list-row<?php echo $i % 2; ?>" >
 					<?php endif; ?>
 
-					<?php if($this->params->get('show_icon',1)): ?>
+					<?php if($this->params->get('show_document_icon',1)): ?>
 					
 						<div class="list-title span1 col-md-1">
 						<?php $full_width = 5; ?>
@@ -127,12 +127,15 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 							<span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span>
 						<?php endif; ?>
 						
-						<?php 
-							$created = JFactory::getDate($this->items[$i]->created)->toUnix();
-							$limit = JFactory::getDate('now -'.$this->params->get('new_duration_limit', 7).' day')->toUnix();
-						?>
-						<?php if ($created >= $limit) : ?>
-							<span class="label label-important"><?php echo JText::_('COM_SIMPLEFILEMANAGER_NEW'); ?></span>
+						<?php if ($this->params->get('show_document_new', 1)) : ?>
+							<?php 
+								$created = JFactory::getDate($this->items[$i]->created)->toUnix();
+								$limit = JFactory::getDate('now -' . $this->params->get('new_duration_limit', 7) . ' day')->toUnix();
+							?>
+							
+							<?php if ($created >= $limit) : ?>
+								<span class="label label-important"><?php echo JText::_('COM_SIMPLEFILEMANAGER_NEW'); ?></span>
+							<?php endif; ?>
 						<?php endif; ?>
 
 						<?php echo $item->event->afterDisplayTitle; ?>
@@ -141,20 +144,20 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
 							$details = array();
 
-							if ($this->params->get('show_created_by', 1) && !empty ($item->created_by))
+							if ($this->params->get('show_document_created_by', 1) && !empty ($item->created_by))
 							{
 								$details[] = $item->created_by_name;
 							}
-							if ($this->params->get('show_created', 1) && !empty($item->created))
+							if ($this->params->get('show_document_created', 1) && !empty($item->created))
 							{
 								$details[] = $item->created;
 							}
-							if ($this->params->get('show_file_size', 1) && !empty($item->file_size))
+							if ($this->params->get('show_document_file_size', 1) && !empty($item->file_size))
 							{
 								$file_size = SimplefilemanagerHelper::convertToReadableSize($item->file_size);
 								$details[] = $file_size;
 							}
-							if ($this->params->get('show_license', 1) && !empty($item->license))
+							if ($this->params->get('show_document_license', 1) && !empty($item->license))
 							{
 								if(!empty($item->license_link)){
 									$details[] = '<a href="'.$item->license_link.'">'.$item->license.'</a>';
@@ -173,7 +176,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
 					<div class="span4 col-md-4">
 
-						<?php if ($this->params->get('show_description', 1)): ?>
+						<?php if ($this->params->get('show_document_description', 1)): ?>
 							<div class="hidden-phone hidden-xs"><?php echo $item->description; ?></div>
 						<?php endif; ?>
 
@@ -204,7 +207,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 		</div>
 		<?php endif; ?>
 		
-		<?php echo $this->pagination->getListFooter(); ?>
+		<!-- <?php echo $this->pagination->getListFooter(); ?> -->
 		<div>
 			<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
 			<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />

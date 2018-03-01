@@ -9,7 +9,6 @@ defined('_JEXEC') or die;
 
 jimport('joomla.html.html.bootstrap');
 
-$cparams = JComponentHelper::getParams('com_media');
 $tparams = $this->item->params;
 
 ?>
@@ -49,53 +48,53 @@ $tparams = $this->item->params;
 
 	<?php echo $this->item->event->afterDisplayTitle; ?>
 
-	<?php if ($tparams->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
-		<?php $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
-		<?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
-	<?php endif; ?>
+	<?php // if ($tparams->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
+		<?php // $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
+		<?php // echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
+	<?php // endif; ?>
 
 	<?php echo $this->item->event->beforeDisplayContent; ?>
 
-	<?php if ($tparams->get('show_icon', 1) && !empty($this->doc->icon)) : ?>
+	<?php if ($tparams->get('document_show_document_icon', 1) && !empty($this->doc->icon)) : ?>
 		<p><img src="<?php echo $this->doc->icon; ?>" style="max-width:250px" /></p>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('show_desc', 1) && !empty($this->doc->description)) : ?>
+	<?php if ($tparams->get('document_show_document_description', 1) && !empty($this->doc->description)) : ?>
 		<dl class="dl-horizontal">
 			<dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_DESCRIPTION_LABEL'); ?></dt>
 			<dd><?php echo $this->doc->description; ?></dd>
 		</dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('show_created_by', 1) && !empty($this->doc->created_by)) : ?>
+	<?php if ($tparams->get('document_show_document_created_by', 1) && !empty($this->doc->created_by)) : ?>
 		<dl class="dl-horizontal">
 			<dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_CREATED_BY_LABEL'); ?></dt>
 			<dd><?php echo $this->doc->created_by_name; ?></dd>
 		</dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('show_created', 1) && !empty($this->doc->created)) : ?>
+	<?php if ($tparams->get('document_show_document_created', 1) && !empty($this->doc->created)) : ?>
 		<dl class="dl-horizontal">
 			<dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_CREATED_LABEL'); ?></dt>
 			<dd><?php echo $this->doc->created; ?></dd>
 		</dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('show_modified', 1) && !empty($this->doc->modified) && $this->doc->modified != '0000-00-00 00:00:00') : ?>
+	<?php if ($tparams->get('document_show_document_modified', 1) && !empty($this->doc->modified) && $this->doc->modified != '0000-00-00 00:00:00') : ?>
 		<dl class="dl-horizontal">
 			<dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_MODIFIED_LABEL'); ?></dt>
 			<dd><?php echo $this->doc->modified; ?></dd>
 		</dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('show_file_size', 1) && !empty($this->doc->file_size)) : ?>
+	<?php if ($tparams->get('document_show_document_file_size', 1) && !empty($this->doc->file_size)) : ?>
 		<dl class="dl-horizontal">
 			<dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_FILE_SIZE_LABEL'); ?></dt>
 			<dd><?php echo SimplefilemanagerHelper::convertToReadableSize($this->doc->file_size); ?></dd>
 		</dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('show_license', 1) && !empty($this->doc->license)) : ?>
+	<?php if ($tparams->get('document_show_document_license', 1) && !empty($this->doc->license)) : ?>
 		<dl class="dl-horizontal">
 			<dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_LICENSE_LABEL'); ?></dt>
 			<dd>
@@ -106,14 +105,14 @@ $tparams = $this->item->params;
 		</dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('show_version', 1) && !empty($this->doc->version)) : ?>
+	<?php if ($tparams->get('document_show_document_version', 1) && !empty($this->doc->version)) : ?>
 		<dl class="dl-horizontal">
 			<dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_VERSION_LABEL'); ?></dt>
 			<dd><?php echo $this->doc->version; ?></dd>
 		</dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('show_md5hash', 1) && !empty($this->doc->md5hash)) : ?>
+	<?php if ($tparams->get('document_show_document_md5', 1) && !empty($this->doc->md5hash)) : ?>
 		<dl class="dl-horizontal">
 			<dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_MD5HASH_LABEL'); ?></dt>
 			<dd><?php echo $this->doc->md5hash; ?></dd>

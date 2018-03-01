@@ -7,6 +7,16 @@
     >
 
         <field
+			name="document_layout"
+			type="componentlayout"
+			label="JGLOBAL_FIELD_LAYOUT_LABEL"
+			description="JGLOBAL_FIELD_LAYOUT_DESC"
+			menuitems="true"
+			extension="com_simplefilemanager"
+			view="document"
+		/>
+
+        <field
                 name="track_user_downloads"
                 type="radio"
                 class="radio btn-group btn-group-yesno"
@@ -15,6 +25,28 @@
                 description="COM_SIMPLEFILEMANAGER_FIELD_TRACK_USER_DOWNLOADS_DESC">
             <option value="1">JYES</option>
             <option value="0">JNO</option>
+        </field>
+        
+        <field
+                name="show_title"
+                type="radio"
+                class="radio btn-group btn-group-yesno"
+                default="1"
+                label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_TITLE_LABEL"
+                description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_TITLE_DESC">
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+        
+        <field
+                name="show_document_category"
+                type="list"
+                default="show_with_link"
+                label="COM_SIMPLEFILEMANAGER_FIELD_TRACK_USER_DOWNLOADS_LABEL"
+                description="COM_SIMPLEFILEMANAGER_FIELD_TRACK_USER_DOWNLOADS_DESC">
+            <option value="show_with_link">COM_SIMPLEFILEMANAGER_SHOW_DOCUMENT_CATEGORY_VALUE_WITH_LINK</option>
+            <option value="show_with_no_link">COM_SIMPLEFILEMANAGER_SHOW_DOCUMENT_CATEGORY_VALUE_WITH_NO_LINK</option>
+            <option value="hide">JNO</option>
         </field>
 
         <field
@@ -92,6 +124,28 @@
             <option value="3">COM_SIMPLEFILEMANAGER_VISIBILITY_3_USER</option>
             <option value="4">COM_SIMPLEFILEMANAGER_VISIBILITY_4_GROUP</option>
             <option value="5">COM_SIMPLEFILEMANAGER_VISIBILITY_5_AUTHOR</option>
+        </field>
+
+        <field name="document_show_document_modified"
+               type="radio"
+               class="radio btn-group btn-group-yesno"
+               default="1"
+               label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_MODIFIED_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_MODIFIED_DESC"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
+        </field>
+
+        <field name="document_show_document_created"
+               type="radio"
+               class="radio btn-group btn-group-yesno"
+               default="1"
+               label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_CREATED_LABEL"
+               description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_CREATED_DESC"
+        >
+            <option value="1">JYES</option>
+            <option value="0">JNO</option>
         </field>
 
         <field name="show_md5"
@@ -181,7 +235,7 @@
             <option value="0">JNO</option>
         </field>
 
-        <field name="show_license"
+        <field name="show_document_license"
                type="radio"
                class="radio btn-group btn-group-yesno"
                default="0"
@@ -192,7 +246,7 @@
             <option value="0">JNO</option>
         </field>
 
-        <field name="show_icon"
+        <field name="show_document_icon"
                type="radio"
                class="radio btn-group btn-group-yesno"
                default="1"

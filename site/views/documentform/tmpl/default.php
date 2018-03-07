@@ -28,6 +28,7 @@ $doc->addScriptDeclaration('
 	});
 ');
 
+$params       = JComponentHelper::getParams('com_simplefilemanager');
 $user         = JFactory::getUser();
 $canManage    = $user->authorise('core.manage', 'com_simplefilemanager');
 $canEditState = $user->authorise('core.edit.state', 'com_simplefilemanager');
@@ -51,10 +52,15 @@ $canEditState = $user->authorise('core.edit.state', 'com_simplefilemanager');
         <fieldset>
 
 			<?php echo $this->form->renderField('title'); ?>
-			<?php echo $this->form->renderField('catid'); ?>
+            
+            <?php if( $params->get('default_category', "") == "" ): ?> 
+                <?php echo $this->form->renderField('catid'); ?>
+            <?php endif; ?> 
+            
             <?php echo $this->form->renderField('select_file'); ?>
-			<?php echo $this->form->renderField('description'); ?>
-
+            
+            <?php echo $this->form->renderField('description'); ?>
+            
         </fieldset>
 
         <button type="submit" class="btn button btn-primary">

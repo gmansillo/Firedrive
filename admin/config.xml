@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
 
-    <fieldset 
+    <fieldset
         name="document"
         label="COM_SIMPLEFILEMANAGER_CONFIG_DOCUMENT_SETTINGS_LABEL"
-    >
-
-        <field
+        description="COM_SIMPLEFILEMANAGER_CONFIG_DOCUMENT_SETTINGS_DESC">
+    
+        <!-- <field
 			name="document_layout"
 			type="componentlayout"
 			label="JGLOBAL_FIELD_LAYOUT_LABEL"
@@ -14,329 +14,414 @@
 			menuitems="true"
 			extension="com_simplefilemanager"
 			view="document"
-		/>
+		/> -->
 
         <field
-                name="track_user_downloads"
-                type="radio"
-                class="radio btn-group btn-group-yesno"
-                default="0"
-                label="COM_SIMPLEFILEMANAGER_FIELD_TRACK_USER_DOWNLOADS_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_TRACK_USER_DOWNLOADS_DESC">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
+            name="show_title"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_TITLE_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_TITLE_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_document_category"
+            type="list"
+            default="show_with_link"
+            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_CATEGORY_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_CATEGORY_DESC">
+            <option
+                value="show_with_link">COM_SIMPLEFILEMANAGER_DOCUMENT_SHOW_DOCUMENT_CATEGORY_VALUE_WITH_LINK</option>
+            <option
+                value="show_with_no_link">COM_SIMPLEFILEMANAGER_DOCUMENT_SHOW_DOCUMENT_CATEGORY_VALUE_WITH_NO_LINK</option>
+            <option
+                value="hide">JNO</option>
+        </field>
+
+        <field
+            name="document_show_document_modified"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_MODIFIED_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_MODIFIED_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="document_show_document_created"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_CREATED_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_CREATED_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_md5"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_MD5_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_MD5_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+    </fieldset>
+    
+    <fieldset
+        name="category"
+        label="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORY_SETTINGS_LABEL"
+        description="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORY_SETTINGS_DESC">
+
+        <field
+            name="initial_sort"
+            type="list"
+            label="COM_SIMPLEFILEMANAGER_FIELD_INITIAL_SORT_BY_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_INITIAL_SORT_BY_DESC"
+            default="a.ordering">
+            <option
+                value="a.ordering">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_ORDERING</option>
+            <option
+                value="a.title">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_TITLE</option>
+            <option
+                value="a.description">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_DESCRIPTION</option>
+            <option
+                value="a.created">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_CREATED</option>
+            <option
+                value="a.file_size">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_SIZE</option>
+        </field>
+
+        <field
+            name="show_description"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_CATEGORY_DESC_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_CATEGORY_DESC_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_new"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_NEW_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_NEW_DESC"
+            default="1">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_document_created_by"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_document_created"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_document_file_size"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_document_license"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="0"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_document_icon"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_document_description"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="filter_field"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_FILTER_FIELD_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_FILTER_FIELD_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_pagination"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_pagination_limit"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_ordering_select"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_download_in_category_view"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+    </fieldset>
+
+    <fieldset
+        name="advanced"
+        label="COM_SIMPLEFILEMANAGER_CONFIG_ADVANCED_SETTINGS_LABEL">
+
+        <field
+            name="track_user_downloads"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="0"
+            label="COM_SIMPLEFILEMANAGER_FIELD_TRACK_USER_DOWNLOADS_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_TRACK_USER_DOWNLOADS_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="use_smart_icons"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_USE_SMART_ICONS_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_USE_SMART_ICONS_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
         </field>
         
-        <field
-                name="show_title"
-                type="radio"
-                class="radio btn-group btn-group-yesno"
-                default="1"
-                label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_TITLE_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_TITLE_DESC">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-        
-        <field
-                name="show_document_category"
-                type="list"
-                default="show_with_link"
-                label="COM_SIMPLEFILEMANAGER_FIELD_TRACK_USER_DOWNLOADS_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_TRACK_USER_DOWNLOADS_DESC">
-            <option value="show_with_link">COM_SIMPLEFILEMANAGER_SHOW_DOCUMENT_CATEGORY_VALUE_WITH_LINK</option>
-            <option value="show_with_no_link">COM_SIMPLEFILEMANAGER_SHOW_DOCUMENT_CATEGORY_VALUE_WITH_NO_LINK</option>
-            <option value="hide">JNO</option>
-        </field>
-
-        <field
-                name="sendmail"
-                type="radio"
-                class="radio btn-group btn-group-yesno"
-                default="0"
-                label="COM_SIMPLEFILEMANAGER_FIELD_SENDMAIL_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_SENDMAIL_DESC">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="new_duration_limit"
-               type="integer"
-               first="0"
-               last="30"
-               step="1"
-               default="7"
-               label="COM_SIMPLEFILEMANAGER_FIELD_NEW_DURATION_LIMIT_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_NEW_DURATION_LIMIT_DESC"/>
-
-        <field name="force_download"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_FORCE_DOWNLOAD_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_FORCE_DOWNLOAD_DESC">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="use_smart_icons"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_USE_SMART_ICONS_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_USE_SMART_ICONS_DESC">
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="defaulticon"
-               type="media"
-               label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULTICON_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULTICON_DESC"/>
-
         <!-- <field name="forbiddenExtensions"
                type="text"
                label="COM_SIMPLEFILEMANAGER_FIELD_FORBIDDEN_EXT_LABEL"
                description="COM_SIMPLEFILEMANAGER_FIELD_FORBIDDEN_EXT_DESC"
                default="js,css,htaccess,php,php3,php4,phtml,pl,py,jsp,asp,htm,html,shtml,sh"/> -->
 
-        <field name="default_state" 
-               type="list"
-               label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_STATE_LABEL" 
-               description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_STATE_DESC"
-               class="chzn-color-state" 
-               default="0"
-        >
-            <option value="1">JPUBLISHED</option>
-            <option value="0">JUNPUBLISHED</option>
-            <option value="2">JARCHIVED</option>
-            <option value="-2">JTRASHED</option>
+        <field
+            name="defaulticon"
+            type="media"
+            label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULTICON_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULTICON_DESC" />
+
+        <field
+            name="default_state"
+            type="list"
+            label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_STATE_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_STATE_DESC"
+            class="chzn-color-state"
+            default="0">
+            <option
+                value="1">JPUBLISHED</option>
+            <option
+                value="0">JUNPUBLISHED</option>
+            <option
+                value="2">JARCHIVED</option>
+            <option
+                value="-2">JTRASHED</option>
         </field>
 
-        <field name="default_visibility"
-               type="list"
-               label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_VISIBILITY_LABEL" 
-               description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_VISIBILITY_DESC" 
-               default="5"
-        >
-            <option value="1">COM_SIMPLEFILEMANAGER_VISIBILITY_1_PUBLIC</option>
-            <option value="2">COM_SIMPLEFILEMANAGER_VISIBILITY_2_REGISTRED</option>
-            <option value="3">COM_SIMPLEFILEMANAGER_VISIBILITY_3_USER</option>
-            <option value="4">COM_SIMPLEFILEMANAGER_VISIBILITY_4_GROUP</option>
-            <option value="5">COM_SIMPLEFILEMANAGER_VISIBILITY_5_AUTHOR</option>
-        </field>
+        <field
+            name="defaulticon"
+            type="media"
+            label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULTICON_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULTICON_DESC" />
 
-        <field name="document_show_document_modified"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_MODIFIED_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_MODIFIED_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
+        <field
+            name="default_visibility"
+            type="list"
+            label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_VISIBILITY_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_VISIBILITY_DESC"
+            default="5">
+            <option
+                value="1">COM_SIMPLEFILEMANAGER_VISIBILITY_1_PUBLIC</option>
+            <option
+                value="2">COM_SIMPLEFILEMANAGER_VISIBILITY_2_REGISTRED</option>
+            <option
+                value="3">COM_SIMPLEFILEMANAGER_VISIBILITY_3_USER</option>
+            <option
+                value="4">COM_SIMPLEFILEMANAGER_VISIBILITY_4_GROUP</option>
+            <option
+                value="5">COM_SIMPLEFILEMANAGER_VISIBILITY_5_AUTHOR</option>
         </field>
-
-        <field name="document_show_document_created"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_CREATED_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DOCUMENT_CREATED_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="show_md5"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_MD5_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_MD5_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-    </fieldset>
-    
-    <fieldset 
-        name="category"
-        label="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORY_SETTINGS_LABEL"
-        description="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORY_SETTINGS_DESC"
-    >
 
         <field 
-            name="initial_sort" 
-            type="list"
-            label="COM_SIMPLEFILEMANAGER_FIELD_INITIAL_SORT_BY_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_INITIAL_SORT_BY_DESC"
-            default = "a.ordering"
-        >
-            <option value="a.ordering">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_ORDERING</option>
-            <option value="a.title">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_TITLE</option>
-            <option value="a.description">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_DESCRIPTION</option>
-            <option value="a.created">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_CREATED</option>
-            <option value="a.file_size">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_SIZE</option>
+            name="default_category" 
+            type="category"
+            label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_CATEGORY_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_CATEGORY_DESC"
+            extension="com_simplefilemanager"
+            default="">
+            <option value="">JOPTION_SELECT_CATEGORY</option>
         </field>
 
-        <field name="show_description"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CATEGORY_DESC_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CATEGORY_DESC_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
+         <field
+            name="sendmail"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="0"
+            label="COM_SIMPLEFILEMANAGER_FIELD_SENDMAIL_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_SENDMAIL_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
         </field>
 
-        <field name="show_new"
-               type="list"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_NEW_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_NEW_DESC"
-               default="1"
-        >
-            <option value="0">JHIDE</option>
-            <option value="1">JSHOW</option>
+        <field
+            name="force_download"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_FORCE_DOWNLOAD_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_FORCE_DOWNLOAD_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
         </field>
 
-        <field name="show_document_created_by"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_CREATED_BY_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_CREATED_BY_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="show_document_created"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_CREATED_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_CREATED_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="show_document_file_size"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_SIZE_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_SIZE_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="show_document_license"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="0"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_LICENSE_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_LICENSE_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="show_document_icon"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_ICON_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_ICON_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="show_document_description"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_DESC_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOCUMENT_DESC_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="filter_field"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_FILTER_FIELD_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_FILTER_FIELD_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="show_pagination"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_PAGINATION_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_PAGINATION_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="show_pagination_limit"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_PAGINATION_LIMIT_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_PAGINATION_LIMIT_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="show_ordering_select"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_ORDERING_SELECT_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_ORDERING_SELECT_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
-        <field name="show_download_in_category_view"
-               type="radio"
-               class="radio btn-group btn-group-yesno"
-               default="1"
-               label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_DESC"
-        >
-            <option value="1">JYES</option>
-            <option value="0">JNO</option>
-        </field>
-
+         <field
+            name="new_duration_limit"
+            type="integer"
+            first="0"
+            last="30"
+            step="1"
+            default="7"
+            label="COM_SIMPLEFILEMANAGER_FIELD_NEW_DURATION_LIMIT_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_NEW_DURATION_LIMIT_DESC" />
+    
     </fieldset>
 
+    <fieldset
 
-    <fieldset name="permissions"
-              description="JCONFIG_PERMISSIONS_DESC"
-              label="JCONFIG_PERMISSIONS_LABEL"
-    >
+        name="permissions"
+        description="JCONFIG_PERMISSIONS_DESC"
+        label="JCONFIG_PERMISSIONS_LABEL">
 
-        <field name="rules"
-               type="rules"
-               component="com_simplefilemanager"
-               filter="rules"
-               validate="rules"
-               label="JCONFIG_PERMISSIONS_LABEL"
-               section="component"/>
+        <field
+            name="rules"
+            type="rules"
+            component="com_simplefilemanager"
+            filter="rules"
+            validate="rules"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            section="component" />
     </fieldset>
 </config>

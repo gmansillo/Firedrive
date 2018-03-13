@@ -1,10 +1,10 @@
 <?php
+
 /**
  * @package     Simple File Manager
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
-
 defined('_JEXEC') or die;
 
 /**
@@ -13,257 +13,220 @@ defined('_JEXEC') or die;
  * @since       3.6
  * @deprecated  4.0
  */
-class SimplefilemanagerRouterRulesLegacy implements JComponentRouterRulesInterface
-{
-	/**
-	 * Constructor for this legacy router
-	 *
-	 * @param   JComponentRouterAdvanced  $router  The router this rule belongs to
-	 *
-	 * @since       3.6
-	 * @deprecated  4.0
-	 */
-	public function __construct($router)
-	{
-		$this->router = $router;
-	}
+class SimplefilemanagerRouterRulesLegacy implements JComponentRouterRulesInterface {
 
-	/**
-	 * Preprocess the route for the com_simplefilemanager component
-	 *
-	 * @param   array  &$query  An array of URL arguments
-	 *
-	 * @return  void
-	 *
-	 * @since       3.6
-	 * @deprecated  4.0
-	 */
-	public function preprocess(&$query)
-	{
-	}
+    /**
+     * Constructor for this legacy router
+     *
+     * @param   JComponentRouterAdvanced  $router  The router this rule belongs to
+     *
+     * @since       3.6
+     * @deprecated  4.0
+     */
+    public function __construct($router) {
+        $this->router = $router;
+    }
 
-	/**
-	 * Build the route for the com_simplefilemanager component
-	 *
-	 * @param   array  &$query     An array of URL arguments
-	 * @param   array  &$segments  The URL arguments to use to assemble the subsequent URL.
-	 *
-	 * @return  void
-	 *
-	 * @since       3.6
-	 * @deprecated  4.0
-	 */
-	public function build(&$query, &$segments)
-	{
-		// Get a menu item based on Itemid or currently active
-		$params = JComponentHelper::getParams('com_simplefilemanager');
-		$advanced = $params->get('sef_advanced_link', 0);
+    /**
+     * Preprocess the route for the com_simplefilemanager component
+     *
+     * @param   array  &$query  An array of URL arguments
+     *
+     * @return  void
+     *
+     * @since       3.6
+     * @deprecated  4.0
+     */
+    public function preprocess(&$query) {
+        
+    }
 
-		if (empty($query['Itemid']))
-		{
-			$menuItem = $this->router->menu->getActive();
-		}
-		else
-		{
-			$menuItem = $this->router->menu->getItem($query['Itemid']);
-		}
+    /**
+     * Build the route for the com_simplefilemanager component
+     *
+     * @param   array  &$query     An array of URL arguments
+     * @param   array  &$segments  The URL arguments to use to assemble the subsequent URL.
+     *
+     * @return  void
+     *
+     * @since       3.6
+     * @deprecated  4.0
+     */
+    public function build(&$query, &$segments) {
+        // Get a menu item based on Itemid or currently active
+        $params   = JComponentHelper::getParams('com_simplefilemanager');
+        $advanced = $params->get('sef_advanced_link', 0);
 
-		$mView = empty($menuItem->query['view']) ? null : $menuItem->query['view'];
-		$mId = empty($menuItem->query['id']) ? null : $menuItem->query['id'];
+        if (empty($query['Itemid'])) {
+            $menuItem = $this->router->menu->getActive();
+        } else {
+            $menuItem = $this->router->menu->getItem($query['Itemid']);
+        }
 
-		if (isset($query['view']))
-		{
-			$view = $query['view'];
+        $mView = empty($menuItem->query['view']) ? null : $menuItem->query['view'];
+        $mId   = empty($menuItem->query['id']) ? null : $menuItem->query['id'];
 
-			if (empty($query['Itemid']) || empty($menuItem) || $menuItem->component != 'com_simplefilemanager')
-			{
-				$segments[] = $query['view'];
-			}
+        if (isset($query['view'])) {
+            $view = $query['view'];
 
-			unset($query['view']);
-		}
+            if (empty($query['Itemid']) || empty($menuItem) || $menuItem->component != 'com_simplefilemanager') {
+                $segments[] = $query['view'];
+            }
 
-		// Are we dealing with a document that is attached to a menu item?
-		if (isset($view) && ($mView == $view) && isset($query['id']) && ($mId == (int) $query['id']))
-		{
-			unset($query['view'], $query['catid'], $query['id']);
+            unset($query['view']);
+        }
 
-			return;
-		}
+        // Are we dealing with a document that is attached to a menu item?
+        if (isset($view) && ($mView == $view) && isset($query['id']) && ($mId == (int) $query['id'])) {
+            unset($query['view'], $query['catid'], $query['id']);
 
-		if (isset($view) && ($view == 'category' || $view == 'document'))
-		{
-			if ($mId != (int) $query['id'] || $mView != $view)
-			{
-				if ($view == 'document' && isset($query['catid']))
-				{
-					$catid = $query['catid'];
-				}
-				elseif (isset($query['id']))
-				{
-					$catid = $query['id'];
-				}
+            return;
+        }
 
-				$menuCatid = $mId;
-				$categories = JCategories::getInstance('Simplefilemanager');
-				$category = $categories->get($catid);
+        if (isset($view) && ($view == 'category' || $view == 'document')) {
+            if ($mId != (int) $query['id'] || $mView != $view) {
+                if ($view == 'document' && isset($query['catid'])) {
+                    $catid = $query['catid'];
+                } elseif (isset($query['id'])) {
+                    $catid = $query['id'];
+                }
 
-				if ($category)
-				{
-					// TODO Throw error that the category either not exists or is unpublished
-					$path = array_reverse($category->getPath());
+                $menuCatid  = $mId;
+                $categories = JCategories::getInstance('Simplefilemanager');
+                $category   = $categories->get($catid);
 
-					$array = array();
+                if ($category) {
+                    // TODO Throw error that the category either not exists or is unpublished
+                    $path = array_reverse($category->getPath());
 
-					foreach ($path as $id)
-					{
-						if ((int) $id == (int) $menuCatid)
-						{
-							break;
-						}
+                    $array = array();
 
-						if ($advanced)
-						{
-							list($tmp, $id) = explode(':', $id, 2);
-						}
+                    foreach ($path as $id) {
+                        if ((int) $id == (int) $menuCatid) {
+                            break;
+                        }
 
-						$array[] = $id;
-					}
+                        if ($advanced) {
+                            list($tmp, $id) = explode(':', $id, 2);
+                        }
 
-					$segments = array_merge($segments, array_reverse($array));
-				}
+                        $array[] = $id;
+                    }
 
-				if ($view == 'document')
-				{
-					if ($advanced)
-					{
-						list($tmp, $id) = explode(':', $query['id'], 2);
-					}
-					else
-					{
-						$id = $query['id'];
-					}
+                    $segments = array_merge($segments, array_reverse($array));
+                }
 
-					$segments[] = $id;
-				}
-			}
+                if ($view == 'document') {
+                    if ($advanced) {
+                        list($tmp, $id) = explode(':', $query['id'], 2);
+                    } else {
+                        $id = $query['id'];
+                    }
 
-			unset($query['id'], $query['catid']);
-		}
+                    $segments[] = $id;
+                }
+            }
 
-		if (isset($query['layout']))
-		{
-			if (!empty($query['Itemid']) && isset($menuItem->query['layout']))
-			{
-				if ($query['layout'] == $menuItem->query['layout'])
-				{
-					unset($query['layout']);
-				}
-			}
-			else
-			{
-				if ($query['layout'] == 'default')
-				{
-					unset($query['layout']);
-				}
-			}
-		}
+            unset($query['id'], $query['catid']);
+        }
 
-		$total = count($segments);
+        if (isset($query['layout'])) {
+            if (!empty($query['Itemid']) && isset($menuItem->query['layout'])) {
+                if ($query['layout'] == $menuItem->query['layout']) {
+                    unset($query['layout']);
+                }
+            } else {
+                if ($query['layout'] == 'default') {
+                    unset($query['layout']);
+                }
+            }
+        }
 
-		for ($i = 0; $i < $total; $i++)
-		{
-			$segments[$i] = str_replace(':', '-', $segments[$i]);
-		}
-	}
+        $total = count($segments);
 
-	/**
-	 * Parse the segments of a URL.
-	 *
-	 * @param   array  &$segments  The segments of the URL to parse.
-	 * @param   array  &$vars      The URL attributes to be used by the application.
-	 *
-	 * @return  void
-	 *
-	 * @since       3.6
-	 * @deprecated  4.0
-	 */
-	public function parse(&$segments, &$vars)
-	{
-		$total = count($segments);
+        for ($i = 0; $i < $total; $i++) {
+            $segments[$i] = str_replace(':', '-', $segments[$i]);
+        }
+    }
 
-		for ($i = 0; $i < $total; $i++)
-		{
-			$segments[$i] = preg_replace('/-/', ':', $segments[$i], 1);
-		}
+    /**
+     * Parse the segments of a URL.
+     *
+     * @param   array  &$segments  The segments of the URL to parse.
+     * @param   array  &$vars      The URL attributes to be used by the application.
+     *
+     * @return  void
+     *
+     * @since       3.6
+     * @deprecated  4.0
+     */
+    public function parse(&$segments, &$vars) {
+        $total = count($segments);
 
-		// Get the active menu item.
-		$item = $this->router->menu->getActive();
-		$params = JComponentHelper::getParams('com_simplefilemanager');
-		$advanced = $params->get('sef_advanced_link', 0);
+        for ($i = 0; $i < $total; $i++) {
+            $segments[$i] = preg_replace('/-/', ':', $segments[$i], 1);
+        }
 
-		// Count route segments
-		$count = count($segments);
+        // Get the active menu item.
+        $item     = $this->router->menu->getActive();
+        $params   = JComponentHelper::getParams('com_simplefilemanager');
+        $advanced = $params->get('sef_advanced_link', 0);
 
-		// Standard routing for newsfeeds.
-		if (!isset($item))
-		{
-			$vars['view'] = $segments[0];
-			$vars['id'] = $segments[$count - 1];
+        // Count route segments
+        $count = count($segments);
 
-			return;
-		}
+        // Standard routing for newsfeeds.
+        if (!isset($item)) {
+            $vars['view'] = $segments[0];
+            $vars['id']   = $segments[$count - 1];
 
-		// From the categories view, we can only jump to a category.
-		$id = (isset($item->query['id']) && $item->query['id'] > 1) ? $item->query['id'] : 'root';
+            return;
+        }
 
-		$documentCategory = JCategories::getInstance('Simplefilemanager')->get($id);
+        // From the categories view, we can only jump to a category.
+        $id = (isset($item->query['id']) && $item->query['id'] > 1) ? $item->query['id'] : 'root';
 
-		$categories = $documentCategory ? $documentCategory->getChildren() : array();
-		$vars['catid'] = $id;
-		$vars['id'] = $id;
-		$found = 0;
+        $documentCategory = JCategories::getInstance('Simplefilemanager')->get($id);
 
-		foreach ($segments as $segment)
-		{
-			$segment = $advanced ? str_replace(':', '-', $segment) : $segment;
+        $categories    = $documentCategory ? $documentCategory->getChildren() : array();
+        $vars['catid'] = $id;
+        $vars['id']    = $id;
+        $found         = 0;
 
-			foreach ($categories as $category)
-			{
-				if ($category->slug == $segment || $category->alias == $segment)
-				{
-					$vars['id'] = $category->id;
-					$vars['catid'] = $category->id;
-					$vars['view'] = 'category';
-					$categories = $category->getChildren();
-					$found = 1;
-					break;
-				}
-			}
+        foreach ($segments as $segment) {
+            $segment = $advanced ? str_replace(':', '-', $segment) : $segment;
 
-			if ($found == 0)
-			{
-				if ($advanced)
-				{
-					$db = JFactory::getDbo();
-					$query = $db->getQuery(true)
-						->select($db->quoteName('id'))
-						->from('#__simplefilemanager')
-						->where($db->quoteName('catid') . ' = ' . (int) $vars['catid'])
-						->where($db->quoteName('alias') . ' = ' . $db->quote($segment));
-					$db->setQuery($query);
-					$nid = $db->loadResult();
-				}
-				else
-				{
-					$nid = $segment;
-				}
+            foreach ($categories as $category) {
+                if ($category->slug == $segment || $category->alias == $segment) {
+                    $vars['id']    = $category->id;
+                    $vars['catid'] = $category->id;
+                    $vars['view']  = 'category';
+                    $categories    = $category->getChildren();
+                    $found         = 1;
+                    break;
+                }
+            }
 
-				$vars['id'] = $nid;
-				$vars['view'] = 'document';
-			}
+            if ($found == 0) {
+                if ($advanced) {
+                    $db    = JFactory::getDbo();
+                    $query = $db->getQuery(true)
+                            ->select($db->quoteName('id'))
+                            ->from('#__simplefilemanager')
+                            ->where($db->quoteName('catid') . ' = ' . (int) $vars['catid'])
+                            ->where($db->quoteName('alias') . ' = ' . $db->quote($segment));
+                    $db->setQuery($query);
+                    $nid   = $db->loadResult();
+                } else {
+                    $nid = $segment;
+                }
 
-			$found = 0;
-		}
-	}
+                $vars['id']   = $nid;
+                $vars['view'] = 'document';
+            }
+
+            $found = 0;
+        }
+    }
+
 }

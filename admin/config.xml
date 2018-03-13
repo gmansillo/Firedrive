@@ -7,14 +7,14 @@
         description="COM_SIMPLEFILEMANAGER_CONFIG_DOCUMENTS_SETTINGS_DESC">
     
         <field
-			name="document_layout"
-			type="componentlayout"
-			label="JGLOBAL_FIELD_LAYOUT_LABEL"
-			description="JGLOBAL_FIELD_LAYOUT_DESC"
-			menuitems="true"
-			extension="com_simplefilemanager"
-			view="document"
-		/>
+            name="document_layout"
+            type="componentlayout"
+            label="JGLOBAL_FIELD_LAYOUT_LABEL"
+            description="JGLOBAL_FIELD_LAYOUT_DESC"
+            menuitems="true"
+            extension="com_simplefilemanager"
+            view="document"
+        />
 
         <field
             name="document_show_title"
@@ -230,6 +230,19 @@
             description="COM_SIMPLEFILEMANAGER_FIELD_NEW_DURATION_LIMIT_DESC" />
     
         <field
+            name="show_ordering_select"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+        
+        <field
             name="initial_sort"
             type="list"
             label="COM_SIMPLEFILEMANAGER_FIELD_INITIAL_SORT_BY_LABEL"
@@ -352,45 +365,6 @@
         </field>
 
         <field
-            name="show_pagination"
-            type="radio"
-            class="radio btn-group btn-group-yesno"
-            default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_DESC">
-            <option
-                value="1">JYES</option>
-            <option
-                value="0">JNO</option>
-        </field>
-
-        <field
-            name="show_pagination_limit"
-            type="radio"
-            class="radio btn-group btn-group-yesno"
-            default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_DESC">
-            <option
-                value="1">JYES</option>
-            <option
-                value="0">JNO</option>
-        </field>
-
-        <field
-            name="show_ordering_select"
-            type="radio"
-            class="radio btn-group btn-group-yesno"
-            default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_DESC">
-            <option
-                value="1">JYES</option>
-            <option
-                value="0">JNO</option>
-        </field>
-
-        <field
             name="show_download_in_category_view"
             type="radio"
             class="radio btn-group btn-group-yesno"
@@ -410,71 +384,71 @@
         label="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORIES_SETTINGS_LABEL"
         description="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORIES_SETTINGS_DESC">
 
-		<field
-			name="show_base_description"
-			type="radio"
-			label="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_LABEL"
-			description="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_DESC"
-			default="1"
-			class="btn-group btn-group-yesno"
-			>
-			<option value="1">JSHOW</option>
-			<option value="0">JHIDE</option>
-		</field>
+        <field
+            name="show_base_description"
+            type="radio"
+            label="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_LABEL"
+            description="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_DESC"
+            default="1"
+            class="btn-group btn-group-yesno"
+        >
+            <option value="1">JSHOW</option>
+            <option value="0">JHIDE</option>
+        </field>
 
-		<field
-			name="maxLevelcat"
-			type="list"
-			label="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_LABEL"
-			description="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_DESC"
-			default="-1"
-			>
-			<option value="-1">JALL</option>
-			<option value="0">JNONE</option>
-			<option value="1">J1</option>
-			<option value="2">J2</option>
-			<option value="3">J3</option>
-			<option value="4">J4</option>
-			<option value="5">J5</option>
-		</field>
+        <field
+            name="maxLevelcat"
+            type="list"
+            label="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_LABEL"
+            description="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_DESC"
+            default="-1"
+        >
+            <option value="-1">JALL</option>
+            <option value="0">JNONE</option>
+            <option value="1">J1</option>
+            <option value="2">J2</option>
+            <option value="3">J3</option>
+            <option value="4">J4</option>
+            <option value="5">J5</option>
+        </field>
 
-		<field
-			name="show_subcat_desc_cat"
-			type="radio"
-			label="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_LABEL"
-			description="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_DESC"
-			default="1"
-			class="btn-group btn-group-yesno"
-			showon="maxLevelcat:-1,1,2,3,4,5"
-			>
-			<option value="1">JSHOW</option>
-			<option value="0">JHIDE</option>
-		</field>
+        <field
+            name="show_subcat_desc_cat"
+            type="radio"
+            label="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_LABEL"
+            description="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_DESC"
+            default="1"
+            class="btn-group btn-group-yesno"
+            showon="maxLevelcat:-1,1,2,3,4,5"
+        >
+            <option value="1">JSHOW</option>
+            <option value="0">JHIDE</option>
+        </field>
 
-		<field
-			name="show_empty_categories_cat"
-			type="radio"
-			label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
-			description="COM_SIMPLEFILEMANAGER_SHOW_EMPTY_CATEGORIES_DESC"
-			default="0"
-			class="btn-group btn-group-yesno"
-			showon="maxLevelcat:-1,1,2,3,4,5"
-			>
-			<option value="1">JSHOW</option>
-			<option value="0">JHIDE</option>
-		</field>
+        <field
+            name="show_empty_categories_cat"
+            type="radio"
+            label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
+            description="COM_SIMPLEFILEMANAGER_SHOW_EMPTY_CATEGORIES_DESC"
+            default="0"
+            class="btn-group btn-group-yesno"
+            showon="maxLevelcat:-1,1,2,3,4,5"
+        >
+            <option value="1">JSHOW</option>
+            <option value="0">JHIDE</option>
+        </field>
 
-		<field
-			name="show_cat_items_cat"
-			type="radio"
-			label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_LABEL"
-			description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_DESC"
-			default="1"
-			class="btn-group btn-group-yesno"
-			>
-			<option value="1">JSHOW</option>
-			<option value="0">JHIDE</option>
-		</field>
+        <field
+            name="show_cat_items_cat"
+            type="radio"
+            label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_DESC"
+            default="1"
+            class="btn-group btn-group-yesno"
+        >
+            <option value="1">JSHOW</option>
+            <option value="0">JHIDE</option>
+        </field>
         
     </fieldset>
 
@@ -502,10 +476,10 @@
         </field>
         
         <!-- <field name="forbiddenExtensions"
-               type="text"
-               label="COM_SIMPLEFILEMANAGER_FIELD_FORBIDDEN_EXT_LABEL"
-               description="COM_SIMPLEFILEMANAGER_FIELD_FORBIDDEN_EXT_DESC"
-               default="js,css,htaccess,php,php3,php4,phtml,pl,py,jsp,asp,htm,html,shtml,sh"/> -->
+        type="text"
+        label="COM_SIMPLEFILEMANAGER_FIELD_FORBIDDEN_EXT_LABEL"
+        description="COM_SIMPLEFILEMANAGER_FIELD_FORBIDDEN_EXT_DESC"
+        default="js,css,htaccess,php,php3,php4,phtml,pl,py,jsp,asp,htm,html,shtml,sh"/> -->
 
         <field
             name="force_download"
@@ -520,7 +494,7 @@
                 value="0">JNO</option>
         </field>
 
-         <field
+        <field
             name="sendmail"
             type="radio"
             class="radio btn-group btn-group-yesno"
@@ -545,9 +519,56 @@
             <option
                 value="0">JNO</option>
         </field>
+        
+        <field
+            name="upgrade_message"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_UPGRADE_MESSAGE_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_UPGRADE_MESSAGE_DESC">
+            <option
+                value="1">JSHOW</option>
+            <option
+                value="0">JHIDE</option>
+        </field>
 
     </fieldset>
 
+    <fieldset
+        name="lists"
+        description="COM_SIMPLEFILEMANAGER_CONFIG_LISTS_SETTINGS_DESC"
+        label="COM_SIMPLEFILEMANAGER_CONFIG_LISTS_SETTINGS_LABEL">
+
+        
+        <field
+            name="show_pagination"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_pagination_limit"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+    </fieldset>
+    
     <fieldset
         name="permissions"
         description="JCONFIG_PERMISSIONS_DESC"

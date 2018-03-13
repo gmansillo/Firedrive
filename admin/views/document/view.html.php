@@ -1,10 +1,10 @@
 <?php
+
 /**
  * @package     Simple File Manager
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
-
 defined('_JEXEC') or die;
 
 JLoader::register('SimplefilemanagerHelper', JPATH_ADMINISTRATOR . '/components/com_simplefilemanager/helpers/simplefilemanager.php');
@@ -12,106 +12,98 @@ JLoader::register('SimplefilemanagerHelper', JPATH_ADMINISTRATOR . '/components/
 /**
  * View to edit a document.
  */
-class SimplefilemanagerViewDocument extends JViewLegacy
-{
-	/**
-	 * The JForm object
-	 *
-	 * @var  JForm
-	 */
-	protected $form;
+class SimplefilemanagerViewDocument extends JViewLegacy {
 
-	/**
-	 * The active item
-	 *
-	 * @var  object
-	 */
-	protected $item;
+    /**
+     * The JForm object
+     *
+     * @var  JForm
+     */
+    protected $form;
 
-	/**
-	 * The model state
-	 *
-	 * @var  object
-	 */
-	protected $state;
+    /**
+     * The active item
+     *
+     * @var  object
+     */
+    protected $item;
 
-	/**
-	 * Display the view
-	 *
-	 * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
-	 *
-	 * @return  mixed  A string if successful, otherwise an Error object.
-	 */
-	public function display($tpl = null)
-	{
-		// Initialiase variables.
-		$this->form  = $this->get('Form');
-		$this->item  = $this->get('Item');
-		$this->state = $this->get('State');
-		$this->isNew = ($this->item->id == 0);
+    /**
+     * The model state
+     *
+     * @var  object
+     */
+    protected $state;
 
-		// Check for errors.
-		if (count($errors = $this->get('Errors')))
-		{
-			throw new Exception(implode("\n", $errors), 500);
-		}
+    /**
+     * Display the view
+     *
+     * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+     *
+     * @return  mixed  A string if successful, otherwise an Error object.
+     */
+    public function display($tpl = null) {
+        // Initialiase variables.
+        $this->form  = $this->get('Form');
+        $this->item  = $this->get('Item');
+        $this->state = $this->get('State');
+        $this->isNew = ($this->item->id == 0);
 
-		$this->addToolbar();
+        // Check for errors.
+        if (count($errors = $this->get('Errors'))) {
+            throw new Exception(implode("\n", $errors), 500);
+        }
 
-		return parent::display($tpl);
-	}
+        $this->addToolbar();
 
-	/**
-	 * Add the page title and toolbar.
-	 *
-	 * @return  void
-	 */
-	protected function addToolbar()
-	{
-		JFactory::getApplication()->input->set('hidemainmenu', true);
+        return parent::display($tpl);
+    }
 
-		$user       = JFactory::getUser();
-		$userId     = $user->id;
-		$isNew      = ($this->item->id == 0);
-		$checkedOut = !($this->item->checked_out == 0 || $this->item->checked_out == $userId);
+    /**
+     * Add the page title and toolbar.
+     *
+     * @return  void
+     */
+    protected function addToolbar() {
+        JFactory::getApplication()->input->set('hidemainmenu', true);
 
-		// Since we don't track these assets at the item level, use the category id.
-		$canDo = JHelperContent::getActions('com_simplefilemanager', 'category', $this->item->catid);
+        $user       = JFactory::getUser();
+        $userId     = $user->id;
+        $isNew      = ($this->item->id == 0);
+        $checkedOut = !($this->item->checked_out == 0 || $this->item->checked_out == $userId);
 
-		JToolbarHelper::title($isNew ? JText::_('COM_SIMPLEFILEMANAGER_MANAGER_DOCUMENT_NEW') : JText::_('COM_SIMPLEFILEMANAGER_MANAGER_DOCUMENT_EDIT'), 'pencil-2 document');
+        // Since we don't track these assets at the item level, use the category id.
+        $canDo = JHelperContent::getActions('com_simplefilemanager', 'category', $this->item->catid);
 
-		// If not checked out, can save the item.
-		if (!$checkedOut && ($canDo->get('core.edit') || count($user->getAuthorisedCategories('com_simplefilemanager', 'core.create')) > 0))
-		{
-			JToolbarHelper::apply('document.apply');
-			JToolbarHelper::save('document.save');
+        JToolbarHelper::title($isNew ? JText::_('COM_SIMPLEFILEMANAGER_MANAGER_DOCUMENT_NEW') : JText::_('COM_SIMPLEFILEMANAGER_MANAGER_DOCUMENT_EDIT'), 'pencil-2 document');
 
-			if ($canDo->get('core.create'))
-			{
-				JToolbarHelper::save2new('document.save2new');
-			}
-		}
+        // If not checked out, can save the item.
+        if (!$checkedOut && ($canDo->get('core.edit') || count($user->getAuthorisedCategories('com_simplefilemanager', 'core.create')) > 0)) {
+            JToolbarHelper::apply('document.apply');
+            JToolbarHelper::save('document.save');
 
-		// If an existing item, can save to a copy.
-		if (!$isNew && $canDo->get('core.create'))
-		{
-			JToolbarHelper::save2copy('document.save2copy');
-		}
+            if ($canDo->get('core.create')) {
+                JToolbarHelper::save2new('document.save2new');
+            }
+        }
 
-		if (empty($this->item->id))
-		{
-			JToolbarHelper::cancel('document.cancel');
-		}
-		else
-		{
-			// if (JComponentHelper::isEnabled('com_contenthistory') && $this->state->params->get('save_history', 0) && $canDo->get('core.edit'))
-			// {
-			// 	JToolbarHelper::versions('com_simplefilemanager.document', $this->item->id);
-			// }
+        // If an existing item, can save to a copy.
+        if (!$isNew && $canDo->get('core.create')) {
+            JToolbarHelper::save2copy('document.save2copy');
+        }
 
-			JToolbarHelper::cancel('document.cancel', 'JTOOLBAR_CLOSE');
-		}
+        if (empty($this->item->id)) {
+            JToolbarHelper::cancel('document.cancel');
+        } else {
+            // if (JComponentHelper::isEnabled('com_contenthistory') && $this->state->params->get('save_history', 0) && $canDo->get('core.edit'))
+            // {
+            // 	JToolbarHelper::versions('com_simplefilemanager.document', $this->item->id);
+            // }
 
-		JToolbarHelper::divider();
-	}
+            JToolbarHelper::cancel('document.cancel', 'JTOOLBAR_CLOSE');
+        }
+
+        JToolbarHelper::divider();
+    }
+
 }

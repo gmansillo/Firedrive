@@ -1,10 +1,10 @@
 <?php
+
 /**
  * @package     Simple File Manager
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
-
 defined('_JEXEC') or die;
 
 /**
@@ -12,199 +12,176 @@ defined('_JEXEC') or die;
  *
  * @since  3.3
  */
-class SimplefilemanagerRouter extends JComponentRouterView
-{
-	protected $noIDs = false;
+class SimplefilemanagerRouter extends JComponentRouterView {
 
-	/**
-	 * Search Component router constructor
-	 *
-	 * @param   JApplicationCms  $app   The application object
-	 * @param   JMenu            $menu  The menu object to work with
-	 */
-	public function __construct($app = null, $menu = null)
-	{
-		$params = JComponentHelper::getParams('com_simplefilemanager');
-		$this->noIDs = (bool) $params->get('sef_ids');
-		$categories = new JComponentRouterViewconfiguration('categories');
-		$categories->setKey('id');
-		$this->registerView($categories);
-		$category = new JComponentRouterViewconfiguration('category');
-		$category->setKey('id')->setParent($categories, 'catid')->setNestable();
-		$this->registerView($category);
-		$document = new JComponentRouterViewconfiguration('document');
-		$document->setKey('id')->setParent($category, 'catid');
-		$this->registerView($document);
-		
-		parent::__construct($app, $menu);
+    protected $noIDs = false;
 
-		$this->attachRule(new JComponentRouterRulesMenu($this));
+    /**
+     * Search Component router constructor
+     *
+     * @param   JApplicationCms  $app   The application object
+     * @param   JMenu            $menu  The menu object to work with
+     */
+    public function __construct($app = null, $menu = null) {
+        $params      = JComponentHelper::getParams('com_simplefilemanager');
+        $this->noIDs = (bool) $params->get('sef_ids');
+        $categories  = new JComponentRouterViewconfiguration('categories');
+        $categories->setKey('id');
+        $this->registerView($categories);
+        $category    = new JComponentRouterViewconfiguration('category');
+        $category->setKey('id')->setParent($categories, 'catid')->setNestable();
+        $this->registerView($category);
+        $document    = new JComponentRouterViewconfiguration('document');
+        $document->setKey('id')->setParent($category, 'catid');
+        $this->registerView($document);
 
-		if ($params->get('sef_advanced', 0))
-		{
-			$this->attachRule(new JComponentRouterRulesStandard($this));
-			$this->attachRule(new JComponentRouterRulesNomenu($this));
-		}
-		else
-		{
-			JLoader::register('SimplefilemanagerRouterRulesLegacy', __DIR__ . '/helpers/legacyrouter.php');
-			$this->attachRule(new SimplefilemanagerRouterRulesLegacy($this));
-		}
-	}
+        parent::__construct($app, $menu);
 
-	/**
-	 * Method to get the segment(s) for a category
-	 *
-	 * @param   string  $id     ID of the category to retrieve the segments for
-	 * @param   array   $query  The request that is built right now
-	 *
-	 * @return  array|string  The segments of this item
-	 */
-	public function getCategorySegment($id, $query)
-	{
-		$category = JCategories::getInstance($this->getName())->get($id);
+        $this->attachRule(new JComponentRouterRulesMenu($this));
 
-		if ($category)
-		{
-			$path = array_reverse($category->getPath(), true);
-			$path[0] = '1:root';
+        if ($params->get('sef_advanced', 0)) {
+            $this->attachRule(new JComponentRouterRulesStandard($this));
+            $this->attachRule(new JComponentRouterRulesNomenu($this));
+        } else {
+            JLoader::register('SimplefilemanagerRouterRulesLegacy', __DIR__ . '/helpers/legacyrouter.php');
+            $this->attachRule(new SimplefilemanagerRouterRulesLegacy($this));
+        }
+    }
 
-			if ($this->noIDs)
-			{
-				foreach ($path as &$segment)
-				{
-					list($id, $segment) = explode(':', $segment, 2);
-				}
-			}
+    /**
+     * Method to get the segment(s) for a category
+     *
+     * @param   string  $id     ID of the category to retrieve the segments for
+     * @param   array   $query  The request that is built right now
+     *
+     * @return  array|string  The segments of this item
+     */
+    public function getCategorySegment($id, $query) {
+        $category = JCategories::getInstance($this->getName())->get($id);
 
-			return $path;
-		}
+        if ($category) {
+            $path    = array_reverse($category->getPath(), true);
+            $path[0] = '1:root';
 
-		return array();
-	}
+            if ($this->noIDs) {
+                foreach ($path as &$segment) {
+                    list($id, $segment) = explode(':', $segment, 2);
+                }
+            }
 
-	/**
-	 * Method to get the segment(s) for a category
-	 *
-	 * @param   string  $id     ID of the category to retrieve the segments for
-	 * @param   array   $query  The request that is built right now
-	 *
-	 * @return  array|string  The segments of this item
-	 */
-	public function getCategoriesSegment($id, $query)
-	{
-		return $this->getCategorySegment($id, $query);
-	}
+            return $path;
+        }
 
-	/**
-	 * Method to get the segment(s) for a document
-	 *
-	 * @param   string  $id     ID of the document to retrieve the segments for
-	 * @param   array   $query  The request that is built right now
-	 *
-	 * @return  array|string  The segments of this item
-	 */
-	public function getDocumentSegment($id, $query)
-	{
-		if (!strpos($id, ':'))
-		{
-			$db = JFactory::getDbo();
-			$dbquery = $db->getQuery(true);
-			$dbquery->select($dbquery->qn('alias'))
-				->from($dbquery->qn('#__simplefilemanager'))
-				->where('id = ' . $dbquery->q((int) $id));
-			$db->setQuery($dbquery);
+        return array();
+    }
 
-			$id .= ':' . $db->loadResult();
-		}
+    /**
+     * Method to get the segment(s) for a category
+     *
+     * @param   string  $id     ID of the category to retrieve the segments for
+     * @param   array   $query  The request that is built right now
+     *
+     * @return  array|string  The segments of this item
+     */
+    public function getCategoriesSegment($id, $query) {
+        return $this->getCategorySegment($id, $query);
+    }
 
-		if ($this->noIDs)
-		{
-			list($void, $segment) = explode(':', $id, 2);
+    /**
+     * Method to get the segment(s) for a document
+     *
+     * @param   string  $id     ID of the document to retrieve the segments for
+     * @param   array   $query  The request that is built right now
+     *
+     * @return  array|string  The segments of this item
+     */
+    public function getDocumentSegment($id, $query) {
+        if (!strpos($id, ':')) {
+            $db      = JFactory::getDbo();
+            $dbquery = $db->getQuery(true);
+            $dbquery->select($dbquery->qn('alias'))
+                    ->from($dbquery->qn('#__simplefilemanager'))
+                    ->where('id = ' . $dbquery->q((int) $id));
+            $db->setQuery($dbquery);
 
-			return array($void => $segment);
-		}
+            $id .= ':' . $db->loadResult();
+        }
 
-		return array((int) $id => $id);
-	}
+        if ($this->noIDs) {
+            list($void, $segment) = explode(':', $id, 2);
 
-	/**
-	 * Method to get the id for a category
-	 *
-	 * @param   string  $segment  Segment to retrieve the ID for
-	 * @param   array   $query    The request that is parsed right now
-	 *
-	 * @return  mixed   The id of this item or false
-	 */
-	public function getCategoryId($segment, $query)
-	{
-		if (isset($query['id']))
-		{
-			$category = JCategories::getInstance($this->getName(), array('access' => false))->get($query['id']);
+            return array($void => $segment);
+        }
 
-			if ($category)
-			{
-				foreach ($category->getChildren() as $child)
-				{
-					if ($this->noIDs)
-					{
-						if ($child->alias == $segment)
-						{
-							return $child->id;
-						}
-					}
-					else
-					{
-						if ($child->id == (int) $segment)
-						{
-							return $child->id;
-						}
-					}
-				}
-			}
-		}
+        return array((int) $id => $id);
+    }
 
-		return false;
-	}
+    /**
+     * Method to get the id for a category
+     *
+     * @param   string  $segment  Segment to retrieve the ID for
+     * @param   array   $query    The request that is parsed right now
+     *
+     * @return  mixed   The id of this item or false
+     */
+    public function getCategoryId($segment, $query) {
+        if (isset($query['id'])) {
+            $category = JCategories::getInstance($this->getName(), array('access' => false))->get($query['id']);
 
-	/**
-	 * Method to get the segment(s) for a category
-	 *
-	 * @param   string  $segment  Segment to retrieve the ID for
-	 * @param   array   $query    The request that is parsed right now
-	 *
-	 * @return  mixed   The id of this item or false
-	 */
-	public function getCategoriesId($segment, $query)
-	{
-		return $this->getCategoryId($segment, $query);
-	}
+            if ($category) {
+                foreach ($category->getChildren() as $child) {
+                    if ($this->noIDs) {
+                        if ($child->alias == $segment) {
+                            return $child->id;
+                        }
+                    } else {
+                        if ($child->id == (int) $segment) {
+                            return $child->id;
+                        }
+                    }
+                }
+            }
+        }
 
-	/**
-	 * Method to get the segment(s) for a document
-	 *
-	 * @param   string  $segment  Segment of the document to retrieve the ID for
-	 * @param   array   $query    The request that is parsed right now
-	 *
-	 * @return  mixed   The id of this item or false
-	 */
-	public function getDocumentId($segment, $query)
-	{
-		if ($this->noIDs)
-		{
-			$db = JFactory::getDbo();
-			$dbquery = $db->getQuery(true);
-			$dbquery->select($dbquery->qn('id'))
-				->from($dbquery->qn('#__simplefilemanager'))
-				->where('alias = ' . $dbquery->q($segment))
-				->where('catid = ' . $dbquery->q($query['id']));
-			$db->setQuery($dbquery);
+        return false;
+    }
 
-			return (int) $db->loadResult();
-		}
+    /**
+     * Method to get the segment(s) for a category
+     *
+     * @param   string  $segment  Segment to retrieve the ID for
+     * @param   array   $query    The request that is parsed right now
+     *
+     * @return  mixed   The id of this item or false
+     */
+    public function getCategoriesId($segment, $query) {
+        return $this->getCategoryId($segment, $query);
+    }
 
-		return (int) $segment;
-	}
+    /**
+     * Method to get the segment(s) for a document
+     *
+     * @param   string  $segment  Segment of the document to retrieve the ID for
+     * @param   array   $query    The request that is parsed right now
+     *
+     * @return  mixed   The id of this item or false
+     */
+    public function getDocumentId($segment, $query) {
+        if ($this->noIDs) {
+            $db      = JFactory::getDbo();
+            $dbquery = $db->getQuery(true);
+            $dbquery->select($dbquery->qn('id'))
+                    ->from($dbquery->qn('#__simplefilemanager'))
+                    ->where('alias = ' . $dbquery->q($segment))
+                    ->where('catid = ' . $dbquery->q($query['id']));
+            $db->setQuery($dbquery);
+
+            return (int) $db->loadResult();
+        }
+
+        return (int) $segment;
+    }
+
 }
 
 /**
@@ -219,12 +196,11 @@ class SimplefilemanagerRouter extends JComponentRouterView
  *
  * @deprecated  4.0  Use Class based routers instead
  */
-function SimplefilemanagerBuildRoute(&$query)
-{
-	$app = JFactory::getApplication();
-	$router = new SimplefilemanagerRouter($app, $app->getMenu());
+function SimplefilemanagerBuildRoute(&$query) {
+    $app    = JFactory::getApplication();
+    $router = new SimplefilemanagerRouter($app, $app->getMenu());
 
-	return $router->build($query);
+    return $router->build($query);
 }
 
 /**
@@ -239,10 +215,9 @@ function SimplefilemanagerBuildRoute(&$query)
  *
  * @deprecated  4.0  Use Class based routers instead
  */
-function SimplefilemanagerParseRoute($segments)
-{
-	$app = JFactory::getApplication();
-	$router = new SimplefilemanagerRouter($app, $app->getMenu());
+function SimplefilemanagerParseRoute($segments) {
+    $app    = JFactory::getApplication();
+    $router = new SimplefilemanagerRouter($app, $app->getMenu());
 
-	return $router->parse($segments);
+    return $router->parse($segments);
 }

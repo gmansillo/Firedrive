@@ -1,16 +1,15 @@
 <?php
+
 /**
  * @package     Simple File Manager
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
-
 defined('_JEXEC') or die;
 JHtml::_('behavior.tabstate');
 
-if (!JFactory::getUser()->authorise('core.manage', 'com_simplefilemanager'))
-{
-	throw new JAccessExceptionNotallowed(JText::_('JERROR_ALERTNOAUTHOR'), 403);
+if (!JFactory::getUser()->authorise('core.manage', 'com_simplefilemanager')) {
+    throw new JAccessExceptionNotallowed(JText::_('JERROR_ALERTNOAUTHOR'), 403);
 }
 
 // Execute the task.

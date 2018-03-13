@@ -144,18 +144,18 @@
 				<option value="2">JGLOBAL_AUTO</option>
 			</field>
 
-			<field
-				name="show_pagination_results"
-				type="list"
-				label="JGLOBAL_PAGINATION_RESULTS_LABEL"
-				description="JGLOBAL_PAGINATION_RESULTS_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
-		</fieldset> -->
+                <field
+                        name="show_pagination_results"
+                        type="list"
+                        label="JGLOBAL_PAGINATION_RESULTS_LABEL"
+                        description="JGLOBAL_PAGINATION_RESULTS_DESC"
+                        useglobal="true"
+                        class="chzn-color"
+                        >
+                        <option value="0">JHIDE</option>
+                        <option value="1">JSHOW</option>
+                </field>
+        </fieldset> -->
 
-	</fields>
+    </fields>
 </metadata>

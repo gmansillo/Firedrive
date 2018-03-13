@@ -1,10 +1,10 @@
 <?php
+
 /**
  * @package     Simple File Manager
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
-
 defined('_JEXEC') or die;
 
 //Import filesystem libraries
@@ -15,63 +15,60 @@ jimport('joomla.filesystem.file');
  *
  * @since  1.6
  */
-class SimplefilemanagerViewDocument extends JViewLegacy
-{
-	/**
-	 * The item model state
-	 *
-	 * @var         \Joomla\Registry\Registry
-	 * @deprecated  4.0  Variable not used
-	 */
-	protected $state;
+class SimplefilemanagerViewDocument extends JViewLegacy {
 
-	/**
-	 * The document item
-	 *
-	 * @var   JObject
-	 */
-	protected $item;
+    /**
+     * The item model state
+     *
+     * @var         \Joomla\Registry\Registry
+     * @deprecated  4.0  Variable not used
+     */
+    protected $state;
 
-	/**
-	 * Execute and display a template script.
-	 *
-	 * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
-	 *
-	 * @return  mixed  A string if successful, otherwise an Error object.
-	 */
-	public function display($tpl = null)
-	{
-		// Get model data.
-		$item = $this->get('Item');
-		$state = $this->get('State');
-		$params = $state->get('params');
-		$model = $this->getModel();
+    /**
+     * The document item
+     *
+     * @var   JObject
+     */
+    protected $item;
 
-		// Check for errors.
-		if (count($errors = $this->get('Errors')))
-		{
-			JError::raiseWarning(500, implode("\n", $errors));
+    /**
+     * Execute and display a template script.
+     *
+     * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+     *
+     * @return  mixed  A string if successful, otherwise an Error object.
+     */
+    public function display($tpl = null) {
+        // Get model data.
+        $item   = $this->get('Item');
+        $state  = $this->get('State');
+        $params = $state->get('params');
+        $model  = $this->getModel();
 
-			return false;
-		}
+        // Check for errors.
+        if (count($errors = $this->get('Errors'))) {
+            JError::raiseWarning(500, implode("\n", $errors));
 
-		JFactory::getDocument()->setMimeEncoding('application/octet-stream', true);
-		JFactory::getApplication()->clearHeaders();
-		JFactory::getApplication()->setHeader('Content-Type', 'application/octet-stream', true);
-		$disposition = $params->get('force_download')?'attachment':'inline';
-		JFactory::getApplication()->setHeader('Content-Disposition', $disposition.'; filename="' . basename($item->file_name) . '";', true);		
-		JFactory::getApplication()->setHeader('Content-Transfer-Encoding', 'binary', true);
-		JFactory::getApplication()->setHeader('Content-Length', filesize($item->file_name), true);
-		JFactory::getApplication()->sendHeaders();
+            return false;
+        }
 
-		try {
-			echo JFile::read($item->file_name);		
-			$model->countDownload();
-		}
-		catch(Exception $e){
-			// Save file safety avoiding to notify error details to the user 
-			die('Error occurred.');
-		}
-		
-	}
+        JFactory::getDocument()->setMimeEncoding('application/octet-stream', true);
+        JFactory::getApplication()->clearHeaders();
+        JFactory::getApplication()->setHeader('Content-Type', 'application/octet-stream', true);
+        $disposition = $params->get('force_download') ? 'attachment' : 'inline';
+        JFactory::getApplication()->setHeader('Content-Disposition', $disposition . '; filename="' . basename($item->file_name) . '";', true);
+        JFactory::getApplication()->setHeader('Content-Transfer-Encoding', 'binary', true);
+        JFactory::getApplication()->setHeader('Content-Length', filesize($item->file_name), true);
+        JFactory::getApplication()->sendHeaders();
+
+        try {
+            echo JFile::read($item->file_name);
+            $model->countDownload();
+        } catch (Exception $e) {
+            // Save file safety avoiding to notify error details to the user 
+            die('Error occurred.');
+        }
+    }
+
 }

@@ -1,82 +1,77 @@
 <?php
+
 /**
  * @package     Simple File Manager
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
-
 defined('_JEXEC') or die;
 
 /**
  * Documents master display controller.
  */
-class SimpleFileManagerController extends JControllerLegacy
-{
+class SimpleFileManagerController extends JControllerLegacy {
 
-	protected $default_view = 'documents';
+    protected $default_view = 'documents';
 
-	/**
-	 * Method to display a view.
-	 *
-	 * @param   boolean  $cachable   If true, the view output will be cached
-	 * @param   array    $urlparams  An array of safe URL parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
-	 *
-	 * @return  SimpleFileManagerController  This object to support chaining.
-	 */
-	public function display($cachable = false, $urlparams = array())
-	{
-		$view   = $this->input->get('view', 'documents');
-		$layout = $this->input->get('layout', 'default');
-		$id     = $this->input->getInt('id');
-		
-		// Check for edit form.
-		if ($view == 'document' && $layout == 'edit' && !$this->checkEditId('com_simplefilemanager.edit.document', $id))
-		{
-			// Somehow the person just went to the form - we don't allow that.
-			$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
-			$this->setMessage($this->getError(), 'error');
-			$this->setRedirect(JRoute::_('index.php?option=com_simplefilemanager&view=documents', false));
+    /**
+     * Method to display a view.
+     *
+     * @param   boolean  $cachable   If true, the view output will be cached
+     * @param   array    $urlparams  An array of safe URL parameters and their variable types, for valid values see {@link JFilterInput::clean()}.
+     *
+     * @return  SimpleFileManagerController  This object to support chaining.
+     */
+    public function display($cachable = false, $urlparams = array()) {
+        $view   = $this->input->get('view', 'documents');
+        $layout = $this->input->get('layout', 'default');
+        $id     = $this->input->getInt('id');
 
-			return false;
-		}
-		
-		return parent::display();
-	}
+        // Check for edit form.
+        if ($view == 'document' && $layout == 'edit' && !$this->checkEditId('com_simplefilemanager.edit.document', $id)) {
+            // Somehow the person just went to the form - we don't allow that.
+            $this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
+            $this->setMessage($this->getError(), 'error');
+            $this->setRedirect(JRoute::_('index.php?option=com_simplefilemanager&view=documents', false));
 
-	/**
-	 * Method to download a specified document.
-	 *
-	 * @return  void
-	 */
-	public function download()
-	{
-		$jinput = JFactory::getApplication()->input;
-		$id     = $jinput->get->get('id', 0, 'INTEGER');
+            return false;
+        }
 
-		$db    = JFactory::getDbo();
-		$query = $db->getQuery(true);
-		$query->select('file_name');
-		$query->from($db->quoteName('#__simplefilemanager'));
-		$query->where($db->quoteName('id') . ' = ' . $id);
-		$db->setQuery($query);
-		$row = $db->loadRow();
+        return parent::display();
+    }
 
-		if (!$row || !file_exists($row['0']))
-		{
-			throw new Exception(JText::_("COM_SIMPLEFILEMANAGER_FILE_NOT_FOUND_DOWNLOAD_ERROR_MESSAGE"), 404);
-		}
+    /**
+     * Method to download a specified document.
+     *
+     * @return  void
+     */
+    public function download() {
+        $jinput = JFactory::getApplication()->input;
+        $id     = $jinput->get->get('id', 0, 'INTEGER');
 
-		header("Content-Transfer-Encoding: binary");
-		header("Content-type: application/octet-stream");
-		header('Content-Disposition: attachment; filename="' . basename($row['0']) . '"');
-		header('Cache-Control: no-store, no-cache, must-revalidate');
-		header('Cache-Control: post-check=0, pre-check=0', false);
-		header('Cache-Control: private');
-		header('Content-Length: ' . filesize($row['0']));
-		ob_clean();
-		flush();
-		readfile($row['0']);
-		exit;
-	}
+        $db    = JFactory::getDbo();
+        $query = $db->getQuery(true);
+        $query->select('file_name');
+        $query->from($db->quoteName('#__simplefilemanager'));
+        $query->where($db->quoteName('id') . ' = ' . $id);
+        $db->setQuery($query);
+        $row   = $db->loadRow();
+
+        if (!$row || !file_exists($row['0'])) {
+            throw new Exception(JText::_("COM_SIMPLEFILEMANAGER_FILE_NOT_FOUND_DOWNLOAD_ERROR_MESSAGE"), 404);
+        }
+
+        header("Content-Transfer-Encoding: binary");
+        header("Content-type: application/octet-stream");
+        header('Content-Disposition: attachment; filename="' . basename($row['0']) . '"');
+        header('Cache-Control: no-store, no-cache, must-revalidate');
+        header('Cache-Control: post-check=0, pre-check=0', false);
+        header('Cache-Control: private');
+        header('Content-Length: ' . filesize($row['0']));
+        ob_clean();
+        flush();
+        readfile($row['0']);
+        exit;
+    }
 
 }

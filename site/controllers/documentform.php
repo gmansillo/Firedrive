@@ -113,9 +113,11 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
 			$app->setUserState('com_simplefilemanager.edit.document.data', $jform, array());
 
 			// Redirect back to the edit screen.
-			// TODO: Add menu param for customize redirect url
+			// TODO: Add menu param in xml for customizing redirect url
 			$id = (int) $app->getUserState('com_simplefilemanager.edit.document.id');
-			$this->setRedirect(JRoute::_('index.php?option=com_simplefilemanager&view=documentform&layout=edit&id=' . $id, false));
+			$default_redirect_url = JRoute::_('index.php?option=com_simplefilemanager&view=documentform&layout=edit&id=' . $id);
+			$redirect_url = $params->get('documentform_redirect', $default_redirect_url );
+			$this->setRedirect($redirect_url, false);
 
 			return false;
 		}
@@ -150,7 +152,7 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
 		// Redirect to the list screen.
 		$this->setMessage(JText::_('COM_SIMPLEFILEMANAGER_ITEM_SAVED_SUCCESSFULLY'));
 
-		$url = JRoute::_('index.php?option=com_simplefilemanager&catid=' . $data['catid'], false);
+		$url = JRoute::_('index.php?option=com_simplefilemanager&catid=' . $data["catid"], false);
 		$this->setRedirect($url);
 
 		// Flush the data from the session.
@@ -174,7 +176,7 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
 		$canEditState = $user->authorise('core.edit.state', 'com_simplefilemanager');
 		$isNew        = empty($data["id"]);
 
-		if ($files['select_file']["size"] <= 0)
+		if ($files["select_file"]["size"] <= 0)
 		{
 			if($isNew)
 			{
@@ -194,9 +196,9 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
 			// TODO: Implement file extension check
 			
 			// File upload
-			$file_name = $files['select_file']["name"];
+			$file_name = $files["select_file"]["name"];
 			$dest = JPATH_COMPONENT_ADMINISTRATOR . DS . "uploads" . DS . uniqid( "", true ) . DS . JFile::makeSafe( JFile::getName( $file_name ) );
-			$data["file_name"] = JFile::upload( $files['select_file']["tmp_name"], $dest ) ? $dest : false;
+			$data["file_name"] = JFile::upload( $files["select_file"]["tmp_name"], $dest ) ? $dest : false;
 			 
 			if (!$data["file_name"])
 			{
@@ -211,11 +213,12 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
 			
 		}
 		
-		$data['state'] = $params->get('default_state', 0);
-		$data['visibility'] = $params->get('default_visibility', 5);
+		$data["state"] = $params->get('default_state', 0);
+		$data["visibility"] = $params->get('default_visibility', 5);
 		$data["created"] = JFactory::getDate()->toSql();
 		$data["created_by"] = $user->id;
-		
+		$data["language"] = "*";
+        
 		// Send notify email
 		// TODO: Advice administrators via email notification
 		
@@ -253,10 +256,10 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
 
 		// Get the user data.
 		$data       = array();
-		$data['id'] = $app->input->getInt('id');
+		$data["id"] = $app->input->getInt('id');
 
 		// Check for errors.
-		if (empty($data['id']))
+		if (empty($data["id"]))
 		{
 			// Get the validation messages.
 			$errors = $model->getErrors();

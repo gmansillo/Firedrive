@@ -84,6 +84,62 @@
             name="created_by"
             type="text"
         />
-		
+       
+        <field
+            name="icon"
+            type="text"
+        />
+       
+        <field
+            name="access"
+            type="text"
+        />
+       
+        <field
+            name="language"
+            type="text"
+            default = "*"
+        />
+       
+        <field
+            name="metakey"
+            type="text"
+        />
+       
+        <field
+            name="metadesc"
+            type="text"
+        />
+       
+        <field
+            name="metadata"
+            type="text"
+        />
+       
+        <field
+            name="params"
+            type="text"
+        />
+       
+        <field
+            name="license"
+            type="text"
+        />
+       
+        <field
+            name="license_link"
+            type="text"
+        />
+       
+        <field
+            name="version"
+            type="text"
+        />
+       
+        <field
+            name="notes"
+            type="text"
+        />
+  
     </fieldset>
 </form>

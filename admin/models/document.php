@@ -305,6 +305,9 @@ class SimplefilemanagerModelDocument extends JModelAdmin
 					else
 					{
 
+					// TODO: Fix "JFolder::delete: You can't delete a base folder."
+					// TODO: Fix "JFolder: :delete: Path is not a folder. Path: C:\xampp\htdocs\administrator\components\com_simplefilemanager\uploads\5a94998c7b3b13.39890168"
+
 						if (!JFile::delete($file_name))
 						{
 							JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_ERROR_DELETING') . ': ' . $file_name, 'error');

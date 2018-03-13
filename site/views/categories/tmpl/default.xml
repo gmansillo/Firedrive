@@ -24,8 +24,29 @@
 
 	<fields name="params">	
 		<fieldset name="basic" label="JGLOBAL_CATEGORIES_OPTIONS">
-				
-				<field 
+
+			<field 
+				name="show_base_description" 
+				type="list"
+				label="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_LABEL"
+				description="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_DESC"
+				useglobal="true"
+				class="chzn-color"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field 
+				name="categories_description" 
+				type="textarea"
+				label="JGLOBAL_FIELD_CATEGORIES_DESC_LABEL"
+				description="JGLOBAL_FIELD_CATEGORIES_DESC_DESC"
+				cols="25"
+				rows="5"
+			/>
+
+			<field 
 				name="maxLevelcat" 
 				type="list"
 				label="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_LABEL"
@@ -75,108 +96,12 @@
 				<option value="0">JHIDE</option>
 				<option value="1">JSHOW</option>
 			</field>
+
 		</fieldset>
 		
-		<fieldset name="category" label="JGLOBAL_CATEGORY_OPTIONS">
+		<!-- <fieldset name="advanced" label="JGLOBAL_LIST_LAYOUT_OPTIONS">
 			<field 
 				name="spacer1" 
-				type="spacer" 
-				label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL"
-				class="text"
-			/>
-
-			<field 
-				name="show_category_title" 
-				type="list"
-				label="JGLOBAL_SHOW_CATEGORY_TITLE"
-				description="JGLOBAL_SHOW_CATEGORY_TITLE_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
-
-			<field 
-				name="show_description" 
-				type="list"
-				label="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_LABEL"
-				description="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
-
-			<field 
-				name="show_description_image" 
-				type="list"
-				label="JGLOBAL_SHOW_CATEGORY_IMAGE_LABEL"
-				description="JGLOBAL_SHOW_CATEGORY_IMAGE_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
-
-			<field 
-				name="maxLevel" 
-				type="list"
-				label="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_LABEL"
-				description="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_DESC"
-				useglobal="true"
-				>
-				<option value="-1">JALL</option>
-				<option value="0">JNONE</option>
-				<option value="1">J1</option>
-				<option value="2">J2</option>
-				<option value="3">J3</option>
-				<option value="4">J4</option>
-				<option value="5">J5</option>
-			</field>
-
-			<field 
-				name="show_empty_categories" 
-				type="list"
-				label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
-				description="COM_SIMPLEFILEMANAGER_SHOW_EMPTY_CATEGORIES_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
-
-			<field 
-				name="show_subcat_desc" 
-				type="list"
-				label="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_LABEL"
-				description="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
-
-			<field 
-				name="show_cat_items" 
-				type="list"
-				label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_LABEL"
-				description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
-		</fieldset>
-
-		<fieldset name="advanced" label="JGLOBAL_LIST_LAYOUT_OPTIONS">
-			<field 
-				name="spacer2" 
 				type="spacer" 
 				label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL"
 				class="text"
@@ -230,24 +155,7 @@
 				<option value="0">JHIDE</option>
 				<option value="1">JSHOW</option>
 			</field>
-		</fieldset>
-
-		<fieldset name="document" label="COM_SIMPLEFILEMANAGER_BASIC_OPTIONS_FIELDSET_LABEL">
-		
-			<field 
-				name="show_email"
-				type="list"
-				label="JGLOBAL_EMAIL"
-				description="COM_SIMPLEFILEMANAGER_FIELD_PARAMS_DOCUMENT_E_MAIL_DESC"
-				useglobal="true"
-				showon="show_info:1"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
-
-		</fieldset>
+		</fieldset> -->
 
 	</fields>
 </metadata>

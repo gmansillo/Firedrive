@@ -14,16 +14,20 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 ?>
 <form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
 
+	<?php if ($this->params->get('category_show_category_description') == 1) : ?>
+		<?php echo $this->getModel()->getCategory()->description; ?>
+	<?php endif; ?>
+
 	<fieldset class="filters">
 		
-		<?php if ($this->params->get('filter_field',1)) : ?>
+		<?php if ($this->params->get('filter_field') == 1) : ?>
 			<div class="btn-group">
 				<label class="filter-search-lbl element-invisible" for="filter-search"><span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span><?php echo JText::_('COM_SIMPLEFILEMANAGER_FILTER_SEARCH_LABEL') . '&#160;'; ?></label>
 				<input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->state->get('list.filter')); ?>" class="inputbox" onchange="document.adminForm.submit();" title="<?php echo JText::_('COM_SIMPLEFILEMANAGER_FILTER_SEARCH_DESC'); ?>" placeholder="<?php echo JText::_('COM_SIMPLEFILEMANAGER_FILTER_SEARCH_DESC'); ?>" />
 			</div>
 		<?php endif; ?>
 
-		<?php if ($this->params->get('show_pagination_limit', 1)) : ?>
+		<?php if ($this->params->get('show_pagination_limit') == 1) : ?>
 			<div class="pull-right">
 				&nbsp;
 				<label for="limit" class="element-invisible">
@@ -33,7 +37,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 			</div>
 		<?php endif; ?>
 
-		<?php if ($this->params->get('show_ordering_select', 1)) : ?>
+		<?php if ($this->params->get('show_ordering_select') == 1) : ?>
 			<div class="pull-right">
 				&nbsp;
 				<select name="directionTable" id="directionTable" class="input-medium" onchange="Joomla.orderTable()">
@@ -98,7 +102,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 						<li class="row-fluid cat-list-row<?php echo $i % 2; ?>" >
 					<?php endif; ?>
 
-					<?php if($this->params->get('show_document_icon',1)): ?>
+					<?php if($this->params->get('category_show_document_icon') == 1): ?>
 					
 						<div class="list-title span1 col-md-1">
 						<?php $full_width = 5; ?>
@@ -127,7 +131,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 							<span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span>
 						<?php endif; ?>
 						
-						<?php if ($this->params->get('show_document_new', 1)) : ?>
+						<?php if ($this->params->get('category_show_document_new', 1)) : ?>
 							<?php 
 								$created = JFactory::getDate($this->items[$i]->created)->toUnix();
 								$limit = JFactory::getDate('now -' . $this->params->get('new_duration_limit', 7) . ' day')->toUnix();
@@ -144,20 +148,20 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
 							$details = array();
 
-							if ($this->params->get('show_document_created_by', 1) && !empty ($item->created_by))
+							if ($this->params->get('category_show_document_created_by') == 1 && !empty ($item->created_by))
 							{
 								$details[] = $item->created_by_name;
 							}
-							if ($this->params->get('show_document_created', 1) && !empty($item->created))
+							if ($this->params->get('category_show_document_created') == 1 && !empty($item->created))
 							{
 								$details[] = $item->created;
 							}
-							if ($this->params->get('show_document_file_size', 1) && !empty($item->file_size))
+							if ($this->params->get('category_show_document_file_size') == 1 && !empty($item->file_size))
 							{
 								$file_size = SimplefilemanagerHelper::convertToReadableSize($item->file_size);
 								$details[] = $file_size;
 							}
-							if ($this->params->get('show_document_license', 1) && !empty($item->license))
+							if ($this->params->get('category_show_document_license') == 1 && !empty($item->license))
 							{
 								if(!empty($item->license_link)){
 									$details[] = '<a href="'.$item->license_link.'">'.$item->license.'</a>';
@@ -176,7 +180,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
 					<div class="span4 col-md-4">
 
-						<?php if ($this->params->get('show_document_description', 1)): ?>
+						<?php if ($this->params->get('category_show_document_description') == 1): ?>
 							<div class="hidden-phone hidden-xs"><?php echo $item->description; ?></div>
 						<?php endif; ?>
 

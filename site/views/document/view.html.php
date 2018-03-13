@@ -62,6 +62,8 @@ class SimplefilemanagerViewDocument extends JViewLegacy
 	 */
 	public function display($tpl = null)
 	{
+		// TODO: Add check on document visibility in document controller for avoiding direct access to the file to unauthorized users
+
 		$app = JFactory::getApplication();
 		$user = JFactory::getUser();
 

@@ -1,160 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-	<layout title="COM_SIMPLEFILEMANAGER_CATEGORIES_VIEW_DEFAULT_TITLE" option="COM_SIMPLEFILEMANAGER_CATEGORIES_VIEW_DEFAULT_OPTION">
-		<message>
-			<![CDATA[COM_SIMPLEFILEMANAGER_CATEGORIES_VIEW_DEFAULT_DESC]]>
-		</message>
-	</layout>
+    <layout title="COM_SIMPLEFILEMANAGER_CATEGORIES_VIEW_DEFAULT_TITLE" option="COM_SIMPLEFILEMANAGER_CATEGORIES_VIEW_DEFAULT_OPTION">
+        <message>
+            <![CDATA[COM_SIMPLEFILEMANAGER_CATEGORIES_VIEW_DEFAULT_DESC]]>
+        </message>
+    </layout>
 
-	<!-- Add fields to the request variables for the layout. -->
-	<fields name="request">
-		<fieldset name="request"
-		>
-			<field 
-				name="id" 
-				type="category"
-				label="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_LABEL"
-				description="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_DESC"
-				extension="com_simplefilemanager"
-				show_root="true"
-				required="true"
-			/>
-		</fieldset>
-	</fields>
+    <!-- Add fields to the request variables for the layout. -->
+    <fields name="request">
+        <fieldset name="request"
+        >
+            <field 
+                name="id" 
+                type="category"
+                label="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_LABEL"
+                description="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_DESC"
+                extension="com_simplefilemanager"
+                show_root="true"
+                required="true"
+            />
+        </fieldset>
+    </fields>
 
-	<fields name="params">	
-		<fieldset name="basic" label="JGLOBAL_CATEGORIES_OPTIONS">
+    <fields name="params">	
+        <fieldset name="basic" label="COM_SIMPLEFILEMANAGER_BASIC_OPTIONS_FIELDSET_LABEL">
 
-			<field 
-				name="show_base_description" 
-				type="list"
-				label="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_LABEL"
-				description="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
+            <field 
+                name="show_base_description" 
+                type="list"
+                label="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_LABEL"
+                description="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_DESC"
+                useglobal="true"
+                class="chzn-color"
+            >
+                <option value="0">JHIDE</option>
+                <option value="1">JSHOW</option>
+            </field>
 
-			<field 
-				name="categories_description" 
-				type="textarea"
-				label="JGLOBAL_FIELD_CATEGORIES_DESC_LABEL"
-				description="JGLOBAL_FIELD_CATEGORIES_DESC_DESC"
-				cols="25"
-				rows="5"
-			/>
+            <field 
+                name="categories_description" 
+                type="textarea"
+                label="JGLOBAL_FIELD_CATEGORIES_DESC_LABEL"
+                description="JGLOBAL_FIELD_CATEGORIES_DESC_DESC"
+                cols="25"
+                rows="5"
+            />
 
-			<field 
-				name="maxLevelcat" 
-				type="list"
-				label="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_LABEL"
-				description="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_DESC"
-				useglobal="true"
-				>
-				<option value="-1">JALL</option>
-				<option value="1">J1</option>
-				<option value="2">J2</option>
-				<option value="3">J3</option>
-				<option value="4">J4</option>
-				<option value="5">J5</option>
-			</field>
+            <field 
+                name="maxLevelcat" 
+                type="list"
+                label="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_LABEL"
+                description="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_DESC"
+                useglobal="true"
+            >
+                <option value="-1">JALL</option>
+                <option value="1">J1</option>
+                <option value="2">J2</option>
+                <option value="3">J3</option>
+                <option value="4">J4</option>
+                <option value="5">J5</option>
+            </field>
 
-			<field 
-				name="show_empty_categories_cat" 
-				type="list"
-				label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
-				description="COM_SIMPLEFILEMANAGER_SHOW_EMPTY_CATEGORIES_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
+            <field 
+                name="show_empty_categories_cat" 
+                type="list"
+                label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
+                description="COM_SIMPLEFILEMANAGER_SHOW_EMPTY_CATEGORIES_DESC"
+                useglobal="true"
+                class="chzn-color"
+            >
+                <option value="0">JHIDE</option>
+                <option value="1">JSHOW</option>
+            </field>
 
-			<field 
-				name="show_subcat_desc_cat" 
-				type="list"
-				label="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_LABEL"
-				description="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
+            <field 
+                name="show_subcat_desc_cat" 
+                type="list"
+                label="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_LABEL"
+                description="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_DESC"
+                useglobal="true"
+                class="chzn-color"
+            >
+                <option value="0">JHIDE</option>
+                <option value="1">JSHOW</option>
+            </field>
 
-			<field 
-				name="show_cat_items_cat" 
-				type="list"
-				label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_LABEL"
-				description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
+            <field 
+                name="show_cat_items_cat" 
+                type="list"
+                label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_LABEL"
+                description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_DESC"
+                useglobal="true"
+                class="chzn-color"
+            >
+                <option value="0">JHIDE</option>
+                <option value="1">JSHOW</option>
+            </field>
 
-		</fieldset>
-		
-		<!-- <fieldset name="advanced" label="JGLOBAL_LIST_LAYOUT_OPTIONS">
-			<field 
-				name="spacer1" 
-				type="spacer" 
-				label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL"
-				class="text"
-			/>
+        </fieldset>
+	
+        <fieldset
+            name="lists" label="JGLOBAL_LIST_LAYOUT_OPTIONS">
 
-			<field
-				name="filter_field"
-				type="list"
-				label="JGLOBAL_FILTER_FIELD_LABEL"
-				description="JGLOBAL_FILTER_FIELD_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
+             <field 
+                name="spacer2" 
+                type="spacer" 
+                label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL"
+                class="text"
+            />
+             
+            <field
+                name="show_ordering_select"
+                type="list"
+                useglobal="true"
+                class="chzn-color"
+                label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_LABEL"
+                description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_DESC">
+                <option
+                    value="1">JYES</option>
+                <option
+                    value="0">JNO</option>
+            </field>
 
-			<field 
-				name="show_pagination_limit" 
-				type="list"
-				label="JGLOBAL_DISPLAY_SELECT_LABEL"
-				description="JGLOBAL_DISPLAY_SELECT_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-			</field>
+            <field
+                name="show_pagination"
+                type="list"
+                useglobal="true"
+                class="chzn-color"
+                label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LABEL"
+                description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_DESC">
+                <option
+                    value="1">JYES</option>
+                <option
+                    value="0">JNO</option>
+            </field>
 
-			<field 
-				name="show_pagination" 
-				type="list"
-				label="JGLOBAL_PAGINATION_LABEL"
-				description="JGLOBAL_PAGINATION_DESC"
-				useglobal="true"
-				class="chzn-color"
-				>
-				<option value="0">JHIDE</option>
-				<option value="1">JSHOW</option>
-				<option value="2">JGLOBAL_AUTO</option>
-			</field>
+            <field
+                name="show_pagination_limit"
+                type="list"
+                useglobal="true"
+                class="chzn-color"
+                label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_LABEL"
+                description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_DESC">
+                <option
+                    value="1">JYES</option>
+                <option
+                    value="0">JNO</option>
+            </field>
 
-                <field
-                        name="show_pagination_results"
-                        type="list"
-                        label="JGLOBAL_PAGINATION_RESULTS_LABEL"
-                        description="JGLOBAL_PAGINATION_RESULTS_DESC"
-                        useglobal="true"
-                        class="chzn-color"
-                        >
-                        <option value="0">JHIDE</option>
-                        <option value="1">JSHOW</option>
-                </field>
+        </fieldset>
+
+        <!-- <fieldset name="advanced" label="JGLOBAL_LIST_LAYOUT_OPTIONS">
+            <field 
+                    name="spacer1" 
+                    type="spacer" 
+                    label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL"
+                    class="text"
+            />
+
+            <field
+                    name="filter_field"
+                    type="list"
+                    label="JGLOBAL_FILTER_FIELD_LABEL"
+                    description="JGLOBAL_FILTER_FIELD_DESC"
+                    useglobal="true"
+                    class="chzn-color"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+            </field>
+
+            <field 
+                    name="show_pagination_limit" 
+                    type="list"
+                    label="JGLOBAL_DISPLAY_SELECT_LABEL"
+                    description="JGLOBAL_DISPLAY_SELECT_DESC"
+                    useglobal="true"
+                    class="chzn-color"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+            </field>
+
+            <field 
+                    name="show_pagination" 
+                    type="list"
+                    label="JGLOBAL_PAGINATION_LABEL"
+                    description="JGLOBAL_PAGINATION_DESC"
+                    useglobal="true"
+                    class="chzn-color"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+                    <option value="2">JGLOBAL_AUTO</option>
+            </field>
+
+            <field
+                    name="show_pagination_results"
+                    type="list"
+                    label="JGLOBAL_PAGINATION_RESULTS_LABEL"
+                    description="JGLOBAL_PAGINATION_RESULTS_DESC"
+                    useglobal="true"
+                    class="chzn-color"
+                    >
+                    <option value="0">JHIDE</option>
+                    <option value="1">JSHOW</option>
+            </field>
         </fieldset> -->
 
     </fields>

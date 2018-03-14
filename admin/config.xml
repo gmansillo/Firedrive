@@ -2,7 +2,7 @@
 <config>
 
     <fieldset
-        name="documents"
+        name="document"
         label="COM_SIMPLEFILEMANAGER_CONFIG_DOCUMENTS_SETTINGS_LABEL"
         description="COM_SIMPLEFILEMANAGER_CONFIG_DOCUMENTS_SETTINGS_DESC">
     
@@ -206,6 +206,31 @@
         label="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORY_SETTINGS_LABEL"
         description="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORY_SETTINGS_DESC">
 
+        <field 
+            name="show_category_title" 
+            type="radio"
+            label="JGLOBAL_SHOW_CATEGORY_TITLE"
+            description="JGLOBAL_SHOW_CATEGORY_TITLE_DESC"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+        >
+            <option value="1">JSHOW</option>
+            <option value="0">JHIDE</option>
+        </field>
+               
+        <field
+            name="category_show_category_description"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_CATEGORY_DESC_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_CATEGORY_DESC_DESC">
+            <option
+                value="1">JSHOW</option>
+            <option
+                value="0">JHIDE</option>
+        </field>
+        
         <field
             name="show_new"
             type="radio"
@@ -214,9 +239,9 @@
             description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_NEW_DESC"
             default="1">
             <option
-                value="1">JYES</option>
+                value="1">JSHOW</option>
             <option
-                value="0">JNO</option>
+                value="0">JHIDE</option>
         </field>
 
         <field
@@ -228,19 +253,6 @@
             default="7"
             label="COM_SIMPLEFILEMANAGER_FIELD_NEW_DURATION_LIMIT_LABEL"
             description="COM_SIMPLEFILEMANAGER_FIELD_NEW_DURATION_LIMIT_DESC" />
-    
-        <field
-            name="show_ordering_select"
-            type="radio"
-            class="radio btn-group btn-group-yesno"
-            default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_DESC">
-            <option
-                value="1">JYES</option>
-            <option
-                value="0">JNO</option>
-        </field>
         
         <field
             name="initial_sort"
@@ -258,19 +270,6 @@
                 value="a.created">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_CREATED</option>
             <option
                 value="a.file_size">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_SIZE</option>
-        </field>
-
-        <field
-            name="category_show_category_description"
-            type="radio"
-            class="radio btn-group btn-group-yesno"
-            default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_CATEGORY_DESC_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_CATEGORY_DESC_DESC">
-            <option
-                value="1">JYES</option>
-            <option
-                value="0">JNO</option>
         </field>
 
         <field
@@ -453,6 +452,52 @@
     </fieldset>
 
     <fieldset
+        name="lists"
+        description="COM_SIMPLEFILEMANAGER_CONFIG_LISTS_SETTINGS_DESC"
+        label="COM_SIMPLEFILEMANAGER_CONFIG_LISTS_SETTINGS_LABEL">
+
+        <field
+            name="show_ordering_select"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+        
+        <field
+            name="show_pagination"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+        <field
+            name="show_pagination_limit"
+            type="radio"
+            class="radio btn-group btn-group-yesno"
+            default="1"
+            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_LABEL"
+            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_DESC">
+            <option
+                value="1">JYES</option>
+            <option
+                value="0">JNO</option>
+        </field>
+
+    </fieldset>
+    
+    <fieldset
         name="advanced"
         label="COM_SIMPLEFILEMANAGER_CONFIG_ADVANCED_SETTINGS_LABEL">
 
@@ -531,40 +576,6 @@
                 value="1">JSHOW</option>
             <option
                 value="0">JHIDE</option>
-        </field>
-
-    </fieldset>
-
-    <fieldset
-        name="lists"
-        description="COM_SIMPLEFILEMANAGER_CONFIG_LISTS_SETTINGS_DESC"
-        label="COM_SIMPLEFILEMANAGER_CONFIG_LISTS_SETTINGS_LABEL">
-
-        
-        <field
-            name="show_pagination"
-            type="radio"
-            class="radio btn-group btn-group-yesno"
-            default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_DESC">
-            <option
-                value="1">JYES</option>
-            <option
-                value="0">JNO</option>
-        </field>
-
-        <field
-            name="show_pagination_limit"
-            type="radio"
-            class="radio btn-group btn-group-yesno"
-            default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_DESC">
-            <option
-                value="1">JYES</option>
-            <option
-                value="0">JNO</option>
         </field>
 
     </fieldset>

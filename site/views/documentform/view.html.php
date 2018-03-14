@@ -25,12 +25,26 @@ class SimplefilemanagerViewDocumentform extends JViewLegacy {
      */
     public function display($tpl = null) {
 
-        $app = JFactory::getApplication();
-
         $this->state  = $this->get('State');
         $this->item   = $this->get('Data');
-        $this->params = $app->getParams('com_simplefilemanager');
+        $this->params = $this->state->get('params');
         $this->form   = $this->get('Form');
+
+        $temp = clone $this->item->params;
+
+        $active = $app->getMenu()->getActive();
+
+        if ($active && strpos($active->link, 'view=documentform')) {
+            // If the current view is the active item and a document view for this document, then the menu item params take priority
+            // $item->params are the document params, $temp are the menu item params
+            // Merge so that the menu item params take priority
+            $this->item->params->merge($temp);
+        } else {
+            // Merge so that document params take priority
+            $temp->merge($this->item->params);
+            $this->item->params = $temp;
+        }
+
 
         // Check for errors.
         if (count($errors = $this->get('Errors'))) {

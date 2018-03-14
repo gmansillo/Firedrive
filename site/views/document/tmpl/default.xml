@@ -37,7 +37,7 @@
 
         <!-- Basic options. -->
         <fieldset name="basic"
-            label="COM_SIMPLEFILEMANAGER_BASIC_OPTIONS_FIELDSET_LABEL"
+                  label="COM_SIMPLEFILEMANAGER_BASIC_OPTIONS_FIELDSET_LABEL"
                   addfieldpath="/administrator/components/com_fields/models/fields"
         >
             

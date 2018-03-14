@@ -27,6 +27,15 @@
                 hide="readmore,pagebreak,module,article,contact,menu"
             />
 
+            <field 
+                name="default_category" 
+                type="category"
+                label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_CATEGORY_LABEL"
+                description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_CATEGORY_DESC"
+                extension="com_simplefilemanager">
+                <option value="">JOPTION_SELECT_CATEGORY</option>
+            </field>
+            
             <!-- <field 
                     name="presentation_style"
                     type="list"

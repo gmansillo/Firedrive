@@ -16,6 +16,11 @@ Simple's main goal is to provide a simple, lightweight, responsive and safe comp
 If you're still not convinced, take a look to this lightning video tutorial: https://www.youtube.com/watch?v=7JLy4mNRd_E
 
 
+## Examples
+
+Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot of examples about how to use and customize Simple File Manager. 
+
+
 ## Software requirements
 
 Simple File Manager needs Joomla! 3.7+ and PHP 5.4+ to run. Also a running MySQL/MariaDB instance is required. 
@@ -34,11 +39,7 @@ If you prefer to install it manually, download the latest release [from here](ht
 - Repository: https://github.com/gmansillo/simplefilemanager/
 - Issue tracker: https://github.com/gmansillo/simplefilemanager/issues
 - Documentation site: https://github.com/gmansillo/simplefilemanager/wiki
-- Demo: http://demo.simplefilemanager.eu/
 - JED Project Page: https://extensions.joomla.org/extension/simple-file-manager/
-- Related projects:
-  - Joomla's source code: https://github.com/joomla
-  - Bootstrap project on GitHub: https://github.com/twbs/bootstrap
 
 
 ## Licensing

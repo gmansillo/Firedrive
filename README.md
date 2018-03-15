@@ -23,7 +23,8 @@ Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot o
 
 ![Joomla 3.7+](https://img.shields.io/badge/Joomla-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![Database MariaDB/MySql](https://img.shields.io/badge/Database-MariaDB/MySql-orange.svg)
 
-Simple File Manager needs Joomla 3.7+ and a PHP 5.4+ engine to run. Also a running instance of MariaDB/MySql is required. 
+Simple File Manager needs Joomla 3.7+ and a PHP 5.4+ engine to run. 
+Also a running instance of MariaDB/MySql is required. 
 
 
 ## Installing
@@ -44,9 +45,7 @@ If you prefer to install it manually, download the latest release [from here](ht
 
 ## Licensing
 
- ![License GPL_v3.0](https://img.shields.io/badge/License-GPL_v3.0-brightgreen.svg)
- 
-The code in this project is licensed under the GNU General Public License v3.0. You may copy, distribute and modify the code as long as you track changes/dates in source files.
+The code in this project is licensed under the **GNU General Public License v3.0**. You may copy, distribute and modify the code as long as you track changes/dates in source files.
 
 
 ## Missing stuff

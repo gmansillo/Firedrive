@@ -175,4 +175,23 @@ class SimplefilemanagerHelper extends JHelperContent {
         return $items;
     }
 
+    // TODO: Remove this method from here and place it in single local scopes
+    /**
+     * Copy Simple files in a new folder.
+     *
+     * @param string $source     Path of the uploaded file on the server
+     *
+     * @return copied file path (in case of success) or false (in case of error)
+     */
+    public static function copyFile($source) {
+        jimport('joomla.filesystem.file');
+
+        $fileName   = pathinfo($source, PATHINFO_BASENAME);
+        $destFolder = JPATH_COMPONENT_ADMINISTRATOR . DIRECTORY_SEPARATOR . "uploads" . DIRECTORY_SEPARATOR . uniqid("", true) . DIRECTORY_SEPARATOR;
+
+        mkdir($destFolder);
+
+        return JFile::copy($source, $destFolder . $fileName) ? $destFolder . $fileName : false;
+    }
+
 }

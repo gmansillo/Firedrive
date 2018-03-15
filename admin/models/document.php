@@ -7,6 +7,8 @@
  */
 defined('_JEXEC') or die;
 
+JLoader::register('SimplefilemanagerHelper', JPATH_ADMINISTRATOR . '/components/com_simplefilemanager/helpers/simplefilemanager.php');
+
 /**
  * Document model.
  *
@@ -169,6 +171,14 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
 
             // New category ID
             $table->catid = $categoryId;
+            
+            // New file path
+            $copy = SimplefilemanagerHelper::copyFile($table->file_name);
+            if ($copy === false)
+            {
+                throw new Exception(JText::sprintf('COM_SIMPLEFILEMANAGER_FIELD_COPY_ERROR', $this->form["file_name"]), 500);
+            }
+            $table->file_name = $copy;
 
             // Unpublish because we are making a copy
             $table->state = 0;
@@ -276,9 +286,6 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
 
                         return false;
                     } else {
-
-                        // TODO: Fix "JFolder::delete: You can't delete a base folder."
-                        // TODO: Fix "JFolder: :delete: Path is not a folder. Path: C:\xampp\htdocs\administrator\components\com_simplefilemanager\uploads\5a94998c7b3b13.39890168"
 
                         if (!JFile::delete($file_name)) {
                             JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_ERROR_DELETING') . ': ' . $file_name, 'error');

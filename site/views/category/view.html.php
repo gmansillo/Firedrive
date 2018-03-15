@@ -7,8 +7,10 @@
  */
 defined('_JEXEC') or die;
 
+JHtml::_('behavior.framework');
+
 /**
- * HTML View class for the Simplefilemanager component
+ * HTML View class for the Simple File Manager component
  *
  * @since  1.5
  */
@@ -50,6 +52,10 @@ class SimplefilemanagerViewCategory extends JViewCategory {
     public function display($tpl = null) {
         parent::commonCategoryDisplay();
 
+        $this->pagination = $this->get('Pagination');
+        $this->sortFields = $this->getSortFields();
+        $this->state      = $this->get("State");
+
         // Prepare the data.
         // Compute the document slug.
         foreach ($this->items as $item) {
@@ -58,8 +64,6 @@ class SimplefilemanagerViewCategory extends JViewCategory {
             $item->params = clone $this->params;
             $item->params->merge($temp);
         }
-
-        $this->sortFields = $this->getSortFields();
 
         return parent::display($tpl);
     }

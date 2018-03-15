@@ -200,16 +200,18 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
                         <?php echo $this->pagination->getPagesCounter(); ?>
                     </p>
                 <?php endif; ?>
-                <?php echo $this->pagination->getPagesLinks(); ?>
+                <?php echo $this->pagination->getListFooter(); ?>
             </div>
         <?php endif; ?>
 
-        <!-- <?php echo $this->pagination->getListFooter(); ?> -->
         <div>
             <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
             <input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
+            <input type="hidden" name="view" value="category" />
         </div>
 
     <?php endif; ?>
 
+
+ 
 </form>

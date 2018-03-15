@@ -175,7 +175,7 @@ class SimplefilemanagerModelCategory extends JModelList {
             // Author documents
             $acl[] = " a.visibility = 5 AND a.created_by = " . (int) $user->id;
 
-            // TODO: Add visibility base on access levels (using $groups instead of $user_groups) and filling 'access' db column
+            // TODO: Add visibility based on access levels (using $groups instead of $user_groups) and filling 'access' db column
         }
 
         $query->where('(( ' . implode(' ) OR ( ', $acl) . ' ))')->group('a.id');

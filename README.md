@@ -1,8 +1,4 @@
-# Simple File Manager 
-
-![](http://www.simplefilemanager.eu/images/joomla-3-tag.png#1)  
-
-![](http://www.simplefilemanager.eu/images/document-touch-intro.png#1)
+# Simple File Manager ![](http://service.simplefilemanager.eu/static/images/awesome-tag.svg)  
 
 **Simple** is a Joomla! component for creating private user areas and for organizing documents in safe download centers. It's very easy to use and to configure. 
 

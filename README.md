@@ -25,21 +25,9 @@ Simple File Manager needs Joomla! 3.7+ and PHP 5.4+ to run. Also a running MySQL
 
 ## Installing
 
-You can install Simple File Manager via the [Joomla Web Installer](https://docs.joomla.org/Install_from_Web). 
+You can install Simple File Manager via the [Joomla Web Installer](https://docs.joomla.org/Install_from_Web).  
+
 If you prefer to install it manually, download the latest release [from here](http://gmansillo.github.io/simple/) then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**. If you need further informations refer to the [official Joomla! documentation](https://docs.joomla.org/Installing_an_extension).
-
-
-## Examples
-
-You can visit this Site http://demo.simplefilemanager.eu/ which is a test platform for Simple. I'm still developing and constantly adding new features but you can already use Simple in your websites as it has reached a stable and reliable state already.
-
-
-## Important missing stuff
-
--  Bacth file import system
--  Documentation: PHPDoc, Getting started documentation and landing page
--  Better accessibility using ARIA and other optimizations
--  Include bootstrap classes in component's css
 
 
 ## Links
@@ -49,6 +37,7 @@ You can visit this Site http://demo.simplefilemanager.eu/ which is a test platfo
 - Issue tracker: https://github.com/gmansillo/simplefilemanager/issues
 - Documentation site: https://github.com/gmansillo/simplefilemanager/wiki
 - Demo: http://demo.simplefilemanager.eu/
+- JED Project Page: https://extensions.joomla.org/extension/simple-file-manager/
 - Related projects:
   - Joomla's source code: https://github.com/joomla
   - Bootstrap project on GitHub: https://github.com/twbs/bootstrap
@@ -57,3 +46,15 @@ You can visit this Site http://demo.simplefilemanager.eu/ which is a test platfo
 ## Licensing
 
 The code in this project is licensed under the GNU General Public License v3.0. You may copy, distribute and modify the code as long as you track changes/dates in source files.
+
+
+## Missing stuff
+
+Someone kindly pointed out to me that the following functionalities are missing in Simple:
+
+-  Bacth file import system
+-  Documentation: PHPDoc, Getting started documentation and landing page
+-  Better accessibility using ARIA and other optimizations
+-  Include bootstrap classes in component's css
+
+I'll do my best for implementing these as soon as I can.

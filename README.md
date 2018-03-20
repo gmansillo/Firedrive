@@ -1,8 +1,32 @@
-![Simple File Manager Logo](http://gmansillo.github.io/simple/logo.png)
+<p align="center">
+  <a href="http://simplefilemanager.eu/">
+    <img src="http://gmansillo.github.io/simple/logo.png" alt="">
+  </a>
 
-# Simple File Manager 
+  <h3 align="center">Simple File Manager</h3>
 
-**Simple** is a Joomla! component for creating private user areas and for organizing documents in safe download centers.  
+  <p align="center">
+    Sleek, intuitive, and powerful front-end framework for faster and easier web development.
+    <br>
+    <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore documentation »</strong></a>
+    <br>
+    <br>
+    <a href="https://github.com/gmansillo/simple/issues/new">Report bug</a>
+    ·
+    <a href="https://github.com/gmansillo/simple/issues">Known issues</a>
+    ·
+    <a href="https://github.com/gmansillo/simple/issues/new?label=request">Request feature</a>
+    ·
+    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate</a>
+  </p>
+</p>
+
+<br>
+
+
+## About
+
+**Simple File Manager** is a Joomla! component for creating private user areas and for organizing documents in safe download centers.
 It's very easy to use and to configure. 
 
 There are dozens of nice document managers for Joomla already out there, but they are either:
@@ -35,15 +59,6 @@ If you prefer to install it manually, download the latest release [from here](ht
 ## Examples
 
 Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot of examples about how to use and customize Simple File Manager. 
-
-
-## Links
-
-- Project homepage: https://gmansillo.github.io/simple/
-- Repository: https://github.com/gmansillo/simplefilemanager/
-- Issue tracker: https://github.com/gmansillo/simplefilemanager/issues
-- Documentation site: https://github.com/gmansillo/simplefilemanager/wiki
-- JED Project Page: https://extensions.joomla.org/extension/simple-file-manager/
 
 
 ## Licensing

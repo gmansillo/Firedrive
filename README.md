@@ -8,7 +8,7 @@
   <p align="center">
     Simple, intuitive, and powerful component for creating download centers in Joomla!&trade;.
     <br>
-    <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore Simple File Manager docs »</strong></a>
+    <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore Component docs »</strong></a>
     <br>
     <br>
     <a href="https://github.com/gmansillo/simple/issues/new">Report bug</a>

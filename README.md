@@ -1,3 +1,5 @@
+![Simple File Manager Logo](http://gmansillo.github.io/simple/logo.png)
+
 # Simple File Manager 
 
 **Simple** is a Joomla! component for creating private user areas and for organizing documents in safe download centers.  

@@ -11,13 +11,13 @@
     <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore Component docs »</strong></a>
     <br>
     <br>
-    <a href="https://github.com/gmansillo/simple/issues/new">Report bug</a>
+    <a href="https://github.com/gmansillo/simple/issues/new">Report a bug</a>
     ·
-    <a href="https://github.com/gmansillo/simple/issues/new?label=request">Request feature</a>
+    <a href="https://github.com/gmansillo/simple/issues/new?label=request">Request a feature</a>
     ·
     <a href="https://github.com/gmansillo/simple/issues">Issues</a>
     ·
-    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate</a>
+    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate this extension</a>
   </p>
 </p>
 

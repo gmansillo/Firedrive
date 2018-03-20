@@ -6,7 +6,7 @@
   <h3 align="center">Simple File Manager</h3>
 
   <p align="center">
-    Sleek, intuitive, and powerful front-end framework for faster and easier web development.
+    Simple, intuitive, and powerful component for creating download centers in Joomla!&trade;.
     <br>
     <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore documentation »</strong></a>
     <br>

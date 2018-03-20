@@ -24,6 +24,15 @@
 <br>
 
 
+
+## Software requirements
+
+![Joomla 3.7+](https://img.shields.io/badge/Joomla-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![Database MariaDB/MySql](https://img.shields.io/badge/Database-MariaDB/MySql-orange.svg)
+
+Simple File Manager needs Joomla 3.7+ and a PHP 5.4+ engine to run.  
+Also a running instance of MariaDB/MySql is required. 
+
+
 ## About
 
 **Simple File Manager** is a Joomla! component for creating private user areas and for organizing documents in safe download centers.
@@ -39,14 +48,6 @@ There are dozens of nice document managers for Joomla already out there, but the
 Simple's main goal is to provide a simple, lightweight, responsive and safe component to easily share documents on your website. It's important to understand that one of the main intentions of SFM is to **keep the workflow as simple as possible:** if you need advanced features (often not expected to be in a document manager) please seriously think about using another component. 
 
 If you're still not convinced, take a look to this lightning video tutorial: https://www.youtube.com/watch?v=7JLy4mNRd_E
-
-
-## Software requirements
-
-![Joomla 3.7+](https://img.shields.io/badge/Joomla-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![Database MariaDB/MySql](https://img.shields.io/badge/Database-MariaDB/MySql-orange.svg)
-
-Simple File Manager needs Joomla 3.7+ and a PHP 5.4+ engine to run.  
-Also a running instance of MariaDB/MySql is required. 
 
 
 ## Installing

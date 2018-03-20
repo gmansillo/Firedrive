@@ -25,7 +25,7 @@
 
 ## About
 
-**Simple File Manager** is a Joomla!&trade; lightweight component for easily creating safe and responsive download centers where to easily share public and private documents. It's very easy to install and configure. 
+**Simple File Manager** is a Joomla!&trade; lightweight component for easily creating safe and responsive **download centers** where to easily share public and private documents. It's very easy to install and configure. 
 
 There are dozens of nice document managers for Joomla already out there, but they are either not responsive, not flexible enough, not so user-friendly, and have a lot of heavy and unuseful functionalities.
 

@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://simplefilemanager.eu/">
-    <img src="http://gmansillo.github.io/simple/logo.png" alt="">
+    <img src="ttp://gmansillo.github.io/simple/logo_176.png" alt="" width=72 height=72>
   </a>
 
   <h3 align="center">Simple File Manager</h3>

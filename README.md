@@ -65,15 +65,3 @@ Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot o
 ## Licensing
 
 The code in this project is licensed under the **GNU General Public License v3.0**. You may copy, distribute and modify the code as long as you track changes/dates in source files.
-
-
-## Missing stuff
-
-Someone kindly pointed out to me that the following functionalities are missing in Simple:
-
--  Bacth file import system
--  Documentation: PHPDoc, Getting started documentation and landing page
--  Better accessibility using ARIA and other optimizations
--  Include bootstrap classes in component's css
-
-I'll do my best for implementing these as soon as I can.

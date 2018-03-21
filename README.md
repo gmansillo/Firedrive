@@ -25,19 +25,14 @@
 
 ## About
 
-**Simple File Manager** is a Joomla!&trade; lightweight component for easily creating safe and responsive **download centers** where to share public and private documents.  
-
-It's very easy to install and configure. 
-
-If you're still not convinced, take a look to this lightning video tutorial (in Italian): https://www.youtube.com/watch?v=7JLy4mNRd_E 
-
+**Simple File Manager** is a Joomla!&trade; lightweight component for easily creating safe and responsive **download centers** where to share public and private documents. It's very easy to install and configure.
 
 ## Software requirements
 
 ![Joomla! 3.7](https://img.shields.io/badge/Joomla!-3.7-blue.svg) ![PHP 5.4](https://img.shields.io/badge/PHP-5.4-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
 Simple File Manager needs Joomla 3.7+ and a PHP 5.4+ engine to run.  
-Also a running instance of MariaDB/MySql is required. Other DBMS are not officially supported.
+A running instance of MariaDB/MySql is also required.
 
 
 ## Installing

@@ -53,18 +53,14 @@ Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot o
 
 You can also take a look to this lightning video-tutorial (in Italian): https://www.youtube.com/watch?v=7JLy4mNRd_E 
 
-Here is a list of brand, companies and associations wich already use Simple File Manager in their websites:
-
-<a href="http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos" target="_blank">
-  <img src="http://www.usbcartagena.edu.co/new/templates/rox_app/images/presets/preset4/logo.png" height="64" />
+A brilliant example of how to use Simple File Manager could be found in the University of Cartagena website: <a href="http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos" target="_blank">
+  <img src="http://www.usbcartagena.edu.co/new/templates/rox_app/images/presets/preset4/logo.png" height="72" />
 </a>
+
+Here is a list of other brands, agencies and associations wich already use Simple File Manager for creating download centers in their websites:
 
 <a href="http://www.invi.it/partner-rivenditori/download" target="_blank">
   <img src="http://www.invi.it/images/logo/invi-logo-01w.png" height="64" />
-</a>
-
-<a href="http://www.coescompany.com/eng/index.php/2016-03-01-15-22-31/certifications/coesprene" target="_blank">
-  <img src="http://www.coescompany.com/eng/images/logocoes.png" height="64" />
 </a>
 
 <a href="http://www.vpea.org/about-us/bylaws-and-working-rules" target="_blank">

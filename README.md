@@ -32,7 +32,7 @@ If you're still not convinced, take a look to this lightning video tutorial: htt
 
 ## Software requirements
 
-![Joomla! 3.7](https://img.shields.io/badge/Joomla!-3.7-blue.svg) ![PHP 5.4](https://img.shields.io/badge/PHP-5.4-brightgreen.svg)  ![Database MySql](https://img.shields.io/badge/Database-MySql-orange.svg)
+![Joomla! 3.7](https://img.shields.io/badge/Joomla!-3.7-blue.svg) ![PHP 5.4](https://img.shields.io/badge/PHP-5.4-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
 Simple File Manager needs Joomla 3.7+ and a PHP 5.4+ engine to run.  
 Also a running instance of MariaDB/MySql is required. 
@@ -40,9 +40,9 @@ Also a running instance of MariaDB/MySql is required.
 
 ## Installing
 
-You can install Simple File Manager via the [Joomla Web Installer](https://docs.joomla.org/Install_from_Web).  
+You can install Simple File Manager via the <a href="https://docs.joomla.org/Install_from_Web" target="_blank">Joomla Web Installer</a>.  
 
-If you prefer to install it manually, download the latest release [from here](http://gmansillo.github.io/simple/) then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**. If you need further informations refer to the [official Joomla! documentation](https://docs.joomla.org/Installing_an_extension).
+If you prefer to install it manually, download the latest release <a href="http://gmansillo.github.io/simple/" target="_blank">from here</a> then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**. If you need further informations refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 
 
 ## Examples

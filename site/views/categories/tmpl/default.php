@@ -35,5 +35,6 @@ jQuery(function($) {
     <?php
     echo JLayoutHelper::render('joomla.content.categories_default', $this);
     echo $this->loadTemplate('items');
+    echo JText::_('COM_SIMPLEFILEMANAGER_CREDITS');
     ?>
 </div>

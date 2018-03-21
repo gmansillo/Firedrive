@@ -56,16 +56,23 @@ You can also take a look to this lightning video-tutorial (in Italian): https://
 Here is a list of brand, companies and associations wich already use Simple File Manager in their websites:
 
 <a href="http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos" target="_blank">
-  <img src="http://www.usbcartagena.edu.co/new/templates/rox_app/images/presets/preset4/logo.png" height="72" />
+  <img style="-webkit-filter: grayscale(100%); filter: grayscale(100%);" src="http://www.usbcartagena.edu.co/new/templates/rox_app/images/presets/preset4/logo.png" height="72" />
 </a>
-<a href="https://euatc.org/recent-euatc-public-documents" target="_blank">
-  <img src="https://euatc.org/images/system/logo.png" height="72" />
+
+<a href="http://www.invi.it/partner-rivenditori/download" target="_blank">
+  <img style="-webkit-filter: grayscale(100%); filter: grayscale(100%);" src="http://www.invi.it/images/logo/invi-logo-01w.png" height="72" />
 </a>
-<a href="http://www.creo3dprinters.com/it/download" target="_blank">
-  <img src="http://www.creo3dprinters.com/images/logo.png" height="72" />
+
+<a href="http://www.coescompany.com/eng/index.php/2016-03-01-15-22-31/certifications/coesprene" target="_blank">
+  <img style="-webkit-filter: grayscale(100%); filter: grayscale(100%);" src="http://www.coescompany.com/eng/images/logocoes.png" height="72" />
 </a>
+
 <a href="http://www.scanpower.co.nz/services/electricity-connections" target="_blank">
-  <img src="http://www.scanpower.co.nz/templates/scanpower/images/scanpower.png" height="72" />
+  <img style="-webkit-filter: grayscale(100%); filter: grayscale(100%);" src="http://www.scanpower.co.nz/templates/scanpower/images/scanpower.png" height="72" />
+</a>
+
+<a href="http://www.scanpower.co.nz/services/electricity-connections" target="_blank">
+  <img style="-webkit-filter: grayscale(100%); filter: grayscale(100%);" src="http://www.scanpower.co.nz/templates/scanpower/images/scanpower.png" height="72" />
 </a>
 
 

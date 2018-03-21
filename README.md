@@ -59,9 +59,14 @@ Here is a list of some brands, agencies and associations wich already use Simple
 - [Embassy Of Bangladesh in Beijing](http://www.bdembassybeijing.com/index.php/en/commerce-en/downloadable-content-en)
 - [CCILE - Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)
 - [Eastern Professional Electronics Association](http://www.vpea.org/about-us/bylaws-and-working-rules)
-- [Exprivia's ARK](http://ark.acsys.it/index.php/download)
+- [Exprivia Advanced Computer SYStems](http://ark.acsys.it/index.php/download)
+- [BIM Academic Connection Platform](https://www.bimacp.com/library/publications/publications-2017)
+- [Associazion Italiana Protezione Animali](http://www.aipa-av.net/l-aipa/modulistica.html)
+- [Uyole Agricultural Research Institute](http://www.ariuyole.go.tz/index.php/zielu/publication) 
 - [Consorzio per l'Area di Sviluppo Industriale della Provincia di Benevento](http://www.asibn.it/website/index.php?option=com_simplefilemanager&view=simplefilemanagers&layout=simplefilemanagers&catid=93&orderBy=a.file_created&order=ASC&Itemid=311&lang=it)
 - [AVIS Piemonte](http://www.avispiemonte.it/convenzioni?view=simplefilemanagers&layout=simplefilemanagers&catid=15&orderBy=a.file_created&order=ASC&jjj=1521635967586)
+- [Arreghini Serramenti](https://www.arreghiniserramenti.com/download) 
+
 
 ## Troubleshooting
 

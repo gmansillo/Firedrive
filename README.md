@@ -25,7 +25,9 @@
 
 ## About
 
-**Simple File Manager** is a Joomla!&trade; lightweight component for easily creating safe and responsive **download centers** where to share public and private documents. It's very easy to install and configure.
+**Simple File Manager** is a Joomla!&trade; lightweight component for easily creating safe and responsive **download centers** where to share public and private documents.
+
+It's very easy to install and configure.
 
 ## Software requirements
 
@@ -45,12 +47,16 @@ You can also use the Joomla! option "Install from URL", specifying the following
 
 It links always to the latest release available.
 
-If you prefer to install Simple File Manager manually, download the latest release <a href="http://gmansillo.github.io/simple/" target="_blank">from here</a> then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**. If you need further informations about this procedure, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
+If you prefer to install Simple File Manager manually, download the latest release <a href="http://gmansillo.github.io/simple/" target="_blank">from here</a> then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**.
+
+If you need further informations about the manual procedure, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 
 
 ## Examples
 
-Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot of examples about how to use and customize Simple File Manager. You can also take a look to this lightning video-tutorial (in Italian): https://www.youtube.com/watch?v=7JLy4mNRd_E 
+Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot of examples about how to use and customize Simple File Manager.
+
+You can also take a look to this lightning video-tutorial (in Italian): https://www.youtube.com/watch?v=7JLy4mNRd_E 
 
 ## Licensing
 

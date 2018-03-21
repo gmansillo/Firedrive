@@ -56,10 +56,11 @@ You can also take a look to this lightning video-tutorial (in Italian): https://
 Here is a list of some brands, agencies and associations wich already use Simple File Manager for creating download centers in their websites:
 
 - [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos)
-- [AVIS Regionale Piemonte](http://www.avispiemonte.it/convenzioni?view=simplefilemanagers&layout=simplefilemanagers&catid=15&orderBy=a.file_created&order=ASC&jjj=1521635967586)
-- [Eastern Professional Electronics Association](http://www.vpea.org/about-us/bylaws-and-working-rules)
+- [Embassy Of Bangladesh in Beijing](http://www.bdembassybeijing.com/index.php/en/commerce-en/downloadable-content-en)
 - [CCILE - Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)
+- [Eastern Professional Electronics Association](http://www.vpea.org/about-us/bylaws-and-working-rules)
 - [Consorzio per l'Area di Sviluppo Industriale della Provincia di Benevento](http://www.asibn.it/website/index.php?option=com_simplefilemanager&view=simplefilemanagers&layout=simplefilemanagers&catid=93&orderBy=a.file_created&order=ASC&Itemid=311&lang=it)
+- [AVIS Piemonte](http://www.avispiemonte.it/convenzioni?view=simplefilemanagers&layout=simplefilemanagers&catid=15&orderBy=a.file_created&order=ASC&jjj=1521635967586)
 
 ## Troubleshooting
 

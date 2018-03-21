@@ -53,6 +53,14 @@ Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot o
 
 You can also take a look to this lightning video-tutorial (in Italian): https://www.youtube.com/watch?v=7JLy4mNRd_E 
 
+
 ## Licensing
 
 The code in this project is licensed under the **GNU General Public License v3.0**. You may copy, distribute and modify the code as long as you track changes/dates in source files.
+
+
+## Feedback
+
+All bugs, feature requests, pull requests, feedback, etc., are welcome. If you encountered an error, [create an issue](https://github.com/gmansillo/simple/issues/new). 
+
+If you liked Simple File Manager or you found it useful for your purposes, you can help me rating it on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>.

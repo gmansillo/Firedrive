@@ -59,7 +59,7 @@ Here is a list of some brands, agencies and associations wich already use Simple
 - [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos)
 - [Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)
 - [Exprivia Advanced Computer SYStems](http://ark.acsys.it/index.php/download)
-- [Associazion Italiana Protezione Animali](http://www.aipa-av.net/l-aipa/modulistica.html)
+- [Associazione Italiana Protezione Animali](http://www.aipa-av.net/l-aipa/modulistica.html)
 - [Eastern Professional Electronics Association](http://www.vpea.org/about-us/bylaws-and-working-rules)
 - [BIM Academic Connection Platform](https://www.bimacp.com/library/publications/publications-2017)
 - [Uyole Agricultural Research Institute](http://www.ariuyole.go.tz/index.php/zielu/publication) 

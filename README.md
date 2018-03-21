@@ -63,9 +63,6 @@ Here is a list of some brands, agencies and associations wich already use Simple
 - [Eastern Professional Electronics Association](http://www.vpea.org/about-us/bylaws-and-working-rules)
 - [BIM Academic Connection Platform](https://www.bimacp.com/library/publications/publications-2017)
 - [Uyole Agricultural Research Institute](http://www.ariuyole.go.tz/index.php/zielu/publication) 
-- [Consorzio per l'Area di Sviluppo Industriale della Provincia di Benevento](http://www.asibn.it/website/index.php?option=com_simplefilemanager&view=simplefilemanagers&layout=simplefilemanagers&catid=93&orderBy=a.file_created&order=ASC&Itemid=311&lang=it)
-- [AVIS Piemonte](http://www.avispiemonte.it/convenzioni?view=simplefilemanagers&layout=simplefilemanagers&catid=15&orderBy=a.file_created&order=ASC&jjj=1521635967586) 
-- [Creo 3D Printers](http://www.creo3dprinters.com/en/download-eng)
 - [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/): a brilliant example of how to use ACLs in Simple File Manager.
 
 

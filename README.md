@@ -6,7 +6,7 @@
   <h3 align="center">Simple File Manager</h3>
 
   <p align="center">
-    Simple and intuitive component for creating download centers in Joomla!&trade;.
+    Simple, lightweight, and intuitive component for easily creating download centers in Joomla!&trade;.
     <br>
     <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore Simple File Manager docs »</strong></a>
     <br>
@@ -23,11 +23,6 @@
 
 <br>
 
-## About
-
-**Simple File Manager** is a Joomla!&trade; lightweight component for easily creating safe and responsive **download centers** where to share public and private documents.
-
-It's very easy to install and configure.
 
 ## Software requirements
 

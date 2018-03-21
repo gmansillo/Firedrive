@@ -53,6 +53,10 @@ Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot o
 
 You can also take a look to this lightning video-tutorial (in Italian): https://www.youtube.com/watch?v=7JLy4mNRd_E 
 
+Here is a list of brand, companies and associations wich already use Simple File Manager in their websites:
+
+<a href="http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos" target="_blank"><img src="http://www.usbcartagena.edu.co/new/templates/rox_app/images/presets/preset4/logo.png" width="72" /></a>
+
 ## Troubleshooting
 
 See the [Troubleshooting wiki page](https://github.com/gmansillo/simple/wiki/Troubleshooting).

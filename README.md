@@ -55,7 +55,7 @@ You can also take a look to this lightning video-tutorial (in Italian): https://
 
 Here is a list of some brands, agencies and associations wich already use Simple File Manager for creating download centers in their websites:
 
-- [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos). A brilliant example of how to use Simple File Manager.
+- [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos)
 - [AVIS Regionale Piemonte](http://www.avispiemonte.it/convenzioni?view=simplefilemanagers&layout=simplefilemanagers&catid=15&orderBy=a.file_created&order=ASC&jjj=1521635967586)
 - [Eastern Professional Electronics Association](http://www.vpea.org/about-us/bylaws-and-working-rules)
 - [CCILE - Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)

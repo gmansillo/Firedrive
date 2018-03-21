@@ -41,17 +41,16 @@ You can install Simple File Manager via the <a href="https://docs.joomla.org/Ins
 
 You can also use the Joomla! option "Install from URL", specifying the following path:
 
-`http://service.simplefilemanager.eu/delivery/getdefault.php`
+```http://service.simplefilemanager.eu/delivery/getdefault.php```
 
 It links always to the latest release available.
 
-If you prefer to install Simple File Manager manually, download the latest release <a href="http://gmansillo.github.io/simple/" target="_blank">from here</a> then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**. If you need further informations refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
+If you prefer to install Simple File Manager manually, download the latest release <a href="http://gmansillo.github.io/simple/" target="_blank">from here</a> then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**. If you need further informations about this procedure, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 
 
 ## Examples
 
-Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot of examples about how to use and customize Simple File Manager. 
-
+Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot of examples about how to use and customize Simple File Manager. You can also take a look to this lightning video-tutorial (in Italian): https://www.youtube.com/watch?v=7JLy4mNRd_E 
 
 ## Licensing
 

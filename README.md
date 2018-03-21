@@ -53,6 +53,9 @@ Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot o
 
 You can also take a look to this lightning video-tutorial (in Italian): https://www.youtube.com/watch?v=7JLy4mNRd_E 
 
+## Troubleshooting
+
+See the [Troubleshooting wiki page](https://github.com/gmansillo/simple/wiki/Troubleshooting).
 
 ## Licensing
 

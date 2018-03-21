@@ -8,16 +8,16 @@
   <p align="center">
     Simple and intuitive component for creating download centers in Joomla!&trade;.
     <br>
-    <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore Component docs »</strong></a>
+    <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore Simple File Manager docs »</strong></a>
     <br>
     <br>
-    <a href="https://github.com/gmansillo/simple/issues/new">Report a bug</a>
+    <a href="https://github.com/gmansillo/simple/issues/new">Report bug</a>
     ·
-    <a href="https://github.com/gmansillo/simple/issues/new?label=request">Request a feature</a>
+    <a href="https://github.com/gmansillo/simple/issues/new?label=request">Request feature</a>
     ·
     <a href="https://github.com/gmansillo/simple/issues">Issues</a>
     ·
-    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate this extension</a>
+    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate extension</a>
   </p>
 </p>
 
@@ -25,9 +25,9 @@
 
 ## About
 
-**Simple File Manager** is a Joomla!&trade lightweight component for easily creating safe and responsive **download centers** where to share public and private documents. It's very easy to install and configure.
+**Simple File Manager** is a Joomla!&trade; lightweight component for easily creating safe and responsive **download centers** where to share public and private documents. It's very easy to install and configure.
 
-If you're still not convinced, take a look to this lightning video tutorial: https://www.youtube.com/watch?v=7JLy4mNRd_E
+If you're still not convinced, take a look to this lightning video tutorial: https://www.youtube.com/watch?v=7JLy4mNRd_E (in Italian)
 
 
 ## Software requirements

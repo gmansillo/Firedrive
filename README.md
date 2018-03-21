@@ -53,24 +53,13 @@ Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot o
 
 You can also take a look to this lightning video-tutorial (in Italian): https://www.youtube.com/watch?v=7JLy4mNRd_E 
 
-A brilliant example of how to use Simple File Manager could be found in the University of Cartagena website: <a href="http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos" target="_blank">
-  <img src="http://www.usbcartagena.edu.co/new/templates/rox_app/images/presets/preset4/logo.png" height="72" />
-</a>
+Here is a list of some brands, agencies and associations wich already use Simple File Manager for creating download centers in their websites:
 
-Here is a list of other brands, agencies and associations wich already use Simple File Manager for creating download centers in their websites:
-
-<a href="http://www.invi.it/partner-rivenditori/download" target="_blank">
-  <img src="http://www.invi.it/images/logo/invi-logo-01w.png" height="64" />
-</a>
-
-<a href="http://www.vpea.org/about-us/bylaws-and-working-rules" target="_blank">
-  <img src="http://www.vpea.org/images/EPEA-logo-small-nobg.png" height="64" />
-</a>
-
-<a href="http://www.asibn.it/website/index.php?option=com_simplefilemanager&view=simplefilemanagers&layout=simplefilemanagers&catid=93&orderBy=a.file_created&order=ASC&Itemid=311&lang=it" target="_blank">
-  <img src="http://www.asibn.it/website/images/logo_asi_def_tr_sx.png" height="64" />
-</a>
-
+- [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos). A brilliant example of how to use Simple File Manager.
+- [AVIS Regionale Piemonte](http://www.avispiemonte.it/convenzioni?view=simplefilemanagers&layout=simplefilemanagers&catid=15&orderBy=a.file_created&order=ASC&jjj=1521635967586)
+- [Eastern Professional Electronics Association](http://www.vpea.org/about-us/bylaws-and-working-rules)
+- [CCILE - Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)
+- [Consorzio per l'Area di Sviluppo Industriale della Provincia di Benevento](http://www.asibn.it/website/index.php?option=com_simplefilemanager&view=simplefilemanagers&layout=simplefilemanagers&catid=93&orderBy=a.file_created&order=ASC&Itemid=311&lang=it)
 
 ## Troubleshooting
 

@@ -34,11 +34,7 @@ A running instance of MariaDB/MySql is also required.
 
 ## Installing
 
-You can install Simple File Manager via the <a href="https://docs.joomla.org/Install_from_Web" target="_blank">Joomla Web Installer</a> or yan can use the Joomla! option "Install from URL" option, specifying the following path:
-
-```http://service.simplefilemanager.eu/delivery/getdefault.php```
-
-You'll get always the latest release available.
+You can install Simple File Manager via the <a href="https://docs.joomla.org/Install_from_Web" target="_blank">Joomla Web Installer</a> or yan can use the Joomla! option "Install from URL" option, specifying the following path: `http://service.simplefilemanager.eu/delivery/getdefault.php`. You'll get always the latest release available.
 
 If you prefer to install Simple File Manager manually, plese download the latest release <a href="http://gmansillo.github.io/simple/" target="_blank">from here</a>, then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**.  
 

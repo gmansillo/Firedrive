@@ -49,11 +49,10 @@ You can also take a look to this lightning video-tutorial (in Italian): https://
 
 Here is a list of some brands, agencies and associations wich already use Simple File Manager for creating download centers in their websites:
 
-- [Embassy Of Bangladesh in Beijing](http://www.bdembassybeijing.com/index.php/en/commerce-en/downloadable-content-en)
 - [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos)
 - [Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)
-- [Exprivia Advanced Computer SYStems](http://ark.acsys.it/index.php/download)
-- [Associazione Italiana Protezione Animali](http://www.aipa-av.net/l-aipa/modulistica.html)
+- [Embassy Of Bangladesh in Beijing](http://www.bdembassybeijing.com/index.php/en/commerce-en/downloadable-content-en)
+- [Exprivia ACSYS](http://ark.acsys.it/index.php/download)
 - [Eastern Professional Electronics Association](http://www.vpea.org/about-us/bylaws-and-working-rules)
 - [BIM Academic Connection Platform](https://www.bimacp.com/library/publications/publications-2017)
 - [Uyole Agricultural Research Institute](http://www.ariuyole.go.tz/index.php/zielu/publication) 
@@ -64,6 +63,7 @@ Here is a list of some brands, agencies and associations wich already use Simple
 
 See the [Troubleshooting wiki page](https://github.com/gmansillo/simple/wiki/Troubleshooting).
 
+
 ## Licensing
 
 The code in this project is licensed under the **GNU General Public License v3.0**. You may copy, distribute and modify the code as long as you track changes/dates in source files.
@@ -73,4 +73,4 @@ The code in this project is licensed under the **GNU General Public License v3.0
 
 All bugs, feature requests, pull requests, feedback, etc., are welcome. If you encountered an error, [create an issue](https://github.com/gmansillo/simple/issues/new). 
 
-If you liked Simple File Manager or you found it useful for your purposes, you can help me rating it on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>.
+If you liked Simple File Manager or you found it useful for your purposes, you can help me rating it on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a> :heart:

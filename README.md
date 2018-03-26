@@ -6,7 +6,7 @@
   <h3 align="center">Simple File Manager</h3>
 
   <p align="center">
-    Simple, lightweight, and intuitive component for easily creating download centers in Joomla!&trade;.
+    Simple, lightweight, and intuitive component for creating download centers in Joomla!&trade;.
     <br>
     <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore Simple File Manager docs »</strong></a>
     <br>

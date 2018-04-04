@@ -1,47 +1,67 @@
-# Simple File Manager 
+<p align="center">
+  <a href="http://simplefilemanager.eu/">
+    <img src="http://gmansillo.github.io/simple/logo_176.png" alt="" width=72 height=72>
+  </a>
 
-**Simple** is a Joomla! component for creating private user areas and for organizing documents in safe download centers.  
-It's very easy to use and to configure. 
+  <h3 align="center">Simple File Manager</h3>
 
-There are dozens of nice document managers for Joomla already out there, but they are either:
+  <p align="center">
+    Simple, lightweight, and intuitive component for creating download centers in Joomla!&trade;.
+    <br>
+    <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore Simple File Manager docs »</strong></a>
+    <br>
+    <br>
+    <a href="https://github.com/gmansillo/simple/issues/new">Report bug</a>
+    ·
+    <a href="https://github.com/gmansillo/simple/issues/new?label=request">Request feature</a>
+    ·
+    <a href="https://github.com/gmansillo/simple/issues">Issues</a>
+    ·
+    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate extension</a>
+  </p>
+</p>
 
--  not responsive
--  not flexible enough
--  not so user-friendly
--  have a lot of heavy and unuseful functionalities
-
-Simple's main goal is to provide a simple, lightweight, responsive and safe component to easily share documents on your website. It's important to understand that one of the main intentions of SFM is to **keep the workflow as simple as possible:** if you need advanced features (often not expected to be in a document manager) please seriously think about using another component. 
-
-If you're still not convinced, take a look to this lightning video tutorial: https://www.youtube.com/watch?v=7JLy4mNRd_E
+<br>
 
 
 ## Software requirements
 
-![Joomla 3.7+](https://img.shields.io/badge/Joomla-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![Database MariaDB/MySql](https://img.shields.io/badge/Database-MariaDB/MySql-orange.svg)
+![Joomla! 3.7+](https://img.shields.io/badge/Joomla!-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
 Simple File Manager needs Joomla 3.7+ and a PHP 5.4+ engine to run.  
-Also a running instance of MariaDB/MySql is required. 
+A running instance of MariaDB/MySql is also required.
 
 
 ## Installing
 
-You can install Simple File Manager via the [Joomla Web Installer](https://docs.joomla.org/Install_from_Web).  
+You can install Simple File Manager via the <a href="https://docs.joomla.org/Install_from_Web" target="_blank">Joomla Web Installer</a> or yan can use the Joomla! option "Install from URL" option, specifying the following path: `http://service.simplefilemanager.eu/delivery/getdefault.php`. You'll get always the latest release available.
 
-If you prefer to install it manually, download the latest release [from here](http://gmansillo.github.io/simple/) then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**. If you need further informations refer to the [official Joomla! documentation](https://docs.joomla.org/Installing_an_extension).
+If you prefer to install Simple File Manager manually, plese download the latest release <a href="http://gmansillo.github.io/simple/" target="_blank">from here</a>, then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**.  
+
+If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 
 
 ## Examples
 
-Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot of examples about how to use and customize Simple File Manager. 
+Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot of examples about how to use and customize Simple File Manager.
+
+You can also take a look to this lightning video-tutorial (in Italian): https://www.youtube.com/watch?v=7JLy4mNRd_E 
+
+Here is a list of some brands, agencies and associations wich already use Simple File Manager for creating download centers in their websites:
+
+- [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos)
+- [Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)
+- [Embassy Of Bangladesh in Beijing](http://www.bdembassybeijing.com/index.php/en/commerce-en/downloadable-content-en)
+- [Exprivia ACSYS](http://ark.acsys.it/index.php/download)
+- [Eastern Professional Electronics Association](http://www.vpea.org/about-us/bylaws-and-working-rules)
+- [BIM Academic Connection Platform](https://www.bimacp.com/library/publications/publications-2017)
+- [Uyole Agricultural Research Institute](http://www.ariuyole.go.tz/index.php/zielu/publication) 
+- [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/): a brilliant example of how to use ACLs in Simple File Manager.
 
 
-## Links
+## Troubleshooting
 
-- Project homepage: https://gmansillo.github.io/simple/
-- Repository: https://github.com/gmansillo/simplefilemanager/
-- Issue tracker: https://github.com/gmansillo/simplefilemanager/issues
-- Documentation site: https://github.com/gmansillo/simplefilemanager/wiki
-- JED Project Page: https://extensions.joomla.org/extension/simple-file-manager/
+See the [Troubleshooting wiki page](https://github.com/gmansillo/simple/wiki/Troubleshooting).
 
 
 ## Licensing
@@ -49,11 +69,8 @@ Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot o
 The code in this project is licensed under the **GNU General Public License v3.0**. You may copy, distribute and modify the code as long as you track changes/dates in source files.
 
 
-## Missing stuff
+## Feedback
 
-Someone kindly pointed out to me that the following functionalities are missing in Simple:
+All bugs, feature requests, pull requests, feedback, etc., are welcome. If you encountered an error, [create an issue](https://github.com/gmansillo/simple/issues/new). 
 
--  Bacth file import system
--  Include bootstrap classes in component's css
-
-I'll do my best for implementing them as soon as I can.
+If you liked Simple File Manager or you found it useful for your purposes, you can help me rating it on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a> :heart:

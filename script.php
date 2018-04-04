@@ -24,8 +24,7 @@ class com_simplefilemanagerInstallerScript {
         // abort if the current Joomla release is older
         if (version_compare($jversion->getShortVersion(), $minimum_joomla_release, 'lt')) {
             $errorMessage = sprintf(JText::_('COM_SIMPLEFILEMANAGER_PREFLIGHT_VERSION_ERROR'), $current_simple_version, $minimum_joomla_release, $jversion->getShortVersion());
-            Jerror::raiseWarning(null, $errorMessage);
-
+            JFactory::getApplication()->enqueueMessage($errorMessage, 'warning');
             return false;
         }
     }

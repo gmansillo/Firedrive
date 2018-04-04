@@ -126,4 +126,6 @@ $tparams = $this->item->params;
     <a href="<?php echo $downloadLink; ?>" class="btn btn-default"><?php echo JText::_('COM_SIMPLEFILEMANAGER_DOWNLOAD_BUTTON') ?></a>
 
     <?php echo $this->item->event->afterDisplayContent; ?>
+    
+    <?php echo JText::_('COM_SIMPLEFILEMANAGER_CREDITS'); ?>
 </div>

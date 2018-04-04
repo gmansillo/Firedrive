@@ -90,14 +90,14 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
             };
         </script>
 
-        <ul class="category row-striped">
+        <ul class="category row-striped" role="list">
             <?php foreach ($this->items as $i => $item) : ?>
 
                 <?php if (in_array($item->access, $this->user->getAuthorisedViewLevels())) : ?>
                     <?php if ($this->items[$i]->state == 0) : ?>
-                        <li class="row-fluid system-unpublished cat-list-row<?php echo $i % 2; ?>">
+                        <li class="row-fluid system-unpublished cat-list-row<?php echo $i % 2; ?>" role="listitem" >
                         <?php else : ?>
-                        <li class="row-fluid cat-list-row<?php echo $i % 2; ?>" >
+                        <li class="row-fluid cat-list-row<?php echo $i % 2; ?>" role="listitem" >
                         <?php endif; ?>
 
                         <?php if ($this->params->get('category_show_document_icon') == 1): ?>

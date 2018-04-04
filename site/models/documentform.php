@@ -130,9 +130,7 @@ class SimplefilemanagerModelDocumentForm extends JModelForm {
         }
 
         if ($authorised !== true) {
-            JError::raiseError(403, JText::_('JERROR_ALERTNOAUTHOR'));
-
-            return false;
+            throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'), 403);
         }
 
         $table = $this->getTable();
@@ -146,9 +144,7 @@ class SimplefilemanagerModelDocumentForm extends JModelForm {
     function delete($data) {
         $id = (!empty($data['id'])) ? $data['id'] : (int) $this->getState('document.id');
         if (JFactory::getUser()->authorise('core.delete', 'com_simplefilemanager') !== true) {
-            JError::raiseError(403, JText::_('JERROR_ALERTNOAUTHOR'));
-
-            return false;
+            throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'), 403);
         }
 
         $table = $this->getTable();
@@ -231,7 +227,7 @@ class SimplefilemanagerModelDocumentForm extends JModelForm {
                 }
 
                 if (!$canEdit) {
-                    JError::raiseError('500', JText::_('JERROR_ALERTNOAUTHOR'));
+                    throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'), 403);
                 }
 
                 // Check published state.

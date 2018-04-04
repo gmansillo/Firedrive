@@ -72,4 +72,7 @@ $canEditState = $user->authorise('core.edit.state', 'com_simplefilemanager');
         <input type="hidden" name="task" value="documentform.save"/>
         <?php echo JHtml::_('form.token'); ?>
     </form>
+    
+    <?php echo JText::_('COM_SIMPLEFILEMANAGER_CREDITS'); ?>
+
 </div>

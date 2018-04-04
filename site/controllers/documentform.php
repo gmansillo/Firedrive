@@ -10,8 +10,6 @@ defined('_JEXEC') or die;
 require_once(JPATH_COMPONENT_ADMINISTRATOR . '/helpers/simplefilemanager.php');
 require_once JPATH_COMPONENT . '/controller.php';
 
-define('DS', DIRECTORY_SEPARATOR);
-
 /**
  * Simplefilemanager controller class.
  */
@@ -72,9 +70,7 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
         // Validate the posted data.
         $form = $model->getForm();
         if (!$form) {
-            JError::raiseError(500, $model->getError());
-
-            return false;
+            throw new Exception($model->getError(), 500);
         }
 
         // Validate the posted data.
@@ -162,8 +158,7 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
 
         if ($files["select_file"]["size"] <= 0) {
             if ($isNew) {
-                JError::raiseError(403, JText::_('COM_SIMPLEFILEMANAGER_NO_FILE_ERROR_MESSAGE'));
-                return;
+                throw new Exception(JText::_('COM_SIMPLEFILEMANAGER_NO_FILE_ERROR_MESSAGE'), 503);
             }
         } else {
 
@@ -176,7 +171,7 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
             // TODO: Implement file extension check
             // File upload
             $file_name         = $files["select_file"]["name"];
-            $dest              = JPATH_COMPONENT_ADMINISTRATOR . DS . "uploads" . DS . uniqid("", true) . DS . JFile::makeSafe(JFile::getName($file_name));
+            $dest              = JPATH_COMPONENT_ADMINISTRATOR . "/uploads/" . uniqid("", true) . "/". JFile::makeSafe(JFile::getName($file_name));
             $data["file_name"] = JFile::upload($files["select_file"]["tmp_name"], $dest) ? $dest : false;
 
             if (!$data["file_name"]) {

@@ -33,8 +33,6 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
         jimport('joomla.filesystem.file');
         jimport('joomla.utilities.date');
 
-        define('DS', DIRECTORY_SEPARATOR);
-
         // Load data
         $input        = JFactory::getApplication()->input;
         $this->form   = $input->post->get('jform', null, 'RAW');
@@ -45,8 +43,7 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
         $uploadFieldName = $isNew ? "select_file" : "replace_file";
 
         if ($isNew && !$this->files[$uploadFieldName]["size"]) {
-            JError::raiseError(403, JText::_('COM_SIMPLEFILEMANAGER_NO_FILE_ERROR_MESSAGE'));
-            return;
+            throw new Exception(JText::_('COM_SIMPLEFILEMANAGER_NO_FILE_ERROR_MESSAGE'), 403);
         }
 
         // File management
@@ -58,7 +55,7 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
 
             // Upload file
             $file_name = $this->files[$uploadFieldName]["name"];
-            $dest      = JPATH_COMPONENT_ADMINISTRATOR . DS . "uploads" . DS . uniqid("", true) . DS . JFile::makeSafe(JFile::getName($file_name));
+            $dest      = JPATH_COMPONENT_ADMINISTRATOR . "/uploads/" . uniqid("", true) . "/". JFile::makeSafe(JFile::getName($file_name));
             $upload    = JFile::upload($this->files[$uploadFieldName]["tmp_name"], $dest) ? $dest : false;
 
             if (!$upload || $this->form["file_name"] == $upload) {
@@ -94,7 +91,7 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
             $this->form["state"] = 0;
         }
 
-        // Save data back to the $_POST global variable
+        // Save data back to the POST global variable
         JFactory::getApplication()->input->post->set('jform', $this->form);
 
         parent::save($key, $urlVar);

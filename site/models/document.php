@@ -124,7 +124,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
                 $data = $db->loadObject();
 
                 if (empty($data)) {
-                    JError::raiseError(404, JText::_('COM_SIMPLEFILEMANAGER_ERROR_DOCUMENT_NOT_FOUND'));
+                    throw new Exception(JText::_('COM_SIMPLEFILEMANAGER_ERROR_DOCUMENT_NOT_FOUND'), 404);
                 }
 
                 // Process document icon
@@ -132,7 +132,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
 
                 // Check for published state if filter set.
                 if ((is_numeric($published) || is_numeric($archived)) && (($data->state != $published) && ($data->state != $archived))) {
-                    JError::raiseError(404, JText::_('COM_SIMPLEFILEMANAGER_ERROR_DOCUMENT_NOT_FOUND'));
+                    throw new Exception(JText::_('COM_SIMPLEFILEMANAGER_ERROR_DOCUMENT_NOT_FOUND'), 404);
                 }
 
                 /**

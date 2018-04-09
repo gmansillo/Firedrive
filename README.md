@@ -87,4 +87,4 @@ If you liked Simple File Manager or you found it useful for your purposes, you c
 
 All bugs, feature requests, pull requests, feedback, etc., are welcome. 
 
-Have a bug or a feature request? Please first search for [existing and closed issues](https://github.com/gmansillo/simple/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue(https://github.com/gmansillo/simple/issues/new).
+Have a bug or a feature request? Please first search for [existing and closed issues](https://github.com/gmansillo/simple/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/simple/issues/new?template=issue).

@@ -28,11 +28,11 @@
 
 - [Software requirements](#software-requirements)
 - [Installation](#installation)
+- [Feedback](#feedback)
+- [Bugs and feature requests](#bugs-and-feature-requests)
 - [Examples](#examples)
 - [Troubleshooting](#troubleshooting)
 - [Licensing](#licensing)
-- [Feedback](#feedback)
-- [Bugs and feature requests](#bugs-and-feature-requests)
 
 
 ## Software requirements
@@ -50,6 +50,18 @@ You can install Simple File Manager via the <a href="https://docs.joomla.org/Ins
 If you prefer to install Simple File Manager manually, plese download the latest release <a href="http://gmansillo.github.io/simplefilemanager/" target="_blank">from here</a>, then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**.  
 
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
+
+
+## Feedback
+
+If you liked Simple File Manager or you found it useful for your purposes, you can help me rating it on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a> :heart:
+
+
+## Bugs and feature requests
+
+All bugs, feature requests, pull requests, feedback, etc., are welcome. 
+
+Have a bug or a feature request? Please first search for [existing and closed issues](https://github.com/gmansillo/simple/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/simple/issues/new?template=issue).
 
 
 ## Examples
@@ -77,14 +89,3 @@ See the [Troubleshooting wiki page](https://github.com/gmansillo/simple/wiki/Tro
 
 The code in this project is licensed under the **GNU General Public License v3.0**. You may copy, distribute and modify the code as long as you track changes/dates in source files.
 
-
-## Feedback
-
-If you liked Simple File Manager or you found it useful for your purposes, you can help me rating it on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a> :heart:
-
-
-## Bugs and feature requests
-
-All bugs, feature requests, pull requests, feedback, etc., are welcome. 
-
-Have a bug or a feature request? Please first search for [existing and closed issues](https://github.com/gmansillo/simple/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/simple/issues/new?template=issue).

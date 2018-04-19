@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://simplefilemanager.eu/">
-    <img src="http://gmansillo.github.io/simple/logo_176.png" alt="" width=72 height=72>
+    <img src="http://gmansillo.github.io/simplefilemanager/logo_176.png" alt="" width=72 height=72>
   </a>
 
   <h3 align="center">Simple File Manager</h3>
@@ -8,14 +8,14 @@
   <p align="center">
     Simple, lightweight, and intuitive component for creating download centers in Joomla!&trade;.
     <br>
-    <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore Simple File Manager docs »</strong></a>
+    <a href="https://github.com/gmansillo/simplefilemanager/wiki"><strong>Explore Simple File Manager docs »</strong></a>
     <br>
     <br>
-    <a href="https://github.com/gmansillo/simple/issues/new">Report bug</a>
+    <a href="https://github.com/gmansillo/simplefilemanager/issues/new">Report bug</a>
     ·
-    <a href="https://github.com/gmansillo/simple/issues/new?label=request">Request feature</a>
+    <a href="https://github.com/gmansillo/simplefilemanager/issues/new?label=request">Request feature</a>
     ·
-    <a href="https://github.com/gmansillo/simple/issues">Issues</a>
+    <a href="https://github.com/gmansillo/simplefilemanager/issues">Issues</a>
     ·
     <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate extension</a>
   </p>
@@ -47,7 +47,7 @@ A running instance of MariaDB/MySql is also required.
 
 You can install Simple File Manager via the <a href="https://docs.joomla.org/Install_from_Web" target="_blank">Joomla Web Installer</a> or yan can use the Joomla! option "Install from URL" option, specifying the following path: `http://service.simplefilemanager.eu/delivery/getdefault.php`. You'll get always the latest release available.
 
-If you prefer to install Simple File Manager manually, plese download the latest release <a href="http://gmansillo.github.io/simple/" target="_blank">from here</a>, then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**.  
+If you prefer to install Simple File Manager manually, plese download the latest release <a href="http://gmansillo.github.io/simplefilemanager/" target="_blank">from here</a>, then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**.  
 
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 

@@ -1,7 +1,9 @@
 <p align="center">
   <a href="http://simplefilemanager.eu/">
-    <img src="http://service.simplefilemanager.eu/static/images/logo.svg" alt="Simple File Manager" height="40">
+    <img src="http://service.simplefilemanager.eu/static/images/logo.svg" alt="Simple File Manager" height="32">
   </a>
+
+  <h3>Simple File Manager</h3>
 
   <p align="center">
     Simple, lightweight, and intuitive component for creating download centers in Joomla!&trade;.

@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://simplefilemanager.eu/">
-    <img src="http://service.simplefilemanager.eu/static/images/logo.svg" alt="" height="54">
+    <img src="http://service.simplefilemanager.eu/static/images/logo.svg" alt="" height="40">
   </a>
 
   <h3 align="center">Simple File Manager</h3>

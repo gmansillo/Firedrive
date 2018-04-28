@@ -8,16 +8,14 @@
   <p align="center">
     Simple, lightweight, and intuitive component for creating download centers in Joomla!&trade;.
     <br>
-    <a href="https://github.com/gmansillo/simplefilemanager/wiki"><strong>Explore Simple File Manager docs »</strong></a>
+    <a href="https://github.com/gmansillo/simplefilemanager/wiki"><strong>Browse the Documentation »</strong></a>
     <br>
     <br>
-    <a href="https://github.com/gmansillo/simplefilemanager/issues/new">Report bug</a>
+    <a href="https://github.com/gmansillo/simplefilemanager/issues/new">Report a bug</a>
     ·
-    <a href="https://github.com/gmansillo/simplefilemanager/issues/new?label=request">Request feature</a>
+    <a href="https://github.com/gmansillo/simplefilemanager/issues">Known Issues</a>
     ·
-    <a href="https://github.com/gmansillo/simplefilemanager/issues">Issues</a>
-    ·
-    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate extension</a>
+    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate the extension</a>
   </p>
 </p>
 

@@ -54,14 +54,14 @@ If you need further informations about how to install a Joomla! extension, pleas
 
 ## Feedback
 
-If you liked Simple File Manager or you found it useful for your purposes, you can help me rating it on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a> :heart:
+Your Feedback is very important! If you are satisfied with Simple File Manager, please leave your rating on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>!
 
 
 ## Bugs and feature requests
 
-All bugs, feature requests, pull requests, feedback, etc., are welcome. 
+Any problem? Please report it: all bugs, feature requests, pull requests, feedback, etc., are welcome!
 
-Have a bug or a feature request? Please first search for [existing and closed issues](https://github.com/gmansillo/simple/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/simple/issues/new?template=issue).
+First search for [existing and closed issues](https://github.com/gmansillo/simple/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/simple/issues/new?template=issue).
 
 
 ## Examples
@@ -77,7 +77,7 @@ Here is a list of some brands, agencies and associations wich already use Simple
 - [Embassy Of Bangladesh in Beijing](http://www.bdembassybeijing.com/index.php/en/commerce-en/downloadable-content-en)
 - [Exprivia ACSYS](http://ark.acsys.it/index.php/download)
 - [Uyole Agricultural Research Institute](http://www.ariuyole.go.tz/index.php/zielu/publication) 
-- [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/): a brilliant example of how to use ACLs in Simple File Manager.
+- [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/)
 
 
 ## Troubleshooting

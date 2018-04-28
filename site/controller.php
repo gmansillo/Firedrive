@@ -40,10 +40,7 @@ class SimplefilemanagerController extends JControllerLegacy {
      * @return  JControllerLegacy  This object to support chaining.
      */
     public function display($cachable = false, $urlparams = array()) {
-        if (JFactory::getApplication()->getUserState('com_simplefilemanager.document.data') === null) {
-            $cachable = true;
-        }
-
+        
         // Set the default view name and format from the Request.
         $vName = $this->input->get('view', 'categories');
         $this->input->set('view', $vName);

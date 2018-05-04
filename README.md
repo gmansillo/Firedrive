@@ -24,13 +24,18 @@
 
 ## Table of contents
 
+- [Feedback](#feedback)
 - [Software requirements](#software-requirements)
 - [Installation](#installation)
-- [Feedback](#feedback)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Examples](#examples)
 - [Troubleshooting](#troubleshooting)
 - [Licensing](#licensing)
+
+
+## Feedback
+
+Your Feedback is very important! If you are satisfied with Simple File Manager and if you want to help the project growing up, please leave your rating on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! :heart:
 
 
 ## Software requirements
@@ -48,11 +53,6 @@ You can install Simple File Manager via the <a href="https://docs.joomla.org/Ins
 If you prefer to install Simple File Manager manually, plese download the latest release <a href="http://gmansillo.github.io/simplefilemanager/" target="_blank">from here</a>, then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**.  
 
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
-
-
-## Feedback
-
-Your Feedback is very important! If you are satisfied with Simple File Manager, please leave your rating on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>!
 
 
 ## Bugs and feature requests

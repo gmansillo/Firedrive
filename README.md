@@ -30,12 +30,12 @@
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Examples](#examples)
 - [Troubleshooting](#troubleshooting)
-- [Licensing](#licensing)
 
 
 ## Feedback
 
-Your Feedback is very important! If you are satisfied with Simple File Manager and if you want to help the project growing up, please leave your rating on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! :heart:
+If you are satisfied with Simple File Manager and if you want to *help the project growing up*, please leave your rating on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! :heart: 
+Your Feedback is very important!
 
 
 ## Software requirements
@@ -81,9 +81,4 @@ Here is a list of some brands, agencies and associations wich already use Simple
 ## Troubleshooting
 
 See the [Troubleshooting wiki page](https://github.com/gmansillo/simple/wiki/Troubleshooting).
-
-
-## Licensing
-
-The code in this project is licensed under the **GNU General Public License v3.0**. You may copy, distribute and modify the code as long as you track changes/dates in source files.
 

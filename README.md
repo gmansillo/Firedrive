@@ -37,7 +37,7 @@
 
 ![Joomla! 3.7+](https://img.shields.io/badge/Joomla!-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
-Simple File Manager is compatible with Joomla 3.7+ and it requires a PHP 5.4+ engine to run. It's compatible with PHP 7.  
+Simple File Manager is compatible with Joomla 3.7+ and it requires a PHP 5.4+ engine to run.  
 A running instance of MariaDB/MySql is also required.
 
 

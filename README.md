@@ -37,9 +37,8 @@
 
 ![Joomla! 3.7+](https://img.shields.io/badge/Joomla!-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
-Simple File Manager is compatible with Joomla 3.7+ and it requires a PHP 5.4+ engine to run.  
-A running instance of MariaDB/MySql is also required.
-
+Simple File Manager is compatible with **Joomla 3.7+** and it requires a **PHP 5.4+** engine to run.  
+A running instance of **MariaDB/MySql** is also required.
 
 
 ## Installation
@@ -49,7 +48,6 @@ You can install Simple File Manager via the <a href="https://docs.joomla.org/Ins
 If you prefer to install Simple File Manager manually, plese download the latest release <a href="http://gmansillo.github.io/simplefilemanager/" target="_blank">from here</a>, then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**.  
 
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
-
 
 
 
@@ -65,7 +63,6 @@ You can also take a look to the website of these brands, agencies and associatio
 - [Exprivia ACSYS](http://ark.acsys.it/index.php/download)
 - [Uyole Agricultural Research Institute](http://www.ariuyole.go.tz/index.php/zielu/publication) 
 - [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/)
-
 
 
 
@@ -87,4 +84,3 @@ First search for [existing and closed issues](https://github.com/gmansillo/simpl
 ## Troubleshooting
 
 See the [Troubleshooting wiki page](https://github.com/gmansillo/simple/wiki/Troubleshooting).
-

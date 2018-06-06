@@ -48,7 +48,7 @@ In Joomla!, go to Extensions > Extension manager > __Install from URL__.
 
 Copy and paste this url: ``` http://service.simplefilemanager.eu/delivery/get.php ``` in the __Install URL__ field.  
 
-Finally click the __Install__ button: Joomla will upload the latest release available of Simple File Manager directly from the link and install in a single step process. 
+Clicking the __Install__ button, Joomla! will upload and install the latest release available of Simple File Manager in a single step process. 
 
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 

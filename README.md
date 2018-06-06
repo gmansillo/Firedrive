@@ -52,7 +52,7 @@ If you need further informations about how to install a Joomla! extension, pleas
 
 ## Examples
 
-You'll find a lot of examples at the [demo site](http://demo.simplefilemanager.eu/). You can also take a look to the website of these brands, agencies and associations wich already use Simple File Manager for creating their download centers:
+Take a look to the website of brands, agencies and associations wich already use Simple File Manager for creating their download centers:
 
 - [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos)
 - [Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)
@@ -60,6 +60,7 @@ You'll find a lot of examples at the [demo site](http://demo.simplefilemanager.e
 - [Exprivia ACSYS](http://ark.acsys.it/index.php/download)
 - [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/)
 
+You'll also find a lot of __examples__ at the [demo site](http://demo.simplefilemanager.eu/).
 
 ## Feedback
 

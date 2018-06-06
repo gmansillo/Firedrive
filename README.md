@@ -43,27 +43,22 @@ A running instance of **MariaDB/MySql** is also required.
 
 ## Installation
 
-You can install Simple File Manager via the <a href="https://docs.joomla.org/Install_from_Web" target="_blank">Joomla Web Installer</a> or yan can use the Joomla! option "Install from URL" option, specifying the following path: `http://service.simplefilemanager.eu/delivery/getdefault.php`. You'll get always the latest release available.
+In Joomla!, go to Extensions > Extension manager > __Install from URL__. Copy this url: `http://service.simplefilemanager.eu/delivery/getdefault.php` and paste it in __Install URL__ field. Finally click __Install__ button. Joomla will upload the latest release available of Simple File Manager directly from the link and install in a single step process.
 
-If you prefer to install Simple File Manager manually, plese download the latest release <a href="http://gmansillo.github.io/simplefilemanager/" target="_blank">from here</a>, then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**.  
+You can also install Simple File Manager via the <a href="https://docs.joomla.org/Install_from_Web" target="_blank">Joomla Web Installer</a>. 
 
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 
 
-
 ## Examples
 
-Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot of examples about how to use and customize Simple File Manager.
-
-You can also take a look to the website of these brands, agencies and associations wich already use Simple File Manager for creating their download centers:
+You'll find a lot of examples about how to use and customize Simple File Manager at the [demo site](http://demo.simplefilemanager.eu/). You can also take a look to the website of these brands, agencies and associations wich already use Simple File Manager for creating their download centers:
 
 - [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos)
 - [Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)
 - [Embassy Of Bangladesh in Beijing](http://www.bdembassybeijing.com/index.php/en/commerce-en/downloadable-content-en)
 - [Exprivia ACSYS](http://ark.acsys.it/index.php/download)
-- [Uyole Agricultural Research Institute](http://www.ariuyole.go.tz/index.php/zielu/publication) 
 - [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/)
-
 
 
 ## Feedback
@@ -72,13 +67,11 @@ If you are satisfied with Simple File Manager and if you want to *help the proje
 Your Feedback is very important!
 
 
-
 ## Bugs and feature requests
 
 Any problem? Please report it: all bugs, feature requests, pull requests, feedback, etc., are welcome!
 
 First search for [existing and closed issues](https://github.com/gmansillo/simple/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/simple/issues/new?template=issue).
-
 
 
 ## Troubleshooting

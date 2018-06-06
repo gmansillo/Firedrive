@@ -22,15 +22,15 @@
 <br>
 
 
-## Table of contents
-
+<!---## Table of contents--->
+<!---
 - [Software requirements](#software-requirements)
 - [Installation](#installation)
 - [Examples](#examples)
 - [Feedback](#feedback)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Troubleshooting](#troubleshooting)
-
+---->
 
 
 ## Software requirements

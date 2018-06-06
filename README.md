@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://simplefilemanager.eu/">
-    <img src="http://simplefilemanager.eu/img/logo.svg#76365464555555555555555555555555555555555" alt="Simple File Manager" height="49">
+    <img src="http://simplefilemanager.eu/img/logo.svg#76365464555555555555555555555555555555555" alt="Simple File Manager" height="42">
   </a>
 
   <h3 align="center">Simple File Manager</h3>
@@ -37,7 +37,7 @@
 
 ![Joomla! 3.7+](https://img.shields.io/badge/Joomla!-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
-Simple File Manager is compatible with __Joomla 3.7+__ and it requires a __PHP 5.4+__ engine to run.  
+Simple File Manager requires __Joomla 3.7+__ and a __PHP 5.4+__ engine.  
 A running instance of __MariaDB/MySql__ is also required.
 
 

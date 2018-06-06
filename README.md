@@ -38,13 +38,16 @@
 ![Joomla! 3.7+](https://img.shields.io/badge/Joomla!-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
 Simple File Manager requires __Joomla 3.7+__ and a __PHP 5.4+__ engine.  
+
 A running instance of __MariaDB/MySql__ is also required.
 
 
 ## Installation
 
 In Joomla!, go to Extensions > Extension manager > __Install from URL__.  
+
 Copy this url: ``` http://service.simplefilemanager.eu/delivery/getdefault.php ``` and paste it in __Install URL__ field.  
+
 Finally click __Install__ button.  Joomla will upload the latest release available of Simple File Manager directly from the link and install in a single step process. 
 
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
@@ -64,14 +67,14 @@ You'll also find a lot of __examples__ at the [demo site](http://demo.simplefile
 
 ## Feedback
 
-If you are satisfied with Simple File Manager and if you want to __help the project__ growing up, please __leave your rating__ on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! 
+If you are __satisfied__ with Simple File Manager and if you want to __help the project__ growing up, please __leave your rating__ on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! 
 
 Your Feedback is very important! :heart:
 
 
 ## Bugs and feature requests
 
-Any problem? Please report it: all bugs, feature requests, pull requests, feedback, etc., are welcome!
+Any __problem__? Please report it: all bugs, feature requests, pull requests, feedback, etc., are welcome!
 
 First search for [existing and closed issues](https://github.com/gmansillo/simple/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/simple/issues/new?template=issue).
 

@@ -61,8 +61,9 @@ You'll find a lot of examples at the [demo site](http://demo.simplefilemanager.e
 
 ## Feedback
 
-If you are satisfied with Simple File Manager and if you want to *help the project growing up*, please leave your rating on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! :heart: 
-Your Feedback is very important!
+If you are satisfied with Simple File Manager and if you want to __help the project__ growing up, please leave your rating on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! 
+
+Your Feedback is very important! :heart:
 
 
 ## Bugs and feature requests

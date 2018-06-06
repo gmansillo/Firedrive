@@ -43,16 +43,14 @@ A running instance of **MariaDB/MySql** is also required.
 
 ## Installation
 
-In Joomla!, go to Extensions > Extension manager > __Install from URL__. Copy this url: `http://service.simplefilemanager.eu/delivery/getdefault.php` and paste it in __Install URL__ field. Finally click __Install__ button. Joomla will upload the latest release available of Simple File Manager directly from the link and install in a single step process.
-
-You can also install Simple File Manager via the <a href="https://docs.joomla.org/Install_from_Web" target="_blank">Joomla Web Installer</a>. 
+In Joomla!, go to Extensions > Extension manager > __Install from URL__. Copy this url: ``` http://service.simplefilemanager.eu/delivery/getdefault.php ``` and paste it in __Install URL__ field. Finally click __Install__ button.  Joomla will upload the latest release available of Simple File Manager directly from the link and install in a single step process. 
 
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 
 
 ## Examples
 
-You'll find a lot of examples about how to use and customize Simple File Manager at the [demo site](http://demo.simplefilemanager.eu/). You can also take a look to the website of these brands, agencies and associations wich already use Simple File Manager for creating their download centers:
+You'll find a lot of examples at the [demo site](http://demo.simplefilemanager.eu/). You can also take a look to the website of these brands, agencies and associations wich already use Simple File Manager for creating their download centers:
 
 - [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos)
 - [Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)

@@ -37,8 +37,8 @@
 
 ![Joomla! 3.7+](https://img.shields.io/badge/Joomla!-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
-Simple File Manager is compatible with **Joomla 3.7+** and it requires a **PHP 5.4+** engine to run.  
-A running instance of **MariaDB/MySql** is also required.
+Simple File Manager is compatible with __Joomla 3.7+__ and it requires a __PHP 5.4+__ engine to run.  
+A running instance of __MariaDB/MySql__ is also required.
 
 
 ## Installation
@@ -61,7 +61,7 @@ You'll find a lot of examples at the [demo site](http://demo.simplefilemanager.e
 
 ## Feedback
 
-If you are satisfied with Simple File Manager and if you want to __help the project__ growing up, please leave your rating on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! 
+If you are satisfied with Simple File Manager and if you want to __help the project__ growing up, please __leave your rating__ on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! 
 
 Your Feedback is very important! :heart:
 

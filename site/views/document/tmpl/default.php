@@ -123,8 +123,10 @@ $tparams = $this->item->params;
 
     <?php $downloadLink = JRoute::_('index.php?option=com_simplefilemanager&amp;view=document&amp;id=' . $this->doc->id . '&amp;format=raw'); ?>
 
-    <a href="<?php echo $downloadLink; ?>" class="btn btn-default"><?php echo JText::_('COM_SIMPLEFILEMANAGER_DOWNLOAD_BUTTON') ?></a>
-
+    <div>
+        <a href="<?php echo $downloadLink; ?>" class="btn btn-default"><?php echo JText::_('COM_SIMPLEFILEMANAGER_DOWNLOAD_BUTTON') ?></a>
+    </div>
+    
     <?php echo $this->item->event->afterDisplayContent; ?>
     
     <?php echo JText::_('COM_SIMPLEFILEMANAGER_CREDITS'); ?>

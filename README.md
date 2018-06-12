@@ -1,62 +1,81 @@
 <p align="center">
   <a href="http://simplefilemanager.eu/">
-    <img src="http://gmansillo.github.io/simple/logo_176.png" alt="" width=72 height=72>
+    <img src="http://simplefilemanager.eu/img/logo.svg#76365464555555555555555555555555555555555" alt="Simple File Manager" height="42">
   </a>
 
   <h3 align="center">Simple File Manager</h3>
 
   <p align="center">
-    Simple, lightweight, and intuitive component for creating download centers in Joomla!&trade;.
+    Lightweight and intuitive component for creating Download Centers in Joomla!&trade;.
     <br>
-    <a href="https://github.com/gmansillo/simple/wiki"><strong>Explore Simple File Manager docs »</strong></a>
+    <a href="https://github.com/gmansillo/simplefilemanager/wiki"><strong>Browse the Documentation »</strong></a>
     <br>
     <br>
-    <a href="https://github.com/gmansillo/simple/issues/new">Report bug</a>
+    <a href="https://github.com/gmansillo/simplefilemanager/issues/new">Report a bug</a>
     ·
-    <a href="https://github.com/gmansillo/simple/issues/new?label=request">Request feature</a>
+    <a href="https://github.com/gmansillo/simplefilemanager/issues">Known Issues</a>
     ·
-    <a href="https://github.com/gmansillo/simple/issues">Issues</a>
-    ·
-    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate extension</a>
+    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate the extension</a>
   </p>
 </p>
 
 <br>
 
 
+<!---## Table of contents--->
+<!---
+- [Software requirements](#software-requirements)
+- [Installation](#installation)
+- [Examples](#examples)
+- [Feedback](#feedback)
+- [Bugs and feature requests](#bugs-and-feature-requests)
+- [Troubleshooting](#troubleshooting)
+---->
+
+
 ## Software requirements
 
 ![Joomla! 3.7+](https://img.shields.io/badge/Joomla!-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
-Simple File Manager needs Joomla 3.7+ and a PHP 5.4+ engine to run.  
-A running instance of MariaDB/MySql is also required.
+Simple File Manager requires __Joomla 3.7+__ and a __PHP 5.4+__ engine.  
+A running instance of __MariaDB/MySql__ is also required.
 
 
-## Installing
+## Installation
 
-You can install Simple File Manager via the <a href="https://docs.joomla.org/Install_from_Web" target="_blank">Joomla Web Installer</a> or yan can use the Joomla! option "Install from URL" option, specifying the following path: `http://service.simplefilemanager.eu/delivery/getdefault.php`. You'll get always the latest release available.
+In Joomla!, go to Extensions > Extension manager > __Install from URL__.  
 
-If you prefer to install Simple File Manager manually, plese download the latest release <a href="http://gmansillo.github.io/simple/" target="_blank">from here</a>, then login into your **Joomla! Administrative Panel** and upload the package into the **Extension Manager**.  
+Copy and paste this url: ``` http://service.simplefilemanager.eu/delivery/get.php ``` in the __Install URL__ field.  
+
+Clicking the __Install__ button, Joomla! will upload and install the latest release available of Simple File Manager in a single step process. 
 
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 
 
 ## Examples
 
-Checkout the demo site at http://demo.simplefilemanager.eu/. You'll find a lot of examples about how to use and customize Simple File Manager.
-
-You can also take a look to this lightning video-tutorial (in Italian): https://www.youtube.com/watch?v=7JLy4mNRd_E 
-
-Here is a list of some brands, agencies and associations wich already use Simple File Manager for creating download centers in their websites:
+Take a look to the website of brands, agencies and associations wich already use Simple File Manager for creating their download centers:
 
 - [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos)
 - [Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)
 - [Embassy Of Bangladesh in Beijing](http://www.bdembassybeijing.com/index.php/en/commerce-en/downloadable-content-en)
 - [Exprivia ACSYS](http://ark.acsys.it/index.php/download)
-- [Eastern Professional Electronics Association](http://www.vpea.org/about-us/bylaws-and-working-rules)
-- [BIM Academic Connection Platform](https://www.bimacp.com/library/publications/publications-2017)
-- [Uyole Agricultural Research Institute](http://www.ariuyole.go.tz/index.php/zielu/publication) 
-- [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/): a brilliant example of how to use ACLs in Simple File Manager.
+- [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/)
+
+You'll also find a lot of __examples__ at the [demo site](http://demo.simplefilemanager.eu/).
+
+## Feedback
+
+If you are __satisfied__ with Simple File Manager and if you want to __help the project__ growing up, please __leave your rating__ on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! 
+
+Your Feedback is very important! :heart:
+
+
+## Bugs and feature requests
+
+Any __problem__? Please report it: all bugs, feature requests, pull requests, feedback, etc., are welcome!
+
+First search for [existing and closed issues](https://github.com/gmansillo/simple/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/simple/issues/new?template=issue).
 
 
 ## Troubleshooting
@@ -65,12 +84,4 @@ See the [Troubleshooting wiki page](https://github.com/gmansillo/simple/wiki/Tro
 
 
 ## Licensing
-
-The code in this project is licensed under the **GNU General Public License v3.0**. You may copy, distribute and modify the code as long as you track changes/dates in source files.
-
-
-## Feedback
-
-All bugs, feature requests, pull requests, feedback, etc., are welcome. If you encountered an error, [create an issue](https://github.com/gmansillo/simple/issues/new). 
-
-If you liked Simple File Manager or you found it useful for your purposes, you can help me rating it on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a> :heart:
+The code in this project is licensed under the __GNU General Public License v3.0__. You may copy, distribute and modify the code as long as you track changes/dates in source files.

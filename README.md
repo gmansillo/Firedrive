@@ -13,9 +13,9 @@
     <br>
     <a href="https://github.com/gmansillo/simplefilemanager/issues/new">Report a bug</a>
     ·
-    <a href="https://github.com/gmansillo/simplefilemanager/issues">Known Issues</a>
+    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate extension</a>
     ·
-    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate the extension</a>
+    <a href="https://github.com/gmansillo/simplefilemanager/issues">Browse Open Issues</a>
   </p>
 </p>
 

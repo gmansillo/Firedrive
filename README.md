@@ -15,7 +15,7 @@
     ·
     <a href="https://extensions.joomla.org/extension/simple-file-manager/">Rate extension</a>
     ·
-    <a href="https://github.com/gmansillo/simplefilemanager/issues">Browse Open Issues</a>
+    <a href="https://github.com/gmansillo/simplefilemanager/issues">Browse known issues</a>
   </p>
 </p>
 

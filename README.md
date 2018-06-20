@@ -22,15 +22,13 @@
 <br>
 
 
-<!---## Table of contents--->
-<!---
-- [Software requirements](#software-requirements)
+## Table of contents
 - [Installation](#installation)
+- [Software requirements](#software-requirements)
 - [Examples](#examples)
 - [Feedback](#feedback)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Troubleshooting](#troubleshooting)
----->
 
 
 ## Installation
@@ -39,10 +37,10 @@ Several installation methods are available.
 In Joomla!, go to Extensions > Extension manager then choose the method you prefer:  
 
 * Install from URL: ``` http://service.simplefilemanager.eu/delivery/get.php ```
-* <a href="https://docs.joomla.org/Install_from_Web">Install from web</a>.
-* Get and upload the <a href="https://github.com/gmansillo/SimpleFileManager/releases">installation package</a>. 
+* <a href="https://docs.joomla.org/Install_from_Web">Install from web</a>
+* Get and upload the <a href="https://github.com/gmansillo/SimpleFileManager/releases">installation package</a> 
   
-If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
+If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>
 
   
 ## Software requirements

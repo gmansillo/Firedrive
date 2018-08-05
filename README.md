@@ -15,8 +15,6 @@
     ·
     <a href="https://github.com/gmansillo/simplefilemanager/issues/new">Request a feature</a>
     ·
-    <a href="https://extensions.joomla.org/extension/simple-file-manager/">Reviews</a>
-    ·
     <a href="https://github.com/gmansillo/simplefilemanager/releases">Releases</a>
   </p>
 </p>

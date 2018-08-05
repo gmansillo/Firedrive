@@ -8,7 +8,7 @@
   <p align="center">
     Lightweight, intuitive and powerful extension for creating download centers in Joomla! websites.
     <br>
-    <a href="https://github.com/gmansillo/simplefilemanager/wiki"><strong>Explore Component's Documentation »</strong></a>
+    <a href="https://github.com/gmansillo/simplefilemanager/wiki"><strong>Simple File Manager Documentation »</strong></a>
     <br>
     <br>
     <a href="https://github.com/gmansillo/simplefilemanager/issues/new">Report a bug</a>

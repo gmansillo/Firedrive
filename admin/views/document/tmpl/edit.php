@@ -18,35 +18,36 @@ if ($this->isNew)
 	jQuery(document).ready(function ($){
 		var input = document.getElementById("jform_select_file");
 		if(typeof input !== "undefined"){
-			input.classList.add("required");
-            input.attributes.required = "required";
+                    input.classList.add("required");
+                    input.attributes.required = "required";
 		}
 	});
 ');
 
-$input_field_id = $this->isNew ? "jform_select_file" : "jform_replace_file";
-$max_file_size  = SimpleFileManagerHelper::detectMaxUploadFileSize();
+$upload_field = $this->isNew ? "select_file" : "replace_file";
+$max_file_size = SimpleFileManagerHelper::detectMaxUploadFileSize();
 
 JFactory::getDocument()->addScriptDeclaration('
 
 	Joomla.submitbutton = function(task)
 	{
-		if (task == "document.cancel") {
-			Joomla.submitform(task, document.getElementById("document-form"));
-		} else if (document.formvalidator.isValid(document.getElementById("document-form"))) {	
-				
-			// File size checking
-			var input = document.getElementById("' . $input_field_id . '");
-			if (window.FileReader && typeof input !== "undefined" && input.files && typeof input.files[0] !== "undefined" && input.files[0].size > ' . $max_file_size . '){		
-				if(!confirm("' . JText::_('COM_SIMPLEFILEMANAGER_MAX_FILE_SIZE_EXCEEDED_CONFIRMATION') . '")) {
-					 return false;
-				}	
-			}
-
-			Joomla.submitform(task, document.getElementById("document-form"));
-		}
-				
+            if (task == "document.cancel") {
+                Joomla.submitform(task, document.getElementById("document-form"));
+            } else if (document.formvalidator.isValid(document.getElementById("document-form"))) {
+                Joomla.submitform(task, document.getElementById("document-form"));
+            }		
 	};
+        
+        jQuery(document).ready(function ($){
+            jQuery("#jform_' . $upload_field . '").on("change", function(e){ 
+                var input = document.getElementById("jform_' . $upload_field . '");
+                if (window.FileReader && typeof input !== "undefined" && input.files && typeof input.files[0] !== "undefined" && input.files[0].size > ' . $max_file_size . '){		
+                    alert("' . JText::_('COM_SIMPLEFILEMANAGER_ALERT_MAX_FILE_SIZE_EXCEEDED') . '");
+                    jQuery(this).val(null);
+                }
+            });
+        });
+
 ');
 ?>
 
@@ -70,20 +71,18 @@ JFactory::getDocument()->addScriptDeclaration('
                                 <div class="controls selected">
                                     <div class="input-append">
                                         <?php echo $this->form->getInput('file_name'); ?>
-                                        <a target="_blank" class="btn btn-primary"
-                                           href="index.php?option=com_simplefilemanager&task=download&id=<?php echo $this->item->id; ?>"><i
-                                                class="icon-download">&nbsp;</i></a>
+                                        <a target="_blank" class="btn btn-primary" href="index.php?option=com_simplefilemanager&task=download&id=<?php echo $this->item->id; ?>"><i class="icon-download">&nbsp;</i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="span6">
-                            <?php echo $this->form->renderField('replace_file'); ?>
+                            <?php echo $this->form->renderField($upload_field); ?>
                         </div>
                     </div>
                     <?php echo $this->form->renderField('fl_send_mail'); ?>				
                 <?php else: ?>
-                    <?php echo $this->form->renderField('select_file'); ?>
+                    <?php echo $this->form->renderField($upload_field); ?>
                 <?php endif; ?>
                 <?php echo $this->form->renderField('description'); ?>
             </div>			

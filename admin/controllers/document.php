@@ -34,12 +34,12 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
         jimport('joomla.utilities.date');
 
         // Load data
-        $input        = JFactory::getApplication()->input;
-        $this->form   = $input->post->get('jform', null, 'RAW');
-        $this->files  = $input->files->get('jform');
+        $input = JFactory::getApplication()->input;
+        $this->form = $input->post->get('jform', null, 'RAW');
+        $this->files = $input->files->get('jform');
         $this->params = JComponentHelper::getParams('com_simplefilemanager');
 
-        $isNew           = !isset($this->form["file_name"]);
+        $isNew = !isset($this->form["file_name"]);
         $uploadFieldName = $isNew ? "select_file" : "replace_file";
 
         if ($isNew && !$this->files[$uploadFieldName]["size"]) {
@@ -55,8 +55,8 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
 
             // Upload file
             $file_name = $this->files[$uploadFieldName]["name"];
-            $dest      = JPATH_COMPONENT_ADMINISTRATOR . "/uploads/" . uniqid("", true) . "/". JFile::makeSafe(JFile::getName($file_name));
-            $upload    = JFile::upload($this->files[$uploadFieldName]["tmp_name"], $dest) ? $dest : false;
+            $dest = JPATH_COMPONENT_ADMINISTRATOR . "/uploads/" . uniqid("", true) . "/" . JFile::makeSafe(JFile::getName($file_name));
+            $upload = JFile::upload($this->files[$uploadFieldName]["tmp_name"], $dest) ? $dest : false;
 
             if (!$upload || $this->form["file_name"] == $upload) {
                 JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_FILE_UPLOAD_ERROR_MESSAGE'), 'error');
@@ -67,7 +67,7 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
 
             $this->form["file_name"] = $upload;
             $this->form["file_size"] = $this->files[$uploadFieldName]["size"];
-            $this->form["md5hash"]   = md5_file($this->form["file_name"]);
+            $this->form["md5hash"] = md5_file($this->form["file_name"]);
         } else if ($this->task == "save2copy") {
             // File copy
             $copy = SimplefilemanagerHelper::copyFile($this->form["file_name"]);
@@ -79,11 +79,11 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
 
         // Set blank values to default
         if ($isNew) {
-            $this->form["created"]    = JFactory::getDate('now')->format('Y-m-d H:m:s', false);
+            $this->form["created"] = JFactory::getDate('now')->format('Y-m-d H:m:s', false);
             $this->form["created_by"] = JFactory::getUser()->id;
         }
 
-        $this->form["modified"]    = JFactory::getDate('now')->format('Y-m-d H:m:s', false);
+        $this->form["modified"] = JFactory::getDate('now')->format('Y-m-d H:m:s', false);
         $this->form["modified_by"] = JFactory::getUser()->id;
 
         // If save2copy, controller will automatically change items's id but won't change its publish state
@@ -107,17 +107,17 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
 
      */
     protected function postSaveHook(JModelLegacy $model, $validData = []) {
-        $item   = $model->getItem();
+        $item = $model->getItem();
         $itemId = $item->get('id');
-        $isNew  = !isset($this->form["file_name"]);
+        $isNew = !isset($this->form["file_name"]);
 
         // Update document user visibility settings
         $db = JFactory::getDbo();
         $db->setQuery('DELETE FROM ' . $db->quoteName('#__simplefilemanager_user_documents') . ' WHERE ' . $db->quoteName('document_id') . '=' . $itemId)->execute();
 
         foreach ($this->form['reserved_user'] as $u) {
-            $rel              = new stdClass();
-            $rel->user_id     = $u;
+            $rel = new stdClass();
+            $rel->user_id = $u;
             $rel->document_id = $itemId;
 
             JFactory::getDbo()->insertObject('#__simplefilemanager_user_documents', $rel);
@@ -128,8 +128,8 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
         $db->setQuery('DELETE FROM ' . $db->quoteName('#__simplefilemanager_group_documents') . ' WHERE ' . $db->quoteName('document_id') . '=' . $itemId)->execute();
 
         foreach ($this->form['reserved_group'] as $g) {
-            $rel              = new stdClass();
-            $rel->group_id    = $g;
+            $rel = new stdClass();
+            $rel->group_id = $g;
             $rel->document_id = $itemId;
 
             JFactory::getDbo()->insertObject('#__simplefilemanager_group_documents', $rel);
@@ -149,16 +149,16 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
                 // Get recipients email from db
                 $recipients = array();
                 if ($this->form["visibility"] == 3) {
-                    $db         = JFactory::getDbo();
-                    $query      = $db->getQuery(true);
+                    $db = JFactory::getDbo();
+                    $query = $db->getQuery(true);
                     $query->select('user_id')
                             ->from('#__simplefilemanager_user_documents')
                             ->where('document_id = ' . $this->form["id"]);
                     $db->setQuery($query);
                     $recipients = $db->loadColumn();
                 } else if ($this->form["visibility"] == 4) {
-                    $db        = JFactory::getDbo();
-                    $query     = $db->getQuery(true);
+                    $db = JFactory::getDbo();
+                    $query = $db->getQuery(true);
                     $query->select('group_id')
                             ->from('#__simplefilemanager_group_documents')
                             ->where('document_id = ' . $this->form["id"]);
@@ -191,7 +191,7 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
                         $body = str_replace('{document_title}', $item->title, $body);
 
                         // Send email
-                        $mailer           = JFactory::getMailer();
+                        $mailer = JFactory::getMailer();
                         $mailer->setSender($sender);
                         $mailer->addRecipient($user->email);
                         $mailer->setSubject($subject);
@@ -222,9 +222,9 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
      * @return  boolean
      */
     protected function allowAdd($data = array()) {
-        $filter     = $this->input->getInt('filter_category_id');
+        $filter = $this->input->getInt('filter_category_id');
         $categoryId = ArrayHelper::getValue($data, 'catid', $filter, 'int');
-        $allow      = null;
+        $allow = null;
 
         if ($categoryId) {
             // If the category has been passed in the URL check it.
@@ -248,7 +248,7 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
      * @return  boolean
      */
     protected function allowEdit($data = array(), $key = 'id') {
-        $recordId   = (int) isset($data[$key]) ? $data[$key] : 0;
+        $recordId = (int) isset($data[$key]) ? $data[$key] : 0;
         $categoryId = 0;
 
         if ($recordId) {

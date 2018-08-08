@@ -37,13 +37,12 @@ class SimplefilemanagerHelper extends JHelperContent {
             }
             return $size;
         };
+        
         $max_upload = $normalize(ini_get("upload_max_filesize"));
-
         $max_post = (ini_get("post_max_size") == 0) ?
                 function() {
             throw new Exception("Check Your php.ini settings");
         } : $normalize(ini_get("post_max_size"));
-
         $memory_limit = (ini_get("memory_limit") == -1) ?
                 $max_post : $normalize(ini_get("memory_limit"));
 
@@ -100,17 +99,6 @@ class SimplefilemanagerHelper extends JHelperContent {
         $f_base = floor($base);
 
         return round(pow(1024, $base - floor($base)), 1) . $suffix[$f_base];
-    }
-
-    /**
-     * Show upgrade instructions in a notice.
-     *
-     * @return  void
-     */
-    public static function showUpgradeNotice() {
-        $message_type = "notice";
-        $app          = JFactory::getApplication();
-        $app->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_UPGRADE_INSTRUCTIONS'), $message_type);
     }
 
     /**

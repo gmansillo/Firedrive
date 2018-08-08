@@ -566,17 +566,22 @@
         </field>
         
         <field
-            name="upgrade_message"
-            type="radio"
-            class="radio btn-group btn-group-yesno"
-            default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_UPGRADE_MESSAGE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_UPGRADE_MESSAGE_DESC">
-            <option
-                value="1">JSHOW</option>
-            <option
-                value="0">JHIDE</option>
-        </field>
+            name="import_links_separator"
+            type="spacer"
+            hr="true"
+        />
+        
+        <field
+            name="import_links_intro"
+            type="spacer"
+            label="COM_SIMPLEFILEMANAGER_FIELD_IMPORT_LINKS_INTRO_LABEL"
+        />
+        
+        <field
+            name="import_links"
+            type="spacer"
+            label="COM_SIMPLEFILEMANAGER_FIELD_IMPORT_LINKS_LIST_LABEL"
+        />
 
     </fieldset>
     

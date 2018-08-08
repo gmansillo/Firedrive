@@ -48,11 +48,12 @@ class SimplefilemanagerViewDocuments extends JViewLegacy {
      * @return  mixed  A string if successful, otherwise a JError object.
      */
     public function display($tpl = null) {
-        $this->categories    = $this->get('CategoryOrders');
-        $this->items         = $this->get('Items');
-        $this->pagination    = $this->get('Pagination');
-        $this->state         = $this->get('State');
-        $this->filterForm    = $this->get('FilterForm');
+
+        $this->categories = $this->get('CategoryOrders');
+        $this->items = $this->get('Items');
+        $this->pagination = $this->get('Pagination');
+        $this->state = $this->get('State');
+        $this->filterForm = $this->get('FilterForm');
         $this->activeFilters = $this->get('ActiveFilters');
 
         // Check for errors.
@@ -69,11 +70,8 @@ class SimplefilemanagerViewDocuments extends JViewLegacy {
 
         $this->sidebar = JHtmlSidebar::render();
 
-        if (JComponentHelper::getParams('com_simplefilemanager')->get('upgrade_message', 1) != 0) {
-            SimplefilemanagerHelper::showUpgradeNotice();
-        }
-
         return parent::display($tpl);
+
     }
 
     /**
@@ -85,7 +83,7 @@ class SimplefilemanagerViewDocuments extends JViewLegacy {
         JLoader::register('SimplefilemanagerHelper', JPATH_ADMINISTRATOR . '/components/com_simplefilemanager/helpers/simplefilemanager.php');
 
         $canDo = JHelperContent::getActions('com_simplefilemanager', 'category', $this->state->get('filter.category_id'));
-        $user  = JFactory::getUser();
+        $user = JFactory::getUser();
 
         JToolbarHelper::title(JText::_('COM_SIMPLEFILEMANAGER_MANAGER_DOCUMENTS'), 'list documents');
 
@@ -127,6 +125,8 @@ class SimplefilemanagerViewDocuments extends JViewLegacy {
             JToolbar::getInstance('toolbar')->appendButton('Custom', $dhtml, 'batch');
         }
 
+        JToolbar::getInstance('toolbar')->appendButton('Link', 'box-remove', 'Import', 'index.php?option=com_simplefilemanager&view=import');
+
         if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete')) {
             JToolbarHelper::deleteList('JGLOBAL_CONFIRM_DELETE', 'documents.delete', 'JTOOLBAR_EMPTY_TRASH');
         } elseif ($canDo->get('core.edit.state')) {
@@ -145,12 +145,12 @@ class SimplefilemanagerViewDocuments extends JViewLegacy {
      */
     protected function getSortFields() {
         return array(
-            'ordering'           => JText::_('JGRID_HEADING_ORDERING'),
-            'a.state'            => JText::_('JSTATUS'),
-            'a.title'            => JText::_('COM_SIMPLEFILEMANAGER_HEADING_TITLE'),
+            'ordering' => JText::_('JGRID_HEADING_ORDERING'),
+            'a.state' => JText::_('JSTATUS'),
+            'a.title' => JText::_('COM_SIMPLEFILEMANAGER_HEADING_TITLE'),
             'a.download_counter' => JText::_('COM_SIMPLEFILEMANAGER_HEADING_DOWNLOAD_COUNTER'),
-            'a.language'         => JText::_('JGRID_HEADING_LANGUAGE'),
-            'a.id'               => JText::_('JGRID_HEADING_ID'),
+            'a.language' => JText::_('JGRID_HEADING_LANGUAGE'),
+            'a.id' => JText::_('JGRID_HEADING_ID'),
         );
     }
 

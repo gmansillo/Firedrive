@@ -111,7 +111,8 @@ class SimplefilemanagerModelDocuments extends JModelList {
 
         // Join over the categories.
         $query->select($db->quoteName('c.title', 'category_title'))
-                ->join('LEFT', $db->quoteName('#__categories', 'c') . ' ON c.id = a.catid');
+                ->join('LEFT', $db->quoteName('#__categories', 'c') . ' ON c.id = a.catid')
+                ->where('c.published = 1');
 
         // Join over the users.
         $query->select($db->quoteName('ua.name', 'author_name'))

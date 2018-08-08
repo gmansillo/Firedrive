@@ -12,10 +12,10 @@ JHtml::_('bootstrap.tooltip');
 JHtml::_('behavior.multiselect');
 JHtml::_('formbehavior.chosen', 'select');
 
-$user      = JFactory::getUser();
-$userId    = $user->get('id');
+$user = JFactory::getUser();
+$userId = $user->get('id');
 $listOrder = $this->escape($this->state->get('list.ordering'));
-$listDirn  = $this->escape($this->state->get('list.direction'));
+$listDirn = $this->escape($this->state->get('list.direction'));
 $saveOrder = $listOrder == 'a.ordering';
 
 if ($saveOrder) {
@@ -29,14 +29,17 @@ if ($saveOrder) {
     </div>
     <div id="j-main-container" class="span10">
         <?php
-// Search tools bar
+        // Search tools bar
         echo JLayoutHelper::render('joomla.searchtools.default', array('view' => $this));
         ?>
         <?php if (empty($this->items)) : ?>
+
             <div class="alert alert-no-items">
                 <?php echo JText::_('JGLOBAL_NO_MATCHING_RESULTS'); ?>
             </div>
+
         <?php else : ?>
+
             <table class="table table-striped" id="articleList">
                 <thead>
                     <tr>
@@ -85,17 +88,17 @@ if ($saveOrder) {
                 <tbody>
                     <?php
                     foreach ($this->items as $i => $item) :
-                        $ordering       = ($listOrder == 'ordering');
+                        $ordering = ($listOrder == 'ordering');
                         $item->cat_link = JRoute::_('index.php?option=com_categories&extension=com_simplefilemanager&task=edit&type=other&cid[]=' . $item->catid);
-                        $canCreate      = $user->authorise('core.create', 'com_simplefilemanager.category.' . $item->catid);
-                        $canEdit        = $user->authorise('core.edit', 'com_simplefilemanager.category.' . $item->catid);
-                        $canCheckin     = $user->authorise('core.manage', 'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
-                        $canChange      = $user->authorise('core.edit.state', 'com_simplefilemanager.category.' . $item->catid) && $canCheckin;
+                        $canCreate = $user->authorise('core.create', 'com_simplefilemanager.category.' . $item->catid);
+                        $canEdit = $user->authorise('core.edit', 'com_simplefilemanager.category.' . $item->catid);
+                        $canCheckin = $user->authorise('core.manage', 'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
+                        $canChange = $user->authorise('core.edit.state', 'com_simplefilemanager.category.' . $item->catid) && $canCheckin;
                         ?>
                         <tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid; ?>">
                             <td class="order nowrap center hidden-phone">
                                 <?php
-                                $iconClass      = '';
+                                $iconClass = '';
 
                                 if (!$canChange) {
                                     $iconClass = ' inactive';
@@ -186,23 +189,23 @@ if ($saveOrder) {
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <?php // Load the batch processing form. ?>
+
             <?php
-            if ($user->authorise('core.create', 'com_simplefilemanager') && $user->authorise('core.edit', 'com_simplefilemanager') && $user->authorise('core.edit.state', 'com_simplefilemanager')) :
-                ?>
-                <?php
-                echo JHtml::_(
-                        'bootstrap.renderModal', 'collapseModal', array(
-                    'title'  => JText::_('COM_SIMPLEFILEMANAGER_BATCH_OPTIONS'),
-                    'footer' => $this->loadTemplate('batch_footer'),
-                        ), $this->loadTemplate('batch_body')
-                );
-                ?>
-            <?php endif; ?>
+            // Load the batch processing form.
+            if ($user->authorise('core.create', 'com_simplefilemanager') && $user->authorise('core.edit', 'com_simplefilemanager') && $user->authorise('core.edit.state', 'com_simplefilemanager')) {
+                $modal_params = array('title' => JText::_('COM_SIMPLEFILEMANAGER_BATCH_OPTIONS'), 'footer' => $this->loadTemplate('batch_footer'));
+                echo JHtml::_('bootstrap.renderModal', 'collapseModal', $modal_params, $this->loadTemplate('batch_body'));
+            }
+            ?>
+
         <?php endif; ?>
+
+        <?php echo JText::_("COM_SIMPLEFILEMANAGER_UPGRADE_INSTRUCTIONS"); ?>
 
         <input type="hidden" name="task" value="" />
         <input type="hidden" name="boxchecked" value="0" />
+
         <?php echo JHtml::_('form.token'); ?>
+
     </div>
 </form>

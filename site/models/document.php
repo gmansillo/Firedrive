@@ -70,14 +70,14 @@ class SimplefilemanagerModelDocument extends JModelItem {
 
         if (!isset($this->_item[$pk])) {
             try {
-                $db    = $this->getDbo();
+                $db = $this->getDbo();
                 $query = $db->getQuery(true);
 
                 // Changes for sqlsrv
                 $case_when = ' CASE WHEN ';
                 $case_when .= $query->charLength('a.alias', '!=', '0');
                 $case_when .= ' THEN ';
-                $a_id      = $query->castAsChar('a.id');
+                $a_id = $query->castAsChar('a.id');
                 $case_when .= $query->concatenate(array($a_id, 'a.alias'), ':');
                 $case_when .= ' ELSE ';
                 $case_when .= $a_id . ' END as slug';
@@ -85,7 +85,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
                 $case_when1 = ' CASE WHEN ';
                 $case_when1 .= $query->charLength('c.alias', '!=', '0');
                 $case_when1 .= ' THEN ';
-                $c_id       = $query->castAsChar('c.id');
+                $c_id = $query->castAsChar('c.id');
                 $case_when1 .= $query->concatenate(array($c_id, 'c.alias'), ':');
                 $case_when1 .= ' ELSE ';
                 $case_when1 .= $c_id . ' END as catslug';
@@ -108,11 +108,11 @@ class SimplefilemanagerModelDocument extends JModelItem {
 
                 // Filter by start and end dates.
                 $nullDate = $db->quote($db->getNullDate());
-                $nowDate  = $db->quote(JFactory::getDate()->toSql());
+                $nowDate = $db->quote(JFactory::getDate()->toSql());
 
                 // Filter by published state.
                 $published = $this->getState('filter.published');
-                $archived  = $this->getState('filter.archived');
+                $archived = $this->getState('filter.archived');
 
                 if (is_numeric($published)) {
                     $query->where('(a.state = ' . (int) $published . ' OR a.state =' . (int) $archived . ')')
@@ -145,7 +145,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
                 $data->params = clone $this->getState('params');
                 $data->params->merge($registry);
 
-                $registry       = new Registry($data->metadata);
+                $registry = new Registry($data->metadata);
                 $data->metadata = $registry;
 
                 // Some contexts may not use tags data at all, so we allow callers to disable loading tag data
@@ -160,7 +160,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
                     $data->params->set('access-view', true);
                 } else {
                     // If no access filter is set, the layout takes some responsibility for display of limited information.
-                    $user   = JFactory::getUser();
+                    $user = JFactory::getUser();
                     $groups = $user->getAuthorisedViewLevels();
 
                     if ($data->catid == 0 || $data->category_access === null) {
@@ -190,46 +190,36 @@ class SimplefilemanagerModelDocument extends JModelItem {
     public function countDownload() {
         $pk = (int) $this->getState('document.id');
 
-        $params  = JComponentHelper::getParams('com_simplefilemanager');
-        $user    = JFactory::getUser();
-        $now     = JFactory::getDate();
-        $db      = JFactory::getDbo();
+        $params = JComponentHelper::getParams('com_simplefilemanager');
+        $user = JFactory::getUser();
+        $now = JFactory::getDate();
+        $db = JFactory::getDbo();
         $nowDate = $now->toSql();
-
-        $query = $db->getQuery(true);
 
         $fields = array(
             $db->quoteName('download_counter') . ' = ' . $db->quoteName('download_counter') . '+1',
             $db->quoteName('download_last') . ' = ' . $db->quote($nowDate)
         );
 
+        $query = $db->getQuery(true);
         $query
                 ->update($db->quoteName('#__simplefilemanager'))
                 ->set($fields)
                 ->where($db->quoteName('id') . ' = ' . $pk);
-
         $db->setQuery($query);
         $db->execute();
 
-        if ($params->get('track_user_downloads', 1) && !$user->guest) {
+        if ($params->get('track_user_downloads', 0) == 1 && !$user->guest) {
 
-            // Create a new query object.
-            $query = $db->getQuery(true);
-
-            if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-                $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
-            } else {
-                $ip_address = $_SERVER['REMOTE_ADDR'];
-            }
-
+            $ip_address = !empty($_SERVER['HTTP_X_FORWARDED_FOR']) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
             $columns = array('document_id', 'user_id', 'download_time', 'ip_address');
-            $values  = array($pk, $user->id, $db->quote($nowDate), $ip_address);
+            $values = array($pk, $user->id, $db->quote($nowDate), $db->quote($ip_address));
 
+            $query = $db->getQuery(true);
             $query
                     ->insert($db->quoteName('#__simplefilemanager_download_tracking'))
                     ->columns($db->quoteName($columns))
                     ->values(implode(',', $values));
-
             $db->setQuery($query);
             $db->execute();
         }

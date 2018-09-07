@@ -28,7 +28,6 @@
 - [Examples](#examples)
 - [Feedback](#feedback)
 - [Bugs and feature requests](#bugs-and-feature-requests)
-- [Troubleshooting](#troubleshooting)
 
 
 ## Installation
@@ -38,7 +37,7 @@ In Joomla!, go to Extensions > Extension manager then choose the method you pref
 
 * Install from url: ``` http://service.simplefilemanager.eu/delivery/get.php ```
 * <a href="https://docs.joomla.org/Install_from_Web">Install from web</a>
-* Uploading the <a href="https://github.com/gmansillo/SimpleFileManager/releases">installation package</a> 
+* Uploading the <a href="https://github.com/gmansillo/FireDrive/releases">installation package</a> 
   
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>
 
@@ -47,14 +46,14 @@ If you need further informations about how to install a Joomla! extension, pleas
 
 ![Joomla! 3.7+](https://img.shields.io/badge/Joomla!-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
-Simple File Manager requires __Joomla 3.7+__ and a __PHP 5.4+__ engine.  
+FireDrive requires __Joomla 3.7+__ and a __PHP 5.4+__ engine.  
 
 A running instance of __MariaDB/MySql__ is also required.
 
 
 ## Examples
 
-Take a look to the website of brands, agencies and associations wich already use Simple File Manager for creating their download centers:
+Take a look to the website of brands, agencies and associations wich already use FireDrive for creating their download centers:
 
 - [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos)
 - [Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)
@@ -62,11 +61,12 @@ Take a look to the website of brands, agencies and associations wich already use
 - [Exprivia ACSYS](http://ark.acsys.it/index.php/download)
 - [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/)
 
-You'll also find a lot of __examples__ at the [demo site](http://demo.simplefilemanager.eu/).
+You'll also find a lot of __examples__ at the [demo site](http://demo.
+ilemanager.eu/).
 
 ## Feedback
 
-If you are __satisfied__ with Simple File Manager and if you want to __help the project__ growing up, please __leave your rating__ on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! 
+If you are __satisfied__ with FireDrive and if you want to __help the project__ growing up, please __leave your rating__ on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! 
 
 Your Feedback is very important! :heart:
 
@@ -75,9 +75,4 @@ Your Feedback is very important! :heart:
 
 Any __problem__? Please report it: all bugs, feature requests, pull requests, feedback, etc., are welcome!
 
-First search for [existing and closed issues](https://github.com/gmansillo/simple/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/simple/issues/new?template=issue).
-
-
-## Troubleshooting
-
-See the [Troubleshooting wiki page](https://github.com/gmansillo/simple/wiki/Troubleshooting).
+First search for [existing and closed issues](https://github.com/gmansillo/FireDrive/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/FireDrive/issues/new?template=issue).

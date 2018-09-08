@@ -1,9 +1,9 @@
 <p align="center">
   <a href="http://simplefilemanager.eu/">
-    <img src="https://firedrive.eu/templates/firedrive/images/logo_compact.svg#7636f5fs" alt="FireDrive" height="54">
+    <img src="https://firedrive.eu/templates/firedrive/images/logo_compact.svg#7636f5fs" alt="Firedrive" height="54">
   </a>
 
-  <h3 align="center">FireDrive</h3>
+  <h3 align="center">Firedrive</h3>
 
   <p align="center">
     Lightweight, intuitive and powerful extension for sharing documents in Joomla! websites.

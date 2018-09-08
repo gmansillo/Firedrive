@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://simplefilemanager.eu/">
-    <img src="https://firedrive.eu/templates/firedrive/images/logo_compact.svg#7636f5fs" alt="Firedrive" height="54">
+    <img src="https://firedrive.eu/templates/firedrive/images/logo_compact.svg#7636f5fs" alt="Firedrive" height="44">
   </a>
 
   <h3 align="center">Firedrive</h3>

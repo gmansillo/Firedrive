@@ -1,20 +1,34 @@
-Hey there and thank you for using Issue Tracker!
+**Note: for support questions, please use the [Joomla! Forum](http://forum.joomla.org)**. This repository's issues are reserved for feature requests and bug reports.
 
-Firedrive project, as you've probably heard, is getting really popular and truth is I'm getting a bit overwhelmed by the activity surrounding it. There are just too many issues for me to manage properly.
-
-Do the checklist before filing an issue:
-
-- [ ] Is this something you can **debug and fix**? Send a pull request! Bug fixes and documentation fixes are welcome.
-- [ ] Have a usage question? Ask your question on the [Joomla! Forum](http://forum.joomla.org). GitHub issues should only be used for bugs.
+* **I'm submitting a ...**
+  - [ ] bug report
+  - [ ] feature request
+  - [ ] support request => Please do not submit support request here, see note at the top of this template.
 
 
-None of the above, create a bug report
-------------------------------------------------------------------
+* **Do you want to request a *feature* or report a *bug*?**
 
-Make sure to add **all the information needed to understand the bug** so that someone can help. If the info is missing I'll add the 'Needs more information' label and close the issue until there is enough information.
+  
 
-- [ ] Provide a **minimal description** / [rnplay](https://rnplay.org/) example that reproduces the bug.
+* **What is the current behavior?**
+
+  
+
+* **If the current behavior is a bug, please make sure to provide all the information needed to understand the bug so that someone can help** 
+
+- [ ] Provide the steps to reproduce the issue
 - [ ] Provide **screenshots** where appropriate
 - [ ] What's the **version** of Firedrive you're using?
 - [ ] What's the **version** of Joomla!/PHP/MySQL you're using?
 - [ ] Does this occur only on certain browsers?
+
+
+* **What is the expected behavior?**
+
+
+
+* **What is the motivation / use case for changing the behavior?**
+
+
+
+* **Other information** (e.g. detailed explanation, stacktraces, related issues, suggestions how to fix, links for me to have context, eg. stackoverflow, gitter, etc)

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -10,14 +10,14 @@ defined('_JEXEC') or die;
 /**
  * Documents list controller class.
  */
-class SimplefilemanagerControllerDocuments extends JControllerAdmin {
+class FiredriveControllerDocuments extends JControllerAdmin {
 
     /**
      * The prefix to use with controller messages.
      *
      * @var    string
      */
-    protected $text_prefix = 'COM_SIMPLEFILEMANAGER_DOCUMENTS';
+    protected $text_prefix = 'COM_FIREDRIVE_DOCUMENTS';
 
     /**
      * Constructor.
@@ -42,7 +42,7 @@ class SimplefilemanagerControllerDocuments extends JControllerAdmin {
      *
      * @since   1.6
      */
-    public function getModel($name = 'Document', $prefix = 'SimplefilemanagerModel', $config = array('ignore_request' => true)) {
+    public function getModel($name = 'Document', $prefix = 'FiredriveModel', $config = array('ignore_request' => true)) {
         return parent::getModel($name, $prefix, $config);
     }
 

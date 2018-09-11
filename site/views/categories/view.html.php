@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
  *
  * @since  1.6
  */
-class SimplefilemanagerViewCategories extends JViewCategories {
+class FiredriveViewCategories extends JViewCategories {
 
     /**
      * Language key for default page heading
@@ -20,12 +20,12 @@ class SimplefilemanagerViewCategories extends JViewCategories {
      * @var    string
      * @since  3.2
      */
-    protected $pageHeading = 'COM_SIMPLEFILEMANAGER_DEFAULT_PAGE_TITLE';
+    protected $pageHeading = 'COM_FIREDRIVE_DEFAULT_PAGE_TITLE';
 
     /**
      * @var    string  The name of the extension for the category
      * @since  3.2
      */
-    protected $extension = 'com_simplefilemanager';
+    protected $extension = 'com_firedrive';
 
 }

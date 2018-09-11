@@ -1,18 +1,18 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
 defined('_JEXEC') or die;
 
-JLoader::register('SimplefilemanagerHelper', JPATH_ADMINISTRATOR . '/components/com_simplefilemanager/helpers/simplefilemanager.php');
+JLoader::register('FiredriveHelper', JPATH_ADMINISTRATOR . '/components/com_firedrive/helpers/firedrive.php');
 
 /**
  * View to edit a document.
  */
-class SimplefilemanagerViewDocument extends JViewLegacy {
+class FiredriveViewDocument extends JViewLegacy {
 
     /**
      * The JForm object
@@ -73,12 +73,12 @@ class SimplefilemanagerViewDocument extends JViewLegacy {
         $checkedOut = !($this->item->checked_out == 0 || $this->item->checked_out == $userId);
 
         // Since we don't track these assets at the item level, use the category id.
-        $canDo = JHelperContent::getActions('com_simplefilemanager', 'category', $this->item->catid);
+        $canDo = JHelperContent::getActions('com_firedrive', 'category', $this->item->catid);
 
-        JToolbarHelper::title($isNew ? JText::_('COM_SIMPLEFILEMANAGER_MANAGER_DOCUMENT_NEW') : JText::_('COM_SIMPLEFILEMANAGER_MANAGER_DOCUMENT_EDIT'), 'pencil-2 document');
+        JToolbarHelper::title($isNew ? JText::_('COM_FIREDRIVE_MANAGER_DOCUMENT_NEW') : JText::_('COM_FIREDRIVE_MANAGER_DOCUMENT_EDIT'), 'pencil-2 document');
 
         // If not checked out, can save the item.
-        if (!$checkedOut && ($canDo->get('core.edit') || count($user->getAuthorisedCategories('com_simplefilemanager', 'core.create')) > 0)) {
+        if (!$checkedOut && ($canDo->get('core.edit') || count($user->getAuthorisedCategories('com_firedrive', 'core.create')) > 0)) {
             JToolbarHelper::apply('document.apply');
             JToolbarHelper::save('document.save');
 
@@ -97,7 +97,7 @@ class SimplefilemanagerViewDocument extends JViewLegacy {
         } else {
             // if (JComponentHelper::isEnabled('com_contenthistory') && $this->state->params->get('save_history', 0) && $canDo->get('core.edit'))
             // {
-            // 	JToolbarHelper::versions('com_simplefilemanager.document', $this->item->id);
+            // 	JToolbarHelper::versions('com_firedrive.document', $this->item->id);
             // }
 
             JToolbarHelper::cancel('document.cancel', 'JTOOLBAR_CLOSE');

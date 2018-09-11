@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -10,7 +10,7 @@ defined('_JEXEC') or die;
 /**
  * Methods supporting a list of document records.
  */
-class SimplefilemanagerModelDocuments extends JModelList {
+class FiredriveModelDocuments extends JModelList {
 
     /**
      * Constructor.
@@ -56,7 +56,7 @@ class SimplefilemanagerModelDocuments extends JModelList {
             $query                         = $db->getQuery(true)
                     ->select('MAX(ordering) as ' . $db->quoteName('max') . ', catid')
                     ->select('catid')
-                    ->from('#__simplefilemanager')
+                    ->from('#__firedrive')
                     ->group('catid');
             $db->setQuery($query);
             $this->cache['categoryorders'] = $db->loadAssocList('catid', 0);
@@ -99,7 +99,7 @@ class SimplefilemanagerModelDocuments extends JModelList {
                         . 'visibility'
                 )
         );
-        $query->from($db->quoteName('#__simplefilemanager', 'a'));
+        $query->from($db->quoteName('#__firedrive', 'a'));
 
         // Join over the language
         $query->select('l.title AS language_title, l.image AS language_image')
@@ -198,7 +198,7 @@ class SimplefilemanagerModelDocuments extends JModelList {
      *
      * @return  JTable  A JTable object
      */
-    public function getTable($type = 'Documents', $prefix = 'SimplefilemanagerTable', $config = array()) {
+    public function getTable($type = 'Documents', $prefix = 'FiredriveTable', $config = array()) {
         return JTable::getInstance($type, $prefix, $config);
     }
 
@@ -220,7 +220,7 @@ class SimplefilemanagerModelDocuments extends JModelList {
         $this->setState('filter.language', $this->getUserStateFromRequest($this->context . '.filter.language', 'filter_language', '', 'string'));
 
         // Load the parameters.
-        $this->setState('params', JComponentHelper::getParams('com_simplefilemanager'));
+        $this->setState('params', JComponentHelper::getParams('com_firedrive'));
 
         // List state information.
         parent::populateState($ordering, $direction);

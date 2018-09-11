@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `#__simplefilemanager` (
+CREATE TABLE IF NOT EXISTS `#__firedrive` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(250) NOT NULL DEFAULT '',
   `alias` varchar(255) NOT NULL DEFAULT '',
@@ -35,21 +35,21 @@ CREATE TABLE IF NOT EXISTS `#__simplefilemanager` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-CREATE TABLE IF NOT EXISTS `#__simplefilemanager_user_documents` (
+CREATE TABLE IF NOT EXISTS `#__firedrive_user_documents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `document_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `#__simplefilemanager_group_documents` (
+CREATE TABLE IF NOT EXISTS `#__firedrive_group_documents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) NOT NULL,
   `document_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `#__simplefilemanager_download_tracking` (
+CREATE TABLE IF NOT EXISTS `#__firedrive_download_tracking` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `document_id` int(11) NOT NULL,
   `user_id`  int(11) NULL,

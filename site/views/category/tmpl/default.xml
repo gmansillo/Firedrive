@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-    <layout title="COM_SIMPLEFILEMANAGER_CATEGORY_VIEW_DEFAULT_TITLE" option="COM_SIMPLEFILEMANAGER_CATEGORY_VIEW_DEFAULT_OPTION">
+    <layout title="COM_FIREDRIVE_CATEGORY_VIEW_DEFAULT_TITLE" option="COM_FIREDRIVE_CATEGORY_VIEW_DEFAULT_OPTION">
         <message>
-            <![CDATA[COM_SIMPLEFILEMANAGER_CATEGORY_VIEW_DEFAULT_DESC]]>
+            <![CDATA[COM_FIREDRIVE_CATEGORY_VIEW_DEFAULT_DESC]]>
         </message>
     </layout>
 
@@ -11,14 +11,14 @@
             addfieldpath="/administrator/components/com_categories/models/fields"
     >
         <fieldset name="request"
-                  addfieldpath="/administrator/components/com_simplefilemanager/models/fields"
+                  addfieldpath="/administrator/components/com_firedrive/models/fields"
         >
             <field
                 name="id"
                 type="modal_category"
-                label="COM_SIMPLEFILEMANAGER_FIELD_CATID_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_CATID_DESC"
-                extension="com_simplefilemanager"
+                label="COM_FIREDRIVE_FIELD_CATID_LABEL"
+                description="COM_FIREDRIVE_FIELD_CATID_DESC"
+                extension="com_firedrive"
                 required="true"
                 select="true"
                 new="true"
@@ -30,7 +30,7 @@
 
     <!-- Add fields to the parameters object for the layout. -->
     <fields name="params">
-        <fieldset name="basic" label="COM_SIMPLEFILEMANAGER_BASIC_OPTIONS_FIELDSET_LABEL">
+        <fieldset name="basic" label="COM_FIREDRIVE_BASIC_OPTIONS_FIELDSET_LABEL">
 
             <field 
                 name="spacer1" 
@@ -67,18 +67,18 @@
                 name="initial_sort"
                 type="list"
                 useglobal="true"
-                label="COM_SIMPLEFILEMANAGER_FIELD_INITIAL_SORT_BY_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_INITIAL_SORT_BY_DESC">
+                label="COM_FIREDRIVE_FIELD_INITIAL_SORT_BY_LABEL"
+                description="COM_FIREDRIVE_FIELD_INITIAL_SORT_BY_DESC">
                 <option
-                    value="a.ordering">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_ORDERING</option>
+                    value="a.ordering">COM_FIREDRIVE_INITIAL_SORT_VALUE_ORDERING</option>
                 <option
-                    value="a.title">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_TITLE</option>
+                    value="a.title">COM_FIREDRIVE_INITIAL_SORT_VALUE_TITLE</option>
                 <option
-                    value="a.description">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_DESCRIPTION</option>
+                    value="a.description">COM_FIREDRIVE_INITIAL_SORT_VALUE_DESCRIPTION</option>
                 <option
-                    value="a.created">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_CREATED</option>
+                    value="a.created">COM_FIREDRIVE_INITIAL_SORT_VALUE_CREATED</option>
                 <option
-                    value="a.file_size">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_SIZE</option>
+                    value="a.file_size">COM_FIREDRIVE_INITIAL_SORT_VALUE_SIZE</option>
             </field>
         
             <field
@@ -86,8 +86,8 @@
                 type="list"
                 useglobal="true"
                 class="chzn-color"
-                label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_DESC">
+                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_LABEL"
+                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_DESC">
                 <option
                     value="1">JYES</option>
                 <option
@@ -99,8 +99,8 @@
                 type="list"
                 useglobal="true"
                 class="chzn-color"
-                label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_DESC">
+                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_LABEL"
+                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_DESC">
                 <option
                     value="1">JYES</option>
                 <option
@@ -112,8 +112,8 @@
                 type="list"
                 useglobal="true"
                 class="chzn-color"
-                label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_DESC">
+                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_LABEL"
+                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_DESC">
                 <option
                     value="1">JYES</option>
                 <option
@@ -125,8 +125,8 @@
                 type="list"
                 useglobal="true"
                 class="chzn-color"
-                label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_DESC">
+                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_LABEL"
+                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_DESC">
                 <option
                     value="1">JYES</option>
                 <option
@@ -138,8 +138,8 @@
                 type="list"
                 useglobal="true"
                 class="chzn-color"
-                label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_DESC">
+                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_LABEL"
+                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_DESC">
                 <option
                     value="1">JYES</option>
                 <option
@@ -151,8 +151,8 @@
                 type="list"
                 useglobal="true"
                 class="chzn-color"
-                label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_DESC">
+                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_LABEL"
+                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_DESC">
                 <option
                     value="1">JYES</option>
                 <option
@@ -164,8 +164,8 @@
                 type="list"
                 useglobal="true"
                 class="chzn-color"
-                label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_FILTER_FIELD_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_FILTER_FIELD_DESC">
+                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_LABEL"
+                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_DESC">
                 <option
                     value="1">JYES</option>
                 <option
@@ -177,8 +177,8 @@
                 type="list"
                 useglobal="true"
                 class="chzn-color"
-                label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_DESC">
+                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_LABEL"
+                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_DESC">
                 <option
                     value="1">JYES</option>
                 <option

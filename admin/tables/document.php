@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -13,7 +13,7 @@ use Joomla\Utilities\ArrayHelper;
 /**
  * Document table
  */
-class SimplefilemanagerTableDocument extends JTable {
+class FiredriveTableDocument extends JTable {
 
     /**
      * Constructor
@@ -21,9 +21,9 @@ class SimplefilemanagerTableDocument extends JTable {
      * @param   JDatabaseDriver  &$db  Database connector object
      */
     public function __construct(&$db) {
-        parent::__construct('#__simplefilemanager', 'id', $db);
+        parent::__construct('#__firedrive', 'id', $db);
 
-        JTableObserverContenthistory::createObserver($this, array('typeAlias' => 'com_simplefilemanager.document'));
+        JTableObserverContenthistory::createObserver($this, array('typeAlias' => 'com_firedrive.document'));
 
         $this->created = JFactory::getDate()->toSql();
         $this->setColumnAlias('published', 'state');
@@ -35,7 +35,7 @@ class SimplefilemanagerTableDocument extends JTable {
      * @return  void
      */
     public function download_counter() {
-        $query = 'UPDATE #__simplefilemanager'
+        $query = 'UPDATE #__firedrive'
                 . ' SET download_counter = (download_counter + 1)'
                 . ' WHERE id = ' . (int) $this->id;
 
@@ -109,13 +109,13 @@ class SimplefilemanagerTableDocument extends JTable {
             $registry = new Registry($array['params']);
 
             if ((int) $registry->get('width', 0) < 0) {
-                $this->setError(JText::sprintf('JLIB_DATABASE_ERROR_NEGATIVE_NOT_PERMITTED', JText::_('COM_SIMPLEFILEMANAGER_FIELD_WIDTH_LABEL')));
+                $this->setError(JText::sprintf('JLIB_DATABASE_ERROR_NEGATIVE_NOT_PERMITTED', JText::_('COM_FIREDRIVE_FIELD_WIDTH_LABEL')));
 
                 return false;
             }
 
             if ((int) $registry->get('height', 0) < 0) {
-                $this->setError(JText::sprintf('JLIB_DATABASE_ERROR_NEGATIVE_NOT_PERMITTED', JText::_('COM_SIMPLEFILEMANAGER_FIELD_HEIGHT_LABEL')));
+                $this->setError(JText::sprintf('JLIB_DATABASE_ERROR_NEGATIVE_NOT_PERMITTED', JText::_('COM_FIREDRIVE_FIELD_HEIGHT_LABEL')));
 
                 return false;
             }
@@ -151,19 +151,19 @@ class SimplefilemanagerTableDocument extends JTable {
             parent::store($updateNulls);
         } else {
             // Get the old row
-            /** @var SimplefilemanagerTableDocument $oldrow */
-            $oldrow = JTable::getInstance('Document', 'SimplefilemanagerTable');
+            /** @var FiredriveTableDocument $oldrow */
+            $oldrow = JTable::getInstance('Document', 'FiredriveTable');
 
             if (!$oldrow->load($this->id) && $oldrow->getError()) {
                 $this->setError($oldrow->getError());
             }
 
             // Verify that the alias is unique
-            /** @var SimplefilemanagerTableDocument $table */
-            $table = JTable::getInstance('Document', 'SimplefilemanagerTable');
+            /** @var FiredriveTableDocument $table */
+            $table = JTable::getInstance('Document', 'FiredriveTable');
 
             if ($table->load(array('alias' => $this->alias, 'catid' => $this->catid)) && ($table->id != $this->id || $this->id == 0)) {
-                $this->setError(JText::_('COM_SIMPLEFILEMANAGER_ERROR_UNIQUE_ALIAS'));
+                $this->setError(JText::_('COM_FIREDRIVE_ERROR_UNIQUE_ALIAS'));
 
                 return false;
             }

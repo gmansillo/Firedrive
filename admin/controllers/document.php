@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -12,14 +12,14 @@ use Joomla\Utilities\ArrayHelper;
 /**
  * Document controller class.
  */
-class SimplefilemanagerControllerDocument extends JControllerForm {
+class FiredriveControllerDocument extends JControllerForm {
 
     /**
      * The prefix to use with controller messages.
      *
      * @var    string
      */
-    protected $text_prefix = 'COM_SIMPLEFILEMANAGER_DOCUMENT';
+    protected $text_prefix = 'COM_FIREDRIVE_DOCUMENT';
 
     /**
      * Method to save the form data.
@@ -37,13 +37,13 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
         $input = JFactory::getApplication()->input;
         $this->form = $input->post->get('jform', null, 'RAW');
         $this->files = $input->files->get('jform');
-        $this->params = JComponentHelper::getParams('com_simplefilemanager');
+        $this->params = JComponentHelper::getParams('com_firedrive');
 
         $isNew = !isset($this->form["file_name"]);
         $uploadFieldName = $isNew ? "select_file" : "replace_file";
 
         if ($isNew && !$this->files[$uploadFieldName]["size"]) {
-            throw new Exception(JText::_('COM_SIMPLEFILEMANAGER_NO_FILE_ERROR_MESSAGE'), 403);
+            throw new Exception(JText::_('COM_FIREDRIVE_NO_FILE_ERROR_MESSAGE'), 403);
         }
 
         // File management
@@ -59,7 +59,7 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
             $upload = JFile::upload($this->files[$uploadFieldName]["tmp_name"], $dest) ? $dest : false;
 
             if (!$upload || $this->form["file_name"] == $upload) {
-                JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_FILE_UPLOAD_ERROR_MESSAGE'), 'error');
+                JFactory::getApplication()->enqueueMessage(JText::_('COM_FIREDRIVE_FILE_UPLOAD_ERROR_MESSAGE'), 'error');
                 parent::save($key, $urlVar);
 
                 return;
@@ -70,9 +70,9 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
             $this->form["md5hash"] = md5_file($this->form["file_name"]);
         } else if ($this->task == "save2copy") {
             // File copy
-            $copy = SimplefilemanagerHelper::copyFile($this->form["file_name"]);
+            $copy = FiredriveHelper::copyFile($this->form["file_name"]);
             if ($copy === false)
-                throw new Exception(JText::sprintf('COM_SIMPLEFILEMANAGER_FIELD_COPY_ERROR', $this->form["file_name"]), 500);
+                throw new Exception(JText::sprintf('COM_FIREDRIVE_FIELD_COPY_ERROR', $this->form["file_name"]), 500);
 
             $this->form["file_name"] = $copy;
         }
@@ -113,26 +113,26 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
 
         // Update document user visibility settings
         $db = JFactory::getDbo();
-        $db->setQuery('DELETE FROM ' . $db->quoteName('#__simplefilemanager_user_documents') . ' WHERE ' . $db->quoteName('document_id') . '=' . $itemId)->execute();
+        $db->setQuery('DELETE FROM ' . $db->quoteName('#__firedrive_user_documents') . ' WHERE ' . $db->quoteName('document_id') . '=' . $itemId)->execute();
 
         foreach ($this->form['reserved_user'] as $u) {
             $rel = new stdClass();
             $rel->user_id = $u;
             $rel->document_id = $itemId;
 
-            JFactory::getDbo()->insertObject('#__simplefilemanager_user_documents', $rel);
+            JFactory::getDbo()->insertObject('#__firedrive_user_documents', $rel);
         }
 
         // Update document group visibility settings
         $db = JFactory::getDbo();
-        $db->setQuery('DELETE FROM ' . $db->quoteName('#__simplefilemanager_group_documents') . ' WHERE ' . $db->quoteName('document_id') . '=' . $itemId)->execute();
+        $db->setQuery('DELETE FROM ' . $db->quoteName('#__firedrive_group_documents') . ' WHERE ' . $db->quoteName('document_id') . '=' . $itemId)->execute();
 
         foreach ($this->form['reserved_group'] as $g) {
             $rel = new stdClass();
             $rel->group_id = $g;
             $rel->document_id = $itemId;
 
-            JFactory::getDbo()->insertObject('#__simplefilemanager_group_documents', $rel);
+            JFactory::getDbo()->insertObject('#__firedrive_group_documents', $rel);
         }
 
         // Send notify email
@@ -140,10 +140,10 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
             // Check requisites for email sending
             if ($this->form["state"] != 1) {
                 if (!$isNew) {
-                    JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_SENDMAIL_UNPUBLISHED_DOCUMENT_ERROR'), 'warning');
+                    JFactory::getApplication()->enqueueMessage(JText::_('COM_FIREDRIVE_SENDMAIL_UNPUBLISHED_DOCUMENT_ERROR'), 'warning');
                 }
             } elseif (!in_array($this->form["visibility"], array(3, 4))) {
-                JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_SENDMAIL_UNSUPPORTED_VISIBILITY_ERROR'), 'warning');
+                JFactory::getApplication()->enqueueMessage(JText::_('COM_FIREDRIVE_SENDMAIL_UNSUPPORTED_VISIBILITY_ERROR'), 'warning');
             } else {
 
                 // Get recipients email from db
@@ -152,7 +152,7 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
                     $db = JFactory::getDbo();
                     $query = $db->getQuery(true);
                     $query->select('user_id')
-                            ->from('#__simplefilemanager_user_documents')
+                            ->from('#__firedrive_user_documents')
                             ->where('document_id = ' . $this->form["id"]);
                     $db->setQuery($query);
                     $recipients = $db->loadColumn();
@@ -160,7 +160,7 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
                     $db = JFactory::getDbo();
                     $query = $db->getQuery(true);
                     $query->select('group_id')
-                            ->from('#__simplefilemanager_group_documents')
+                            ->from('#__firedrive_group_documents')
                             ->where('document_id = ' . $this->form["id"]);
                     $db->setQuery($query);
                     $group_ids = $db->loadColumn();
@@ -183,10 +183,10 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
                         $user = JFactory::getUser((int) $recipient);
 
                         // Message subject
-                        $subject = JText::_('COM_SIMPLEFILEMANAGER_EMAIL_SUBJ');
+                        $subject = JText::_('COM_FIREDRIVE_EMAIL_SUBJ');
 
                         // Message body
-                        $body = JText::_('COM_SIMPLEFILEMANAGER_EMAIL_BODY');
+                        $body = JText::_('COM_FIREDRIVE_EMAIL_BODY');
                         $body = str_replace('{user_fullname}', $user->name, $body);
                         $body = str_replace('{document_title}', $item->title, $body);
 
@@ -278,7 +278,7 @@ class SimplefilemanagerControllerDocument extends JControllerForm {
         $model = $this->getModel('Document', '', array());
 
         // Preset the redirect
-        $this->setRedirect(JRoute::_('index.php?option=com_simplefilemanager&view=documents' . $this->getRedirectToListAppend(), false));
+        $this->setRedirect(JRoute::_('index.php?option=com_firedrive&view=documents' . $this->getRedirectToListAppend(), false));
 
         return parent::batch($model);
     }

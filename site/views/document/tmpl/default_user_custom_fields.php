@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -30,11 +30,11 @@ $userFieldGroups = array();
 <?php foreach ($userFieldGroups as $groupTitle => $fields) : ?>
     <?php $id = JApplicationHelper::stringURLSafe($groupTitle); ?>
     <?php if ($presentation_style == 'sliders') : ?>
-        <?php echo JHtml::_('bootstrap.addSlide', 'slide-document', $groupTitle ?: JText::_('COM_SIMPLEFILEMANAGER_USER_FIELDS'), 'display-' . $id); ?>
+        <?php echo JHtml::_('bootstrap.addSlide', 'slide-document', $groupTitle ?: JText::_('COM_FIREDRIVE_USER_FIELDS'), 'display-' . $id); ?>
     <?php elseif ($presentation_style == 'tabs') : ?>
-        <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'display-profile', $groupTitle ?: JText::_('COM_SIMPLEFILEMANAGER_USER_FIELDS')); ?>
+        <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'display-profile', $groupTitle ?: JText::_('COM_FIREDRIVE_USER_FIELDS')); ?>
     <?php elseif ($presentation_style == 'plain') : ?>
-        <?php echo '<h3>' . ($groupTitle ?: JText::_('COM_SIMPLEFILEMANAGER_USER_FIELDS')) . '</h3>'; ?>
+        <?php echo '<h3>' . ($groupTitle ?: JText::_('COM_FIREDRIVE_USER_FIELDS')) . '</h3>'; ?>
     <?php endif; ?>
 
     <div class="document-profile" id="user-custom-fields-<?php echo $id; ?>">

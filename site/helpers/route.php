@@ -1,18 +1,18 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
 defined('_JEXEC') or die;
 
 /**
- * Simplefilemanager Component Route Helper
+ * Firedrive Component Route Helper
  *
  * @static
  */
-abstract class SimplefilemanagerHelperRoute {
+abstract class FiredriveHelperRoute {
 
     /**
      * Get the URL route for a docment from a document ID, document category ID and language
@@ -27,7 +27,7 @@ abstract class SimplefilemanagerHelperRoute {
      */
     public static function getDocumentRoute($id, $catid, $language = 0) {
         // Create the link
-        $link = 'index.php?option=com_simplefilemanager&view=document&id=' . $id;
+        $link = 'index.php?option=com_firedrive&view=document&id=' . $id;
 
         if ($catid > 1) {
             $link .= '&catid=' . $catid;
@@ -59,7 +59,7 @@ abstract class SimplefilemanagerHelperRoute {
             $link = '';
         } else {
             // Create the link
-            $link = 'index.php?option=com_simplefilemanager&view=category&id=' . $id;
+            $link = 'index.php?option=com_firedrive&view=category&id=' . $id;
 
             if ($language && $language !== '*' && JLanguageMultilang::isEnabled()) {
                 $link .= '&lang=' . $language;

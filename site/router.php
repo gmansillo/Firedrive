@@ -1,18 +1,18 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
 defined('_JEXEC') or die;
 
 /**
- * Routing class from com_simplefilemanager
+ * Routing class from com_firedrive
  *
  * @since  3.3
  */
-class SimplefilemanagerRouter extends JComponentRouterView {
+class FiredriveRouter extends JComponentRouterView {
 
     protected $noIDs = false;
 
@@ -23,7 +23,7 @@ class SimplefilemanagerRouter extends JComponentRouterView {
      * @param   JMenu            $menu  The menu object to work with
      */
     public function __construct($app = null, $menu = null) {
-        $params      = JComponentHelper::getParams('com_simplefilemanager');
+        $params      = JComponentHelper::getParams('com_firedrive');
         $this->noIDs = (bool) $params->get('sef_ids');
         $categories  = new JComponentRouterViewconfiguration('categories');
         $categories->setKey('id');
@@ -43,8 +43,8 @@ class SimplefilemanagerRouter extends JComponentRouterView {
             $this->attachRule(new JComponentRouterRulesStandard($this));
             $this->attachRule(new JComponentRouterRulesNomenu($this));
         } else {
-            JLoader::register('SimplefilemanagerRouterRulesLegacy', __DIR__ . '/helpers/legacyrouter.php');
-            $this->attachRule(new SimplefilemanagerRouterRulesLegacy($this));
+            JLoader::register('FiredriveRouterRulesLegacy', __DIR__ . '/helpers/legacyrouter.php');
+            $this->attachRule(new FiredriveRouterRulesLegacy($this));
         }
     }
 
@@ -100,7 +100,7 @@ class SimplefilemanagerRouter extends JComponentRouterView {
             $db      = JFactory::getDbo();
             $dbquery = $db->getQuery(true);
             $dbquery->select($dbquery->qn('alias'))
-                    ->from($dbquery->qn('#__simplefilemanager'))
+                    ->from($dbquery->qn('#__firedrive'))
                     ->where('id = ' . $dbquery->q((int) $id));
             $db->setQuery($dbquery);
 
@@ -171,7 +171,7 @@ class SimplefilemanagerRouter extends JComponentRouterView {
             $db      = JFactory::getDbo();
             $dbquery = $db->getQuery(true);
             $dbquery->select($dbquery->qn('id'))
-                    ->from($dbquery->qn('#__simplefilemanager'))
+                    ->from($dbquery->qn('#__firedrive'))
                     ->where('alias = ' . $dbquery->q($segment))
                     ->where('catid = ' . $dbquery->q($query['id']));
             $db->setQuery($dbquery);
@@ -185,7 +185,7 @@ class SimplefilemanagerRouter extends JComponentRouterView {
 }
 
 /**
- * Simple File Manager router functions
+ * Firedrive router functions
  *
  * These functions are proxies for the new router interface
  * for old SEF extensions.
@@ -196,15 +196,15 @@ class SimplefilemanagerRouter extends JComponentRouterView {
  *
  * @deprecated  4.0  Use Class based routers instead
  */
-function SimplefilemanagerBuildRoute(&$query) {
+function FiredriveBuildRoute(&$query) {
     $app    = JFactory::getApplication();
-    $router = new SimplefilemanagerRouter($app, $app->getMenu());
+    $router = new FiredriveRouter($app, $app->getMenu());
 
     return $router->build($query);
 }
 
 /**
- * Simple File Manager router functions
+ * Firedrive router functions
  *
  * These functions are proxies for the new router interface
  * for old SEF extensions.
@@ -215,9 +215,9 @@ function SimplefilemanagerBuildRoute(&$query) {
  *
  * @deprecated  4.0  Use Class based routers instead
  */
-function SimplefilemanagerParseRoute($segments) {
+function FiredriveParseRoute($segments) {
     $app    = JFactory::getApplication();
-    $router = new SimplefilemanagerRouter($app, $app->getMenu());
+    $router = new FiredriveRouter($app, $app->getMenu());
 
     return $router->parse($segments);
 }

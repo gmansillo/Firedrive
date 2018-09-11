@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -15,7 +15,7 @@ jimport('joomla.filesystem.file');
  *
  * @since  1.6
  */
-class SimplefilemanagerViewDocument extends JViewLegacy {
+class FiredriveViewDocument extends JViewLegacy {
 
     /**
      * The item model state

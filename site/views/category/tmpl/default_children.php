@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -19,19 +19,19 @@ if ($this->maxLevel != 0 && count($this->children[$this->category->id]) > 0) :
                 <li<?php echo $class; ?>>
                     <?php $class = ''; ?>
                     <h4 class="item-title">
-                        <a href="<?php echo JRoute::_(SimplefilemanagerHelperRoute::getCategoryRoute($child->id)); ?>">
+                        <a href="<?php echo JRoute::_(FiredriveHelperRoute::getCategoryRoute($child->id)); ?>">
                             <?php echo $this->escape($child->title); ?>
                         </a>
 
                         <?php if ($this->params->get('show_cat_items') == 1) : ?>
-                            <span class="badge badge-info pull-right" title="<?php echo JText::_('COM_SIMPLEFILEMANAGER_CAT_NUM'); ?>"><?php echo $child->numitems; ?></span>
+                            <span class="badge badge-info pull-right" title="<?php echo JText::_('COM_FIREDRIVE_CAT_NUM'); ?>"><?php echo $child->numitems; ?></span>
                         <?php endif; ?>
                     </h4>
 
                     <?php if ($this->params->get('show_subcat_desc') == 1) : ?>
                         <?php if ($child->description) : ?>
                             <div class="category-desc">
-                                <?php echo JHtml::_('content.prepare', $child->description, '', 'com_simplefilemanager.category'); ?>
+                                <?php echo JHtml::_('content.prepare', $child->description, '', 'com_firedrive.category'); ?>
                             </div>
                         <?php endif; ?>
                     <?php endif; ?>

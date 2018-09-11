@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -12,7 +12,7 @@ use Joomla\Registry\Registry;
 /**
  * Single item model for a document
  */
-class SimplefilemanagerModelCategory extends JModelList {
+class FiredriveModelCategory extends JModelList {
 
     /**
      * Category items data
@@ -80,12 +80,12 @@ class SimplefilemanagerModelCategory extends JModelList {
             }
 
             // Process document icon
-            SimplefilemanagerHelper::processDocumentIcon($item);
+            FiredriveHelper::processDocumentIcon($item);
 
             // Some contexts may not use tags data at all, so we allow callers to disable loading tag data
             if ($this->getState('load_tags', true)) {
                 $this->tags = new JHelperTags;
-                $this->tags->getItemTags('com_simplefilemanager.document', $item->id);
+                $this->tags->getItemTags('com_firedrive.document', $item->id);
             }
         }
 
@@ -133,9 +133,9 @@ class SimplefilemanagerModelCategory extends JModelList {
                  * 	. ' CASE WHEN CHAR_LENGTH(a.alias) THEN CONCAT_WS(\':\', a.id, a.alias) ELSE a.id END as slug, '
                  * 	. ' CASE WHEN CHAR_LENGTH(c.alias) THEN CONCAT_WS(\':\', c.id, c.alias) ELSE c.id END AS catslug ');
                  */
-                ->from($db->quoteName('#__simplefilemanager') . ' AS a')
+                ->from($db->quoteName('#__firedrive') . ' AS a')
                 ->join('LEFT', '#__categories AS c ON c.id = a.catid');
-        // Following statement not required since we do not use access column but we relay on simplefilemanager acls
+        // Following statement not required since we do not use access column but we relay on firedrive acls
         // ->where('a.access IN (' . $groups . ')');
         // Join on user table.
         // TODO: Check if following code can be removed
@@ -165,11 +165,11 @@ class SimplefilemanagerModelCategory extends JModelList {
             $acl[] = "a.visibility = 2";
 
             // Selected users documents
-            $query->join('LEFT', '#__simplefilemanager_user_documents ud ON a.id = ud.document_id AND a.visibility = 3');
+            $query->join('LEFT', '#__firedrive_user_documents ud ON a.id = ud.document_id AND a.visibility = 3');
             $acl[] = $db->quoteName('ud.user_id') . " = $user->id";
 
             // Selected groups documents
-            $query->join('LEFT', '#__simplefilemanager_group_documents gd ON a.id = gd.document_id AND a.visibility = 4');
+            $query->join('LEFT', '#__firedrive_group_documents gd ON a.id = gd.document_id AND a.visibility = 4');
             $acl[] = "gd.group_id IN (" . implode(',', $user_groups) . ")";
 
             // Author documents
@@ -231,7 +231,7 @@ class SimplefilemanagerModelCategory extends JModelList {
      */
     protected function populateState($ordering = null, $direction = null) {
         $app    = JFactory::getApplication();
-        $params = JComponentHelper::getParams('com_simplefilemanager');
+        $params = JComponentHelper::getParams('com_firedrive');
 
         // List state information
         $limit = $app->getUserStateFromRequest('global.list.limit', 'limit', $app->get('list_limit'), 'uint');
@@ -243,7 +243,7 @@ class SimplefilemanagerModelCategory extends JModelList {
 
         // Optional filter text
         $itemid = $app->input->get('Itemid', 0, 'int');
-        $search = $app->getUserStateFromRequest('com_simplefilemanager.category.list.' . $itemid . '.filter-search', 'filter-search', '', 'string');
+        $search = $app->getUserStateFromRequest('com_firedrive.category.list.' . $itemid . '.filter-search', 'filter-search', '', 'string');
         $this->setState('list.filter', $search);
 
         // Get list ordering default from the parameters
@@ -277,7 +277,7 @@ class SimplefilemanagerModelCategory extends JModelList {
 
         $user = JFactory::getUser();
 
-        if ((!$user->authorise('core.edit.state', 'com_simplefilemanager')) && (!$user->authorise('core.edit', 'com_simplefilemanager'))) {
+        if ((!$user->authorise('core.edit.state', 'com_firedrive')) && (!$user->authorise('core.edit', 'com_firedrive'))) {
             // Limit to published for people who can't edit or edit.state.
             $this->setState('filter.published', 1);
 
@@ -311,7 +311,7 @@ class SimplefilemanagerModelCategory extends JModelList {
 
             $options               = array();
             $options['countItems'] = $params->get('show_cat_items', 1) || $params->get('show_empty_categories', 0);
-            $categories            = JCategories::getInstance('Simplefilemanager', $options);
+            $categories            = JCategories::getInstance('Firedrive', $options);
             $this->_item           = $categories->get($this->getState('category.id', 'root'));
 
             if (is_object($this->_item)) {

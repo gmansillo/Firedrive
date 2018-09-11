@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -14,21 +14,21 @@ use Joomla\Registry\Registry;
  *
  * @since  1.6
  */
-class SimplefilemanagerModelCategories extends JModelList {
+class FiredriveModelCategories extends JModelList {
 
     /**
      * Model context string.
      *
      * @var		string
      */
-    public $_context = 'com_simplefilemanager.categories';
+    public $_context = 'com_firedrive.categories';
 
     /**
      * The category context (allows other extensions to derived from this model).
      *
      * @var		string
      */
-    protected $_extension = 'com_simplefilemanager';
+    protected $_extension = 'com_firedrive';
     private $_parent      = null;
     private $_items       = null;
 
@@ -98,7 +98,7 @@ class SimplefilemanagerModelCategories extends JModelList {
 
             $options               = array();
             $options['countItems'] = $params->get('show_cat_items_cat', 1) || !$params->get('show_empty_categories_cat', 0);
-            $categories            = JCategories::getInstance('Simplefilemanager', $options);
+            $categories            = JCategories::getInstance('Firedrive', $options);
             $this->_parent         = $categories->get($this->getState('filter.parentId', 'root'));
 
             if (is_object($this->_parent)) {

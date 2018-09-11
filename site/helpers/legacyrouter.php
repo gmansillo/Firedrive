@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
 defined('_JEXEC') or die;
 
 /**
- * Legacy routing rules class from com_simplefilemanager
+ * Legacy routing rules class from com_firedrive
  *
  * @since       3.6
  * @deprecated  4.0
  */
-class SimplefilemanagerRouterRulesLegacy implements JComponentRouterRulesInterface {
+class FiredriveRouterRulesLegacy implements JComponentRouterRulesInterface {
 
     /**
      * Constructor for this legacy router
@@ -28,7 +28,7 @@ class SimplefilemanagerRouterRulesLegacy implements JComponentRouterRulesInterfa
     }
 
     /**
-     * Preprocess the route for the com_simplefilemanager component
+     * Preprocess the route for the com_firedrive component
      *
      * @param   array  &$query  An array of URL arguments
      *
@@ -42,7 +42,7 @@ class SimplefilemanagerRouterRulesLegacy implements JComponentRouterRulesInterfa
     }
 
     /**
-     * Build the route for the com_simplefilemanager component
+     * Build the route for the com_firedrive component
      *
      * @param   array  &$query     An array of URL arguments
      * @param   array  &$segments  The URL arguments to use to assemble the subsequent URL.
@@ -54,7 +54,7 @@ class SimplefilemanagerRouterRulesLegacy implements JComponentRouterRulesInterfa
      */
     public function build(&$query, &$segments) {
         // Get a menu item based on Itemid or currently active
-        $params   = JComponentHelper::getParams('com_simplefilemanager');
+        $params   = JComponentHelper::getParams('com_firedrive');
         $advanced = $params->get('sef_advanced_link', 0);
 
         if (empty($query['Itemid'])) {
@@ -69,7 +69,7 @@ class SimplefilemanagerRouterRulesLegacy implements JComponentRouterRulesInterfa
         if (isset($query['view'])) {
             $view = $query['view'];
 
-            if (empty($query['Itemid']) || empty($menuItem) || $menuItem->component != 'com_simplefilemanager') {
+            if (empty($query['Itemid']) || empty($menuItem) || $menuItem->component != 'com_firedrive') {
                 $segments[] = $query['view'];
             }
 
@@ -92,7 +92,7 @@ class SimplefilemanagerRouterRulesLegacy implements JComponentRouterRulesInterfa
                 }
 
                 $menuCatid  = $mId;
-                $categories = JCategories::getInstance('Simplefilemanager');
+                $categories = JCategories::getInstance('Firedrive');
                 $category   = $categories->get($catid);
 
                 if ($category) {
@@ -169,7 +169,7 @@ class SimplefilemanagerRouterRulesLegacy implements JComponentRouterRulesInterfa
 
         // Get the active menu item.
         $item     = $this->router->menu->getActive();
-        $params   = JComponentHelper::getParams('com_simplefilemanager');
+        $params   = JComponentHelper::getParams('com_firedrive');
         $advanced = $params->get('sef_advanced_link', 0);
 
         // Count route segments
@@ -186,7 +186,7 @@ class SimplefilemanagerRouterRulesLegacy implements JComponentRouterRulesInterfa
         // From the categories view, we can only jump to a category.
         $id = (isset($item->query['id']) && $item->query['id'] > 1) ? $item->query['id'] : 'root';
 
-        $documentCategory = JCategories::getInstance('Simplefilemanager')->get($id);
+        $documentCategory = JCategories::getInstance('Firedrive')->get($id);
 
         $categories    = $documentCategory ? $documentCategory->getChildren() : array();
         $vars['catid'] = $id;
@@ -212,7 +212,7 @@ class SimplefilemanagerRouterRulesLegacy implements JComponentRouterRulesInterfa
                     $db    = JFactory::getDbo();
                     $query = $db->getQuery(true)
                             ->select($db->quoteName('id'))
-                            ->from('#__simplefilemanager')
+                            ->from('#__firedrive')
                             ->where($db->quoteName('catid') . ' = ' . (int) $vars['catid'])
                             ->where($db->quoteName('alias') . ' = ' . $db->quote($segment));
                     $db->setQuery($query);

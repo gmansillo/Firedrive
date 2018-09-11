@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-    <fieldset name="document" addfieldpath="/administrator/components/com_simplefilemanager/models/fields">
+    <fieldset name="document" addfieldpath="/administrator/components/com_firedrive/models/fields">
 
         <field
             name="id"
@@ -15,8 +15,8 @@
         <field
             name="title"
             type="text"
-            label="COM_SIMPLEFILEMANAGER_FIELD_TITLE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_TITLE_DESC"
+            label="COM_FIREDRIVE_FIELD_TITLE_LABEL"
+            description="COM_FIREDRIVE_FIELD_TITLE_DESC"
             class="input-xxlarge input-large-text"
             size="40"
             required="true"
@@ -26,7 +26,7 @@
             name="alias"
             type="text"
             label="JFIELD_ALIAS_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_ALIAS_DESC"
+            description="COM_FIREDRIVE_FIELD_ALIAS_DESC"
             size="40"
             hint="JFIELD_ALIAS_PLACEHOLDER"
         />
@@ -35,8 +35,8 @@
             name="catid"
             type="categoryedit"
             label="JCATEGORY"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_DESC"
-            extension="com_simplefilemanager"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_DESC"
+            extension="com_firedrive"
             required="true"
             addfieldpath="/administrator/components/com_categories/models/fields"
             default=""
@@ -46,7 +46,7 @@
             name="state"
             type="list"
             label="JSTATUS"
-            description="COM_SIMPLEFILEMANAGER_FIELD_STATE_DESC"
+            description="COM_FIREDRIVE_FIELD_STATE_DESC"
             class="chzn-color-state"
             size="1"
             default="1"
@@ -62,14 +62,14 @@
             type="ordering"
             label="JFIELD_ORDERING_LABEL"
             description="JFIELD_ORDERING_DESC"
-            table="#__simplefilemanager"
+            table="#__firedrive"
         />
 
         <field
             name="language"
             type="contentlanguage"
             label="JFIELD_LANGUAGE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_LANGUAGE_DESC"
+            description="COM_FIREDRIVE_FIELD_LANGUAGE_DESC"
         >
             <option value="*">JALL</option>
         </field>
@@ -78,7 +78,7 @@
             name="description"
             type="editor"
             label="JGLOBAL_DESCRIPTION"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DESCRIPTION_DESC"
+            description="COM_FIREDRIVE_FIELD_DESCRIPTION_DESC"
             filter="JComponentHelper::filterText"
             buttons="true"
             hide="readmore,pagebreak,module,article,contact,menu"
@@ -87,22 +87,22 @@
         <field
             name="visibility"
             type="list"
-            label="COM_SIMPLEFILEMANAGER_FIELD_VISIBILITY_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_VISIBILITY_DESC"
+            label="COM_FIREDRIVE_FIELD_VISIBILITY_LABEL"
+            description="COM_FIREDRIVE_FIELD_VISIBILITY_DESC"
             default="1"
         >
-            <option value="1">COM_SIMPLEFILEMANAGER_VISIBILITY_1_PUBLIC</option>
-            <option value="2">COM_SIMPLEFILEMANAGER_VISIBILITY_2_REGISTRED</option>
-            <option value="3">COM_SIMPLEFILEMANAGER_VISIBILITY_3_USER</option>
-            <option value="4">COM_SIMPLEFILEMANAGER_VISIBILITY_4_GROUP</option>
-            <option value="5">COM_SIMPLEFILEMANAGER_VISIBILITY_5_AUTHOR</option>
+            <option value="1">COM_FIREDRIVE_VISIBILITY_1_PUBLIC</option>
+            <option value="2">COM_FIREDRIVE_VISIBILITY_2_REGISTRED</option>
+            <option value="3">COM_FIREDRIVE_VISIBILITY_3_USER</option>
+            <option value="4">COM_FIREDRIVE_VISIBILITY_4_GROUP</option>
+            <option value="5">COM_FIREDRIVE_VISIBILITY_5_AUTHOR</option>
         </field>
 
         <field
             name="reserved_user"
             type="sql"
-            label="COM_SIMPLEFILEMANAGER_FIELD_RESERVED_USER_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_RESERVED_USER_DESC"
+            label="COM_FIREDRIVE_FIELD_RESERVED_USER_LABEL"
+            description="COM_FIREDRIVE_FIELD_RESERVED_USER_DESC"
             sql_select="u.id, CONCAT(u.name,' (',u.username,')') AS value"
             sql_from="#__users AS u"
             sql_order="u.name ASC"
@@ -115,8 +115,8 @@
         <field
             name="reserved_group"
             type="sql"
-            label="COM_SIMPLEFILEMANAGER_FIELD_RESERVED_GROUP_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_RESERVED_GROUP_DESC"
+            label="COM_FIREDRIVE_FIELD_RESERVED_GROUP_LABEL"
+            description="COM_FIREDRIVE_FIELD_RESERVED_GROUP_DESC"
             sql_select="ug.id, ug.title"
             sql_from="#__usergroups AS ug"
             sql_order="ug.title ASC"
@@ -132,43 +132,43 @@
             class="readonly"
             type="text"
             required="true"
-            label="COM_SIMPLEFILEMANAGER_FIELD_FILE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_FILE_DESC"
+            label="COM_FIREDRIVE_FIELD_FILE_LABEL"
+            description="COM_FIREDRIVE_FIELD_FILE_DESC"
         />
 
         <field
             name="select_file"
             type="file"
-            label="COM_SIMPLEFILEMANAGER_FIELD_SELECT_FILE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_SELECT_FILE_DESC"
+            label="COM_FIREDRIVE_FIELD_SELECT_FILE_LABEL"
+            description="COM_FIREDRIVE_FIELD_SELECT_FILE_DESC"
             filter="unset"
         />
 
         <field
             name="replace_file"
             type="file"
-            label="COM_SIMPLEFILEMANAGER_FIELD_REPLACE_FILE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_REPLACE_FILE_DESC"
+            label="COM_FIREDRIVE_FIELD_REPLACE_FILE_LABEL"
+            description="COM_FIREDRIVE_FIELD_REPLACE_FILE_DESC"
             filter="unset"
         />
 
         <field
             name="fl_send_mail"
             type="checkbox"
-            label="COM_SIMPLEFILEMANAGER_FL_SENDMAIL_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FL_SENDMAIL_DESC"
+            label="COM_FIREDRIVE_FL_SENDMAIL_LABEL"
+            description="COM_FIREDRIVE_FL_SENDMAIL_DESC"
             value="1"
         />
 		
     </fieldset>
 
-    <fieldset name="publish" label="COM_SIMPLEFILEMANAGER_GROUP_LABEL_PUBLISHING_DETAILS">
+    <fieldset name="publish" label="COM_FIREDRIVE_GROUP_LABEL_PUBLISHING_DETAILS">
 
         <field
             name="created"
             type="calendar"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CREATED_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CREATED_DESC"
+            label="COM_FIREDRIVE_FIELD_CREATED_LABEL"
+            description="COM_FIREDRIVE_FIELD_CREATED_DESC"
             size="22"
             translateformat="true"
             showtime="true"
@@ -178,15 +178,15 @@
         <field
             name="created_by"
             type="user"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CREATED_BY_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CREATED_BY_DESC"
+            label="COM_FIREDRIVE_FIELD_CREATED_BY_LABEL"
+            description="COM_FIREDRIVE_FIELD_CREATED_BY_DESC"
         />
 
         <field
             name="modified"
             type="calendar"
             label="JGLOBAL_FIELD_MODIFIED_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_MODIFIED_DESC"
+            description="COM_FIREDRIVE_FIELD_MODIFIED_DESC"
             class="readonly"
             size="22"
             readonly="true"
@@ -199,7 +199,7 @@
             name="modified_by"
             type="user"
             label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_MODIFIED_BY_DESC"
+            description="COM_FIREDRIVE_FIELD_MODIFIED_BY_DESC"
             class="readonly"
             readonly="true"
             filter="unset"
@@ -208,15 +208,15 @@
         <field
             name="version"
             type="text"
-            label="COM_SIMPLEFILEMANAGER_FIELD_VERSION_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_VERSION_DESC"
+            label="COM_FIREDRIVE_FIELD_VERSION_LABEL"
+            description="COM_FIREDRIVE_FIELD_VERSION_DESC"
         />
 
         <field
             name="publish_up"
             type="calendar"
-            label="COM_SIMPLEFILEMANAGER_FIELD_PUBLISH_UP_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_PUBLISH_UP_DESC"
+            label="COM_FIREDRIVE_FIELD_PUBLISH_UP_LABEL"
+            description="COM_FIREDRIVE_FIELD_PUBLISH_UP_DESC"
             translateformat="true"
             showtime="true"
             size="22"
@@ -226,8 +226,8 @@
         <field
             name="publish_down"
             type="calendar"
-            label="COM_SIMPLEFILEMANAGER_FIELD_PUBLISH_DOWN_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_PUBLISH_DOWN_DESC"
+            label="COM_FIREDRIVE_FIELD_PUBLISH_DOWN_LABEL"
+            description="COM_FIREDRIVE_FIELD_PUBLISH_DOWN_DESC"
             translateformat="true"
             showtime="true"
             size="22"
@@ -235,14 +235,14 @@
         />
     </fieldset>
 
-    <fieldset name="details" label="COM_SIMPLEFILEMANAGER_GROUP_LABEL_DOCUMENT_DETAILS">
+    <fieldset name="details" label="COM_FIREDRIVE_GROUP_LABEL_DOCUMENT_DETAILS">
 	
         <field
             name="icon"
             type="media"
-            directory="com_simplefilemanager"
-            label="COM_SIMPLEFILEMANAGER_FIELD_IMAGE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_IMAGE_DESC"
+            directory="com_firedrive"
+            label="COM_FIREDRIVE_FIELD_IMAGE_LABEL"
+            description="COM_FIREDRIVE_FIELD_IMAGE_DESC"
         />
 
         <field
@@ -251,24 +251,24 @@
             class="inputbox"
             filter="safehtml"
             rows="6"
-            label="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_DESC"
+            label="COM_FIREDRIVE_FIELD_LICENSE_LABEL"
+            description="COM_FIREDRIVE_FIELD_LICENSE_DESC"
         />
 
         <field
             name="license_link"
             type="text"
             class="inputbox"
-            label="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_LINK_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_LICENSE_LINK_DESC"
+            label="COM_FIREDRIVE_FIELD_LICENSE_LINK_LABEL"
+            description="COM_FIREDRIVE_FIELD_LICENSE_LINK_DESC"
         />
 
         <field
             name="notes"
             type="textarea"
             class="inputbox"
-            label="COM_SIMPLEFILEMANAGER_FIELD_NOTES_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_NOTES_DESC"
+            label="COM_FIREDRIVE_FIELD_NOTES_LABEL"
+            description="COM_FIREDRIVE_FIELD_NOTES_DESC"
         />
     </fieldset>
 
@@ -278,8 +278,8 @@
             name="download_counter"
             type="text"
             class="readonly"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOAD_COUNTER_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOAD_COUNTER_DESC"
+            label="COM_FIREDRIVE_FIELD_DOWNLOAD_COUNTER_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOWNLOAD_COUNTER_DESC"
             default="0"
             readonly="true"
         />
@@ -289,8 +289,8 @@
             readonly="true"
             type="text"
             class="readonly"
-            label="COM_SIMPLEFILEMANAGER_FIELD_HASH_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_HASH_DESC"
+            label="COM_FIREDRIVE_FIELD_HASH_LABEL"
+            description="COM_FIREDRIVE_FIELD_HASH_DESC"
         />
 
         <field
@@ -300,8 +300,8 @@
             class="readonly"
             format="%Y-%m-%d %H:%M"
             showtime="true"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOADLAST_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOWNLOADLAST_DESC"
+            label="COM_FIREDRIVE_FIELD_DOWNLOADLAST_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOWNLOADLAST_DESC"
         />
 
         <field
@@ -309,8 +309,8 @@
             readonly="true"
             type="text"
             class="readonly"
-            label="COM_SIMPLEFILEMANAGER_FIELD_FILESIZE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_FILESIZE_DESC"
+            label="COM_FIREDRIVE_FIELD_FILESIZE_LABEL"
+            description="COM_FIREDRIVE_FIELD_FILESIZE_DESC"
         />
 		
     </fieldset>

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -21,10 +21,10 @@ if ($this->maxLevelcat != 0 && count($this->items[$this->parent->id]) > 0) :
             <div <?php echo $class; ?> role="listitem">
                 <?php $class = ''; ?>
                 <h3 class="page-header item-title">
-                    <a href="<?php echo JRoute::_(SimplefilemanagerHelperRoute::getCategoryRoute($item->id, $item->language)); ?>">
+                    <a href="<?php echo JRoute::_(FiredriveHelperRoute::getCategoryRoute($item->id, $item->language)); ?>">
                         <?php echo $this->escape($item->title); ?></a>
                     <?php if ($this->params->get('show_cat_items_cat') == 1) : ?>
-                        <span class="badge badge-info tip hasTooltip" title="<?php echo JHtml::_('tooltipText', 'COM_SIMPLEFILEMANAGER_NUM_ITEMS'); ?>">
+                        <span class="badge badge-info tip hasTooltip" title="<?php echo JHtml::_('tooltipText', 'COM_FIREDRIVE_NUM_ITEMS'); ?>">
                             <?php echo $item->numitems; ?>
                         </span>
                     <?php endif; ?>
@@ -36,7 +36,7 @@ if ($this->maxLevelcat != 0 && count($this->items[$this->parent->id]) > 0) :
                 <?php if ($this->params->get('show_subcat_desc_cat') == 1) : ?>
                     <?php if ($item->description) : ?>
                         <div class="category-desc">
-                            <?php echo JHtml::_('content.prepare', $item->description, '', 'com_simplefilemanager.categories'); ?>
+                            <?php echo JHtml::_('content.prepare', $item->description, '', 'com_firedrive.categories'); ?>
                         </div>
                     <?php endif; ?>
                 <?php endif; ?>

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -21,7 +21,7 @@ $published = $this->state->get('filter.published');
         <?php if ($published >= 0) : ?>
             <div class="control-group span6">
                 <div class="controls">
-                    <?php echo JHtml::_('batch.item', 'com_simplefilemanager'); ?>
+                    <?php echo JHtml::_('batch.item', 'com_firedrive'); ?>
                 </div>
             </div>
         <?php endif; ?>

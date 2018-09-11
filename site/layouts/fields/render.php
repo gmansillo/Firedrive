@@ -2,7 +2,7 @@
 
 /**
  * @package     Joomla.Site
- * @subpackage  com_simplefilemanager
+ * @subpackage  com_firedrive
  *
  * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -44,7 +44,7 @@ if (!$fields) {
 }
 
 // Check if we have mail context in first element
-$isMail = (reset($fields)->context == 'com_simplefilemanager.mail');
+$isMail = (reset($fields)->context == 'com_firedrive.mail');
 
 if (!$isMail) {
     // Print the container tag

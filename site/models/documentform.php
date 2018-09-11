@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -12,9 +12,9 @@ jimport('joomla.application.component.modelform');
 jimport('joomla.event.dispatcher');
 
 /**
- * Simplefilemanager model.
+ * Firedrive model.
  */
-class SimplefilemanagerModelDocumentForm extends JModelForm {
+class FiredriveModelDocumentForm extends JModelForm {
 
     var $_item = null;
 
@@ -48,7 +48,7 @@ class SimplefilemanagerModelDocumentForm extends JModelForm {
         return true;
     }
 
-    public function getTable($type = 'Document', $prefix = 'SimplefilemanagerTable', $config = array()) {
+    public function getTable($type = 'Document', $prefix = 'FiredriveTable', $config = array()) {
         $this->addTablePath(JPATH_COMPONENT_ADMINISTRATOR . '/tables');
 
         return JTable::getInstance($type, $prefix, $config);
@@ -100,7 +100,7 @@ class SimplefilemanagerModelDocumentForm extends JModelForm {
      */
     public function getForm($data = array(), $loadData = true) {
         // Get the form.
-        $form = $this->loadForm('com_simplefilemanager.document', 'documentform', array('control' => 'jform', 'load_data' => $loadData));
+        $form = $this->loadForm('com_firedrive.document', 'documentform', array('control' => 'jform', 'load_data' => $loadData));
         if (empty($form)) {
             return false;
         }
@@ -123,10 +123,10 @@ class SimplefilemanagerModelDocumentForm extends JModelForm {
 
         if ($id) {
             //Check the user can edit this item
-            $authorised = $user->authorise('core.edit', 'com_simplefilemanager') || $authorised = $user->authorise('core.edit.own', 'com_simplefilemanager');
+            $authorised = $user->authorise('core.edit', 'com_firedrive') || $authorised = $user->authorise('core.edit.own', 'com_firedrive');
         } else {
             //Check the user can create new items in this section
-            $authorised = $user->authorise('core.create', 'com_simplefilemanager');
+            $authorised = $user->authorise('core.create', 'com_firedrive');
         }
 
         if ($authorised !== true) {
@@ -143,7 +143,7 @@ class SimplefilemanagerModelDocumentForm extends JModelForm {
 
     function delete($data) {
         $id = (!empty($data['id'])) ? $data['id'] : (int) $this->getState('document.id');
-        if (JFactory::getUser()->authorise('core.delete', 'com_simplefilemanager') !== true) {
+        if (JFactory::getUser()->authorise('core.delete', 'com_firedrive') !== true) {
             throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'), 403);
         }
 
@@ -163,14 +163,14 @@ class SimplefilemanagerModelDocumentForm extends JModelForm {
      * @since    1.6
      */
     protected function populateState() {
-        $app = JFactory::getApplication('com_simplefilemanager');
+        $app = JFactory::getApplication('com_firedrive');
 
         // Load state from the request userState on edit or from the passed variable on default
         if (JFactory::getApplication()->input->get('layout') == 'edit') {
-            $id = JFactory::getApplication()->getUserState('com_simplefilemanager.edit.document.id');
+            $id = JFactory::getApplication()->getUserState('com_firedrive.edit.document.id');
         } else {
             $id = JFactory::getApplication()->input->get('id');
-            JFactory::getApplication()->setUserState('com_simplefilemanager.edit.document.id', $id);
+            JFactory::getApplication()->setUserState('com_firedrive.edit.document.id', $id);
         }
         $this->setState('document.id', $id);
 
@@ -190,7 +190,7 @@ class SimplefilemanagerModelDocumentForm extends JModelForm {
      * @since    1.6
      */
     protected function loadFormData() {
-        $data = JFactory::getApplication()->getUserState('com_simplefilemanager.edit.document.data', array());
+        $data = JFactory::getApplication()->getUserState('com_firedrive.edit.document.data', array());
         if (empty($data)) {
             $data = $this->getData();
         }
@@ -221,8 +221,8 @@ class SimplefilemanagerModelDocumentForm extends JModelForm {
 
                 $user    = JFactory::getUser();
                 $id      = $table->id;
-                $canEdit = $user->authorise('core.edit', 'com_simplefilemanager') || $user->authorise('core.create', 'com_simplefilemanager');
-                if (!$canEdit && $user->authorise('core.edit.own', 'com_simplefilemanager')) {
+                $canEdit = $user->authorise('core.edit', 'com_firedrive') || $user->authorise('core.create', 'com_firedrive');
+                if (!$canEdit && $user->authorise('core.edit.own', 'com_firedrive')) {
                     $canEdit = $user->id == $table->created_by;
                 }
 

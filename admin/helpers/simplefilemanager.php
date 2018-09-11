@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -10,7 +10,7 @@ defined('_JEXEC') or die;
 /**
  * Documents component helper.
  */
-class SimplefilemanagerHelper extends JHelperContent {
+class FiredriveHelper extends JHelperContent {
 
     /**
      * Detects max size of file cab be uploaded to server
@@ -65,17 +65,17 @@ class SimplefilemanagerHelper extends JHelperContent {
      */
     public static function processDocumentIcon(&$document) {
 
-        $params = JComponentHelper::getParams('com_simplefilemanager');
+        $params = JComponentHelper::getParams('com_firedrive');
 
         if (!is_null($document) && empty($document->icon)) {
-            $smartIconsDirectory = JPATH_ROOT . "/media/com_simplefilemanager/smartIcons/";
-            $smartIconsUri       = JURI::root() . "/media/com_simplefilemanager/smartIcons/";
+            $smartIconsDirectory = JPATH_ROOT . "/media/com_firedrive/smartIcons/";
+            $smartIconsUri       = JURI::root() . "/media/com_firedrive/smartIcons/";
             $availableSmartIcons = array_map('basename', glob($smartIconsDirectory . "*.png", GLOB_BRACE));
             $neededSmartIcon     = pathinfo($document->file_name, PATHINFO_EXTENSION) . ".png";
             if ($params->get('use_smart_icons', 1) && in_array($neededSmartIcon, $availableSmartIcons)) {
                 $document->icon = $smartIconsUri . $neededSmartIcon;
             } else {
-                $document->icon = JURI::root() . "/media/com_simplefilemanager/images/document.png";
+                $document->icon = JURI::root() . "/media/com_firedrive/images/document.png";
             }
         }
 
@@ -110,11 +110,11 @@ class SimplefilemanagerHelper extends JHelperContent {
      */
     public static function addSubmenu($vName) {
         JHtmlSidebar::addEntry(
-                JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_DOCUMENTS'), 'index.php?option=com_simplefilemanager', $vName == 'documents'
+                JText::_('COM_FIREDRIVE_SUBMENU_DOCUMENTS'), 'index.php?option=com_firedrive', $vName == 'documents'
         );
 
         JHtmlSidebar::addEntry(
-                JText::_('COM_SIMPLEFILEMANAGER_SUBMENU_CATEGORIES'), 'index.php?option=com_categories&extension=com_simplefilemanager', $vName == 'categories'
+                JText::_('COM_FIREDRIVE_SUBMENU_CATEGORIES'), 'index.php?option=com_categories&extension=com_firedrive', $vName == 'categories'
         );
     }
 
@@ -135,7 +135,7 @@ class SimplefilemanagerHelper extends JHelperContent {
             $item->count_published   = 0;
             $query                   = $db->getQuery(true);
             $query->select('state, count(*) AS count')
-                    ->from($db->qn('#__simplefilemanager'))
+                    ->from($db->qn('#__firedrive'))
                     ->where('catid = ' . (int) $item->id)
                     ->group('state');
             $db->setQuery($query);

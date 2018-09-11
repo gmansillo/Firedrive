@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -35,6 +35,6 @@ jQuery(function($) {
     <?php
     echo JLayoutHelper::render('joomla.content.categories_default', $this);
     echo $this->loadTemplate('items');
-    echo JText::_('COM_SIMPLEFILEMANAGER_CREDITS');
+    echo JText::_('COM_FIREDRIVE_CREDITS');
     ?>
 </div>

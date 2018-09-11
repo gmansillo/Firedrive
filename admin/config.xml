@@ -3,8 +3,8 @@
 
     <fieldset
         name="document"
-        label="COM_SIMPLEFILEMANAGER_CONFIG_DOCUMENTS_SETTINGS_LABEL"
-        description="COM_SIMPLEFILEMANAGER_CONFIG_DOCUMENTS_SETTINGS_DESC">
+        label="COM_FIREDRIVE_CONFIG_DOCUMENTS_SETTINGS_LABEL"
+        description="COM_FIREDRIVE_CONFIG_DOCUMENTS_SETTINGS_DESC">
     
         <field
             name="document_layout"
@@ -12,7 +12,7 @@
             label="JGLOBAL_FIELD_LAYOUT_LABEL"
             description="JGLOBAL_FIELD_LAYOUT_DESC"
             menuitems="true"
-            extension="com_simplefilemanager"
+            extension="com_firedrive"
             view="document"
         />
 
@@ -21,8 +21,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_TITLE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_TITLE_DESC">
+            label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_TITLE_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_TITLE_DESC">
             <option
                 value="1">JSHOW</option>
             <option
@@ -33,12 +33,12 @@
             name="document_show_category"
             type="list"
             default="show_with_link"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_CATEGORY_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_CATEGORY_DESC">
+            label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CATEGORY_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CATEGORY_DESC">
             <option
-                value="show_with_link">COM_SIMPLEFILEMANAGER_DOCUMENT_SHOW_CATEGORY_VALUE_WITH_LINK</option>
+                value="show_with_link">COM_FIREDRIVE_DOCUMENT_SHOW_CATEGORY_VALUE_WITH_LINK</option>
             <option
-                value="show_with_no_link">COM_SIMPLEFILEMANAGER_DOCUMENT_SHOW_CATEGORY_VALUE_WITH_NO_LINK</option>
+                value="show_with_no_link">COM_FIREDRIVE_DOCUMENT_SHOW_CATEGORY_VALUE_WITH_NO_LINK</option>
             <option
                 value="hide">JHIDE</option>
         </field>
@@ -48,8 +48,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_MODIFIED_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_MODIFIED_DESC">
+            label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MODIFIED_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MODIFIED_DESC">
             <option
                 value="1">JSHOW</option>
             <option
@@ -61,8 +61,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_CREATED_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_CREATED_DESC">
+            label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CREATED_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CREATED_DESC">
             <option
                 value="1">JSHOW</option>
             <option
@@ -74,8 +74,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_MD5_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_MD5_DESC">
+            label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_DESC">
             <option
                 value="1">JSHOW</option>
             <option
@@ -87,8 +87,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_MD5_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_MD5_DESC">
+            label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_DESC">
             <option
                 value="1">JSHOW</option>
             <option
@@ -100,8 +100,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DESCRIPTION_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_DESCRIPTION_DESC">
+            label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_DESCRIPTION_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_DESCRIPTION_DESC">
             <option
                 value="1">JSHOW</option>
             <option
@@ -113,8 +113,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_ICON_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_ICON_DESC">
+            label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_ICON_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_ICON_DESC">
             <option
                 value="1">JSHOW</option>
             <option
@@ -126,8 +126,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_LICENSE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_LICENSE_DESC">
+            label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_LICENSE_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_LICENSE_DESC">
             <option
                 value="1">JSHOW</option>
             <option
@@ -139,8 +139,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_SIZE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DOCUMENT_SHOW_SIZE_DESC">
+            label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_SIZE_LABEL"
+            description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_SIZE_DESC">
             <option
                 value="1">JSHOW</option>
             <option
@@ -151,14 +151,14 @@
     
     <fieldset
         name="documentform"
-        label="COM_SIMPLEFILEMANAGER_CONFIG_DOCUMENTFORM_SETTINGS_LABEL"
-        description="COM_SIMPLEFILEMANAGER_CONFIG_DOCUMENTFORM_SETTINGS_DESC">
+        label="COM_FIREDRIVE_CONFIG_DOCUMENTFORM_SETTINGS_LABEL"
+        description="COM_FIREDRIVE_CONFIG_DOCUMENTFORM_SETTINGS_DESC">
     
         <field
             name="default_state"
             type="list"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_STATE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_STATE_DESC"
+            label="COM_FIREDRIVE_FIELD_DEFAULT_STATE_LABEL"
+            description="COM_FIREDRIVE_FIELD_DEFAULT_STATE_DESC"
             class="chzn-color-state"
             default="0">
             <option
@@ -174,27 +174,27 @@
         <field
             name="default_visibility"
             type="list"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_VISIBILITY_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_VISIBILITY_DESC"
+            label="COM_FIREDRIVE_FIELD_DEFAULT_VISIBILITY_LABEL"
+            description="COM_FIREDRIVE_FIELD_DEFAULT_VISIBILITY_DESC"
             default="5">
             <option
-                value="1">COM_SIMPLEFILEMANAGER_VISIBILITY_1_PUBLIC</option>
+                value="1">COM_FIREDRIVE_VISIBILITY_1_PUBLIC</option>
             <option
-                value="2">COM_SIMPLEFILEMANAGER_VISIBILITY_2_REGISTRED</option>
+                value="2">COM_FIREDRIVE_VISIBILITY_2_REGISTRED</option>
             <option
-                value="3">COM_SIMPLEFILEMANAGER_VISIBILITY_3_USER</option>
+                value="3">COM_FIREDRIVE_VISIBILITY_3_USER</option>
             <option
-                value="4">COM_SIMPLEFILEMANAGER_VISIBILITY_4_GROUP</option>
+                value="4">COM_FIREDRIVE_VISIBILITY_4_GROUP</option>
             <option
-                value="5">COM_SIMPLEFILEMANAGER_VISIBILITY_5_AUTHOR</option>
+                value="5">COM_FIREDRIVE_VISIBILITY_5_AUTHOR</option>
         </field>
 
         <field 
             name="default_category" 
             type="category"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_CATEGORY_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_CATEGORY_DESC"
-            extension="com_simplefilemanager"
+            label="COM_FIREDRIVE_FIELD_DEFAULT_CATEGORY_LABEL"
+            description="COM_FIREDRIVE_FIELD_DEFAULT_CATEGORY_DESC"
+            extension="com_firedrive"
             default="">
             <option value="">JOPTION_SELECT_CATEGORY</option>
         </field>
@@ -203,8 +203,8 @@
     
     <fieldset
         name="category"
-        label="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORY_SETTINGS_LABEL"
-        description="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORY_SETTINGS_DESC">
+        label="COM_FIREDRIVE_CONFIG_CATEGORY_SETTINGS_LABEL"
+        description="COM_FIREDRIVE_CONFIG_CATEGORY_SETTINGS_DESC">
 
         <field 
             name="show_category_title" 
@@ -223,8 +223,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_CATEGORY_DESC_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_CATEGORY_DESC_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_CATEGORY_DESC_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_CATEGORY_DESC_DESC">
             <option
                 value="1">JSHOW</option>
             <option
@@ -235,8 +235,8 @@
             name="show_new"
             type="radio"
             class="radio btn-group btn-group-yesno"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_NEW_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_NEW_DESC"
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_NEW_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_NEW_DESC"
             default="1">
             <option
                 value="1">JSHOW</option>
@@ -251,25 +251,25 @@
             last="30"
             step="1"
             default="7"
-            label="COM_SIMPLEFILEMANAGER_FIELD_NEW_DURATION_LIMIT_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_NEW_DURATION_LIMIT_DESC" />
+            label="COM_FIREDRIVE_FIELD_NEW_DURATION_LIMIT_LABEL"
+            description="COM_FIREDRIVE_FIELD_NEW_DURATION_LIMIT_DESC" />
         
         <field
             name="initial_sort"
             type="list"
-            label="COM_SIMPLEFILEMANAGER_FIELD_INITIAL_SORT_BY_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_INITIAL_SORT_BY_DESC"
+            label="COM_FIREDRIVE_FIELD_INITIAL_SORT_BY_LABEL"
+            description="COM_FIREDRIVE_FIELD_INITIAL_SORT_BY_DESC"
             default="a.ordering">
             <option
-                value="a.ordering">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_ORDERING</option>
+                value="a.ordering">COM_FIREDRIVE_INITIAL_SORT_VALUE_ORDERING</option>
             <option
-                value="a.title">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_TITLE</option>
+                value="a.title">COM_FIREDRIVE_INITIAL_SORT_VALUE_TITLE</option>
             <option
-                value="a.description">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_DESCRIPTION</option>
+                value="a.description">COM_FIREDRIVE_INITIAL_SORT_VALUE_DESCRIPTION</option>
             <option
-                value="a.created">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_CREATED</option>
+                value="a.created">COM_FIREDRIVE_INITIAL_SORT_VALUE_CREATED</option>
             <option
-                value="a.file_size">COM_SIMPLEFILEMANAGER_INITIAL_SORT_VALUE_SIZE</option>
+                value="a.file_size">COM_FIREDRIVE_INITIAL_SORT_VALUE_SIZE</option>
         </field>
 
         <field
@@ -277,8 +277,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -290,8 +290,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -303,8 +303,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -316,8 +316,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="0"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -329,8 +329,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -342,8 +342,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -355,8 +355,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_FILTER_FIELD_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_FILTER_FIELD_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -368,8 +368,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -380,8 +380,8 @@
 
     <fieldset
         name="categories"
-        label="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORIES_SETTINGS_LABEL"
-        description="COM_SIMPLEFILEMANAGER_CONFIG_CATEGORIES_SETTINGS_DESC">
+        label="COM_FIREDRIVE_CONFIG_CATEGORIES_SETTINGS_LABEL"
+        description="COM_FIREDRIVE_CONFIG_CATEGORIES_SETTINGS_DESC">
 
         <field
             name="show_base_description"
@@ -428,7 +428,7 @@
             name="show_empty_categories_cat"
             type="radio"
             label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
-            description="COM_SIMPLEFILEMANAGER_SHOW_EMPTY_CATEGORIES_DESC"
+            description="COM_FIREDRIVE_SHOW_EMPTY_CATEGORIES_DESC"
             default="0"
             class="btn-group btn-group-yesno"
             showon="maxLevelcat:-1,1,2,3,4,5"
@@ -440,8 +440,8 @@
         <field
             name="show_cat_items_cat"
             type="radio"
-            label="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_SHOW_CAT_ITEMS_DESC"
+            label="COM_FIREDRIVE_FIELD_SHOW_CAT_ITEMS_LABEL"
+            description="COM_FIREDRIVE_FIELD_SHOW_CAT_ITEMS_DESC"
             default="1"
             class="btn-group btn-group-yesno"
         >
@@ -453,16 +453,16 @@
 
     <fieldset
         name="lists"
-        description="COM_SIMPLEFILEMANAGER_CONFIG_LISTS_SETTINGS_DESC"
-        label="COM_SIMPLEFILEMANAGER_CONFIG_LISTS_SETTINGS_LABEL">
+        description="COM_FIREDRIVE_CONFIG_LISTS_SETTINGS_DESC"
+        label="COM_FIREDRIVE_CONFIG_LISTS_SETTINGS_LABEL">
 
         <field
             name="show_ordering_select"
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_ORDERING_SELECT_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_ORDERING_SELECT_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_ORDERING_SELECT_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -474,8 +474,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -487,8 +487,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_DESC">
+            label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_LABEL"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -499,21 +499,21 @@
     
     <fieldset
         name="advanced"
-        label="COM_SIMPLEFILEMANAGER_CONFIG_ADVANCED_SETTINGS_LABEL">
+        label="COM_FIREDRIVE_CONFIG_ADVANCED_SETTINGS_LABEL">
 
         <field
             name="defaulticon"
             type="media"
-            label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULTICON_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULTICON_DESC" />
+            label="COM_FIREDRIVE_FIELD_DEFAULTICON_LABEL"
+            description="COM_FIREDRIVE_FIELD_DEFAULTICON_DESC" />
 
         <field
             name="use_smart_icons"
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_USE_SMART_ICONS_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_USE_SMART_ICONS_DESC">
+            label="COM_FIREDRIVE_FIELD_USE_SMART_ICONS_LABEL"
+            description="COM_FIREDRIVE_FIELD_USE_SMART_ICONS_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -522,8 +522,8 @@
         
         <!-- <field name="forbiddenExtensions"
         type="text"
-        label="COM_SIMPLEFILEMANAGER_FIELD_FORBIDDEN_EXT_LABEL"
-        description="COM_SIMPLEFILEMANAGER_FIELD_FORBIDDEN_EXT_DESC"
+        label="COM_FIREDRIVE_FIELD_FORBIDDEN_EXT_LABEL"
+        description="COM_FIREDRIVE_FIELD_FORBIDDEN_EXT_DESC"
         default="js,css,htaccess,php,php3,php4,phtml,pl,py,jsp,asp,htm,html,shtml,sh"/> -->
 
         <field
@@ -531,8 +531,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="1"
-            label="COM_SIMPLEFILEMANAGER_FIELD_FORCE_DOWNLOAD_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_FORCE_DOWNLOAD_DESC">
+            label="COM_FIREDRIVE_FIELD_FORCE_DOWNLOAD_LABEL"
+            description="COM_FIREDRIVE_FIELD_FORCE_DOWNLOAD_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -544,8 +544,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="0"
-            label="COM_SIMPLEFILEMANAGER_FIELD_SENDMAIL_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_SENDMAIL_DESC">
+            label="COM_FIREDRIVE_FIELD_SENDMAIL_LABEL"
+            description="COM_FIREDRIVE_FIELD_SENDMAIL_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -557,8 +557,8 @@
             type="radio"
             class="radio btn-group btn-group-yesno"
             default="0"
-            label="COM_SIMPLEFILEMANAGER_FIELD_TRACK_USER_DOWNLOADS_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_TRACK_USER_DOWNLOADS_DESC">
+            label="COM_FIREDRIVE_FIELD_TRACK_USER_DOWNLOADS_LABEL"
+            description="COM_FIREDRIVE_FIELD_TRACK_USER_DOWNLOADS_DESC">
             <option
                 value="1">JYES</option>
             <option
@@ -574,13 +574,13 @@
         <field
             name="import_links_intro"
             type="spacer"
-            label="COM_SIMPLEFILEMANAGER_FIELD_IMPORT_LINKS_INTRO_LABEL"
+            label="COM_FIREDRIVE_FIELD_IMPORT_LINKS_INTRO_LABEL"
         />
         
         <field
             name="import_links"
             type="spacer"
-            label="COM_SIMPLEFILEMANAGER_FIELD_IMPORT_LINKS_LIST_LABEL"
+            label="COM_FIREDRIVE_FIELD_IMPORT_LINKS_LIST_LABEL"
         />
 
     </fieldset>
@@ -593,7 +593,7 @@
         <field
             name="rules"
             type="rules"
-            component="com_simplefilemanager"
+            component="com_firedrive"
             filter="rules"
             validate="rules"
             label="JCONFIG_PERMISSIONS_LABEL"

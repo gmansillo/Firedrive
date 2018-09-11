@@ -3,7 +3,7 @@ SET time_zone = '+00:00';
 SET foreign_key_checks = 0;
 SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
-CREATE TABLE IF NOT EXISTS `#__simplefilemanager_user_documents` (
+CREATE TABLE IF NOT EXISTS `#__firedrive_user_documents` (
   `id`          INT(11) NOT NULL AUTO_INCREMENT,
   `user_id`     INT(11) NOT NULL,
   `document_id` INT(11) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `#__simplefilemanager_user_documents` (
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
-CREATE TABLE IF NOT EXISTS `#__simplefilemanager_group_documents` (
+CREATE TABLE IF NOT EXISTS `#__firedrive_group_documents` (
   `id`          INT(11) NOT NULL AUTO_INCREMENT,
   `group_id`    INT(11) NOT NULL,
   `document_id` INT(11) NOT NULL,
@@ -21,19 +21,19 @@ CREATE TABLE IF NOT EXISTS `#__simplefilemanager_group_documents` (
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
-INSERT IGNORE INTO `#__simplefilemanager_user_documents` (user_id, document_id)
+INSERT IGNORE INTO `#__firedrive_user_documents` (user_id, document_id)
   SELECT
     reserved_user,
     id
-  FROM `#__simplefilemanager`
+  FROM `#__firedrive`
   WHERE reserved_user != NULL;
 
-INSERT IGNORE INTO `#__simplefilemanager_group_documents` (group_id, document_id)
+INSERT IGNORE INTO `#__firedrive_group_documents` (group_id, document_id)
   SELECT
     reserved_group,
     id
-  FROM `#__simplefilemanager`
+  FROM `#__firedrive`
   WHERE reserved_group != NULL;
 
-ALTER TABLE `#__simplefilemanager` DROP COLUMN `reserved_user`;
-ALTER TABLE `#__simplefilemanager` DROP COLUMN `reserved_group`;
+ALTER TABLE `#__firedrive` DROP COLUMN `reserved_user`;
+ALTER TABLE `#__firedrive` DROP COLUMN `reserved_group`;

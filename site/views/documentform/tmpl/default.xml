@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
     <layout 
-        title="COM_SIMPLEFILEMANAGER_DOCUMENTFORM_VIEW_DEFAULT_TITLE"
-        option="COM_SIMPLEFILEMANAGER_DOCUMENTFORM_VIEW_DEFAULT_OPTION"
+        title="COM_FIREDRIVE_DOCUMENTFORM_VIEW_DEFAULT_TITLE"
+        option="COM_FIREDRIVE_DOCUMENTFORM_VIEW_DEFAULT_OPTION"
     >
         <message>
-			<![CDATA[COM_SIMPLEFILEMANAGER_DOCUMENTFORM_VIEW_DEFAULT_DESC]]>
+			<![CDATA[COM_FIREDRIVE_DOCUMENTFORM_VIEW_DEFAULT_DESC]]>
         </message>
     </layout>
 
@@ -14,14 +14,14 @@
 
         <!-- Basic options. -->
         <fieldset name="params"
-                  label="COM_SIMPLEFILEMANAGER_BASIC_OPTIONS_FIELDSET_LABEL"
+                  label="COM_FIREDRIVE_BASIC_OPTIONS_FIELDSET_LABEL"
                   addfieldpath="/administrator/components/com_fields/models/fields"
         >
             <field 
                 name="page_intro"
                 type="editor"
-                label="COM_SIMPLEFILEMANAGER_FIELD_PAGE_INTRO_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_PAGE_INTRO_DESC"
+                label="COM_FIREDRIVE_FIELD_PAGE_INTRO_LABEL"
+                description="COM_FIREDRIVE_FIELD_PAGE_INTRO_DESC"
                 filter="JComponentHelper::filterText"
                 buttons="true"
                 hide="readmore,pagebreak,module,article,contact,menu"
@@ -30,30 +30,30 @@
             <field 
                 name="default_category" 
                 type="category"
-                label="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_CATEGORY_LABEL"
-                description="COM_SIMPLEFILEMANAGER_FIELD_DEFAULT_CATEGORY_DESC"
-                extension="com_simplefilemanager">
+                label="COM_FIREDRIVE_FIELD_DEFAULT_CATEGORY_LABEL"
+                description="COM_FIREDRIVE_FIELD_DEFAULT_CATEGORY_DESC"
+                extension="com_firedrive">
                 <option value="">JOPTION_SELECT_CATEGORY</option>
             </field>
             
             <!-- <field 
                     name="presentation_style"
                     type="list"
-                    label="COM_SIMPLEFILEMANAGER_FIELD_PRESENTATION_LABEL"
-                    description="COM_SIMPLEFILEMANAGER_FIELD_PRESENTATION_DESC"
+                    label="COM_FIREDRIVE_FIELD_PRESENTATION_LABEL"
+                    description="COM_FIREDRIVE_FIELD_PRESENTATION_DESC"
                     useglobal="true"
                     >
-                    <option value="sliders">COM_SIMPLEFILEMANAGER_FIELD_VALUE_SLIDERS</option>
-                    <option value="tabs">COM_SIMPLEFILEMANAGER_FIELD_VALUE_TABS</option>
-                    <option value="plain">COM_SIMPLEFILEMANAGER_FIELD_VALUE_PLAIN</option>
+                    <option value="sliders">COM_FIREDRIVE_FIELD_VALUE_SLIDERS</option>
+                    <option value="tabs">COM_FIREDRIVE_FIELD_VALUE_TABS</option>
+                    <option value="plain">COM_FIREDRIVE_FIELD_VALUE_PLAIN</option>
             </field> -->
 
             <!-- 
             <field
                     name="show_user_custom_fields"
                     type="fieldgroups"
-                    label="COM_SIMPLEFILEMANAGER_FIELD_USER_CUSTOM_FIELDS_SHOW_LABEL"
-                    description="COM_SIMPLEFILEMANAGER_FIELD_USER_CUSTOM_FIELDS_SHOW_DESC"
+                    label="COM_FIREDRIVE_FIELD_USER_CUSTOM_FIELDS_SHOW_LABEL"
+                    description="COM_FIREDRIVE_FIELD_USER_CUSTOM_FIELDS_SHOW_DESC"
                     multiple="true"
                     context="com_users.user"
                     >

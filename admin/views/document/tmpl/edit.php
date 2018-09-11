@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -25,7 +25,7 @@ if ($this->isNew)
 ');
 
 $upload_field = $this->isNew ? "select_file" : "replace_file";
-$max_file_size = SimpleFileManagerHelper::detectMaxUploadFileSize();
+$max_file_size = FiredriveHelper::detectMaxUploadFileSize();
 
 JFactory::getDocument()->addScriptDeclaration('
 
@@ -42,7 +42,7 @@ JFactory::getDocument()->addScriptDeclaration('
             jQuery("#jform_' . $upload_field . '").on("change", function(e){ 
                 var input = document.getElementById("jform_' . $upload_field . '");
                 if (window.FileReader && typeof input !== "undefined" && input.files && typeof input.files[0] !== "undefined" && input.files[0].size > ' . $max_file_size . '){		
-                    alert("' . JText::_('COM_SIMPLEFILEMANAGER_ALERT_MAX_FILE_SIZE_EXCEEDED') . '");
+                    alert("' . JText::_('COM_FIREDRIVE_ALERT_MAX_FILE_SIZE_EXCEEDED') . '");
                     jQuery(this).val(null);
                 }
             });
@@ -51,14 +51,14 @@ JFactory::getDocument()->addScriptDeclaration('
 ');
 ?>
 
-<form enctype="multipart/form-data" action="<?php echo JRoute::_('index.php?option=com_simplefilemanager&layout=edit&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="document-form" class="form-validate">
+<form enctype="multipart/form-data" action="<?php echo JRoute::_('index.php?option=com_firedrive&layout=edit&id=' . (int) $this->item->id); ?>" method="post" name="adminForm" id="document-form" class="form-validate">
 
     <?php echo JLayoutHelper::render('joomla.edit.title_alias', $this); ?>
 
     <div class="form-horizontal">
         <?php echo JHtml::_('bootstrap.startTabSet', 'myTab', array('active' => 'details')); ?>
 
-        <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'document', JText::_('COM_SIMPLEFILEMANAGER_GROUP_LABEL_DOCUMENT')); ?>
+        <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'document', JText::_('COM_FIREDRIVE_GROUP_LABEL_DOCUMENT')); ?>
         <div class="row-fluid">
             <div class="span9">
                 <?php if (!$this->isNew): ?>
@@ -71,7 +71,7 @@ JFactory::getDocument()->addScriptDeclaration('
                                 <div class="controls selected">
                                     <div class="input-append">
                                         <?php echo $this->form->getInput('file_name'); ?>
-                                        <a target="_blank" class="btn btn-primary" href="index.php?option=com_simplefilemanager&task=download&id=<?php echo $this->item->id; ?>"><i class="icon-download">&nbsp;</i></a>
+                                        <a target="_blank" class="btn btn-primary" href="index.php?option=com_firedrive&task=download&id=<?php echo $this->item->id; ?>"><i class="icon-download">&nbsp;</i></a>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@ JFactory::getDocument()->addScriptDeclaration('
         </div>
         <?php echo JHtml::_('bootstrap.endTab'); ?>
 
-        <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'details', JText::_('COM_SIMPLEFILEMANAGER_GROUP_LABEL_DETAILS')); ?>
+        <?php echo JHtml::_('bootstrap.addTab', 'myTab', 'details', JText::_('COM_FIREDRIVE_GROUP_LABEL_DETAILS')); ?>
         <div class="row-fluid">
             <div class="span6">
                 <?php echo $this->form->renderFieldset('details'); ?>

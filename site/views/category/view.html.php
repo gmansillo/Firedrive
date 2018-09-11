@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -10,23 +10,23 @@ defined('_JEXEC') or die;
 JHtml::_('behavior.framework');
 
 /**
- * HTML View class for the Simple File Manager component
+ * HTML View class for the Firedrive component
  *
  * @since  1.5
  */
-class SimplefilemanagerViewCategory extends JViewCategory {
+class FiredriveViewCategory extends JViewCategory {
 
     /**
      * @var    string  The name of the extension for the category
      * @since  3.2
      */
-    protected $extension = 'com_simplefilemanager';
+    protected $extension = 'com_firedrive';
 
     /**
      * @var    string  Default title to use for page title
      * @since  3.2
      */
-    protected $defaultPageTitle = 'COM_SIMPLEFILEMANAGER_DEFAULT_PAGE_TITLE';
+    protected $defaultPageTitle = 'COM_FIREDRIVE_DEFAULT_PAGE_TITLE';
 
     /**
      * @var    string  The name of the view to link individual items to
@@ -75,7 +75,7 @@ class SimplefilemanagerViewCategory extends JViewCategory {
      */
     protected function getSortFields() {
         $fields = array(
-            'a.ordering' => JText::_('COM_SIMPLEFILEMANAGER_ORDERING'),
+            'a.ordering' => JText::_('COM_FIREDRIVE_ORDERING'),
             'a.title'    => JText::_('JGLOBAL_TITLE')
         );
 
@@ -84,11 +84,11 @@ class SimplefilemanagerViewCategory extends JViewCategory {
         }
 
         if ($this->params->get('show_document_created', 1)) {
-            $fields['a.created'] = JText::_('COM_SIMPLEFILEMANAGER_CREATED');
+            $fields['a.created'] = JText::_('COM_FIREDRIVE_CREATED');
         }
 
         if ($this->params->get('show_document_file_size', 1)) {
-            $fields['a.file_size'] = JText::_('COM_SIMPLEFILEMANAGER_FILE_SIZE');
+            $fields['a.file_size'] = JText::_('COM_FIREDRIVE_FILE_SIZE');
         }
 
         return $fields;
@@ -109,8 +109,8 @@ class SimplefilemanagerViewCategory extends JViewCategory {
             $path     = array(array('title' => $this->category->title, 'link' => ''));
             $category = $this->category->getParent();
 
-            while (($menu->query['option'] !== 'com_simplefilemanager' || $menu->query['view'] === 'document' || $id != $category->id) && $category->id > 1) {
-                $path[]   = array('title' => $category->title, 'link' => SimplefilemanagerHelperRoute::getCategoryRoute($category->id));
+            while (($menu->query['option'] !== 'com_firedrive' || $menu->query['view'] === 'document' || $id != $category->id) && $category->id > 1) {
+                $path[]   = array('title' => $category->title, 'link' => FiredriveHelperRoute::getCategoryRoute($category->id));
                 $category = $category->getParent();
             }
 

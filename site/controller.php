@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
 defined('_JEXEC') or die;
 
 /**
- * Simplefilemanager Component Controller
+ * Firedrive Component Controller
  */
-class SimplefilemanagerController extends JControllerLegacy {
+class FiredriveController extends JControllerLegacy {
 
     /**
      * Constructor.
@@ -22,7 +22,7 @@ class SimplefilemanagerController extends JControllerLegacy {
     public function __construct($config = array()) {
         $this->input = JFactory::getApplication()->input;
 
-        // Simplefilemanager frontpage Editor category proxying:
+        // Firedrive frontpage Editor category proxying:
         if ($this->input->get('view') === 'category' && $this->input->get('layout') === 'modal') {
             JHtml::_('stylesheet', 'system/adminlist.css', array(), true);
             $config['base_path'] = JPATH_COMPONENT_ADMINISTRATOR;

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -13,7 +13,7 @@ JHtml::_('behavior.tooltip');
 JHtml::_('formbehavior.chosen', 'select');
 
 $doc = JFactory::getDocument();
-$doc->addScript(JUri::base() . '/components/com_simplefilemanager/assets/js/form.js');
+$doc->addScript(JUri::base() . '/components/com_firedrive/assets/js/form.js');
 $doc->addScriptDeclaration('
 	jQuery(document).ready(function ($){
 		var input = document.getElementById("jform_select_file");
@@ -24,11 +24,11 @@ $doc->addScriptDeclaration('
 ');
 
 $user         = JFactory::getUser();
-$canManage    = $user->authorise('core.manage', 'com_simplefilemanager');
-$canEditState = $user->authorise('core.edit.state', 'com_simplefilemanager');
+$canManage    = $user->authorise('core.manage', 'com_firedrive');
+$canEditState = $user->authorise('core.edit.state', 'com_firedrive');
 ?>
 
-<div class="simplefilemanager-edit front-end-edit">
+<div class="firedrive-edit front-end-edit">
 
     <?php echo $this->params->get('page_intro'); ?>
 
@@ -37,7 +37,7 @@ $canEditState = $user->authorise('core.edit.state', 'com_simplefilemanager');
         id="form-documentform"
         method="post"
         class="form-validate"
-        action="<?php echo JRoute::_('index.php?option=com_simplefilemanager&task=simplefilemanager.save'); ?>"
+        action="<?php echo JRoute::_('index.php?option=com_firedrive&task=firedrive.save'); ?>"
         >
         <input type="hidden" name="jform[id]" value="<?php echo $this->item->id; ?>"/>
 
@@ -60,7 +60,7 @@ $canEditState = $user->authorise('core.edit.state', 'com_simplefilemanager');
         </button>
 
         <a class="btn button btn-default"
-           href="<?php echo JRoute::_('index.php?option=com_simplefilemanager'); ?>"
+           href="<?php echo JRoute::_('index.php?option=com_firedrive'); ?>"
            title="<?php echo JText::_('JCANCEL'); ?>">
             <span class="icon-cancel"></span>
             <?php echo JText::_('JCANCEL'); ?>
@@ -68,11 +68,11 @@ $canEditState = $user->authorise('core.edit.state', 'com_simplefilemanager');
 
         <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
         <input type="hidden" name="task" value=""/>
-        <input type="hidden" name="option" value="com_simplefilemanager"/>
+        <input type="hidden" name="option" value="com_firedrive"/>
         <input type="hidden" name="task" value="documentform.save"/>
         <?php echo JHtml::_('form.token'); ?>
     </form>
     
-    <?php echo JText::_('COM_SIMPLEFILEMANAGER_CREDITS'); ?>
+    <?php echo JText::_('COM_FIREDRIVE_CREDITS'); ?>
 
 </div>

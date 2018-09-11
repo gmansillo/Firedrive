@@ -1,19 +1,19 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
 // No direct access
 defined('_JEXEC') or die;
-require_once(JPATH_COMPONENT_ADMINISTRATOR . '/helpers/simplefilemanager.php');
+require_once(JPATH_COMPONENT_ADMINISTRATOR . '/helpers/firedrive.php');
 require_once JPATH_COMPONENT . '/controller.php';
 
 /**
- * Simplefilemanager controller class.
+ * Firedrive controller class.
  */
-class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerController {
+class FiredriveControllerDocumentForm extends FiredriveController {
 
     /**
      * Method to check out an item for editing and redirect to the edit form.
@@ -23,14 +23,14 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
         $app = JFactory::getApplication();
 
         // Get the previous edit id (if any) and the current edit id.
-        $previousId = (int) $app->getUserState('com_simplefilemanager.edit.document.id');
+        $previousId = (int) $app->getUserState('com_firedrive.edit.document.id');
         $editId     = $app->input->getInt('id', null, 'array');
 
         // Set the user id for the user to edit in the session.
-        $app->setUserState('com_simplefilemanager.edit.document.id', $editId);
+        $app->setUserState('com_firedrive.edit.document.id', $editId);
 
         // Get the model.
-        $model = $this->getModel('DocumentForm', 'SimplefilemanagerModel');
+        $model = $this->getModel('DocumentForm', 'FiredriveModel');
 
         // Check out the item
         if ($editId) {
@@ -43,7 +43,7 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
         }
 
         // Redirect to the edit screen.
-        $this->setRedirect(JRoute::_('index.php?option=com_simplefilemanager&view=documentform&layout=edit', false));
+        $this->setRedirect(JRoute::_('index.php?option=com_firedrive&view=documentform&layout=edit', false));
     }
 
     /**
@@ -58,7 +58,7 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
 
         // Initialise variables.
         $app    = JFactory::getApplication();
-        $model  = $this->getModel('DocumentForm', 'SimplefilemanagerModel');
+        $model  = $this->getModel('DocumentForm', 'FiredriveModel');
         $jinput = JFactory::getApplication()->input;
 
         // Get the user data.
@@ -94,12 +94,12 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
             $jform = $input->get('jform', array(), 'ARRAY');
 
             // Save the data in the session.
-            $app->setUserState('com_simplefilemanager.edit.document.data', $jform, array());
+            $app->setUserState('com_firedrive.edit.document.data', $jform, array());
 
             // Redirect back to the edit screen.
             // TODO: Add menu param in xml for customizing redirect url
-            $id                   = (int) $app->getUserState('com_simplefilemanager.edit.document.id');
-            $default_redirect_url = JRoute::_('index.php?option=com_simplefilemanager&view=documentform&layout=edit&id=' . $id);
+            $id                   = (int) $app->getUserState('com_firedrive.edit.document.id');
+            $default_redirect_url = JRoute::_('index.php?option=com_firedrive&view=documentform&layout=edit&id=' . $id);
             $redirect_url         = $params->get('documentform_redirect', $default_redirect_url);
             $this->setRedirect($redirect_url, false);
 
@@ -112,12 +112,12 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
         // Check for errors.
         if ($return === false) {
             // Save the data in the session.
-            $app->setUserState('com_simplefilemanager.edit.document.data', $data);
+            $app->setUserState('com_firedrive.edit.document.data', $data);
 
             // Redirect back to the edit screen.
-            $id = (int) $app->getUserState('com_simplefilemanager.edit.document.id');
+            $id = (int) $app->getUserState('com_firedrive.edit.document.id');
             $this->setMessage(JText::sprintf('Save failed', $model->getError()), 'warning');
-            $this->setRedirect(JRoute::_('index.php?option=com_simplefilemanager&view=documentform&layout=edit&id=' . $id, false));
+            $this->setRedirect(JRoute::_('index.php?option=com_firedrive&view=documentform&layout=edit&id=' . $id, false));
 
             return false;
         }
@@ -129,16 +129,16 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
         }
 
         // Clear the profile id from the session.
-        $app->setUserState('com_simplefilemanager.edit.document.id', null);
+        $app->setUserState('com_firedrive.edit.document.id', null);
 
         // Redirect to the list screen.
-        $this->setMessage(JText::_('COM_SIMPLEFILEMANAGER_ITEM_SAVED_SUCCESSFULLY'));
+        $this->setMessage(JText::_('COM_FIREDRIVE_ITEM_SAVED_SUCCESSFULLY'));
 
-        $url = JRoute::_('index.php?option=com_simplefilemanager&catid=' . $data["catid"], false);
+        $url = JRoute::_('index.php?option=com_firedrive&catid=' . $data["catid"], false);
         $this->setRedirect($url);
 
         // Flush the data from the session.
-        $app->setUserState('com_simplefilemanager.edit.document.data', null);
+        $app->setUserState('com_firedrive.edit.document.data', null);
     }
 
     /**
@@ -150,15 +150,15 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
     protected function prepareDataBeforeSave(&$data, $files) {
         jimport('joomla.filesystem.file');
 
-        $params       = JComponentHelper::getParams('com_simplefilemanager');
+        $params       = JComponentHelper::getParams('com_firedrive');
         $user         = JFactory::getUser();
-        $canManage    = $user->authorise('core.manage', 'com_simplefilemanager');
-        $canEditState = $user->authorise('core.edit.state', 'com_simplefilemanager');
+        $canManage    = $user->authorise('core.manage', 'com_firedrive');
+        $canEditState = $user->authorise('core.edit.state', 'com_firedrive');
         $isNew        = empty($data["id"]);
 
         if ($files["select_file"]["size"] <= 0) {
             if ($isNew) {
-                throw new Exception(JText::_('COM_SIMPLEFILEMANAGER_NO_FILE_ERROR_MESSAGE'), 503);
+                throw new Exception(JText::_('COM_FIREDRIVE_NO_FILE_ERROR_MESSAGE'), 503);
             }
         } else {
 
@@ -175,7 +175,7 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
             $data["file_name"] = JFile::upload($files["select_file"]["tmp_name"], $dest) ? $dest : false;
 
             if (!$data["file_name"]) {
-                JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_FILE_UPLOAD_ERROR_MESSAGE'), 'error');
+                JFactory::getApplication()->enqueueMessage(JText::_('COM_FIREDRIVE_FILE_UPLOAD_ERROR_MESSAGE'), 'error');
                 parent::save($key, $urlVar);
 
                 return;
@@ -202,10 +202,10 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
         $app = JFactory::getApplication();
 
         // Get the current edit id.
-        $editId = (int) $app->getUserState('com_simplefilemanager.edit.document.id');
+        $editId = (int) $app->getUserState('com_firedrive.edit.document.id');
 
         // Get the model.
-        $model = $this->getModel('DocumentForm', 'SimplefilemanagerModel');
+        $model = $this->getModel('DocumentForm', 'FiredriveModel');
 
         // Check in the item
         if ($editId) {
@@ -214,14 +214,14 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
 
         $menu = JFactory::getApplication()->getMenu();
         $item = $menu->getActive();
-        $url  = (empty($item->link) ? 'index.php?option=com_simplefilemanager' : $item->link);
+        $url  = (empty($item->link) ? 'index.php?option=com_firedrive' : $item->link);
         $this->setRedirect(JRoute::_($url, false));
     }
 
     public function remove() {
         // Initialise variables.
         $app   = JFactory::getApplication();
-        $model = $this->getModel('DocumentForm', 'SimplefilemanagerModel');
+        $model = $this->getModel('DocumentForm', 'FiredriveModel');
 
         // Get the user data.
         $data       = array();
@@ -242,11 +242,11 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
             }
 
             // Save the data in the session.
-            $app->setUserState('com_simplefilemanager.edit.document.data', $data);
+            $app->setUserState('com_firedrive.edit.document.data', $data);
 
             // Redirect back to the edit screen.
-            $id = (int) $app->getUserState('com_simplefilemanager.edit.document.id');
-            $this->setRedirect(JRoute::_('index.php?option=com_simplefilemanager&view=simplefilemanager&layout=edit&id=' . $id, false));
+            $id = (int) $app->getUserState('com_firedrive.edit.document.id');
+            $this->setRedirect(JRoute::_('index.php?option=com_firedrive&view=firedrive&layout=edit&id=' . $id, false));
 
             return false;
         }
@@ -257,12 +257,12 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
         // Check for errors.
         if ($return === false) {
             // Save the data in the session.
-            $app->setUserState('com_simplefilemanager.edit.document.data', $data);
+            $app->setUserState('com_firedrive.edit.document.data', $data);
 
             // Redirect back to the edit screen.
-            $id = (int) $app->getUserState('com_simplefilemanager.edit.document.id');
+            $id = (int) $app->getUserState('com_firedrive.edit.document.id');
             $this->setMessage(JText::sprintf('Delete failed', $model->getError()), 'warning');
-            $this->setRedirect(JRoute::_('index.php?option=com_simplefilemanager&view=simplefilemanager&layout=edit&id=' . $id, false));
+            $this->setRedirect(JRoute::_('index.php?option=com_firedrive&view=firedrive&layout=edit&id=' . $id, false));
 
             return false;
         }
@@ -274,17 +274,17 @@ class SimplefilemanagerControllerDocumentForm extends SimplefilemanagerControlle
         }
 
         // Clear the profile id from the session.
-        $app->setUserState('com_simplefilemanager.edit.document.id', null);
+        $app->setUserState('com_firedrive.edit.document.id', null);
 
         // Redirect to the list screen.
-        $this->setMessage(JText::_('COM_SIMPLEFILEMANAGER_ITEM_DELETED_SUCCESSFULLY'));
+        $this->setMessage(JText::_('COM_FIREDRIVE_ITEM_DELETED_SUCCESSFULLY'));
         $menu = JFactory::getApplication()->getMenu();
         $item = $menu->getActive();
-        $url  = (empty($item->link) ? 'index.php?option=com_simplefilemanager' : $item->link);
+        $url  = (empty($item->link) ? 'index.php?option=com_firedrive' : $item->link);
         $this->setRedirect(JRoute::_($url, false));
 
         // Flush the data from the session.
-        $app->setUserState('com_simplefilemanager.edit.document.data', null);
+        $app->setUserState('com_firedrive.edit.document.data', null);
     }
 
 }

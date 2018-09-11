@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-    <fields name="filter" addfieldpath="/administrator/components/com_simplefilemanager/models/fields">
+    <fields name="filter" addfieldpath="/administrator/components/com_firedrive/models/fields">
         <field
             name="search"
             type="text"
-            label="COM_SIMPLEFILEMANAGER_DOCUMENTS_FILTER_SEARCH_LABEL"
-            description="COM_SIMPLEFILEMANAGER_DOCUMENTS_FILTER_SEARCH_DESC"
+            label="COM_FIREDRIVE_DOCUMENTS_FILTER_SEARCH_LABEL"
+            description="COM_FIREDRIVE_DOCUMENTS_FILTER_SEARCH_DESC"
             hint="JSEARCH_FILTER"
         />
 
@@ -24,7 +24,7 @@
             type="category"
             label="JOPTION_FILTER_CATEGORY"
             description="JOPTION_FILTER_CATEGORY_DESC"
-            extension="com_simplefilemanager"
+            extension="com_firedrive"
             onchange="this.form.submit();"
         >
             <option value="">JOPTION_SELECT_CATEGORY</option>
@@ -57,14 +57,14 @@
             <option value="a.ordering DESC">JGRID_HEADING_ORDERING_DESC</option>
             <option value="a.state ASC">JSTATUS_ASC</option>
             <option value="a.state DESC">JSTATUS_DESC</option>
-            <option value="a.title ASC">COM_SIMPLEFILEMANAGER_HEADING_TITLE_ASC</option>
-            <option value="a.title DESC">COM_SIMPLEFILEMANAGER_HEADING_TITLE_DESC</option>
+            <option value="a.title ASC">COM_FIREDRIVE_HEADING_TITLE_ASC</option>
+            <option value="a.title DESC">COM_FIREDRIVE_HEADING_TITLE_DESC</option>
             <option value="category_title ASC">JCATEGORY_ASC</option>
             <option value="category_title DESC">JCATEGORY_DESC</option>
-            <option value="a.created ASC">COM_SIMPLEFILEMANAGER_HEADING_CREATED_ASC</option>
-            <option value="a.created DESC">COM_SIMPLEFILEMANAGER_HEADING_CREATED_DESC</option>
-            <option value="a.download_counter ASC">COM_SIMPLEFILEMANAGER_HEADING_DOWNLOAD_COUNTER_ASC</option>
-            <option value="a.download_counter DESC">COM_SIMPLEFILEMANAGER_HEADING_DOWNLOAD_COUNTER_DESC</option>
+            <option value="a.created ASC">COM_FIREDRIVE_HEADING_CREATED_ASC</option>
+            <option value="a.created DESC">COM_FIREDRIVE_HEADING_CREATED_DESC</option>
+            <option value="a.download_counter ASC">COM_FIREDRIVE_HEADING_DOWNLOAD_COUNTER_ASC</option>
+            <option value="a.download_counter DESC">COM_FIREDRIVE_HEADING_DOWNLOAD_COUNTER_DESC</option>
             <option value="a.language ASC">JGRID_HEADING_LANGUAGE_ASC</option>
             <option value="a.language DESC">JGRID_HEADING_LANGUAGE_DESC</option>
             <option value="a.id ASC">JGRID_HEADING_ID_ASC</option>
@@ -74,8 +74,8 @@
         <field
             name="limit"
             type="limitbox"
-            label="COM_SIMPLEFILEMANAGER_LIST_LIMIT"
-            description="COM_SIMPLEFILEMANAGER_LIST_LIMIT_DESC"
+            label="COM_FIREDRIVE_LIST_LIMIT"
+            description="COM_FIREDRIVE_LIST_LIMIT_DESC"
             class="input-mini"
             default="25"
             onchange="this.form.submit();"

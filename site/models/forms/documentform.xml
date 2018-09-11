@@ -18,7 +18,7 @@
             class="input-xxlarge input-lg"
             size="40"
             label="JGLOBAL_TITLE"
-            description="COM_SIMPLEFILEMANAGER_FIELD_TITLE_DESC"
+            description="COM_FIREDRIVE_FIELD_TITLE_DESC"
             required="true"
         />
 
@@ -26,8 +26,8 @@
             name="catid"
             type="categoryedit"
             label="JCATEGORY"
-            description="COM_SIMPLEFILEMANAGER_FIELD_CATEGORY_DESC"
-            extension="com_simplefilemanager"
+            description="COM_FIREDRIVE_FIELD_CATEGORY_DESC"
+            extension="com_firedrive"
             required="true"
             addfieldpath="/administrator/components/com_categories/models/fields"
             default=""
@@ -37,8 +37,8 @@
             name="select_file"
             type="file"
             class="inputbox"
-            label="COM_SIMPLEFILEMANAGER_FIELD_SELECT_FILE_LABEL"
-            description="COM_SIMPLEFILEMANAGER_FIELD_SELECT_FILE_DESC"
+            label="COM_FIREDRIVE_FIELD_SELECT_FILE_LABEL"
+            description="COM_FIREDRIVE_FIELD_SELECT_FILE_DESC"
         />
 
         <field

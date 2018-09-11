@@ -1,20 +1,20 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
 defined('_JEXEC') or die;
 
-JLoader::register('SimplefilemanagerHelper', JPATH_ADMINISTRATOR . '/components/com_simplefilemanager/helpers/simplefilemanager.php');
+JLoader::register('FiredriveHelper', JPATH_ADMINISTRATOR . '/components/com_firedrive/helpers/firedrive.php');
 
 /**
  * Document model.
  *
  * @since  1.6
  */
-class SimplefilemanagerModelDocument extends JModelAdmin {
+class FiredriveModelDocument extends JModelAdmin {
 
     /**
      * The prefix to use with controller messages.
@@ -22,7 +22,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
      * @var    string
      * @since  1.6
      */
-    protected $text_prefix = 'COM_SIMPLEFILEMANAGER_DOCUMENT';
+    protected $text_prefix = 'COM_FIREDRIVE_DOCUMENT';
 
     /**
      * The type alias for this content type.
@@ -30,7 +30,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
      * @var    string
      * @since  3.2
      */
-    public $typeAlias = 'com_simplefilemanager.document';
+    public $typeAlias = 'com_firedrive.document';
 
     /**
      * Batch copy/move command. If set to false, the batch copy/move command is not supported
@@ -64,7 +64,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
         // Set the variables
         $user = JFactory::getUser();
 
-        /** @var SimplefilemanagerTableDocument $table */
+        /** @var FiredriveTableDocument $table */
         $table = $this->getTable();
 
         foreach ($pks as $pk) {
@@ -105,7 +105,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
     protected function batchCopy($value, $pks, $contexts) {
         $categoryId = (int) $value;
 
-        /** @var SimplefilemanagerTableDocument $table */
+        /** @var FiredriveTableDocument $table */
         $table  = $this->getTable();
         $newIds = array();
 
@@ -134,7 +134,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
         }
 
         // Check that the user has create permission for the component
-        if (!JFactory::getUser()->authorise('core.create', 'com_simplefilemanager.category.' . $categoryId)) {
+        if (!JFactory::getUser()->authorise('core.create', 'com_firedrive.category.' . $categoryId)) {
             $this->setError(JText::_('JLIB_APPLICATION_ERROR_BATCH_CANNOT_CREATE'));
 
             return false;
@@ -173,10 +173,10 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
             $table->catid = $categoryId;
             
             // New file path
-            $copy = SimplefilemanagerHelper::copyFile($table->file_name);
+            $copy = FiredriveHelper::copyFile($table->file_name);
             if ($copy === false)
             {
-                throw new Exception(JText::sprintf('COM_SIMPLEFILEMANAGER_FIELD_COPY_ERROR', $this->form["file_name"]), 500);
+                throw new Exception(JText::sprintf('COM_FIREDRIVE_FIELD_COPY_ERROR', $this->form["file_name"]), 500);
             }
             $table->file_name = $copy;
 
@@ -228,7 +228,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
             }
 
             if (!empty($record->catid)) {
-                return JFactory::getUser()->authorise('core.delete', 'com_simplefilemanager.category.' . (int) $record->catid);
+                return JFactory::getUser()->authorise('core.delete', 'com_firedrive.category.' . (int) $record->catid);
             }
 
             return parent::canDelete($record);
@@ -275,7 +275,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
                     $query = $db->getQuery(true);
                     $query
                             ->select($db->quoteName('file_name'))
-                            ->from($db->quoteName('#__simplefilemanager'))
+                            ->from($db->quoteName('#__firedrive'))
                             ->where($db->quoteName('id') . ' = ' . $pk);
                     $db->setQuery($query);
 
@@ -288,7 +288,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
                     } else {
 
                         if (!JFile::delete($file_name)) {
-                            JFactory::getApplication()->enqueueMessage(JText::_('COM_SIMPLEFILEMANAGER_ERROR_DELETING') . ': ' . $file_name, 'error');
+                            JFactory::getApplication()->enqueueMessage(JText::_('COM_FIREDRIVE_ERROR_DELETING') . ': ' . $file_name, 'error');
                         } else {
                             $path_parts = pathinfo($file_name);
                             JFolder::delete($path_parts['dirname']);
@@ -336,7 +336,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
     protected function canEditState($record) {
         // Check against the category.
         if (!empty($record->catid)) {
-            return JFactory::getUser()->authorise('core.edit.state', 'com_simplefilemanager.category.' . (int) $record->catid);
+            return JFactory::getUser()->authorise('core.edit.state', 'com_firedrive.category.' . (int) $record->catid);
         }
 
         // Default to component settings if category not known.
@@ -354,7 +354,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
      *
      * @since   1.6
      */
-    public function getTable($type = 'Document', $prefix = 'SimplefilemanagerTable', $config = array()) {
+    public function getTable($type = 'Document', $prefix = 'FiredriveTable', $config = array()) {
         return JTable::getInstance($type, $prefix, $config);
     }
 
@@ -370,7 +370,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
      */
     public function getForm($data = array(), $loadData = true) {
         // Get the form.
-        $form = $this->loadForm('com_simplefilemanager.document', 'document', array('control' => 'jform', 'load_data' => $loadData));
+        $form = $this->loadForm('com_firedrive.document', 'document', array('control' => 'jform', 'load_data' => $loadData));
 
         if (empty($form)) {
             return false;
@@ -412,21 +412,21 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
     protected function loadFormData() {
         // Check the session for previously entered form data.
         $app  = JFactory::getApplication();
-        $data = $app->getUserState('com_simplefilemanager.edit.document.data', array());
+        $data = $app->getUserState('com_firedrive.edit.document.data', array());
 
         if (empty($data)) {
             $data = $this->getItem();
 
             // Prime some default values.
             if ($this->getState('document.id') == 0) {
-                $filters     = (array) $app->getUserState('com_simplefilemanager.document.filter');
+                $filters     = (array) $app->getUserState('com_firedrive.document.filter');
                 $filterCatId = isset($filters['category_id']) ? $filters['category_id'] : null;
 
                 $data->set('catid', $app->input->getInt('catid', $filterCatId));
             }
         }
 
-        $this->preprocessData('com_simplefilemanager.document', $data);
+        $this->preprocessData('com_firedrive.document', $data);
 
         return $data;
     }
@@ -444,7 +444,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
             $item->metadata = $registry->toArray();
 
             $item->tags             = new JHelperTags;
-            $item->tags->getTagIds($item->id, 'com_simplefilemanager.document');
+            $item->tags->getTagIds($item->id, 'com_firedrive.document');
             $item->metadata['tags'] = $item->tags;
 
             if ($item->id) {
@@ -452,7 +452,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
                 $db                  = JFactory::getDbo();
                 $query               = $db->getQuery(true);
                 $query->select('user_id');
-                $query->from('#__simplefilemanager_user_documents');
+                $query->from('#__firedrive_user_documents');
                 $query->where('document_id = ' . $item->id);
                 $db->setQuery($query);
                 $item->reserved_user = $db->loadColumn();
@@ -461,7 +461,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
                 $db                   = JFactory::getDbo();
                 $query                = $db->getQuery(true);
                 $query->select('group_id');
-                $query->from('#__simplefilemanager_group_documents');
+                $query->from('#__firedrive_group_documents');
                 $query->where('document_id = ' . $item->id);
                 $db->setQuery($query);
                 $item->reserved_group = $db->loadColumn();
@@ -508,7 +508,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
                 $db    = $this->getDbo();
                 $query = $db->getQuery(true)
                         ->select('MAX(ordering)')
-                        ->from('#__simplefilemanager');
+                        ->from('#__firedrive');
 
                 $db->setQuery($query);
                 $max = $db->loadResult();
@@ -560,7 +560,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
 
         // Check if New Category exists
         if ($catid > 0) {
-            $catid = CategoriesHelper::validateCategoryId($data['catid'], 'com_simplefilemanager');
+            $catid = CategoriesHelper::validateCategoryId($data['catid'], 'com_firedrive');
         }
 
         // Save New Category
@@ -568,7 +568,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
             $table              = array();
             $table['title']     = $data['catid'];
             $table['parent_id'] = 1;
-            $table['extension'] = 'com_simplefilemanager';
+            $table['extension'] = 'com_firedrive';
             $table['language']  = $data['language'];
             $table['published'] = 1;
 
@@ -602,7 +602,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
 
         // Alter the title for save as copy
         if ($input->get('task') == 'save2copy') {
-            /** @var SimplefilemanagerTableDocument $origTable */
+            /** @var FiredriveTableDocument $origTable */
             $origTable = clone $this->getTable();
             $origTable->load($input->getInt('id'));
 
@@ -630,7 +630,7 @@ class SimplefilemanagerModelDocument extends JModelAdmin {
      * @since   3.6.1
      */
     private function canCreateCategory() {
-        return JFactory::getUser()->authorise('core.create', 'com_simplefilemanager');
+        return JFactory::getUser()->authorise('core.create', 'com_firedrive');
     }
 
 }

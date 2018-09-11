@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
 defined('_JEXEC') or die;
 
 /**
- * Simplefilemanager Component Category Tree
+ * Firedrive Component Category Tree
  */
-class SimplefilemanagerCategories extends JCategories {
+class FiredriveCategories extends JCategories {
 
     /**
      * Class constructor
@@ -18,8 +18,8 @@ class SimplefilemanagerCategories extends JCategories {
      * @param   array  $options  Array of options
      */
     public function __construct($options = array()) {
-        $options['table']      = '#__simplefilemanager';
-        $options['extension']  = 'com_simplefilemanager';
+        $options['table']      = '#__firedrive';
+        $options['extension']  = 'com_firedrive';
         $options['statefield'] = 'state';
         parent::__construct($options);
     }

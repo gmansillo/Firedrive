@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -21,8 +21,8 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
         <?php if ($this->params->get('filter_field') == 1) : ?>
             <div class="btn-group">
-                <label class="filter-search-lbl element-invisible" for="filter-search"><span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span><?php echo JText::_('COM_SIMPLEFILEMANAGER_FILTER_SEARCH_LABEL') . '&#160;'; ?></label>
-                <input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->state->get('list.filter')); ?>" class="inputbox" onchange="document.adminForm.submit();" title="<?php echo JText::_('COM_SIMPLEFILEMANAGER_FILTER_SEARCH_DESC'); ?>" placeholder="<?php echo JText::_('COM_SIMPLEFILEMANAGER_FILTER_SEARCH_DESC'); ?>" />
+                <label class="filter-search-lbl element-invisible" for="filter-search"><span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span><?php echo JText::_('COM_FIREDRIVE_FILTER_SEARCH_LABEL') . '&#160;'; ?></label>
+                <input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->state->get('list.filter')); ?>" class="inputbox" onchange="document.adminForm.submit();" title="<?php echo JText::_('COM_FIREDRIVE_FILTER_SEARCH_DESC'); ?>" placeholder="<?php echo JText::_('COM_FIREDRIVE_FILTER_SEARCH_DESC'); ?>" />
             </div>
         <?php endif; ?>
 
@@ -62,7 +62,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
     </fieldset>
 
     <?php if (empty($this->items)) : ?>
-        <p> <?php echo JText::_('COM_SIMPLEFILEMANAGER_NO_DOCUMENTS'); ?></p>
+        <p> <?php echo JText::_('COM_FIREDRIVE_NO_DOCUMENTS'); ?></p>
     <?php else : ?>
 
         <script language="javascript" type="text/javascript">
@@ -106,8 +106,8 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
                                 <?php $full_width = 5; ?>
                                 <?php if (!empty($this->items[$i]->icon)) : ?>
                                     <h3>
-                                        <a style="padding-bottom:5px; padding-right:5px" href="<?php echo JRoute::_(SimplefilemanagerHelperRoute::getDocumentRoute($item->slug, $item->catid)); ?>">
-                                            <?php echo JHtml::_('image', $this->items[$i]->icon, JText::_('COM_SIMPLEFILEMANAGER_IMAGE_DETAILS'), array('class' => 'document-thumbnail img-thumbnail', 'alt' => '')); ?>
+                                        <a style="padding-bottom:5px; padding-right:5px" href="<?php echo JRoute::_(FiredriveHelperRoute::getDocumentRoute($item->slug, $item->catid)); ?>">
+                                            <?php echo JHtml::_('image', $this->items[$i]->icon, JText::_('COM_FIREDRIVE_IMAGE_DETAILS'), array('class' => 'document-thumbnail img-thumbnail', 'alt' => '')); ?>
                                         </a>
                                     </h3>
                                 <?php endif; ?>
@@ -121,7 +121,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
                         <div class="list-title span<?php echo $full_width; ?> col-md-<?php echo $full_width; ?> ">
 
-                            <a href="<?php echo JRoute::_(SimplefilemanagerHelperRoute::getDocumentRoute($item->slug, $item->catid)); ?>">
+                            <a href="<?php echo JRoute::_(FiredriveHelperRoute::getDocumentRoute($item->slug, $item->catid)); ?>">
                                 <h3><?php echo $item->title; ?></h3>
                             </a>
 
@@ -136,7 +136,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
                                 ?>
 
                                 <?php if ($created >= $limit) : ?>
-                                    <span class="label label-important"><?php echo JText::_('COM_SIMPLEFILEMANAGER_NEW'); ?></span>
+                                    <span class="label label-important"><?php echo JText::_('COM_FIREDRIVE_NEW'); ?></span>
                                 <?php endif; ?>
                             <?php endif; ?>
 
@@ -152,7 +152,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
                                 $details[] = $item->created;
                             }
                             if ($this->params->get('category_show_document_file_size') == 1 && !empty($item->file_size)) {
-                                $file_size = SimplefilemanagerHelper::convertToReadableSize($item->file_size);
+                                $file_size = FiredriveHelper::convertToReadableSize($item->file_size);
                                 $details[] = $file_size;
                             }
                             if ($this->params->get('category_show_document_license') == 1 && !empty($item->license)) {
@@ -181,8 +181,8 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 
                         <div class="span2 col-md-2">
                             <?php if ($this->params->get('show_download_in_category_view', 1)) : ?>
-                                <?php $downloadLink = JRoute::_('index.php?option=com_simplefilemanager&amp;view=document&amp;id=' . $item->id . '&amp;format=raw'); ?>
-                                <a href="<?php echo $downloadLink; ?>" class="btn btn-default"><?php echo JText::_('COM_SIMPLEFILEMANAGER_DOWNLOAD_BUTTON') ?></a>
+                                <?php $downloadLink = JRoute::_('index.php?option=com_firedrive&amp;view=document&amp;id=' . $item->id . '&amp;format=raw'); ?>
+                                <a href="<?php echo $downloadLink; ?>" class="btn btn-default"><?php echo JText::_('COM_FIREDRIVE_DOWNLOAD_BUTTON') ?></a>
                                 <br />
                             <?php endif; ?>
                         </div>

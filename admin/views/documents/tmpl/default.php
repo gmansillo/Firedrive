@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -19,11 +19,11 @@ $listDirn = $this->escape($this->state->get('list.direction'));
 $saveOrder = $listOrder == 'a.ordering';
 
 if ($saveOrder) {
-    $saveOrderingUrl = 'index.php?option=com_simplefilemanager&task=documents.saveOrderAjax&tmpl=component';
+    $saveOrderingUrl = 'index.php?option=com_firedrive&task=documents.saveOrderAjax&tmpl=component';
     JHtml::_('sortablelist.sortable', 'articleList', 'adminForm', strtolower($listDirn), $saveOrderingUrl);
 }
 ?>
-<form action="<?php echo JRoute::_('index.php?option=com_simplefilemanager&view=documents'); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo JRoute::_('index.php?option=com_firedrive&view=documents'); ?>" method="post" name="adminForm" id="adminForm">
     <div id="j-sidebar-container" class="span2">
         <?php echo $this->sidebar; ?>
     </div>
@@ -53,25 +53,25 @@ if ($saveOrder) {
                             <?php echo JHtml::_('searchtools.sort', 'JSTATUS', 'a.state', $listDirn, $listOrder); ?>
                         </th>
                         <th>
-                            <?php echo JHtml::_('searchtools.sort', 'COM_SIMPLEFILEMANAGER_HEADING_TITLE', 'a.title', $listDirn, $listOrder); ?>
+                            <?php echo JHtml::_('searchtools.sort', 'COM_FIREDRIVE_HEADING_TITLE', 'a.title', $listDirn, $listOrder); ?>
                         </th>
                         <th width="10%" class="nowrap hidden-phone">
-                            <?php echo JText::_('COM_SIMPLEFILEMANAGER_HEADING_VISIBILITY'); ?>
+                            <?php echo JText::_('COM_FIREDRIVE_HEADING_VISIBILITY'); ?>
                         </th>
                         <th width="10%" class="nowrap hidden-phone">
-                            <?php echo JText::_('COM_SIMPLEFILEMANAGER_HEADING_AUTHOR'); ?>
+                            <?php echo JText::_('COM_FIREDRIVE_HEADING_AUTHOR'); ?>
                         </th>
                         <th width="5%" class="nowrap hidden-phone">
-                            <?php echo JText::_('COM_SIMPLEFILEMANAGER_HEADING_FILE_SIZE'); ?>
+                            <?php echo JText::_('COM_FIREDRIVE_HEADING_FILE_SIZE'); ?>
                         </th>
                         <th width="10%" class="nowrap hidden-phone">
-                            <?php echo JHtml::_('searchtools.sort', 'COM_SIMPLEFILEMANAGER_HEADING_CREATED', 'a.created', $listDirn, $listOrder); ?>
+                            <?php echo JHtml::_('searchtools.sort', 'COM_FIREDRIVE_HEADING_CREATED', 'a.created', $listDirn, $listOrder); ?>
                         </th>
                         <th width="10%" class="nowrap hidden-phone">
                             <?php echo JHtml::_('searchtools.sort', 'JGRID_HEADING_LANGUAGE', 'a.language', $listDirn, $listOrder); ?>
                         </th>
                         <th width="1%" class="nowrap hidden-phone">
-                            <?php echo JHtml::_('searchtools.sort', 'COM_SIMPLEFILEMANAGER_HEADING_DOWNLOAD_COUNTER', 'a.download_counter', $listDirn, $listOrder); ?>
+                            <?php echo JHtml::_('searchtools.sort', 'COM_FIREDRIVE_HEADING_DOWNLOAD_COUNTER', 'a.download_counter', $listDirn, $listOrder); ?>
                         </th>
                         <th width="1%" class="nowrap hidden-phone">
                             <?php echo JHtml::_('searchtools.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
@@ -89,11 +89,11 @@ if ($saveOrder) {
                     <?php
                     foreach ($this->items as $i => $item) :
                         $ordering = ($listOrder == 'ordering');
-                        $item->cat_link = JRoute::_('index.php?option=com_categories&extension=com_simplefilemanager&task=edit&type=other&cid[]=' . $item->catid);
-                        $canCreate = $user->authorise('core.create', 'com_simplefilemanager.category.' . $item->catid);
-                        $canEdit = $user->authorise('core.edit', 'com_simplefilemanager.category.' . $item->catid);
+                        $item->cat_link = JRoute::_('index.php?option=com_categories&extension=com_firedrive&task=edit&type=other&cid[]=' . $item->catid);
+                        $canCreate = $user->authorise('core.create', 'com_firedrive.category.' . $item->catid);
+                        $canEdit = $user->authorise('core.edit', 'com_firedrive.category.' . $item->catid);
                         $canCheckin = $user->authorise('core.manage', 'com_checkin') || $item->checked_out == $userId || $item->checked_out == 0;
-                        $canChange = $user->authorise('core.edit.state', 'com_simplefilemanager.category.' . $item->catid) && $canCheckin;
+                        $canChange = $user->authorise('core.edit.state', 'com_firedrive.category.' . $item->catid) && $canCheckin;
                         ?>
                         <tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->catid; ?>">
                             <td class="order nowrap center hidden-phone">
@@ -136,7 +136,7 @@ if ($saveOrder) {
                                         <?php echo JHtml::_('jgrid.checkedout', $i, $item->editor, $item->checked_out_time, 'documents.', $canCheckin); ?>
                                     <?php endif; ?>
                                     <?php if ($canEdit) : ?>
-                                        <a class="hasTooltip" href="<?php echo JRoute::_('index.php?option=com_simplefilemanager&task=document.edit&id=' . (int) $item->id); ?>" title="<?php echo JText::_('JACTION_EDIT'); ?>">
+                                        <a class="hasTooltip" href="<?php echo JRoute::_('index.php?option=com_firedrive&task=document.edit&id=' . (int) $item->id); ?>" title="<?php echo JText::_('JACTION_EDIT'); ?>">
                                             <?php echo $this->escape($item->title); ?></a>
                                     <?php else : ?>
                                         <?php echo $this->escape($item->title); ?>
@@ -152,15 +152,15 @@ if ($saveOrder) {
                             <td class="small hidden-phone">
                                 <?php
                                 switch ($item->visibility) {
-                                    case 1: echo JText::_('COM_SIMPLEFILEMANAGER_VISIBILITY_1_PUBLIC');
+                                    case 1: echo JText::_('COM_FIREDRIVE_VISIBILITY_1_PUBLIC');
                                         break;
-                                    case 2: echo JText::_('COM_SIMPLEFILEMANAGER_VISIBILITY_2_REGISTRED');
+                                    case 2: echo JText::_('COM_FIREDRIVE_VISIBILITY_2_REGISTRED');
                                         break;
-                                    case 3: echo JText::_('COM_SIMPLEFILEMANAGER_VISIBILITY_3_USER');
+                                    case 3: echo JText::_('COM_FIREDRIVE_VISIBILITY_3_USER');
                                         break;
-                                    case 4: echo JText::_('COM_SIMPLEFILEMANAGER_VISIBILITY_4_GROUP');
+                                    case 4: echo JText::_('COM_FIREDRIVE_VISIBILITY_4_GROUP');
                                         break;
-                                    case 5: echo JText::_('COM_SIMPLEFILEMANAGER_VISIBILITY_5_AUTHOR');
+                                    case 5: echo JText::_('COM_FIREDRIVE_VISIBILITY_5_AUTHOR');
                                         break;
                                 }
                                 ?>
@@ -171,7 +171,7 @@ if ($saveOrder) {
                                 </a>
                             </td>
                             <td class="small hidden-phone">
-                                <?php echo SimplefilemanagerHelper::convertToReadableSize($item->file_size); ?>
+                                <?php echo FiredriveHelper::convertToReadableSize($item->file_size); ?>
                             </td>
                             <td class="small hidden-phone">
                                 <?php echo $item->created; ?>
@@ -180,7 +180,7 @@ if ($saveOrder) {
                                 <?php echo JLayoutHelper::render('joomla.content.language', $item); ?>
                             </td>
                             <td class="small hidden-phone">
-                                <span class="badge badge-info hasTooltip" title="<?php echo JText::sprintf('COM_SIMPLEFILEMANAGER_LAST_DOWNLOAD', $item->download_last); ?>"><?php echo $item->download_counter; ?></span>
+                                <span class="badge badge-info hasTooltip" title="<?php echo JText::sprintf('COM_FIREDRIVE_LAST_DOWNLOAD', $item->download_last); ?>"><?php echo $item->download_counter; ?></span>
                             </td>
                             <td class="hidden-phone">
                                 <?php echo $item->id; ?>
@@ -192,15 +192,15 @@ if ($saveOrder) {
 
             <?php
             // Load the batch processing form.
-            if ($user->authorise('core.create', 'com_simplefilemanager') && $user->authorise('core.edit', 'com_simplefilemanager') && $user->authorise('core.edit.state', 'com_simplefilemanager')) {
-                $modal_params = array('title' => JText::_('COM_SIMPLEFILEMANAGER_BATCH_OPTIONS'), 'footer' => $this->loadTemplate('batch_footer'));
+            if ($user->authorise('core.create', 'com_firedrive') && $user->authorise('core.edit', 'com_firedrive') && $user->authorise('core.edit.state', 'com_firedrive')) {
+                $modal_params = array('title' => JText::_('COM_FIREDRIVE_BATCH_OPTIONS'), 'footer' => $this->loadTemplate('batch_footer'));
                 echo JHtml::_('bootstrap.renderModal', 'collapseModal', $modal_params, $this->loadTemplate('batch_body'));
             }
             ?>
 
         <?php endif; ?>
 
-        <?php echo JText::_("COM_SIMPLEFILEMANAGER_UPGRADE_INSTRUCTIONS"); ?>
+        <?php echo JText::_("COM_FIREDRIVE_UPGRADE_INSTRUCTIONS"); ?>
 
         <input type="hidden" name="task" value="" />
         <input type="hidden" name="boxchecked" value="0" />

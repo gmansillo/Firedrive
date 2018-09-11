@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -12,7 +12,7 @@ use Joomla\Registry\Registry;
 /**
  * Single item model for a document
  */
-class SimplefilemanagerModelDocument extends JModelItem {
+class FiredriveModelDocument extends JModelItem {
 
     /**
      * The name of the view for a single item
@@ -29,7 +29,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
      *
      * @var		string
      */
-    protected $_context = 'com_simplefilemanager.document';
+    protected $_context = 'com_firedrive.document';
 
     /**
      * Method to auto-populate the model state.
@@ -46,7 +46,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
 
         $user = JFactory::getUser();
 
-        if ((!$user->authorise('core.edit.state', 'com_simplefilemanager')) && (!$user->authorise('core.edit', 'com_simplefilemanager'))) {
+        if ((!$user->authorise('core.edit.state', 'com_firedrive')) && (!$user->authorise('core.edit', 'com_firedrive'))) {
             $this->setState('filter.published', 1);
             $this->setState('filter.archived', 2);
         }
@@ -91,7 +91,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
                 $case_when1 .= $c_id . ' END as catslug';
 
                 $query->select($this->getState('item.select', 'a.*') . ',' . $case_when . ',' . $case_when1)
-                        ->from('#__simplefilemanager AS a')
+                        ->from('#__firedrive AS a')
 
                         // Join on category table.
                         ->select('c.title AS category_title, c.alias AS category_alias, c.access AS category_access')
@@ -124,15 +124,15 @@ class SimplefilemanagerModelDocument extends JModelItem {
                 $data = $db->loadObject();
 
                 if (empty($data)) {
-                    throw new Exception(JText::_('COM_SIMPLEFILEMANAGER_ERROR_DOCUMENT_NOT_FOUND'), 404);
+                    throw new Exception(JText::_('COM_FIREDRIVE_ERROR_DOCUMENT_NOT_FOUND'), 404);
                 }
 
                 // Process document icon
-                SimplefilemanagerHelper::processDocumentIcon($data);
+                FiredriveHelper::processDocumentIcon($data);
 
                 // Check for published state if filter set.
                 if ((is_numeric($published) || is_numeric($archived)) && (($data->state != $published) && ($data->state != $archived))) {
-                    throw new Exception(JText::_('COM_SIMPLEFILEMANAGER_ERROR_DOCUMENT_NOT_FOUND'), 404);
+                    throw new Exception(JText::_('COM_FIREDRIVE_ERROR_DOCUMENT_NOT_FOUND'), 404);
                 }
 
                 /**
@@ -151,7 +151,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
                 // Some contexts may not use tags data at all, so we allow callers to disable loading tag data
                 if ($this->getState('load_tags', true)) {
                     $data->tags = new JHelperTags;
-                    $data->tags->getItemTags('com_simplefilemanager.document', $data->id);
+                    $data->tags->getItemTags('com_firedrive.document', $data->id);
                 }
 
                 // Compute access permissions.
@@ -190,7 +190,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
     public function countDownload() {
         $pk = (int) $this->getState('document.id');
 
-        $params = JComponentHelper::getParams('com_simplefilemanager');
+        $params = JComponentHelper::getParams('com_firedrive');
         $user = JFactory::getUser();
         $now = JFactory::getDate();
         $db = JFactory::getDbo();
@@ -203,7 +203,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
 
         $query = $db->getQuery(true);
         $query
-                ->update($db->quoteName('#__simplefilemanager'))
+                ->update($db->quoteName('#__firedrive'))
                 ->set($fields)
                 ->where($db->quoteName('id') . ' = ' . $pk);
         $db->setQuery($query);
@@ -217,7 +217,7 @@ class SimplefilemanagerModelDocument extends JModelItem {
 
             $query = $db->getQuery(true);
             $query
-                    ->insert($db->quoteName('#__simplefilemanager_download_tracking'))
+                    ->insert($db->quoteName('#__firedrive_download_tracking'))
                     ->columns($db->quoteName($columns))
                     ->values(implode(',', $values));
             $db->setQuery($query);

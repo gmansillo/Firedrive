@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://simplefilemanager.eu/">
+  <a href="http://firedrive.eu/">
     <img src="https://firedrive.eu/templates/firedrive/images/logo_compact.svg#7636f5fs" alt="Firedrive" height="44">
   </a>
 
@@ -8,14 +8,14 @@
   <p align="center">
     Lightweight, intuitive and powerful extension for sharing documents in Joomla! websites.
     <br>
-    <a href="https://github.com/gmansillo/simplefilemanager/wiki"><strong>Firedrive Documentation »</strong></a>
+    <a href="https://github.com/gmansillo/firedrive/wiki"><strong>Firedrive Documentation »</strong></a>
     <br>
     <br>
-    <a href="https://github.com/gmansillo/simplefilemanager/issues/new">Report a bug</a>
+    <a href="https://github.com/gmansillo/firedrive/issues/new">Report a bug</a>
     ·
-    <a href="https://github.com/gmansillo/simplefilemanager/issues/new">Request a feature</a>
+    <a href="https://github.com/gmansillo/firedrive/issues/new">Request a feature</a>
     ·
-    <a href="https://github.com/gmansillo/simplefilemanager/releases">Releases</a>
+    <a href="https://github.com/gmansillo/firedrive/releases">Releases</a>
   </p>
 </p>
 
@@ -35,7 +35,7 @@
 Several installation methods are available. 
 In Joomla!, go to Extensions > Extension manager then choose the method you prefer:  
 
-* Install from url: ``` http://service.simplefilemanager.eu/delivery/get.php ```
+* Install from url: ``` http://service.firedrive.eu/delivery/get.php ```
 * <a href="https://docs.joomla.org/Install_from_Web">Install from web</a>
 * Uploading the <a href="https://github.com/gmansillo/FireDrive/releases">installation package</a> 
   

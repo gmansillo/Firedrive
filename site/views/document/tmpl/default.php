@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -36,7 +36,7 @@ $tparams = $this->item->params;
             <span class="document-category"><?php echo $this->doc->category_title; ?></span>
         </h3>
     <?php elseif ($show_document_category === 'show_with_link') : ?>
-        <?php $docLink = SimplefilemanagerHelperRoute::getCategoryRoute($this->doc->catid); ?>
+        <?php $docLink = FiredriveHelperRoute::getCategoryRoute($this->doc->catid); ?>
         <h3>
             <span class="document-category"><a href="<?php echo $docLink; ?>">
                     <?php echo $this->escape($this->doc->category_title); ?></a>
@@ -59,42 +59,42 @@ $tparams = $this->item->params;
 
     <?php if ($tparams->get('document_show_document_description', 1) && !empty($this->doc->description)) : ?>
         <dl class="dl-horizontal">
-            <dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_DESCRIPTION_LABEL'); ?></dt>
+            <dt><?php echo JText::_('COM_FIREDRIVE_DESCRIPTION_LABEL'); ?></dt>
             <dd><?php echo $this->doc->description; ?></dd>
         </dl>
     <?php endif; ?>
 
     <?php if ($tparams->get('document_show_document_created_by', 1) && !empty($this->doc->created_by)) : ?>
         <dl class="dl-horizontal">
-            <dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_CREATED_BY_LABEL'); ?></dt>
+            <dt><?php echo JText::_('COM_FIREDRIVE_CREATED_BY_LABEL'); ?></dt>
             <dd><?php echo $this->doc->created_by_name; ?></dd>
         </dl>
     <?php endif; ?>
 
     <?php if ($tparams->get('document_show_document_created', 1) && !empty($this->doc->created)) : ?>
         <dl class="dl-horizontal">
-            <dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_CREATED_LABEL'); ?></dt>
+            <dt><?php echo JText::_('COM_FIREDRIVE_CREATED_LABEL'); ?></dt>
             <dd><?php echo $this->doc->created; ?></dd>
         </dl>
     <?php endif; ?>
 
     <?php if ($tparams->get('document_show_document_modified', 1) && !empty($this->doc->modified) && $this->doc->modified != '0000-00-00 00:00:00') : ?>
         <dl class="dl-horizontal">
-            <dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_MODIFIED_LABEL'); ?></dt>
+            <dt><?php echo JText::_('COM_FIREDRIVE_MODIFIED_LABEL'); ?></dt>
             <dd><?php echo $this->doc->modified; ?></dd>
         </dl>
     <?php endif; ?>
 
     <?php if ($tparams->get('document_show_document_file_size', 1) && !empty($this->doc->file_size)) : ?>
         <dl class="dl-horizontal">
-            <dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_FILE_SIZE_LABEL'); ?></dt>
-            <dd><?php echo SimplefilemanagerHelper::convertToReadableSize($this->doc->file_size); ?></dd>
+            <dt><?php echo JText::_('COM_FIREDRIVE_FILE_SIZE_LABEL'); ?></dt>
+            <dd><?php echo FiredriveHelper::convertToReadableSize($this->doc->file_size); ?></dd>
         </dl>
     <?php endif; ?>
 
     <?php if ($tparams->get('document_show_document_license', 1) && !empty($this->doc->license)) : ?>
         <dl class="dl-horizontal">
-            <dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_LICENSE_LABEL'); ?></dt>
+            <dt><?php echo JText::_('COM_FIREDRIVE_LICENSE_LABEL'); ?></dt>
             <dd>
                 <?php if (!empty($this->doc->license_link)) : ?><a href="<?php echo $this->doc->license_link; ?>"><?php endif; ?>
                     <?php echo $this->doc->license; ?>
@@ -105,14 +105,14 @@ $tparams = $this->item->params;
 
     <?php if ($tparams->get('document_show_document_version', 1) && !empty($this->doc->version)) : ?>
         <dl class="dl-horizontal">
-            <dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_VERSION_LABEL'); ?></dt>
+            <dt><?php echo JText::_('COM_FIREDRIVE_VERSION_LABEL'); ?></dt>
             <dd><?php echo $this->doc->version; ?></dd>
         </dl>
     <?php endif; ?>
 
     <?php if ($tparams->get('document_show_document_md5', 1) && !empty($this->doc->md5hash)) : ?>
         <dl class="dl-horizontal">
-            <dt><?php echo JText::_('COM_SIMPLEFILEMANAGER_MD5HASH_LABEL'); ?></dt>
+            <dt><?php echo JText::_('COM_FIREDRIVE_MD5HASH_LABEL'); ?></dt>
             <dd><?php echo $this->doc->md5hash; ?></dd>
         </dl>
     <?php endif; ?>
@@ -121,11 +121,11 @@ $tparams = $this->item->params;
     <?php // echo $this->loadTemplate('user_custom_fields');  ?>
     <?php // endif; ?>
 
-    <?php $downloadLink = JRoute::_('index.php?option=com_simplefilemanager&amp;view=document&amp;id=' . $this->doc->id . '&amp;format=raw'); ?>
+    <?php $downloadLink = JRoute::_('index.php?option=com_firedrive&amp;view=document&amp;id=' . $this->doc->id . '&amp;format=raw'); ?>
 
-    <a href="<?php echo $downloadLink; ?>" class="btn btn-default"><?php echo JText::_('COM_SIMPLEFILEMANAGER_DOWNLOAD_BUTTON') ?></a>
+    <a href="<?php echo $downloadLink; ?>" class="btn btn-default"><?php echo JText::_('COM_FIREDRIVE_DOWNLOAD_BUTTON') ?></a>
 
     <?php echo $this->item->event->afterDisplayContent; ?>
     
-    <?php echo JText::_('COM_SIMPLEFILEMANAGER_CREDITS'); ?>
+    <?php echo JText::_('COM_FIREDRIVE_CREDITS'); ?>
 </div>

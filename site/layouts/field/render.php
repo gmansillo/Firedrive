@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -16,7 +16,7 @@ $value     = $field->value;
 $class     = $field->params->get('render_class');
 $showLabel = $field->params->get('showlabel');
 
-if ($field->context == 'com_simplefilemanager.mail') {
+if ($field->context == 'com_firedrive.mail') {
     // Prepare the value for the document form mail
     $value = html_entity_decode($value);
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
@@ -10,7 +10,7 @@ defined('_JEXEC') or die;
 /**
  * View class for a list of documents.
  */
-class SimplefilemanagerViewDocuments extends JViewLegacy {
+class FiredriveViewDocuments extends JViewLegacy {
 
     /**
      * Category data
@@ -61,7 +61,7 @@ class SimplefilemanagerViewDocuments extends JViewLegacy {
             throw new Exception(implode("\n", $errors), 500);
         }
 
-        SimplefilemanagerHelper::addSubmenu('documents');
+        FiredriveHelper::addSubmenu('documents');
 
         $this->addToolbar();
 
@@ -80,14 +80,14 @@ class SimplefilemanagerViewDocuments extends JViewLegacy {
      * @return  void
      */
     protected function addToolbar() {
-        JLoader::register('SimplefilemanagerHelper', JPATH_ADMINISTRATOR . '/components/com_simplefilemanager/helpers/simplefilemanager.php');
+        JLoader::register('FiredriveHelper', JPATH_ADMINISTRATOR . '/components/com_firedrive/helpers/firedrive.php');
 
-        $canDo = JHelperContent::getActions('com_simplefilemanager', 'category', $this->state->get('filter.category_id'));
+        $canDo = JHelperContent::getActions('com_firedrive', 'category', $this->state->get('filter.category_id'));
         $user = JFactory::getUser();
 
-        JToolbarHelper::title(JText::_('COM_SIMPLEFILEMANAGER_MANAGER_DOCUMENTS'), 'list documents');
+        JToolbarHelper::title(JText::_('COM_FIREDRIVE_MANAGER_DOCUMENTS'), 'list documents');
 
-        if (count($user->getAuthorisedCategories('com_simplefilemanager', 'core.create')) > 0) {
+        if (count($user->getAuthorisedCategories('com_firedrive', 'core.create')) > 0) {
             JToolbarHelper::addNew('document.add');
         }
 
@@ -115,7 +115,7 @@ class SimplefilemanagerViewDocuments extends JViewLegacy {
         }
 
         // Add a batch button
-        if ($user->authorise('core.create', 'com_simplefilemanager') && $user->authorise('core.edit', 'com_simplefilemanager') && $user->authorise('core.edit.state', 'com_simplefilemanager')) {
+        if ($user->authorise('core.create', 'com_firedrive') && $user->authorise('core.edit', 'com_firedrive') && $user->authorise('core.edit.state', 'com_firedrive')) {
             $title = JText::_('JTOOLBAR_BATCH');
 
             // Instantiate a new JLayoutFile instance and render the batch button
@@ -125,7 +125,7 @@ class SimplefilemanagerViewDocuments extends JViewLegacy {
             JToolbar::getInstance('toolbar')->appendButton('Custom', $dhtml, 'batch');
         }
 
-        JToolbar::getInstance('toolbar')->appendButton('Link', 'box-remove', 'Import', 'index.php?option=com_simplefilemanager&view=import');
+        JToolbar::getInstance('toolbar')->appendButton('Link', 'box-remove', 'Import', 'index.php?option=com_firedrive&view=import');
 
         if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete')) {
             JToolbarHelper::deleteList('JGLOBAL_CONFIRM_DELETE', 'documents.delete', 'JTOOLBAR_EMPTY_TRASH');
@@ -133,8 +133,8 @@ class SimplefilemanagerViewDocuments extends JViewLegacy {
             JToolbarHelper::trash('documents.trash');
         }
 
-        if ($user->authorise('core.admin', 'com_simplefilemanager') || $user->authorise('core.options', 'com_simplefilemanager')) {
-            JToolbarHelper::preferences('com_simplefilemanager');
+        if ($user->authorise('core.admin', 'com_firedrive') || $user->authorise('core.options', 'com_firedrive')) {
+            JToolbarHelper::preferences('com_firedrive');
         }
     }
 
@@ -147,8 +147,8 @@ class SimplefilemanagerViewDocuments extends JViewLegacy {
         return array(
             'ordering' => JText::_('JGRID_HEADING_ORDERING'),
             'a.state' => JText::_('JSTATUS'),
-            'a.title' => JText::_('COM_SIMPLEFILEMANAGER_HEADING_TITLE'),
-            'a.download_counter' => JText::_('COM_SIMPLEFILEMANAGER_HEADING_DOWNLOAD_COUNTER'),
+            'a.title' => JText::_('COM_FIREDRIVE_HEADING_TITLE'),
+            'a.download_counter' => JText::_('COM_FIREDRIVE_HEADING_DOWNLOAD_COUNTER'),
             'a.language' => JText::_('JGRID_HEADING_LANGUAGE'),
             'a.id' => JText::_('JGRID_HEADING_ID'),
         );

@@ -1,16 +1,16 @@
 <?php
 
 /**
- * @package     Simple File Manager
+ * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
 defined('_JEXEC') or die;
 
 /**
- * HTML Document View class for the Simplefilemanager component
+ * HTML Document View class for the Firedrive component
  */
-class SimplefilemanagerViewDocument extends JViewLegacy {
+class FiredriveViewDocument extends JViewLegacy {
 
     /**
      * The item model state
@@ -70,7 +70,7 @@ class SimplefilemanagerViewDocument extends JViewLegacy {
         $state = $this->get('State');
 
         if (empty($item->catid)) {
-            $app->setUserState('com_simplefilemanager.document.data', array('catid' => $item->catid));
+            $app->setUserState('com_firedrive.document.data', array('catid' => $item->catid));
         }
 
         $this->form = $this->get('Form');
@@ -101,7 +101,7 @@ class SimplefilemanagerViewDocument extends JViewLegacy {
 
         if ($item) {
             // Get Category Model data
-            $categoryModel = JModelLegacy::getInstance('Category', 'SimplefilemanagerModel', array('ignore_request' => true));
+            $categoryModel = JModelLegacy::getInstance('Category', 'FiredriveModel', array('ignore_request' => true));
 
             $categoryModel->setState('category.id', $item->catid);
             $categoryModel->setState('list.ordering', 'a.title');
@@ -145,18 +145,18 @@ class SimplefilemanagerViewDocument extends JViewLegacy {
             $item->text = $item->misc;
         }
 
-        $dispatcher->trigger('onContentPrepare', array('com_simplefilemanager.document', &$item, &$item->params, $offset));
+        $dispatcher->trigger('onContentPrepare', array('com_firedrive.document', &$item, &$item->params, $offset));
 
         // Store the events for later
         $item->event = new stdClass;
 
-        $results                        = $dispatcher->trigger('onContentAfterTitle', array('com_simplefilemanager.document', &$item, &$item->params, $offset));
+        $results                        = $dispatcher->trigger('onContentAfterTitle', array('com_firedrive.document', &$item, &$item->params, $offset));
         $item->event->afterDisplayTitle = trim(implode("\n", $results));
 
-        $results                           = $dispatcher->trigger('onContentBeforeDisplay', array('com_simplefilemanager.document', &$item, &$item->params, $offset));
+        $results                           = $dispatcher->trigger('onContentBeforeDisplay', array('com_firedrive.document', &$item, &$item->params, $offset));
         $item->event->beforeDisplayContent = trim(implode("\n", $results));
 
-        $results                          = $dispatcher->trigger('onContentAfterDisplay', array('com_simplefilemanager.document', &$item, &$item->params, $offset));
+        $results                          = $dispatcher->trigger('onContentAfterDisplay', array('com_firedrive.document', &$item, &$item->params, $offset));
         $item->event->afterDisplayContent = trim(implode("\n", $results));
 
         if (!empty($item->text)) {
@@ -178,7 +178,7 @@ class SimplefilemanagerViewDocument extends JViewLegacy {
         $this->docUser = $docUser;
 
         $item->tags = new JHelperTags;
-        $item->tags->getItemTags('com_simplefilemanager.document', $this->item->id);
+        $item->tags->getItemTags('com_firedrive.document', $this->item->id);
 
         // Override the layout only if this is not the active menu item
         // If it is the active menu item, then the view and item id will match
@@ -225,7 +225,7 @@ class SimplefilemanagerViewDocument extends JViewLegacy {
         if ($menu) {
             $this->params->def('page_heading', $this->params->get('page_title', $menu->title));
         } else {
-            $this->params->def('page_heading', JText::_('COM_SIMPLEFILEMANAGER_DEFAULT_PAGE_TITLE'));
+            $this->params->def('page_heading', JText::_('COM_FIREDRIVE_DEFAULT_PAGE_TITLE'));
         }
 
         $title = $this->params->get('page_title', '');
@@ -233,17 +233,17 @@ class SimplefilemanagerViewDocument extends JViewLegacy {
         $id = (int) @$menu->query['id'];
 
         // If the menu item does not concern this document
-        if ($menu && ($menu->query['option'] !== 'com_simplefilemanager' || $menu->query['view'] !== 'document' || $id != $this->item->id)) {
+        if ($menu && ($menu->query['option'] !== 'com_firedrive' || $menu->query['view'] !== 'document' || $id != $this->item->id)) {
             // If this is not a single document menu item, set the page title to the document title
             if ($this->item->title) {
                 $title = $this->item->title;
             }
 
             $path     = array(array('title' => $this->doc->title, 'link' => ''));
-            $category = JCategories::getInstance('Simplefilemanager')->get($this->doc->catid);
+            $category = JCategories::getInstance('Firedrive')->get($this->doc->catid);
 
-            while ($category && ($menu->query['option'] !== 'com_simplefilemanager' || $menu->query['view'] === 'document' || $id != $category->id) && $category->id > 1) {
-                $path[]   = array('title' => $category->title, 'link' => SimplefilemanagerHelperRoute::getCategoryRoute($this->doc->catid));
+            while ($category && ($menu->query['option'] !== 'com_firedrive' || $menu->query['view'] === 'document' || $id != $category->id) && $category->id > 1) {
+                $path[]   = array('title' => $category->title, 'link' => FiredriveHelperRoute::getCategoryRoute($this->doc->catid));
                 $category = $category->getParent();
             }
 

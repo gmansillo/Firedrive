@@ -61,8 +61,7 @@ Take a look to the website of brands, agencies and associations wich already use
 - [Exprivia ACSYS](http://ark.acsys.it/index.php/download)
 - [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/)
 
-You'll also find a lot of __examples__ at the [demo site](http://demo.
-ilemanager.eu/).
+You'll also find a lot of __examples__ at the [demo site](http://demo.firedrive.eu/).
 
 ## Feedback
 

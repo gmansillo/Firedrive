@@ -35,9 +35,9 @@
 Several installation methods are available. 
 In Joomla!, go to Extensions > Extension manager then choose the method you prefer:  
 
-* Install from url: ``` http://service.firedrive.eu/delivery/get.php ```
+* Install from url: ``` http://get.firedrive.eu/ ```
 * <a href="https://docs.joomla.org/Install_from_Web">Install from web</a>
-* Uploading the <a href="https://github.com/gmansillo/FireDrive/releases">installation package</a> 
+* Uploading the <a href="https://github.com/gmansillo/Firedrive/releases">installation package</a> 
   
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>
 

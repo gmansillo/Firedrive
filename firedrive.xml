@@ -8,7 +8,7 @@
     <authorUrl>http://www.firedrive.eu</authorUrl>
     <version>5.1.5</version>
     <description><![CDATA[]]></description>
-    <scriptfile>admin/script.php</scriptfile>
+    <scriptfile>script.php</scriptfile>
     <install>
         <sql>
             <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>

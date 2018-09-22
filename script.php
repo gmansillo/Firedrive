@@ -28,8 +28,21 @@ class com_firedriveInstallerScript {
      * If the extension is new, the install method is run.
      * If install returns false, Joomla will abort the install and undo everything already done.
      */
-    function install($parent) {
-        echo JText::_('COM_FIREDRIVE_INSTALL_TEXT');
+    function install($parent)
+    {
+        $message = JText::_('COM_FIREDRIVE_INSTALL_TEXT'); // TODO: Require donation
+        JFactory::getApplication()->enqueueMessage($message, 'message');
+        $parent->getParent()->setRedirectURL('index.php?option=com_firedrive');
+    }
+
+    /**
+     * $parent is the class calling this method.
+     * update runs after the database scripts are executed.
+     * If update returns false, Joomla will abort the update and undo everything already done.
+     */
+    function update($parent) {
+        $message = JText::_('COM_FIREDRIVE_UPDATE_TEXT'); // TODO: Well done. Firedrive has been updated correctly
+        JFactory::getApplication()->enqueueMessage($message, 'message');
         // $parent->getParent()->setRedirectURL('index.php?option=com_firedrive');
     }
 
@@ -38,7 +51,8 @@ class com_firedriveInstallerScript {
      * uninstall runs before any other action is taken (file removal or database processing).
      */
     function uninstall($parent) {
-        
+        $message = JText::_('COM_FIREDRIVE_UNINSTALL_TEXT'); // TODO: Sorry to see you go
+        JFactory::getApplication()->enqueueMessage($message, 'info');
     }
 
 }

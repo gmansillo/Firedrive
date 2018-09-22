@@ -15,7 +15,8 @@ jimport('joomla.filesystem.file');
  *
  * @since  1.6
  */
-class FiredriveViewDocument extends JViewLegacy {
+class FiredriveViewDocument extends JViewLegacy
+{
 
     /**
      * The item model state
@@ -35,16 +36,22 @@ class FiredriveViewDocument extends JViewLegacy {
     /**
      * Execute and display a template script.
      *
-     * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+     * @param   string $tpl The name of the template file to parse; automatically searches through the template paths.
      *
      * @return  mixed  A string if successful, otherwise an Error object.
      */
-    public function display($tpl = null) {
+    public function display($tpl = null)
+    {
         // Get model data.
-        $item = $this->get('Item');
-        $state = $this->get('State');
-        $params = $state->get('params');
-        $model = $this->getModel();
+        $app         = JFactory::getApplication();
+        $doc         = JFactory::getDocument();
+        $item        = $this->get('Item');
+        $state       = $this->get('State');
+        $params      = $state->get('params');
+        $model       = $this->getModel();
+        $f_info      = new finfo();
+        $f_mime      = $f_info->file(file_name, FILEINFO_MIME);
+        $disposition = $params->get('force_download') ? 'attachment' : 'inline';
 
         // Check for errors.
         if (count($errors = $this->get('Errors'))) {
@@ -53,17 +60,16 @@ class FiredriveViewDocument extends JViewLegacy {
 
         try {
             $model->countDownload();
-            JFactory::getDocument()->setMimeEncoding('application/octet-stream', true);
-            JFactory::getApplication()->clearHeaders();
-            JFactory::getApplication()->setHeader('Content-Type', 'application/octet-stream', true);
-            $disposition = $params->get('force_download') ? 'attachment' : 'inline';
-            JFactory::getApplication()->setHeader('Content-Disposition', $disposition . '; filename="' . basename($item->file_name) . '";', true);
-            JFactory::getApplication()->setHeader('Content-Transfer-Encoding', 'binary', true);
-            JFactory::getApplication()->setHeader('Content-Length', filesize($item->file_name), true);
-            JFactory::getApplication()->sendHeaders();
+            $app->clearHeaders();
+            $doc->setMimeEncoding($f_mime, true);
+            $app->setHeader('Content-Type', $f_mime, true);
+            $app->setHeader('Content-Disposition', $disposition . '; filename="' . basename($item->file_name) . '";', true);
+            $app->setHeader('Content-Transfer-Encoding', 'binary', true);
+            $app->setHeader('Content-Length', filesize($item->file_name), true);
+            $app->sendHeaders();
             echo JFile::read($item->file_name);
         } catch (Exception $e) {
-            // Save file safety avoiding to notify error details to the user 
+            // Save file safety avoiding to notify error details to the user
             die('An error occurred:' . $e);
         }
     }

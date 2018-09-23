@@ -3,143 +3,142 @@
     <fieldset>
 
         <field
-            name="id"
-            type="text"
-            default="0"
-            label="JGLOBAL_FIELD_ID_LABEL"
-            readonly="true"
-            class="readonly"
-            description="JGLOBAL_FIELD_ID_DESC"
+                name="id"
+                type="text"
+                default="0"
+                label="JGLOBAL_FIELD_ID_LABEL"
+                readonly="true"
+                class="readonly"
+                description="JGLOBAL_FIELD_ID_DESC"
         />
 
         <field
-            name="title"
-            type="text"
-            class="input-xxlarge input-lg"
-            size="40"
-            label="JGLOBAL_TITLE"
-            description="COM_FIREDRIVE_FIELD_TITLE_DESC"
-            required="true"
+                name="title"
+                type="text"
+                class="input-xxlarge input-lg"
+                size="40"
+                label="JGLOBAL_TITLE"
+                required="true"
         />
 
         <field
-            name="catid"
-            type="categoryedit"
-            label="JCATEGORY"
-            description="COM_FIREDRIVE_FIELD_CATEGORY_DESC"
-            extension="com_firedrive"
-            required="true"
-            addfieldpath="/administrator/components/com_categories/models/fields"
-            default=""
-        />
-
-        <field 
-            name="select_file"
-            type="file"
-            class="inputbox"
-            label="COM_FIREDRIVE_FIELD_SELECT_FILE_LABEL"
-            description="COM_FIREDRIVE_FIELD_SELECT_FILE_DESC"
+                name="catid"
+                type="categoryedit"
+                label="JCATEGORY"
+                description="COM_FIREDRIVE_FIELD_CATEGORY_DESC"
+                extension="com_firedrive"
+                required="true"
+                addfieldpath="/administrator/components/com_categories/models/fields"
+                default=""
         />
 
         <field
-            name="description"
-            type="editor"
-            class="inputbox span12"
-            filter="safehtml"
-            rows="6"
-            label="JGLOBAL_DESCRIPTION"
+                name="select_file"
+                type="file"
+                class="inputbox"
+                label="COM_FIREDRIVE_FIELD_SELECT_FILE_LABEL"
+                description="COM_FIREDRIVE_FIELD_SELECT_FILE_DESC"
         />
 
         <field
-            name="file_name"
-            type="text"
+                name="description"
+                type="editor"
+                class="inputbox span12"
+                filter="safehtml"
+                rows="6"
+                label="JGLOBAL_DESCRIPTION"
         />
 
         <field
-            name="file_size"
-            type="text"
+                name="file_name"
+                type="text"
         />
 
         <field
-            name="md5hash"
-            type="text"
+                name="file_size"
+                type="text"
         />
 
         <field
-            name="state"
-            type="text"
+                name="md5hash"
+                type="text"
         />
 
         <field
-            name="visibility"
-            type="text"
+                name="state"
+                type="text"
         />
 
         <field
-            name="created"
-            type="text"
+                name="visibility"
+                type="text"
         />
 
         <field
-            name="created_by"
-            type="text"
+                name="created"
+                type="text"
         />
-       
+
         <field
-            name="icon"
-            type="text"
+                name="created_by"
+                type="text"
         />
-       
+
         <field
-            name="access"
-            type="text"
+                name="icon"
+                type="text"
         />
-       
+
         <field
-            name="language"
-            type="text"
-            default = "*"
+                name="access"
+                type="text"
         />
-       
+
         <field
-            name="metakey"
-            type="text"
+                name="language"
+                type="text"
+                default="*"
         />
-       
+
         <field
-            name="metadesc"
-            type="text"
+                name="metakey"
+                type="text"
         />
-       
+
         <field
-            name="metadata"
-            type="text"
+                name="metadesc"
+                type="text"
         />
-       
+
         <field
-            name="params"
-            type="text"
+                name="metadata"
+                type="text"
         />
-       
+
         <field
-            name="license"
-            type="text"
+                name="params"
+                type="text"
         />
-       
+
         <field
-            name="license_link"
-            type="text"
+                name="license"
+                type="text"
         />
-       
+
         <field
-            name="version"
-            type="text"
+                name="license_link"
+                type="text"
         />
-       
+
         <field
-            name="notes"
-            type="text"
+                name="version"
+                type="text"
         />
-  
+
+        <field
+                name="notes"
+                type="text"
+        />
+
     </fieldset>
 </form>

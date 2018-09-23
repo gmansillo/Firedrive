@@ -5,7 +5,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  */
 // no direct access
-defined('_JEXEC') or die();
+defined('_JEXEC') or die;
 
 JHtml::_('behavior.tabstate');
 JHtml::_('behavior.keepalive');

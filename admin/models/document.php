@@ -4,6 +4,7 @@
  * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
+ * @copyright   Firedrive
  */
 defined('_JEXEC') or die;
 
@@ -37,6 +38,7 @@ class FiredriveModelDocument extends JModelAdmin
 	 * Batch copy/move command. If set to false, the batch copy/move command is not supported
 	 *
 	 * @var  string
+	 * @since  5.1.2
 	 */
 	protected $batch_copymove = 'category_id';
 
@@ -708,6 +710,7 @@ class FiredriveModelDocument extends JModelAdmin
 		}
 
 		return parent::save($data);
+
 	}
 
 	/**

@@ -565,13 +565,13 @@
                 value="0">JNO</option>
         </field>
         
-        <field
+        <!--<field
             name="import_links_separator"
             type="spacer"
             hr="true"
-        />
+        />-->
         
-        <field
+        <!--<field
             name="import_links_intro"
             type="spacer"
             label="COM_FIREDRIVE_FIELD_IMPORT_LINKS_INTRO_LABEL"
@@ -581,7 +581,7 @@
             name="import_links"
             type="spacer"
             label="COM_FIREDRIVE_FIELD_IMPORT_LINKS_LIST_LABEL"
-        />
+        />-->
 
     </fieldset>
     

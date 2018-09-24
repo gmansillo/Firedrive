@@ -3,50 +3,50 @@
     <fieldset name="document">
 
         <field
-            name="id"
-            type="text"
-            label="JGLOBAL_FIELD_ID_LABEL"
-            description="JGLOBAL_FIELD_ID_DESC"
-            default="0"
-            readonly="true"
-            class="readonly"
+                name="id"
+                type="text"
+                label="JGLOBAL_FIELD_ID_LABEL"
+                description="JGLOBAL_FIELD_ID_DESC"
+                default="0"
+                readonly="true"
+                class="readonly"
         />
 
         <field
-            name="title"
-            type="text"
-            label="COM_FIREDRIVE_FIELD_TITLE_LABEL"
-            class="input-xxlarge input-large-text"
-            size="40"
-            required="true"
+                name="title"
+                type="text"
+                label="COM_FIREDRIVE_FIELD_TITLE_LABEL"
+                class="input-xxlarge input-large-text"
+                size="40"
+                required="true"
         />
 
         <field
-            name="alias"
-            type="text"
-            label="JFIELD_ALIAS_LABEL"
-            size="40"
-            hint="JFIELD_ALIAS_PLACEHOLDER"
+                name="alias"
+                type="text"
+                label="JFIELD_ALIAS_LABEL"
+                size="40"
+                hint="JFIELD_ALIAS_PLACEHOLDER"
         />
 
         <field
-            name="catid"
-            type="category"
-            label="JCATEGORY"
-            description="COM_FIREDRIVE_FIELD_CATEGORY_DESC"
-            extension="com_firedrive"
-            required="true"
-            default=""
+                name="catid"
+                type="category"
+                label="JCATEGORY"
+                description="COM_FIREDRIVE_FIELD_CATEGORY_DESC"
+                extension="com_firedrive"
+                required="true"
+                default=""
         />
 
         <field
-            name="state"
-            type="list"
-            label="JSTATUS"
-            description="COM_FIREDRIVE_FIELD_STATE_DESC"
-            class="chzn-color-state"
-            size="1"
-            default="1"
+                name="state"
+                type="list"
+                label="JSTATUS"
+                description="COM_FIREDRIVE_FIELD_STATE_DESC"
+                class="chzn-color-state"
+                size="1"
+                default="1"
         >
             <option value="1">JPUBLISHED</option>
             <option value="0">JUNPUBLISHED</option>
@@ -55,38 +55,38 @@
         </field>
 
         <field
-            name="ordering"
-            type="ordering"
-            label="JFIELD_ORDERING_LABEL"
-            description="JFIELD_ORDERING_DESC"
-            table="#__firedrive"
+                name="ordering"
+                type="ordering"
+                label="JFIELD_ORDERING_LABEL"
+                description="JFIELD_ORDERING_DESC"
+                table="#__firedrive"
         />
 
         <field
-            name="language"
-            type="contentlanguage"
-            label="JFIELD_LANGUAGE_LABEL"
-            description="COM_FIREDRIVE_FIELD_LANGUAGE_DESC"
+                name="language"
+                type="contentlanguage"
+                label="JFIELD_LANGUAGE_LABEL"
+                description="COM_FIREDRIVE_FIELD_LANGUAGE_DESC"
         >
             <option value="*">JALL</option>
         </field>
 
         <field
-            name="description"
-            type="editor"
-            label="JGLOBAL_DESCRIPTION"
-            description="COM_FIREDRIVE_FIELD_DESCRIPTION_DESC"
-            filter="JComponentHelper::filterText"
-            buttons="true"
-            hide="readmore,pagebreak,module,article,contact,menu"
+                name="description"
+                type="editor"
+                label="JGLOBAL_DESCRIPTION"
+                description="COM_FIREDRIVE_FIELD_DESCRIPTION_DESC"
+                filter="JComponentHelper::filterText"
+                buttons="true"
+                hide="readmore,pagebreak,module,article,contact,menu"
         />
 
         <field
-            name="visibility"
-            type="list"
-            label="COM_FIREDRIVE_FIELD_VISIBILITY_LABEL"
-            description="COM_FIREDRIVE_FIELD_VISIBILITY_DESC"
-            default="1"
+                name="visibility"
+                type="list"
+                label="COM_FIREDRIVE_FIELD_VISIBILITY_LABEL"
+                description="COM_FIREDRIVE_FIELD_VISIBILITY_DESC"
+                default="1"
         >
             <option value="1">COM_FIREDRIVE_VISIBILITY_1_PUBLIC</option>
             <option value="2">COM_FIREDRIVE_VISIBILITY_2_REGISTRED</option>
@@ -96,243 +96,243 @@
         </field>
 
         <field
-            name="reserved_user"
-            type="sql"
-            label="COM_FIREDRIVE_FIELD_RESERVED_USER_LABEL"
-            description="COM_FIREDRIVE_FIELD_RESERVED_USER_DESC"
-            sql_select="u.id, CONCAT(u.name,' (',u.username,')') AS value"
-            sql_from="#__users AS u"
-            sql_order="u.name ASC"
-            key_field="id"
-            value_field="value"
-            multiple="multiple"
-            class="span12"
+                name="reserved_user"
+                type="sql"
+                label="COM_FIREDRIVE_FIELD_RESERVED_USER_LABEL"
+                description="COM_FIREDRIVE_FIELD_RESERVED_USER_DESC"
+                sql_select="u.id, CONCAT(u.name,' (',u.username,')') AS value"
+                sql_from="#__users AS u"
+                sql_order="u.name ASC"
+                key_field="id"
+                value_field="value"
+                multiple="multiple"
+                class="span12"
         />
 
         <field
-            name="reserved_group"
-            type="sql"
-            label="COM_FIREDRIVE_FIELD_RESERVED_GROUP_LABEL"
-            description="COM_FIREDRIVE_FIELD_RESERVED_GROUP_DESC"
-            sql_select="ug.id, ug.title"
-            sql_from="#__usergroups AS ug"
-            sql_order="ug.title ASC"
-            key_field="id"
-            value_field="title"
-            multiple="multiple"
-            class="span12"
+                name="reserved_group"
+                type="sql"
+                label="COM_FIREDRIVE_FIELD_RESERVED_GROUP_LABEL"
+                description="COM_FIREDRIVE_FIELD_RESERVED_GROUP_DESC"
+                sql_select="ug.id, ug.title"
+                sql_from="#__usergroups AS ug"
+                sql_order="ug.title ASC"
+                key_field="id"
+                value_field="title"
+                multiple="multiple"
+                class="span12"
         />
 
         <field
-            name="file_name"
-            readonly="true"
-            class="readonly"
-            type="text"
-            required="true"
-            label="COM_FIREDRIVE_FIELD_FILE_LABEL"
-            description="COM_FIREDRIVE_FIELD_FILE_DESC"
+                name="file_name"
+                readonly="true"
+                class="readonly"
+                type="text"
+                required="true"
+                label="COM_FIREDRIVE_FIELD_FILE_LABEL"
+                description="COM_FIREDRIVE_FIELD_FILE_DESC"
         />
 
         <field
-            name="select_file"
-            type="file"
-            label="COM_FIREDRIVE_FIELD_SELECT_FILE_LABEL"
-            description="COM_FIREDRIVE_FIELD_SELECT_FILE_DESC"
-            filter="unset"
+                name="select_file"
+                type="file"
+                label="COM_FIREDRIVE_FIELD_SELECT_FILE_LABEL"
+                description="COM_FIREDRIVE_FIELD_SELECT_FILE_DESC"
+                filter="unset"
         />
 
         <field
-            name="replace_file"
-            type="file"
-            label="COM_FIREDRIVE_FIELD_REPLACE_FILE_LABEL"
-            description="COM_FIREDRIVE_FIELD_REPLACE_FILE_DESC"
-            filter="unset"
+                name="replace_file"
+                type="file"
+                label="COM_FIREDRIVE_FIELD_REPLACE_FILE_LABEL"
+                description="COM_FIREDRIVE_FIELD_REPLACE_FILE_DESC"
+                filter="unset"
         />
 
         <field
-            name="fl_send_mail"
-            type="checkbox"
-            label="COM_FIREDRIVE_FL_SENDMAIL_LABEL"
-            description="COM_FIREDRIVE_FL_SENDMAIL_DESC"
-            value="1"
+                name="fl_send_mail"
+                type="checkbox"
+                label="COM_FIREDRIVE_FL_SENDMAIL_LABEL"
+                description="COM_FIREDRIVE_FL_SENDMAIL_DESC"
+                value="1"
         />
-		
+
     </fieldset>
 
     <fieldset name="publish" label="COM_FIREDRIVE_GROUP_LABEL_PUBLISHING_DETAILS">
 
         <field
-            name="created"
-            type="calendar"
-            label="COM_FIREDRIVE_FIELD_CREATED_LABEL"
-            description="COM_FIREDRIVE_FIELD_CREATED_DESC"
-            size="22"
-            translateformat="true"
-            showtime="true"
-            filter="user_utc"
+                name="created"
+                type="calendar"
+                label="COM_FIREDRIVE_FIELD_CREATED_LABEL"
+                description="COM_FIREDRIVE_FIELD_CREATED_DESC"
+                size="22"
+                translateformat="true"
+                showtime="true"
+                filter="user_utc"
         />
 
         <field
-            name="created_by"
-            type="user"
-            label="COM_FIREDRIVE_FIELD_CREATED_BY_LABEL"
-            description="COM_FIREDRIVE_FIELD_CREATED_BY_DESC"
+                name="created_by"
+                type="user"
+                label="COM_FIREDRIVE_FIELD_CREATED_BY_LABEL"
+                description="COM_FIREDRIVE_FIELD_CREATED_BY_DESC"
         />
 
         <field
-            name="modified"
-            type="calendar"
-            label="JGLOBAL_FIELD_MODIFIED_LABEL"
-            description="COM_FIREDRIVE_FIELD_MODIFIED_DESC"
-            class="readonly"
-            size="22"
-            readonly="true"
-            translateformat="true"
-            showtime="true"
-            filter="user_utc"
+                name="modified"
+                type="calendar"
+                label="JGLOBAL_FIELD_MODIFIED_LABEL"
+                description="COM_FIREDRIVE_FIELD_MODIFIED_DESC"
+                class="readonly"
+                size="22"
+                readonly="true"
+                translateformat="true"
+                showtime="true"
+                filter="user_utc"
         />
 
         <field
-            name="modified_by"
-            type="user"
-            label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
-            description="COM_FIREDRIVE_FIELD_MODIFIED_BY_DESC"
-            class="readonly"
-            readonly="true"
-            filter="unset"
+                name="modified_by"
+                type="user"
+                label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+                description="COM_FIREDRIVE_FIELD_MODIFIED_BY_DESC"
+                class="readonly"
+                readonly="true"
+                filter="unset"
         />
 
         <field
-            name="version"
-            type="text"
-            label="COM_FIREDRIVE_FIELD_VERSION_LABEL"
-            description="COM_FIREDRIVE_FIELD_VERSION_DESC"
+                name="version"
+                type="text"
+                label="COM_FIREDRIVE_FIELD_VERSION_LABEL"
+                description="COM_FIREDRIVE_FIELD_VERSION_DESC"
         />
 
         <field
-            name="publish_up"
-            type="calendar"
-            label="COM_FIREDRIVE_FIELD_PUBLISH_UP_LABEL"
-            description="COM_FIREDRIVE_FIELD_PUBLISH_UP_DESC"
-            translateformat="true"
-            showtime="true"
-            size="22"
-            filter="user_utc"
+                name="publish_up"
+                type="calendar"
+                label="COM_FIREDRIVE_FIELD_PUBLISH_UP_LABEL"
+                description="COM_FIREDRIVE_FIELD_PUBLISH_UP_DESC"
+                translateformat="true"
+                showtime="true"
+                size="22"
+                filter="user_utc"
         />
 
         <field
-            name="publish_down"
-            type="calendar"
-            label="COM_FIREDRIVE_FIELD_PUBLISH_DOWN_LABEL"
-            description="COM_FIREDRIVE_FIELD_PUBLISH_DOWN_DESC"
-            translateformat="true"
-            showtime="true"
-            size="22"
-            filter="user_utc"
+                name="publish_down"
+                type="calendar"
+                label="COM_FIREDRIVE_FIELD_PUBLISH_DOWN_LABEL"
+                description="COM_FIREDRIVE_FIELD_PUBLISH_DOWN_DESC"
+                translateformat="true"
+                showtime="true"
+                size="22"
+                filter="user_utc"
         />
     </fieldset>
 
     <fieldset name="details" label="COM_FIREDRIVE_GROUP_LABEL_DOCUMENT_DETAILS">
-	
+
         <field
-            name="icon"
-            type="media"
-            directory="com_firedrive"
-            label="COM_FIREDRIVE_FIELD_IMAGE_LABEL"
-            description="COM_FIREDRIVE_FIELD_IMAGE_DESC"
+                name="icon"
+                type="media"
+                directory="com_firedrive"
+                label="COM_FIREDRIVE_FIELD_IMAGE_LABEL"
+                description="COM_FIREDRIVE_FIELD_IMAGE_DESC"
         />
 
         <field
-            name="license"
-            type="text"
-            class="inputbox"
-            filter="safehtml"
-            rows="6"
-            label="COM_FIREDRIVE_FIELD_LICENSE_LABEL"
-            description="COM_FIREDRIVE_FIELD_LICENSE_DESC"
+                name="license"
+                type="text"
+                class="inputbox"
+                filter="safehtml"
+                rows="6"
+                label="COM_FIREDRIVE_FIELD_LICENSE_LABEL"
+                description="COM_FIREDRIVE_FIELD_LICENSE_DESC"
         />
 
         <field
-            name="license_link"
-            type="text"
-            class="inputbox"
-            label="COM_FIREDRIVE_FIELD_LICENSE_LINK_LABEL"
-            description="COM_FIREDRIVE_FIELD_LICENSE_LINK_DESC"
+                name="license_link"
+                type="text"
+                class="inputbox"
+                label="COM_FIREDRIVE_FIELD_LICENSE_LINK_LABEL"
+                description="COM_FIREDRIVE_FIELD_LICENSE_LINK_DESC"
         />
 
         <field
-            name="notes"
-            type="textarea"
-            class="inputbox"
-            label="COM_FIREDRIVE_FIELD_NOTES_LABEL"
-            description="COM_FIREDRIVE_FIELD_NOTES_DESC"
+                name="notes"
+                type="textarea"
+                class="inputbox"
+                label="COM_FIREDRIVE_FIELD_NOTES_LABEL"
+                description="COM_FIREDRIVE_FIELD_NOTES_DESC"
         />
     </fieldset>
 
     <fieldset name="otherparams">
-		
+
         <field
-            name="download_counter"
-            type="text"
-            class="readonly"
-            label="COM_FIREDRIVE_FIELD_DOWNLOAD_COUNTER_LABEL"
-            description="COM_FIREDRIVE_FIELD_DOWNLOAD_COUNTER_DESC"
-            default="0"
-            readonly="true"
+                name="download_counter"
+                type="text"
+                class="readonly"
+                label="COM_FIREDRIVE_FIELD_DOWNLOAD_COUNTER_LABEL"
+                description="COM_FIREDRIVE_FIELD_DOWNLOAD_COUNTER_DESC"
+                default="0"
+                readonly="true"
         />
 
         <field
-            name="md5hash"
-            readonly="true"
-            type="text"
-            class="readonly"
-            label="COM_FIREDRIVE_FIELD_HASH_LABEL"
-            description="COM_FIREDRIVE_FIELD_HASH_DESC"
+                name="md5hash"
+                readonly="true"
+                type="text"
+                class="readonly"
+                label="COM_FIREDRIVE_FIELD_HASH_LABEL"
+                description="COM_FIREDRIVE_FIELD_HASH_DESC"
         />
 
         <field
-            name="download_last"
-            readonly="true"
-            type="calendar"
-            size="22"
-            translateformat="true"
-            class="readonly"
-            showtime="true"
-            label="COM_FIREDRIVE_FIELD_DOWNLOADLAST_LABEL"
-            description="COM_FIREDRIVE_FIELD_DOWNLOADLAST_DESC"
+                name="download_last"
+                readonly="true"
+                type="calendar"
+                size="22"
+                translateformat="true"
+                class="readonly"
+                showtime="true"
+                label="COM_FIREDRIVE_FIELD_DOWNLOADLAST_LABEL"
+                description="COM_FIREDRIVE_FIELD_DOWNLOADLAST_DESC"
         />
 
         <field
-            name="file_size"
-            readonly="true"
-            type="text"
-            class="readonly"
-            label="COM_FIREDRIVE_FIELD_FILESIZE_LABEL"
-            description="COM_FIREDRIVE_FIELD_FILESIZE_DESC"
+                name="file_size"
+                readonly="true"
+                type="text"
+                class="readonly"
+                label="COM_FIREDRIVE_FIELD_FILESIZE_LABEL"
+                description="COM_FIREDRIVE_FIELD_FILESIZE_DESC"
         />
-		
+
     </fieldset>
 
     <fieldset name="metadata" label="JGLOBAL_FIELDSET_METADATA_OPTIONS">
 
         <field
-            name="metakey"
-            type="textarea"
-            label="JFIELD_META_KEYWORDS_LABEL"
-            description="JFIELD_META_KEYWORDS_DESC"
-            rows="3"
-            cols="30"
-            default=""
+                name="metakey"
+                type="textarea"
+                label="JFIELD_META_KEYWORDS_LABEL"
+                description="JFIELD_META_KEYWORDS_DESC"
+                rows="3"
+                cols="30"
+                default=""
         />
 
         <field
-            name="metadesc"
-            type="textarea"
-            label="JFIELD_META_DESCRIPTION_LABEL"
-            description="JFIELD_META_DESCRIPTION_DESC"
-            rows="3"
-            cols="30"
-            default=""
+                name="metadesc"
+                type="textarea"
+                label="JFIELD_META_DESCRIPTION_LABEL"
+                description="JFIELD_META_DESCRIPTION_DESC"
+                rows="3"
+                cols="30"
+                default=""
         />
     </fieldset>
 

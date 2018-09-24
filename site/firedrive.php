@@ -4,6 +4,7 @@
  * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
+ * @copyright   Firedrive
  */
 defined('_JEXEC') or die;
 
@@ -12,14 +13,16 @@ JLoader::register('FiredriveHelper', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/f
 
 $input = JFactory::getApplication()->input;
 
-if ($input->get('view') === 'category' && $input->get('layout') === 'modal') {
-    if (!JFactory::getUser()->authorise('core.create', 'com_firedrive')) {
-        JFactory::getApplication()->enqueueMessage(JText::_('JERROR_ALERTNOAUTHOR'), 'warning');
+if ($input->get('view') === 'category' && $input->get('layout') === 'modal')
+{
+	if (!JFactory::getUser()->authorise('core.create', 'com_firedrive'))
+	{
+		JFactory::getApplication()->enqueueMessage(JText::_('JERROR_ALERTNOAUTHOR'), 'warning');
 
-        return;
-    }
+		return;
+	}
 
-    JFactory::getLanguage()->load('com_firedrive', JPATH_ADMINISTRATOR);
+	JFactory::getLanguage()->load('com_firedrive', JPATH_ADMINISTRATOR);
 }
 
 $controller = JControllerLegacy::getInstance('Firedrive');

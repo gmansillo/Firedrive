@@ -13,13 +13,14 @@ extract($displayData);
 /**
  * Layout variables
  * ---------------------
- * 	$options         : (array)  Optional parameters
- * 	$label           : (string) The html code for the label (not required if $options['hiddenLabel'] is true)
- * 	$input           : (string) The input field html code
+ *    $options         : (array)  Optional parameters
+ *    $label           : (string) The html code for the label (not required if $options['hiddenLabel'] is true)
+ *    $input           : (string) The input field html code
  */
-if (!empty($options['showonEnabled'])) {
-    JHtml::_('jquery.framework');
-    JHtml::_('script', 'jui/cms.js', array('version' => 'auto', 'relative' => true));
+if (!empty($options['showonEnabled']))
+{
+	JHtml::_('jquery.framework');
+	JHtml::_('script', 'jui/cms.js', array('version' => 'auto', 'relative' => true));
 }
 
 $class = empty($options['class']) ? '' : ' ' . $options['class'];
@@ -41,13 +42,13 @@ $required     = (strpos($input, 'aria-required="true"') !== false || (!empty($ma
 $typeOfSpacer = (strpos($label, 'spacer-lbl') !== false);
 ?>
 <div class="control-group<?php echo $class; ?>"<?php echo $rel; ?>>
-    <?php if (empty($options['hiddenLabel'])) : ?>
+	<?php if (empty($options['hiddenLabel'])) : ?>
         <div class="control-label">
-            <?php echo $label; ?>
-            <?php if (!$required && !$typeOfSpacer) : ?>
+			<?php echo $label; ?>
+			<?php if (!$required && !$typeOfSpacer) : ?>
                 <span class="optional"><?php echo JText::_('COM_FIREDRIVE_OPTIONAL'); ?></span>
-            <?php endif; ?>
+			<?php endif; ?>
         </div>
-    <?php endif; ?>
+	<?php endif; ?>
     <div class="controls"><?php echo $input; ?></div>
 </div>

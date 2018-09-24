@@ -4,6 +4,7 @@
  * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
+ * @copyright   Firedrive
  */
 defined('_JEXEC') or die;
 
@@ -32,7 +33,8 @@ class com_firedriveInstallerScript
 	 * $parent is the class calling this method.
 	 * install runs after the database scripts are executed.
 	 * If the extension is new, the install method is run.
-		 * If install returns false, Joomla will abort the install and undo everything already done.
+	 * If install returns false, Joomla will abort the install and undo everything already done.
+	 * @since   5.2.1
 	 */
 	function install($parent)
 	{
@@ -44,6 +46,7 @@ class com_firedriveInstallerScript
 	 * $parent is the class calling this method.
 	 * update runs after the database scripts are executed.
 	 * If update returns false, Joomla will abort the update and undo everything already done.
+	 * @since   5.2.1
 	 */
 	function update($parent)
 	{
@@ -54,6 +57,7 @@ class com_firedriveInstallerScript
 	/**
 	 * $parent is the class calling this method
 	 * uninstall runs before any other action is taken (file removal or database processing).
+	 * @since   5.2.1
 	 */
 	function uninstall($parent)
 	{

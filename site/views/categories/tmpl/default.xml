@@ -10,48 +10,48 @@
     <fields name="request">
         <fieldset name="request"
         >
-            <field 
-                name="id" 
-                type="category"
-                label="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_LABEL"
-                description="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_DESC"
-                extension="com_firedrive"
-                show_root="true"
-                required="true"
+            <field
+                    name="id"
+                    type="category"
+                    label="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_LABEL"
+                    description="JGLOBAL_FIELD_CATEGORIES_CHOOSE_CATEGORY_DESC"
+                    extension="com_firedrive"
+                    show_root="true"
+                    required="true"
             />
         </fieldset>
     </fields>
 
-    <fields name="params">	
+    <fields name="params">
         <fieldset name="basic" label="COM_FIREDRIVE_BASIC_OPTIONS_FIELDSET_LABEL">
 
-            <field 
-                name="show_base_description" 
-                type="list"
-                label="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_LABEL"
-                description="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_DESC"
-                useglobal="true"
-                class="chzn-color"
+            <field
+                    name="show_base_description"
+                    type="list"
+                    label="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_LABEL"
+                    description="JGLOBAL_FIELD_SHOW_BASE_DESCRIPTION_DESC"
+                    useglobal="true"
+                    class="chzn-color"
             >
                 <option value="0">JHIDE</option>
                 <option value="1">JSHOW</option>
             </field>
 
-            <field 
-                name="categories_description" 
-                type="textarea"
-                label="JGLOBAL_FIELD_CATEGORIES_DESC_LABEL"
-                description="JGLOBAL_FIELD_CATEGORIES_DESC_DESC"
-                cols="25"
-                rows="5"
+            <field
+                    name="categories_description"
+                    type="textarea"
+                    label="JGLOBAL_FIELD_CATEGORIES_DESC_LABEL"
+                    description="JGLOBAL_FIELD_CATEGORIES_DESC_DESC"
+                    cols="25"
+                    rows="5"
             />
 
-            <field 
-                name="maxLevelcat" 
-                type="list"
-                label="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_LABEL"
-                description="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_DESC"
-                useglobal="true"
+            <field
+                    name="maxLevelcat"
+                    type="list"
+                    label="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_LABEL"
+                    description="JGLOBAL_MAXIMUM_CATEGORY_LEVELS_DESC"
+                    useglobal="true"
             >
                 <option value="-1">JALL</option>
                 <option value="1">J1</option>
@@ -61,91 +61,97 @@
                 <option value="5">J5</option>
             </field>
 
-            <field 
-                name="show_empty_categories_cat" 
-                type="list"
-                label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
-                description="COM_FIREDRIVE_SHOW_EMPTY_CATEGORIES_DESC"
-                useglobal="true"
-                class="chzn-color"
+            <field
+                    name="show_empty_categories_cat"
+                    type="list"
+                    label="JGLOBAL_SHOW_EMPTY_CATEGORIES_LABEL"
+                    description="COM_FIREDRIVE_SHOW_EMPTY_CATEGORIES_DESC"
+                    useglobal="true"
+                    class="chzn-color"
             >
                 <option value="0">JHIDE</option>
                 <option value="1">JSHOW</option>
             </field>
 
-            <field 
-                name="show_subcat_desc_cat" 
-                type="list"
-                label="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_LABEL"
-                description="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_DESC"
-                useglobal="true"
-                class="chzn-color"
+            <field
+                    name="show_subcat_desc_cat"
+                    type="list"
+                    label="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_LABEL"
+                    description="JGLOBAL_SHOW_SUBCATEGORIES_DESCRIPTION_DESC"
+                    useglobal="true"
+                    class="chzn-color"
             >
                 <option value="0">JHIDE</option>
                 <option value="1">JSHOW</option>
             </field>
 
-            <field 
-                name="show_cat_items_cat" 
-                type="list"
-                label="COM_FIREDRIVE_FIELD_SHOW_CAT_ITEMS_LABEL"
-                description="COM_FIREDRIVE_FIELD_SHOW_CAT_ITEMS_DESC"
-                useglobal="true"
-                class="chzn-color"
+            <field
+                    name="show_cat_items_cat"
+                    type="list"
+                    label="COM_FIREDRIVE_FIELD_SHOW_CAT_ITEMS_LABEL"
+                    description="COM_FIREDRIVE_FIELD_SHOW_CAT_ITEMS_DESC"
+                    useglobal="true"
+                    class="chzn-color"
             >
                 <option value="0">JHIDE</option>
                 <option value="1">JSHOW</option>
             </field>
 
         </fieldset>
-	
+
         <fieldset
-            name="lists" label="JGLOBAL_LIST_LAYOUT_OPTIONS">
+                name="lists" label="JGLOBAL_LIST_LAYOUT_OPTIONS">
 
-             <field 
-                name="spacer2" 
-                type="spacer" 
-                label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL"
-                class="text"
+            <field
+                    name="spacer2"
+                    type="spacer"
+                    label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL"
+                    class="text"
             />
-             
+
             <field
-                name="show_ordering_select"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_ORDERING_SELECT_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_ORDERING_SELECT_DESC">
+                    name="show_ordering_select"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_ORDERING_SELECT_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_ORDERING_SELECT_DESC">
                 <option
-                    value="1">JYES</option>
+                        value="1">JYES
+                </option>
                 <option
-                    value="0">JNO</option>
+                        value="0">JNO
+                </option>
             </field>
 
             <field
-                name="show_pagination"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_DESC">
+                    name="show_pagination"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_DESC">
                 <option
-                    value="1">JYES</option>
+                        value="1">JYES
+                </option>
                 <option
-                    value="0">JNO</option>
+                        value="0">JNO
+                </option>
             </field>
 
             <field
-                name="show_pagination_limit"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_DESC">
+                    name="show_pagination_limit"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_PAGINATION_LIMIT_DESC">
                 <option
-                    value="1">JYES</option>
+                        value="1">JYES
+                </option>
                 <option
-                    value="0">JNO</option>
+                        value="0">JNO
+                </option>
             </field>
 
         </fieldset>

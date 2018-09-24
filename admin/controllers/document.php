@@ -72,7 +72,7 @@ class FiredriveControllerDocument extends JControllerForm
 				JFactory::getApplication()->enqueueMessage(JText::_('COM_FIREDRIVE_FILE_UPLOAD_ERROR_MESSAGE'), 'error');
 				parent::save($key, $urlVar);
 
-				return;
+				return false;
 			}
 
 			$this->form["file_name"] = $upload;
@@ -108,7 +108,28 @@ class FiredriveControllerDocument extends JControllerForm
 		// Save data back to the POST global variable
 		JFactory::getApplication()->input->post->set('jform', $this->form);
 
-		parent::save($key, $urlVar);
+		return parent::save($key, $urlVar);
+	}
+
+	/**
+	 * Method to run batch operations.
+	 *
+	 * @param   string $model The model
+	 *
+	 * @return  boolean  True on success.
+	 * @since 5.1.2
+	 */
+	public function batch($model = null)
+	{
+		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
+
+		// Set the model
+		$model = $this->getModel('Document', '', array());
+
+		// Preset the redirect
+		$this->setRedirect(JRoute::_('index.php?option=com_firedrive&view=documents' . $this->getRedirectToListAppend(), false));
+
+		return parent::batch($model);
 	}
 
 	/**
@@ -245,8 +266,6 @@ class FiredriveControllerDocument extends JControllerForm
 					}
 				}
 			}
-
-			return true;
 		}
 
 		parent::postSaveHook($model, $validData);
@@ -308,27 +327,6 @@ class FiredriveControllerDocument extends JControllerForm
 
 		// Since there is no asset tracking, revert to the component permissions.
 		return parent::allowEdit($data, $key);
-	}
-
-	/**
-	 * Method to run batch operations.
-	 *
-	 * @param   string $model The model
-	 *
-	 * @return  boolean  True on success.
-	 * @since 5.1.2
-	 */
-	public function batch($model = null)
-	{
-		JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
-
-		// Set the model
-		$model = $this->getModel('Document', '', array());
-
-		// Preset the redirect
-		$this->setRedirect(JRoute::_('index.php?option=com_firedrive&view=documents' . $this->getRedirectToListAppend(), false));
-
-		return parent::batch($model);
 	}
 
 }

@@ -14,16 +14,16 @@
                   addfieldpath="/administrator/components/com_firedrive/models/fields"
         >
             <field
-                name="id"
-                type="modal_category"
-                label="COM_FIREDRIVE_FIELD_CATID_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATID_DESC"
-                extension="com_firedrive"
-                required="true"
-                select="true"
-                new="true"
-                edit="true"
-                clear="true"
+                    name="id"
+                    type="modal_category"
+                    label="COM_FIREDRIVE_FIELD_CATID_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATID_DESC"
+                    extension="com_firedrive"
+                    required="true"
+                    select="true"
+                    new="true"
+                    edit="true"
+                    clear="true"
             />
         </fieldset>
     </fields>
@@ -32,213 +32,234 @@
     <fields name="params">
         <fieldset name="basic" label="COM_FIREDRIVE_BASIC_OPTIONS_FIELDSET_LABEL">
 
-            <field 
-                name="spacer1" 
-                type="spacer" 
-                label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL"
-                class="text"
+            <field
+                    name="spacer1"
+                    type="spacer"
+                    label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL"
+                    class="text"
             />
 
-            <field 
-                name="show_category_title" 
-                type="list"
-                label="JGLOBAL_SHOW_CATEGORY_TITLE"
-                description="JGLOBAL_SHOW_CATEGORY_TITLE_DESC"
-                useglobal="true"
-                class="chzn-color"
-            >
-                <option value="0">JHIDE</option>
-                <option value="1">JSHOW</option>
-            </field>
-
-            <field 
-                name="category_show_category_description" 
-                type="list"
-                label="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_LABEL"
-                description="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_DESC"
-                useglobal="true"
-                class="chzn-color"
+            <field
+                    name="show_category_title"
+                    type="list"
+                    label="JGLOBAL_SHOW_CATEGORY_TITLE"
+                    description="JGLOBAL_SHOW_CATEGORY_TITLE_DESC"
+                    useglobal="true"
+                    class="chzn-color"
             >
                 <option value="0">JHIDE</option>
                 <option value="1">JSHOW</option>
             </field>
 
             <field
-                name="initial_sort"
-                type="list"
-                useglobal="true"
-                label="COM_FIREDRIVE_FIELD_INITIAL_SORT_BY_LABEL"
-                description="COM_FIREDRIVE_FIELD_INITIAL_SORT_BY_DESC">
-                <option
-                    value="a.ordering">COM_FIREDRIVE_INITIAL_SORT_VALUE_ORDERING</option>
-                <option
-                    value="a.title">COM_FIREDRIVE_INITIAL_SORT_VALUE_TITLE</option>
-                <option
-                    value="a.description">COM_FIREDRIVE_INITIAL_SORT_VALUE_DESCRIPTION</option>
-                <option
-                    value="a.created">COM_FIREDRIVE_INITIAL_SORT_VALUE_CREATED</option>
-                <option
-                    value="a.file_size">COM_FIREDRIVE_INITIAL_SORT_VALUE_SIZE</option>
-            </field>
-        
-            <field
-                name="category_show_document_created_by"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_DESC">
-                <option
-                    value="1">JYES</option>
-                <option
-                    value="0">JNO</option>
+                    name="category_show_category_description"
+                    type="list"
+                    label="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_LABEL"
+                    description="JGLOBAL_SHOW_CATEGORY_DESCRIPTION_DESC"
+                    useglobal="true"
+                    class="chzn-color"
+            >
+                <option value="0">JHIDE</option>
+                <option value="1">JSHOW</option>
             </field>
 
             <field
-                name="category_show_document_created"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_DESC">
+                    name="initial_sort"
+                    type="list"
+                    useglobal="true"
+                    label="COM_FIREDRIVE_FIELD_INITIAL_SORT_BY_LABEL"
+                    description="COM_FIREDRIVE_FIELD_INITIAL_SORT_BY_DESC">
                 <option
-                    value="1">JYES</option>
+                        value="a.ordering">COM_FIREDRIVE_INITIAL_SORT_VALUE_ORDERING
+                </option>
                 <option
-                    value="0">JNO</option>
+                        value="a.title">COM_FIREDRIVE_INITIAL_SORT_VALUE_TITLE
+                </option>
+                <option
+                        value="a.description">COM_FIREDRIVE_INITIAL_SORT_VALUE_DESCRIPTION
+                </option>
+                <option
+                        value="a.created">COM_FIREDRIVE_INITIAL_SORT_VALUE_CREATED
+                </option>
+                <option
+                        value="a.file_size">COM_FIREDRIVE_INITIAL_SORT_VALUE_SIZE
+                </option>
             </field>
 
             <field
-                name="category_show_document_file_size"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_DESC">
+                    name="category_show_document_created_by"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_DESC">
                 <option
-                    value="1">JYES</option>
+                        value="1">JYES
+                </option>
                 <option
-                    value="0">JNO</option>
+                        value="0">JNO
+                </option>
             </field>
 
             <field
-                name="category_show_document_license"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_DESC">
+                    name="category_show_document_created"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_DESC">
                 <option
-                    value="1">JYES</option>
+                        value="1">JYES
+                </option>
                 <option
-                    value="0">JNO</option>
+                        value="0">JNO
+                </option>
             </field>
 
             <field
-                name="category_show_document_icon"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_DESC">
+                    name="category_show_document_file_size"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_SIZE_DESC">
                 <option
-                    value="1">JYES</option>
+                        value="1">JYES
+                </option>
                 <option
-                    value="0">JNO</option>
+                        value="0">JNO
+                </option>
             </field>
 
             <field
-                name="category_show_document_description"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_DESC">
+                    name="category_show_document_license"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_LICENSE_DESC">
                 <option
-                    value="1">JYES</option>
+                        value="1">JYES
+                </option>
                 <option
-                    value="0">JNO</option>
+                        value="0">JNO
+                </option>
             </field>
 
             <field
-                name="filter_field"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_DESC">
+                    name="category_show_document_icon"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_DESC">
                 <option
-                    value="1">JYES</option>
+                        value="1">JYES
+                </option>
                 <option
-                    value="0">JNO</option>
+                        value="0">JNO
+                </option>
             </field>
 
             <field
-                name="show_download_in_category_view"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_DESC">
+                    name="category_show_document_description"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_DESC">
                 <option
-                    value="1">JYES</option>
+                        value="1">JYES
+                </option>
                 <option
-                    value="0">JNO</option>
+                        value="0">JNO
+                </option>
+            </field>
+
+            <field
+                    name="filter_field"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_DESC">
+                <option
+                        value="1">JYES
+                </option>
+                <option
+                        value="0">JNO
+                </option>
+            </field>
+
+            <field
+                    name="show_download_in_category_view"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOWNLOAD_BUTTON_IN_CATEGORY_DESC">
+                <option
+                        value="1">JYES
+                </option>
+                <option
+                        value="0">JNO
+                </option>
             </field>
 
         </fieldset>
 
         <fieldset name="lists" label="JGLOBAL_LIST_LAYOUT_OPTIONS">
 
-            <field 
-                name="spacer2" 
-                type="spacer" 
-                label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL"
-                class="text"
+            <field
+                    name="spacer2"
+                    type="spacer"
+                    label="JGLOBAL_SUBSLIDER_DRILL_CATEGORIES_LABEL"
+                    class="text"
             />
 
             <field
-                name="filter_field"
-                type="list"
-                label="JGLOBAL_FILTER_FIELD_LABEL"
-                description="JGLOBAL_FILTER_FIELD_DESC"
-                default=""
-                useglobal="true"
-                class="chzn-color"
+                    name="filter_field"
+                    type="list"
+                    label="JGLOBAL_FILTER_FIELD_LABEL"
+                    description="JGLOBAL_FILTER_FIELD_DESC"
+                    default=""
+                    useglobal="true"
+                    class="chzn-color"
             >
                 <option value="0">JHIDE</option>
                 <option value="1">JSHOW</option>
             </field>
 
-            <field 
-                name="show_pagination_limit" 
-                type="list"
-                label="JGLOBAL_DISPLAY_SELECT_LABEL"
-                description="JGLOBAL_DISPLAY_SELECT_DESC"
-                useglobal="true"
-                class="chzn-color"
+            <field
+                    name="show_pagination_limit"
+                    type="list"
+                    label="JGLOBAL_DISPLAY_SELECT_LABEL"
+                    description="JGLOBAL_DISPLAY_SELECT_DESC"
+                    useglobal="true"
+                    class="chzn-color"
             >
                 <option value="0">JHIDE</option>
                 <option value="1">JSHOW</option>
             </field>
 
-            <field 
-                name="show_headings" 
-                type="list"
-                label="JGLOBAL_SHOW_HEADINGS_LABEL"
-                description="JGLOBAL_SHOW_HEADINGS_DESC"
-                useglobal="true"
-                class="chzn-color"
+            <field
+                    name="show_headings"
+                    type="list"
+                    label="JGLOBAL_SHOW_HEADINGS_LABEL"
+                    description="JGLOBAL_SHOW_HEADINGS_DESC"
+                    useglobal="true"
+                    class="chzn-color"
             >
                 <option value="0">JHIDE</option>
                 <option value="1">JSHOW</option>
             </field>
 
-            <field 
-                name="show_pagination" 
-                type="list"
-                label="JGLOBAL_PAGINATION_LABEL"
-                description="JGLOBAL_PAGINATION_DESC"
-                useglobal="true"
+            <field
+                    name="show_pagination"
+                    type="list"
+                    label="JGLOBAL_PAGINATION_LABEL"
+                    description="JGLOBAL_PAGINATION_DESC"
+                    useglobal="true"
             >
                 <option value="0">JHIDE</option>
                 <option value="1">JSHOW</option>
@@ -246,12 +267,12 @@
             </field>
 
             <field
-                name="show_pagination_results"
-                type="list"
-                label="JGLOBAL_PAGINATION_RESULTS_LABEL"
-                description="JGLOBAL_PAGINATION_RESULTS_DESC"
-                useglobal="true"
-                class="chzn-color"
+                    name="show_pagination_results"
+                    type="list"
+                    label="JGLOBAL_PAGINATION_RESULTS_LABEL"
+                    description="JGLOBAL_PAGINATION_RESULTS_DESC"
+                    useglobal="true"
+                    class="chzn-color"
             >
                 <option value="0">JHIDE</option>
                 <option value="1">JSHOW</option>

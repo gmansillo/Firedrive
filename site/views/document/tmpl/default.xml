@@ -2,10 +2,10 @@
 <metadata>
     <layout title="COM_FIREDRIVE_DOCUMENT_VIEW_DEFAULT_TITLE" option="COM_FIREDRIVE_DOCUMENT_VIEW_DEFAULT_OPTION">
         <help
-            key = "JHELP_MENUS_MENU_ITEM_DOCUMENT_SINGLE_DOCUMENT"
+                key="JHELP_MENUS_MENU_ITEM_DOCUMENT_SINGLE_DOCUMENT"
         />
         <message>
-			<![CDATA[COM_FIREDRIVE_DOCUMENT_VIEW_DEFAULT_DESC]]>
+            <![CDATA[COM_FIREDRIVE_DOCUMENT_VIEW_DEFAULT_DESC]]>
         </message>
     </layout>
 
@@ -15,19 +15,19 @@
                   addfieldpath="/administrator/components/com_firedrive/models/fields"
         >
             <field
-                name="id"
-                type="sql"
-                class="inputbox"
-                required="true"
-                label="COM_FIREDRIVE_SELECT_DOCUMENT_LABEL"
-                description="COM_FIREDRIVE_SELECT_DOCUMENT_DESC"				
-                query="SELECT id, CONCAT('[',id,'] ',title) as name FROM #__firedrive"
-                key_field="id"
-                value_field="name"
-                select="true"
-                new="true"
-                edit="true"
-                clear="true"
+                    name="id"
+                    type="sql"
+                    class="inputbox"
+                    required="true"
+                    label="COM_FIREDRIVE_SELECT_DOCUMENT_LABEL"
+                    description="COM_FIREDRIVE_SELECT_DOCUMENT_DESC"
+                    query="SELECT id, CONCAT('[',id,'] ',title) as name FROM #__firedrive"
+                    key_field="id"
+                    value_field="name"
+                    select="true"
+                    new="true"
+                    edit="true"
+                    clear="true"
             />
         </fieldset>
     </fields>
@@ -40,146 +40,167 @@
                   label="COM_FIREDRIVE_BASIC_OPTIONS_FIELDSET_LABEL"
                   addfieldpath="/administrator/components/com_fields/models/fields"
         >
-            
+
             <field
-                name="document_layout"
-                type="componentlayout"
-                label="JGLOBAL_FIELD_LAYOUT_LABEL"
-                description="JGLOBAL_FIELD_LAYOUT_DESC"
-                menuitems="true"
-                extension="com_firedrive"
-                view="document"
+                    name="document_layout"
+                    type="componentlayout"
+                    label="JGLOBAL_FIELD_LAYOUT_LABEL"
+                    description="JGLOBAL_FIELD_LAYOUT_DESC"
+                    menuitems="true"
+                    extension="com_firedrive"
+                    view="document"
             />
 
             <field
-                name="document_show_title"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_TITLE_LABEL"
-                description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_TITLE_DESC">
+                    name="document_show_title"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_TITLE_LABEL"
+                    description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_TITLE_DESC">
                 <option
-                    value="1">JSHOW</option>
+                        value="1">JSHOW
+                </option>
                 <option
-                    value="0">JHIDE</option>
+                        value="0">JHIDE
+                </option>
             </field>
 
             <field
-                name="document_show_category"
-                type="list"
-                useglobal="true"
-                label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CATEGORY_LABEL"
-                description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CATEGORY_DESC">
+                    name="document_show_category"
+                    type="list"
+                    useglobal="true"
+                    label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CATEGORY_LABEL"
+                    description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CATEGORY_DESC">
                 <option
-                    value="show_with_link">COM_FIREDRIVE_DOCUMENT_SHOW_CATEGORY_VALUE_WITH_LINK</option>
+                        value="show_with_link">COM_FIREDRIVE_DOCUMENT_SHOW_CATEGORY_VALUE_WITH_LINK
+                </option>
                 <option
-                    value="show_with_no_link">COM_FIREDRIVE_DOCUMENT_SHOW_CATEGORY_VALUE_WITH_NO_LINK</option>
+                        value="show_with_no_link">COM_FIREDRIVE_DOCUMENT_SHOW_CATEGORY_VALUE_WITH_NO_LINK
+                </option>
                 <option
-                    value="hide">JHIDE</option>
+                        value="hide">JHIDE
+                </option>
             </field>
 
             <field
-                name="document_show_modified"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MODIFIED_LABEL"
-                description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MODIFIED_DESC">
+                    name="document_show_modified"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MODIFIED_LABEL"
+                    description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MODIFIED_DESC">
                 <option
-                    value="1">JSHOW</option>
+                        value="1">JSHOW
+                </option>
                 <option
-                    value="0">JHIDE</option>
+                        value="0">JHIDE
+                </option>
             </field>
 
             <field
-                name="document_show_created"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CREATED_LABEL"
-                description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CREATED_DESC">
+                    name="document_show_created"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CREATED_LABEL"
+                    description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_CREATED_DESC">
                 <option
-                    value="1">JSHOW</option>
+                        value="1">JSHOW
+                </option>
                 <option
-                    value="0">JHIDE</option>
+                        value="0">JHIDE
+                </option>
             </field>
 
             <field
-                name="document_show_md5"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_LABEL"
-                description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_DESC">
+                    name="document_show_md5"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_LABEL"
+                    description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_DESC">
                 <option
-                    value="1">JSHOW</option>
+                        value="1">JSHOW
+                </option>
                 <option
-                    value="0">JHIDE</option>
+                        value="0">JHIDE
+                </option>
             </field>
 
             <field
-                name="document_show_md5"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_LABEL"
-                description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_DESC">
+                    name="document_show_md5"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_LABEL"
+                    description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_DESC">
                 <option
-                    value="1">JSHOW</option>
+                        value="1">JSHOW
+                </option>
                 <option
-                    value="0">JHIDE</option>
+                        value="0">JHIDE
+                </option>
             </field>
 
             <field
-                name="document_show_description"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_DESCRIPTION_LABEL"
-                description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_DESCRIPTION_DESC">
+                    name="document_show_description"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_DESCRIPTION_LABEL"
+                    description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_DESCRIPTION_DESC">
                 <option
-                    value="1">JSHOW</option>
+                        value="1">JSHOW
+                </option>
                 <option
-                    value="0">JHIDE</option>
+                        value="0">JHIDE
+                </option>
             </field>
 
             <field
-                name="document_show_icon"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_ICON_LABEL"
-                description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_ICON_DESC">
+                    name="document_show_icon"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_ICON_LABEL"
+                    description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_ICON_DESC">
                 <option
-                    value="1">JSHOW</option>
+                        value="1">JSHOW
+                </option>
                 <option
-                    value="0">JHIDE</option>
-            </field>
-       
-            <field
-                name="document_show_license"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_LICENSE_LABEL"
-                description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_LICENSE_DESC">
-                <option
-                    value="1">JSHOW</option>
-                <option
-                    value="0">JHIDE</option>
+                        value="0">JHIDE
+                </option>
             </field>
 
             <field
-                name="document_show_size"
-                type="list"
-                useglobal="true"
-                class="chzn-color"
-                label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_SIZE_LABEL"
-                description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_SIZE_DESC">
+                    name="document_show_license"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_LICENSE_LABEL"
+                    description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_LICENSE_DESC">
                 <option
-                    value="1">JSHOW</option>
+                        value="1">JSHOW
+                </option>
                 <option
-                    value="0">JHIDE</option>
+                        value="0">JHIDE
+                </option>
+            </field>
+
+            <field
+                    name="document_show_size"
+                    type="list"
+                    useglobal="true"
+                    class="chzn-color"
+                    label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_SIZE_LABEL"
+                    description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_SIZE_DESC">
+                <option
+                        value="1">JSHOW
+                </option>
+                <option
+                        value="0">JHIDE
+                </option>
             </field>
 
             <!-- 
@@ -193,8 +214,8 @@
                 >
                 <option value="-1">JALL</option>
             </field> -->
-			
+
         </fieldset>
-		
+
     </fields>
 </metadata>

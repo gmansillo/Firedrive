@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
-    <layout 
-        title="COM_FIREDRIVE_DOCUMENTFORM_VIEW_DEFAULT_TITLE"
-        option="COM_FIREDRIVE_DOCUMENTFORM_VIEW_DEFAULT_OPTION"
+    <layout
+            title="COM_FIREDRIVE_DOCUMENTFORM_VIEW_DEFAULT_TITLE"
+            option="COM_FIREDRIVE_DOCUMENTFORM_VIEW_DEFAULT_OPTION"
     >
         <message>
-			<![CDATA[COM_FIREDRIVE_DOCUMENTFORM_VIEW_DEFAULT_DESC]]>
+            <![CDATA[COM_FIREDRIVE_DOCUMENTFORM_VIEW_DEFAULT_DESC]]>
         </message>
     </layout>
 
@@ -17,25 +17,25 @@
                   label="COM_FIREDRIVE_BASIC_OPTIONS_FIELDSET_LABEL"
                   addfieldpath="/administrator/components/com_fields/models/fields"
         >
-            <field 
-                name="page_intro"
-                type="editor"
-                label="COM_FIREDRIVE_FIELD_PAGE_INTRO_LABEL"
-                description="COM_FIREDRIVE_FIELD_PAGE_INTRO_DESC"
-                filter="JComponentHelper::filterText"
-                buttons="true"
-                hide="readmore,pagebreak,module,article,contact,menu"
+            <field
+                    name="page_intro"
+                    type="editor"
+                    label="COM_FIREDRIVE_FIELD_PAGE_INTRO_LABEL"
+                    description="COM_FIREDRIVE_FIELD_PAGE_INTRO_DESC"
+                    filter="JComponentHelper::filterText"
+                    buttons="true"
+                    hide="readmore,pagebreak,module,article,contact,menu"
             />
 
-            <field 
-                name="default_category" 
-                type="category"
-                label="COM_FIREDRIVE_FIELD_DEFAULT_CATEGORY_LABEL"
-                description="COM_FIREDRIVE_FIELD_DEFAULT_CATEGORY_DESC"
-                extension="com_firedrive">
+            <field
+                    name="default_category"
+                    type="category"
+                    label="COM_FIREDRIVE_FIELD_DEFAULT_CATEGORY_LABEL"
+                    description="COM_FIREDRIVE_FIELD_DEFAULT_CATEGORY_DESC"
+                    extension="com_firedrive">
                 <option value="">JOPTION_SELECT_CATEGORY</option>
             </field>
-            
+
             <!-- <field 
                     name="presentation_style"
                     type="list"
@@ -59,8 +59,8 @@
                     >
                     <option value="-1">JALL</option>
             </field> -->
-			
+
         </fieldset>
-		
+
     </fields>
 </metadata>

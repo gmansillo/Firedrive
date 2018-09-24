@@ -3,6 +3,7 @@
  * @package     Firedrive
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
+ * @copyright   Firedrive
  */
 defined('_JEXEC') or die;
 
@@ -32,9 +33,9 @@ jQuery(function($) {
 });");
 ?>
 <div class="categories-list<?php echo $this->pageclass_sfx; ?>" role="list">
-    <?php
-    echo JLayoutHelper::render('joomla.content.categories_default', $this);
-    echo $this->loadTemplate('items');
-    echo JText::_('COM_FIREDRIVE_CREDITS');
-    ?>
+	<?php
+	echo JLayoutHelper::render('joomla.content.categories_default', $this);
+	echo $this->loadTemplate('items');
+	echo JText::_('COM_FIREDRIVE_CREDITS');
+	?>
 </div>

@@ -82,4 +82,4 @@ Your Feedback is very important! :heart:
 
 Any __problem__? Please report it: all bugs, feature requests, pull requests, feedback, etc., are welcome!
 
-First search for [existing and closed issues](https://github.com/gmansillo/FireDrive/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/FireDrive/issues/new?template=issue).
+First search for [existing and closed issues](https://github.com/gmansillo/FireDrive/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/Firedrive/issues/new?template=issue_template.md).

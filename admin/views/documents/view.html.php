@@ -97,7 +97,7 @@ class FiredriveViewDocuments extends JViewLegacy
 		$canDo = JHelperContent::getActions('com_firedrive', 'category', $this->state->get('filter.category_id'));
 		$user  = JFactory::getUser();
 
-		JToolbarHelper::title(JText::_('COM_FIREDRIVE_MANAGER_DOCUMENTS'), 'list documents');
+		JToolbarHelper::title(JText::_('COM_FIREDRIVE_MANAGER_DOCUMENTS'), 'list folder-2');
 
 		if (count($user->getAuthorisedCategories('com_firedrive', 'core.create')) > 0)
 		{

@@ -197,8 +197,12 @@ if ($saveOrder)
 							<?php echo JLayoutHelper::render('joomla.content.language', $item); ?>
                         </td>
                         <td class="small hidden-phone">
-                            <span class="badge badge-info hasTooltip"
-                                  title="<?php echo JText::sprintf('COM_FIREDRIVE_LAST_DOWNLOAD', $item->download_last); ?>"><?php echo $item->download_counter; ?></span>
+                            <a class="badge badge-info <?php if ($item->download_counter > 0) echo 'hasTooltip'; ?>"
+                               title="<?php if ($item->download_counter > 0) echo JText::sprintf('COM_FIREDRIVE_LAST_DOWNLOAD', $item->download_last); ?>"
+                               target="_blank"
+                               href="<?php echo JUri::base() . "index.php?option=com_firedrive&task=download&id=" . $item->id; ?>"><i
+                                        class="icon icon-download"></i> <?php echo $item->download_counter; ?>
+                            </a>
                         </td>
                         <td class="hidden-phone">
 							<?php echo $item->id; ?>

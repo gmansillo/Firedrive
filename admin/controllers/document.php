@@ -247,7 +247,7 @@ class FiredriveControllerDocument extends JControllerForm
 					$body = str_replace('{user_fullname}', $user->name, $body);
 					$body = str_replace('{document_title}', $item->title, $body);
 					$body = str_replace('{author_name}', $$author->name, $body);
-					$body = str_replace('{site_url}', JUri::base(), $body);
+					$body = str_replace('{site_url}', JUri::root(), $body);
 
 					// Send email
 					$mailer = JFactory::getMailer();

@@ -32,12 +32,17 @@
 
 ## Installation
 
-Several installation methods are available. 
-In Joomla!, go to Extensions > Extension manager then choose the method you prefer:  
+Installation is very simple:
+1. Download the zip package to your local machine from here: http://get.firedrive.eu
+2. From the backend of your Joomla site (administration) select Extensions → Install.
+3. Click the Browse button and select the zip package on your local machine.
+4. Click the Upload File & Install button.
 
-* Install from url: ``` http://get.firedrive.eu/ ```
-* <a href="https://docs.joomla.org/Install_from_Web">Install from web</a>
-* Uploading the <a href="https://github.com/gmansillo/Firedrive/releases">installation package</a> 
+Several alternative installation methods are available. For example, you can:  
+
+* Install Firedrive from url typing this url: ``` http://get.firedrive.eu/ ```
+* <a href="https://docs.joomla.org/Install_from_Web">Install Firedrive from web</a>
+* Install Firedrive via FTP 
   
 If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>
 
@@ -46,9 +51,9 @@ If you need further informations about how to install a Joomla! extension, pleas
 
 ![Joomla! 3.7+](https://img.shields.io/badge/Joomla!-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
-FireDrive requires __Joomla 3.7+__, __PHP 5.4+__ and __Apanche 2.x__*.  A running instance of __MariaDB/MySql__ is also required.
+FireDrive requires __Joomla 3.7+__, __PHP 5.4+__ and __Apache 2.x__*.  A running instance of __MariaDB/MySql__ is also required.
 
-*Firedrive runs correctly on Nginx and other web servers but the maximum level of security can't be guaranteed on these engines because the lack of support to .htaccess files
+*NB: Firedrive runs correctly on Nginx and other web servers but the maximum level of security can't be guaranteed on these engines because the lack of support to .htaccess files
 
 
 ## Examples

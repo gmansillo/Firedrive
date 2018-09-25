@@ -32,19 +32,18 @@
 
 ## Installation
 
-Installation is very simple:
+Let's start installing Simple File Manager via the "**Install from url**" procedure:
+1. access to the backend of your Joomla! website and go to **Extensions > Manage > Install**
+2. active the "**Install from URL**" tab and paste the following url in the Install from URL field: `http://get.simplefilemanager.eu/`
+3. click on the **"Check and Install**" button and wait the completion of the installation procedure.
+
+If you are experiencing issues with this procedure, you can try the **classic installation method**:
 1. Download the zip package to your local machine from here: http://get.firedrive.eu
-2. From the backend of your Joomla site (administration) select Extensions → Install.
+2. From the backend of your Joomla site (administration) select **Extensions > Install**.
 3. Click the Browse button and select the zip package on your local machine.
 4. Click the Upload File & Install button.
 
-Several alternative installation methods are available. For example, you can:  
-
-* Install Firedrive from url typing this url: ``` http://get.firedrive.eu/ ```
-* <a href="https://docs.joomla.org/Install_from_Web">Install Firedrive from web</a>
-* Install Firedrive via FTP 
-  
-If you need further informations about how to install a Joomla! extension, please refer to the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>
+Several alternative installation methods are available. Those methods are well described in the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>
 
   
 ## Software requirements

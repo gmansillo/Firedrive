@@ -54,9 +54,11 @@ If you need further informations about how to install a Joomla! extension, pleas
 In order to run correctly, Firedrive requires:
 
 - __PHP__ (minumum 5.4, recommended 5.6/7.2)
--  __MariaDB/Mysql__ (__SQL Server__ and __PostgreSQL__ are also supported via Joomla! drivers)
-- __Joomla__ (minumum 3.7+, recommendend the latest 3.x version available)
-- __Apache 2.x__: Firedrive runs correctly also on __Nginx__, __IIS__ and other web servers but the maximum level of security can't be guaranteed on these engines because the lack of support to .htaccess files
+-  __MariaDB/Mysql__
+- __Joomla__ (minumum 3.7)
+- __Apache 2.x__
+
+Complete list of system requirements is [available here](https://github.com/gmansillo/Firedrive/wiki/System-requirements).
 
 ## Examples
 

@@ -11,9 +11,9 @@
     <a href="https://github.com/gmansillo/firedrive/wiki"><strong>Firedrive Documentation »</strong></a>
     <br>
     <br>
-    <a href="https://github.com/gmansillo/firedrive/issues/new">Report a bug</a>
+    <a href="https://github.com/gmansillo/Firedrive/issues/">Open Issues</a>
     ·
-    <a href="https://github.com/gmansillo/firedrive/issues/new">Request a feature</a>
+    <a href="https://github.com/gmansillo/Firedrive/issues/new?template=issue_template.md">Report a bug or request a feature</a>
     ·
     <a href="https://github.com/gmansillo/firedrive/releases">Releases</a>
   </p>
@@ -51,9 +51,12 @@ If you need further informations about how to install a Joomla! extension, pleas
 
 ![Joomla! 3.7+](https://img.shields.io/badge/Joomla!-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
 
-FireDrive requires __Joomla 3.7+__, __PHP 5.4+__ and __Apache 2.x__*.  A running instance of __MariaDB/MySql__ is also required.
+In order to run correctly, Firedrive requires:
 
-*NB: Firedrive runs correctly on Nginx and other web servers but the maximum level of security can't be guaranteed on these engines because the lack of support to .htaccess files
+- __PHP__ (minumum 5.4, recommended 5.6/7.2)
+-  __MariaDB/Mysql__ (recommended the latest versions)
+- __Joomla__ (minumum 3.7+, recommendend the latest 3.x version available)
+- __Apache 2.x__: Firedrive runs correctly also on __Nginx__ and other web servers but the maximum level of security can't be guaranteed on these engines because the lack of support to .htaccess files
 
 
 ## Examples

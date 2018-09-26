@@ -76,9 +76,6 @@
                         value="a.title">COM_FIREDRIVE_INITIAL_SORT_VALUE_TITLE
                 </option>
                 <option
-                        value="a.description">COM_FIREDRIVE_INITIAL_SORT_VALUE_DESCRIPTION
-                </option>
-                <option
                         value="a.created">COM_FIREDRIVE_INITIAL_SORT_VALUE_CREATED
                 </option>
                 <option
@@ -162,12 +159,12 @@
             </field>
 
             <field
-                    name="category_show_document_description"
+                    name="filter_field"
                     type="list"
                     useglobal="true"
                     class="chzn-color"
-                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_LABEL"
-                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_DESC">
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_DESC">
                 <option
                         value="1">JYES
                 </option>
@@ -177,12 +174,13 @@
             </field>
 
             <field
-                    name="filter_field"
+                    name="show_link_on_title_in_category_view"
                     type="list"
                     useglobal="true"
                     class="chzn-color"
-                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_LABEL"
-                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_FILTER_FIELD_DESC">
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_LINK_ON_TITLE_IN_CATEGORY_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_LINK_ON_TITLE_IN_CATEGORY_DESC"
+            >
                 <option
                         value="1">JYES
                 </option>

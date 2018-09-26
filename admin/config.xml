@@ -94,21 +94,6 @@
         </field>
 
         <field
-                name="document_show_md5"
-                type="radio"
-                class="radio btn-group btn-group-yesno"
-                default="1"
-                label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_LABEL"
-                description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_DESC">
-            <option
-                    value="1">JSHOW
-            </option>
-            <option
-                    value="0">JHIDE
-            </option>
-        </field>
-
-        <field
                 name="document_show_description"
                 type="radio"
                 class="radio btn-group btn-group-yesno"
@@ -312,6 +297,22 @@
         </field>
 
         <field
+                name="show_link_on_title_in_category_view"
+                type="radio"
+                class="radio btn-group btn-group-yesno"
+                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_LINK_ON_TITLE_IN_CATEGORY_LABEL"
+                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_LINK_ON_TITLE_IN_CATEGORY_DESC"
+                default="1"
+        >
+            <option
+                    value="1">JYES
+            </option>
+            <option
+                    value="0">JNO
+            </option>
+        </field>
+
+        <field
                 name="category_show_document_created_by"
                 type="radio"
                 class="radio btn-group btn-group-yesno"
@@ -378,21 +379,6 @@
                 default="1"
                 label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_LABEL"
                 description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_ICON_DESC">
-            <option
-                    value="1">JYES
-            </option>
-            <option
-                    value="0">JNO
-            </option>
-        </field>
-
-        <field
-                name="category_show_document_description"
-                type="radio"
-                class="radio btn-group btn-group-yesno"
-                default="1"
-                label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_LABEL"
-                description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_DESC_DESC">
             <option
                     value="1">JYES
             </option>

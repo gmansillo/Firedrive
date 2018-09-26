@@ -86,11 +86,6 @@ class FiredriveViewCategory extends JViewCategory
 			'a.title'    => JText::_('JGLOBAL_TITLE')
 		);
 
-		if ($this->params->get('show_document_description', 1))
-		{
-			$fields['a.description'] = JText::_('JGLOBAL_DESCRIPTION');
-		}
-
 		if ($this->params->get('show_document_created', 1))
 		{
 			$fields['a.created'] = JText::_('COM_FIREDRIVE_CREATED');

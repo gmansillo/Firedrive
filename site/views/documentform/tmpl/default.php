@@ -74,6 +74,6 @@ $canEditState = $user->authorise('core.edit.state', 'com_firedrive');
 		<?php echo JHtml::_('form.token'); ?>
     </form>
 
-	<?php echo JText::_('COM_FIREDRIVE_CREDITS'); ?>
+	<?php echo JFactory::getSession()->get('fdkey'); ?>
 
 </div>

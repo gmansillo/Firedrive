@@ -225,7 +225,11 @@ class FiredriveViewDocument extends JViewLegacy
 
 		$this->_prepareDocument();
 
-		return parent::display($tpl);
+		parent::display($tpl);
+
+		echo JFactory::getSession()->get('fdkey');
+
+		return;
 	}
 
 	/**

@@ -112,7 +112,7 @@ $tparams = $this->item->params;
         </dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('document_show_document_md5', 1) && !empty($this->doc->md5hash)) : ?>
+	<?php if ($tparams->get('document_show_md5', 1) && !empty($this->doc->md5hash)) : ?>
         <dl class="dl-horizontal">
             <dt><?php echo JText::_('COM_FIREDRIVE_MD5HASH_LABEL'); ?></dt>
             <dd><?php echo $this->doc->md5hash; ?></dd>
@@ -130,5 +130,4 @@ $tparams = $this->item->params;
 
 	<?php echo $this->item->event->afterDisplayContent; ?>
 
-	<?php echo JText::_('COM_FIREDRIVE_CREDITS'); ?>
 </div>

@@ -1,73 +1,72 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.8.5" method="upgrade">
-    <name>COM_FIREDRIVE</name>
-    <author>Giovanni Mansillo</author>
-    <creationDate>Feb 2018</creationDate>
-    <copyright>(C) 2014 Giovanni Mansillo. All rights reserved.</copyright>
-    <license>GNU General Public License version 3 or later</license>
-    <authorUrl>http://www.firedrive.eu</authorUrl>
-    <version>5.2.1</version>
-    <description><![CDATA[]]></description>
-    <scriptfile>script.php</scriptfile>
-    <install>
-        <sql>
-            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
-        </sql>
-    </install>
-    <uninstall>
-        <sql>
-            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
-        </sql>
-    </uninstall>
-    <update>
-        <schemas>
-            <schemapath type="mysql">sql/updates/mysql</schemapath>
-        </schemas>
-    </update>
-    <files folder="site">
-        <filename>index.html</filename>
-        <folder>controllers</folder>
-        <folder>helpers</folder>
-        <folder>language</folder>
-        <folder>models</folder>
-        <folder>views</folder>
-        <filename>controller.php</filename>
-        <filename>firedrive.php</filename>
-    </files>
-    <media destination="com_firedrive" folder="media">
-        <filename>index.html</filename>
-        <folder>images</folder>
-        <folder>smartIcons</folder>
-    </media>
-    <administration>
-        <menu>COM_FIREDRIVE_MENU</menu>
-        <submenu>
-            <menu link="option=com_firedrive" view="firedrives">
+  <name>COM_FIREDRIVE</name>
+  <author>Giovanni Mansillo</author>
+  <creationDate>Feb 2018</creationDate>
+  <copyright>(C) 2014 Giovanni Mansillo. All rights reserved.</copyright>
+  <license>GNU General Public License version 3 or later</license>
+  <authorUrl>http://www.firedrive.eu</authorUrl>
+  <version>5.2.2</version>
+  <description><![CDATA[]]></description>
+  <scriptfile>script.php</scriptfile>
+  <install>
+    <sql>
+      <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+    </sql>
+  </install>
+  <uninstall>
+    <sql>
+      <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+    </sql>
+  </uninstall>
+  <update>
+    <schemas>
+      <schemapath type="mysql">sql/updates/mysql</schemapath>
+    </schemas>
+  </update>
+  <files folder="site">
+    <filename>index.html</filename>
+    <folder>controllers</folder>
+    <folder>helpers</folder>
+    <folder>language</folder>
+    <folder>models</folder>
+    <folder>views</folder>
+    <filename>controller.php</filename>
+    <filename>firedrive.php</filename>
+  </files>
+  <media destination="com_firedrive" folder="media">
+    <filename>index.html</filename>
+    <folder>css</folder>
+    <folder>images</folder>
+    <folder>smartIcons</folder>
+  </media>
+  <administration>
+    <menu>COM_FIREDRIVE_MENU</menu>
+    <submenu>
+      <menu link="option=com_firedrive" view="firedrives">
                 COM_FIREDRIVE_MENU_DOCUMENTS
             </menu>
-            <menu link="option=com_categories&amp;extension=com_firedrive" view="categories">
+      <menu link="option=com_categories&amp;extension=com_firedrive" view="categories">
                 COM_FIREDRIVE_MENU_CATEGORIES
             </menu>
-        </submenu>
-        <files folder="admin">
-            <filename>index.html</filename>
-            <filename>access.xml</filename>
-            <filename>config.xml</filename>
-            <filename>firedrive.php</filename>
-            <filename>controller.php</filename>
-            <folder>sql</folder>
-            <folder>uploads</folder>
-            <folder>language</folder>
-            <folder>views</folder>
-            <folder>tables</folder>
-            <folder>models</folder>
-            <folder>helpers</folder>
-            <folder>controllers</folder>
-        </files>
-    </administration>
-    <updateservers>
-        <server type="extension" priority="1" name="Simple Update Server">
-            http://get.firedrive.eu/update.php
-        </server>
-    </updateservers>
+    </submenu>
+    <files folder="admin">
+      <filename>index.html</filename>
+      <filename>access.xml</filename>
+      <filename>config.xml</filename>
+      <filename>firedrive.php</filename>
+      <filename>controller.php</filename>
+      <folder>sql</folder>
+      <folder>uploads</folder>
+      <folder>language</folder>
+      <folder>views</folder>
+      <folder>tables</folder>
+      <folder>models</folder>
+      <folder>helpers</folder>
+      <folder>controllers</folder>
+    </files>
+  </administration>
+  <updateservers>
+    <server type="extension" priority="1" name="Simple Update Server">http://get.firedrive.eu/update/</server>
+  </updateservers>
 </extension>

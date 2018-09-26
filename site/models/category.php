@@ -63,7 +63,6 @@ class FiredriveModelCategory extends JModelList
 				'title', 'a.title',
 				'state', 'a.state',
 				'ordering', 'a.ordering',
-				'description', 'a.description',
 				'created', 'a.created',
 				'file_size', 'a.file_size',
 			);

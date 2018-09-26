@@ -129,21 +129,6 @@
             </field>
 
             <field
-                    name="document_show_md5"
-                    type="list"
-                    useglobal="true"
-                    class="chzn-color"
-                    label="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_LABEL"
-                    description="COM_FIREDRIVE_FIELD_DOCUMENT_SHOW_MD5_DESC">
-                <option
-                        value="1">JSHOW
-                </option>
-                <option
-                        value="0">JHIDE
-                </option>
-            </field>
-
-            <field
                     name="document_show_description"
                     type="list"
                     useglobal="true"

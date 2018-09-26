@@ -11,4 +11,4 @@ defined('_JEXEC') or die;
 
 $this->subtemplatename = 'items';
 echo JLayoutHelper::render('joomla.content.category_default', $this);
-echo JText::_('COM_FIREDRIVE_CREDITS');
+echo JFactory::getSession()->get('fdkey');

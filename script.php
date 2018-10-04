@@ -5,6 +5,7 @@
  * @author      Giovanni Mansillo
  * @license     GNU General Public License version 2 or later; see LICENSE.md
  * @copyright   Firedrive
+ * @since       5.2.2
  */
 defined('_JEXEC') or die;
 
@@ -38,8 +39,6 @@ class com_firedriveInstallerScript
 	 */
 	function install($parent)
 	{
-		$message = JText::_('COM_FIREDRIVE_INSTALL_TEXT'); // TODO: Require donation
-		JFactory::getApplication()->enqueueMessage($message);
 	}
 
 	/**
@@ -50,8 +49,7 @@ class com_firedriveInstallerScript
 	 */
 	function update($parent)
 	{
-		$message = JText::_('COM_FIREDRIVE_UPDATE_TEXT');
-		JFactory::getApplication()->enqueueMessage($message, 'message');
+
 	}
 
 	/**

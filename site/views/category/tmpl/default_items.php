@@ -16,11 +16,11 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 <form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" name="adminForm"
       id="adminForm">
 
-	<?php if ($this->params->get('category_show_category_description') == 1) : ?>
+	<?php if ($this->params->get('category_show_category_description',1) == 1) : ?>
 		<?php echo $this->getModel()->getCategory()->description; ?>
 	<?php endif; ?>
 
-    <fieldset class="filters">
+    <fieldset id="firedrive-category-filters" class="filters">
 
 		<?php if ($this->params->get('filter_field') == 1) : ?>
             <div class="btn-group">
@@ -197,7 +197,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 					<?php endif; ?>
 					<?php if ($this->params->get('show_download_in_category_view', 1)) : ?>
                         <td class="col-actions">
-							<?php echo '<a href="', JRoute::_('index.php?option=com_firedrive&amp;view=document&amp;id=', $item->id, '&amp;format=raw'), '" class="btn btn-default">', JText::_('COM_FIREDRIVE_DOWNLOAD_BUTTON'), '</a>'; ?>
+							<?php echo '<a href="', JRoute::_('index.php?option=com_firedrive&amp;view=document&amp;id=' . $item->id . '&amp;format=raw'), '" class="btn btn-default">', JText::_('COM_FIREDRIVE_DOWNLOAD_BUTTON'), '</a>'; ?>
                         </td>
 					<?php endif; ?>
                 </tr>

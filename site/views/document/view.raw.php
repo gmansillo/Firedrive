@@ -23,6 +23,7 @@ class FiredriveViewDocument extends JViewLegacy
 	 * The item model state
 	 *
 	 * @var         \Joomla\Registry\Registry
+	 * @since       5.2.2
 	 * @deprecated  4.0  Variable not used
 	 */
 	protected $state;

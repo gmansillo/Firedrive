@@ -34,7 +34,7 @@
 
 Let's start installing Simple File Manager via the "**Install from url**" procedure:
 1. access to the backend of your Joomla! website and go to **Extensions > Manage > Install**
-2. active the "**Install from URL**" tab and paste the following url in the Install from URL field: `http://get.simplefilemanager.eu/`
+2. active the "**Install from URL**" tab and paste the following url in the Install from URL field: `https://www.firedrive.eu/get/`
 3. click on the **"Check and Install**" button and wait the completion of the installation procedure.
 
 If you are experiencing issues with this procedure, you can try the **classic installation method**:

@@ -32,13 +32,13 @@
 
 ## Installation
 
-Let's start installing Simple File Manager via the "**Install from url**" procedure:
+Let's start installing Firedrive via the "**Install from url**" procedure:
 1. access to the backend of your Joomla! website and go to **Extensions > Manage > Install**
 2. active the "**Install from URL**" tab and paste the following url in the Install from URL field: `https://www.firedrive.eu/get/`
 3. click on the **"Check and Install**" button and wait the completion of the installation procedure.
 
 If you are experiencing issues with this procedure, you can try the **classic installation method**:
-1. Download the zip package to your local machine from here: http://get.firedrive.eu
+1. Download the zip package to your local machine from here: https://www.firedrive.eu/
 2. From the backend of your Joomla site (administration) select **Extensions > Install**.
 3. Click the Browse button and select the zip package on your local machine.
 4. Click the Upload File & Install button.
@@ -73,7 +73,7 @@ You'll also find a lot of __examples__ at the [demo site](http://demo.firedrive.
 
 ## Feedback
 
-If you are __satisfied__ with FireDrive and if you want to __help the project__ growing up, please __leave your rating__ on the <a href="https://extensions.joomla.org/extension/simple-file-manager/">Joomla! Extension Directory</a>! 
+If you are __satisfied__ with FireDrive and if you want to __help the project__ growing up, please __leave your rating__ on the <a href="https://extensions.joomla.org/extension/firedrive/">Joomla! Extension Directory</a>! 
 
 Your Feedback is very important! :heart:
 
@@ -82,4 +82,4 @@ Your Feedback is very important! :heart:
 
 Any __problem__? Please report it: all bugs, feature requests, pull requests, feedback, etc., are welcome!
 
-First search for [existing and closed issues](https://github.com/gmansillo/FireDrive/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/Firedrive/issues/new?template=issue_template.md).
+First search for [existing and closed issues](https://github.com/gmansillo/Firedrive/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/Firedrive/issues/new?template=issue_template.md).

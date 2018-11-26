@@ -25,41 +25,34 @@
 
 
 ## Table of contents
-- [Installation](#installation)
-- [Software requirements](#software-requirements)
+- [Quick start](#quick-start)
+- [Requirements](#requirements)
 - [Examples](#examples)
 - [Feedback](#feedback)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 
 
-## Installation
+## Quick start
 
-Let's start installing Firedrive via the "**Install from url**" procedure:
-1. access to the backend of your Joomla! website and go to **Extensions > Manage > Install**
-2. active the "**Install from URL**" tab and paste the following url in the Install from URL field: `https://www.firedrive.eu/get/`
-3. click on the **"Check and Install**" button and wait the completion of the installation procedure.
+Install Firedrive via the **Install from url** procedure.
+1. access to Joomla! backend then go to **Extensions > Manage > Install**
+2. active the "**Install from URL**" tab and paste the following url: `https://www.firedrive.eu/get/`
+3. click **"Check and Install"** button and wait the completion of the installation procedure.
 
-If you are experiencing issues with this procedure, you can try the **classic installation method**:
+If you are experiencing issues with this procedure, try the **classic installation method**:
 1. Download the zip package to your local machine from here: https://www.firedrive.eu/
-2. From the backend of your Joomla site (administration) select **Extensions > Install**.
-3. Click the Browse button and select the zip package on your local machine.
-4. Click the Upload File & Install button.
+2. access to Joomla! backend then go to **Extensions > Manage > Install**.
+3. Click the Browse button and select the downloaded zip package on your local machine.
+4. Click the **Upload File & Install** button and wait the completion of the installation procedure.
 
-Several alternative installation methods are available. Those methods are well described in the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>
+Several alternative installation methods are available. Those methods are well described in the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 
   
-## Software requirements
+## Requirements
 
-![Joomla! 3.7+](https://img.shields.io/badge/Joomla!-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/MySql-5.1+-orange.svg)
+![Joomla! 3.7+](https://img.shields.io/badge/Joomla!_CMS-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP_Engine-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/database_MySql-5.1+-orange.svg)  ![Apache 2.x](https://img.shields.io/badge/Apache_server-2.2-yellow.svg)
 
-In order to run correctly, Firedrive requires:
-
-- __PHP__ (minumum 5.4, recommended 5.6/7.2)
--  __MariaDB/Mysql__
-- __Joomla__ (minumum 3.7)
-- __Apache 2.x__
-
-Complete list of system requirements is [available here](https://github.com/gmansillo/Firedrive/wiki/System-requirements).
+Other databases and server software are also supported (with limitations). Complete list of system requirements is [available here](https://github.com/gmansillo/Firedrive/wiki/System-requirements).
 
 ## Examples
 

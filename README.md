@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://firedrive.eu/">
-    <img src="https://firedrive.eu/img/firedrive_monogramma_trasparente.svg#" alt="Firedrive" height="50">
+    <img src="https://firedrive.eu/img/firedrive_monogramma_trasparente.svg#" alt="Firedrive" height="72">
   </a>
 
   <h3 align="center">Firedrive</h3>
@@ -8,12 +8,14 @@
   <p align="center">
     Lightweight, intuitive and powerful extension for sharing documents in Joomla! websites.
     <br>
-    <a href="https://github.com/gmansillo/firedrive/wiki"><strong>Firedrive Documentation »</strong></a>
+    <a href="https://github.com/gmansillo/firedrive/wiki"><strong>Explore Firedrive docs »</strong></a>
     <br>
     <br>
-    <a href="https://github.com/gmansillo/Firedrive/issues/">Open Issues</a>
+    <a href="https://github.com/gmansillo/Firedrive/issues/new?template=issue_template.md">Report bug</a>
     ·
-    <a href="https://github.com/gmansillo/Firedrive/issues/new?template=issue_template.md">Report a bug or request a feature</a>
+    <a href="https://github.com/gmansillo/Firedrive/issues/new">Request feature</a>
+    ·
+    <a href="https://github.com/gmansillo/Firedrive/issues">Known issues</a>
     ·
     <a href="https://github.com/gmansillo/firedrive/releases">Releases</a>
   </p>

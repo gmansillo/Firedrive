@@ -30,6 +30,7 @@
 - [Examples](#examples)
 - [Feedback](#feedback)
 - [Bugs and feature requests](#bugs-and-feature-requests)
+- [Creator](#creator)
 
 
 ## Quick start
@@ -39,20 +40,14 @@ Install Firedrive via the **Install from url** procedure.
 2. active the "**Install from URL**" tab and paste the following url: `https://www.firedrive.eu/get/`
 3. click **"Check and Install"** button and wait the completion of the installation procedure.
 
-If you are experiencing issues with this procedure, try the **classic installation method**:
-1. Download the zip package to your local machine from here: https://www.firedrive.eu/
-2. access to Joomla! backend then go to **Extensions > Manage > Install**.
-3. Click the Browse button and select the downloaded zip package on your local machine.
-4. Click the **Upload File & Install** button and wait the completion of the installation procedure.
+If you are experiencing issues with this procedure, try the alternative installation methods are available described in the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 
-Several alternative installation methods are available. Those methods are well described in the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
-
-  
 ## Requirements
 
 ![Joomla! 3.7+](https://img.shields.io/badge/Joomla!_CMS-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP_Engine-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/database_MySql-5.1+-orange.svg)  ![Apache 2.x](https://img.shields.io/badge/Apache_server-2.2-yellow.svg)
 
-Other databases and server software are also supported (with limitations). Complete list of system requirements is [available here](https://github.com/gmansillo/Firedrive/wiki/System-requirements).
+Other databases and server software are also supported (with limitations). 
+Complete list of system requirements is [available here](https://github.com/gmansillo/Firedrive/wiki/System-requirements).
 
 ## Examples
 
@@ -78,3 +73,8 @@ Your Feedback is very important! :heart:
 Any __problem__? Please report it: all bugs, feature requests, pull requests, feedback, etc., are welcome!
 
 First search for [existing and closed issues](https://github.com/gmansillo/Firedrive/issues?utf8=%E2%9C%93&q=is%3Aissue). If your problem or idea is not addressed yet, [please open a new issue](https://github.com/gmansillo/Firedrive/issues/new?template=issue_template.md).
+
+## Creator
+**Giovanni Mansillo**
+- https://github.com/gmansillo/
+- https://facebook.com/gmansillo

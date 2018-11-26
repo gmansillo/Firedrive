@@ -28,10 +28,9 @@
 - [Quick start](#quick-start)
 - [Requirements](#requirements)
 - [Examples](#examples)
-- [Feedback](#feedback)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Creator](#creator)
-
+- [Feedback](#feedback)
 
 ## Quick start
 
@@ -40,13 +39,14 @@ Install Firedrive via the **Install from url** procedure.
 2. active the "**Install from URL**" tab and paste the following url: `https://www.firedrive.eu/get/`
 3. click **"Check and Install"** button and wait the completion of the installation procedure.
 
-If you are experiencing issues with this procedure, try the alternative installation methods are available described in the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
+If you are experiencing issues with this procedure, try alternative installation methods as described in the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 
 ## Requirements
 
 ![Joomla! 3.7+](https://img.shields.io/badge/Joomla!_CMS-3.7+-blue.svg) ![PHP 5.4+](https://img.shields.io/badge/PHP_Engine-5.4+-brightgreen.svg)  ![MySql 5.1+](https://img.shields.io/badge/database_MySql-5.1+-orange.svg)  ![Apache 2.x](https://img.shields.io/badge/Apache_server-2.2-yellow.svg)
 
-Other databases and server software are also supported (with limitations). 
+Other databases and server software are also supported (with limitations).  
+
 Complete list of system requirements is [available here](https://github.com/gmansillo/Firedrive/wiki/System-requirements).
 
 ## Examples
@@ -61,12 +61,6 @@ Take a look to the website of brands, agencies and associations wich already use
 
 You'll also find a lot of __examples__ at the [demo site](http://demo.firedrive.eu/).
 
-## Feedback
-
-If you are __satisfied__ with FireDrive and if you want to __help the project__ growing up, please __leave your rating__ on the <a href="https://extensions.joomla.org/extension/firedrive/">Joomla! Extension Directory</a>! 
-
-Your Feedback is very important! :heart:
-
 
 ## Bugs and feature requests
 
@@ -78,3 +72,11 @@ First search for [existing and closed issues](https://github.com/gmansillo/Fired
 **Giovanni Mansillo**
 - https://github.com/gmansillo/
 - https://facebook.com/gmansillo
+
+## Feedback
+
+If you are __satisfied__ with FireDrive and if you want to __help the project__ growing up, please __leave your rating__ on the <a href="https://extensions.joomla.org/extension/firedrive/">Joomla! Extension Directory</a>! 
+
+Your Feedback is very important! :heart:
+
+

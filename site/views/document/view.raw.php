@@ -53,8 +53,7 @@ class FiredriveViewDocument extends JViewLegacy
 		$state       = $this->get('State');
 		$params      = $state->get('params');
 		$model       = $this->getModel();
-		$f_info      = new finfo();
-		$f_mime      = $f_info->file(file_name, FILEINFO_MIME);
+		$f_mime      = function_exists('mime_content_type') ? mime_content_type($item->file_name) : 'application/octet-stream';
 		$disposition = $params->get('force_download') ? 'attachment' : 'inline';
 
 		// Check for errors.
@@ -69,11 +68,21 @@ class FiredriveViewDocument extends JViewLegacy
 			$app->clearHeaders();
 			$doc->setMimeEncoding($f_mime, true);
 			$app->setHeader('Content-Type', $f_mime, true);
-			$app->setHeader('Content-Disposition', $disposition . '; filename="' . basename($item->file_name) . '";', true);
+			$app->setHeader('Expires', '0');
+			$app->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0');
+			$app->setHeader('Content-Description', 'File Transfer', true);
+			$app->setHeader('Content-Disposition', $disposition . '; filename="' . basename($item->file_name) . '"', true);
 			$app->setHeader('Content-Transfer-Encoding', 'binary', true);
+			$app->setHeader('Pragma', 'public');
 			$app->setHeader('Content-Length', filesize($item->file_name), true);
 			$app->sendHeaders();
-			echo JFile::read($item->file_name);
+
+			ob_clean();
+			flush();
+
+			readfile($item->file_name);
+
+			die();
 		}
 		catch (Exception $e)
 		{

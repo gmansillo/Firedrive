@@ -8,6 +8,8 @@
  */
 defined('_JEXEC') or die;
 
+JLoader::register('FiredriveHelper', JPATH_ADMINISTRATOR . '/components/com_firedrive/helpers/firedrive.php');
+
 /**
  * View class for a list of documents.
  * @since   5.2.1

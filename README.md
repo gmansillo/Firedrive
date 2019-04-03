@@ -1,9 +1,7 @@
 <p align="center">
   <a href="http://firedrive.eu/">
-    <img src="https://www.firedrive.eu/media/svg/logo_firedrive_blue_black_v.svg" alt="Firedrive" height="72">
+    <img src="https://www.firedrive.eu/media/svg/logo_firedrive_blue_black_v.svg" alt="Firedrive" height="170">
   </a>
-
-  <h3 align="center">Firedrive</h3>
 
   <p align="center">
     Lightweight, intuitive and powerful extension for sharing documents in Joomla! websites.

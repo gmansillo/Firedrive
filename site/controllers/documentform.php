@@ -68,8 +68,9 @@ class FiredriveControllerDocumentForm extends FiredriveController
 		$app    = JFactory::getApplication();
 		$model  = $this->getModel('DocumentForm', 'FiredriveModel');
 		$jinput = JFactory::getApplication()->input;
+        $params = JComponentHelper::getParams('com_firedrive');
 
-		// Get the user data.
+        // Get the user data.
 		$data  = $jinput->get('jform', array(), 'array');
 		$files = $jinput->files->get('jform');
 

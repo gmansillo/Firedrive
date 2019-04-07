@@ -6,7 +6,7 @@
   <copyright>(C) 2014 Giovanni Mansillo. All rights reserved.</copyright>
   <license>GNU General Public License version 3 or later</license>
   <authorUrl>http://www.firedrive.eu</authorUrl>
-  <version>5.2.3</version>
+  <version>5.2.4</version>
   <description>COM_FIREDRIVE_XML_DESCRIPTION_TEXT</description>
   <scriptfile>script.php</scriptfile>
   <install>

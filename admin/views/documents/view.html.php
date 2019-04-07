@@ -149,7 +149,7 @@ class FiredriveViewDocuments extends JViewLegacy
 			JToolbar::getInstance('toolbar')->appendButton('Custom', $dhtml, 'batch');
 		}
 
-		JToolbar::getInstance('toolbar')->appendButton('Link', 'box-remove', 'Import', 'index.php?option=com_firedrive&view=import');
+		// JToolbar::getInstance('toolbar')->appendButton('Link', 'box-remove', 'Import', 'index.php?option=com_firedrive&view=import');
 
 		if ($this->state->get('filter.published') == -2 && $canDo->get('core.delete'))
 		{

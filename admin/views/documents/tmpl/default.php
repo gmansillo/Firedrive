@@ -223,7 +223,7 @@ if ($saveOrder)
 
 		<?php endif; ?>
 
-		<?php echo JText::_("COM_FIREDRIVE_UPGRADE_INSTRUCTIONS"); ?>
+		<?php if(!empty($this->items)) echo JText::_("COM_FIREDRIVE_UPGRADE_INSTRUCTIONS"); ?>
 
         <input type="hidden" name="task" value=""/>
         <input type="hidden" name="boxchecked" value="0"/>

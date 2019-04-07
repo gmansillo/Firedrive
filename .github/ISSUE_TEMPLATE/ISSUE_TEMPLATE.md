@@ -1,4 +1,6 @@
-**Note: for support questions, please use the [Joomla! Forum](http://forum.joomla.org)**. This repository's issues are reserved for feature requests and bug reports.
+**Note: for support questions, please use the [Joomla! Forum](http://forum.joomla.org)**. This repository's issues are reserved for feature requests and bug reports.  
+
+**Language:** you can describe the issue in English (preferred), Italian or Spanish.
 
 * **I'm submitting a ...**
   - [ ] bug report

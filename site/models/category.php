@@ -63,7 +63,7 @@ class FiredriveModelCategory extends JModelList
 				'title', 'a.title',
 				'state', 'a.state',
 				'ordering', 'a.ordering',
-				'created', 'a.created',
+				'modified', 'a.modified',
 				'file_size', 'a.file_size',
 			);
 		}
@@ -267,8 +267,8 @@ class FiredriveModelCategory extends JModelList
 		// ->where('a.access IN (' . $groups . ')');
 		// Join on user table.
 		// TODO: Check if following code can be removed
-		$query->select('u.name as created_by_name')
-			->join('LEFT', '#__users AS u on a.created_by = u.id');
+		$query->select('u.name as modified_by_name')
+			->join('LEFT', '#__users AS u on a.modified_by = u.id');
 
 		// Filter by category.
 		if ($categoryId = $this->getState('category.id'))

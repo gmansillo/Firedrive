@@ -84,12 +84,13 @@
             </field>
 
             <field
-                    name="category_show_document_created_by"
+                    name="category_show_document_modified_by"
                     type="list"
                     useglobal="true"
                     class="chzn-color"
-                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_LABEL"
-                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_BY_DESC">
+                    default="0"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_show_document_modified_BY_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_show_document_modified_BY_DESC">
                 <option
                         value="1">JYES
                 </option>
@@ -99,12 +100,13 @@
             </field>
 
             <field
-                    name="category_show_document_created"
+                    name="category_show_document_modified"
                     type="list"
                     useglobal="true"
                     class="chzn-color"
-                    label="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_LABEL"
-                    description="COM_FIREDRIVE_FIELD_CATEGORY_SHOW_DOCUMENT_CREATED_DESC">
+                    default="1"
+                    label="COM_FIREDRIVE_FIELD_CATEGORY_show_document_modified_LABEL"
+                    description="COM_FIREDRIVE_FIELD_CATEGORY_show_document_modified_DESC">
                 <option
                         value="1">JYES
                 </option>

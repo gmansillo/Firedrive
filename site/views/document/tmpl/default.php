@@ -55,7 +55,7 @@ $tparams = $this->item->params;
 	<?php echo $this->item->event->beforeDisplayContent; ?>
 
 	<?php if ($tparams->get('document_show_document_icon', 1) && !empty($this->doc->icon)) : ?>
-        <p><img src="<?php echo $this->doc->icon; ?>" style="max-width:250px"/></p>
+        <p><img src="<?php echo $this->doc->icon; ?>" style="max-width:120px"/></p>
 	<?php endif; ?>
 
 	<?php if ($tparams->get('document_show_document_description', 1) && !empty($this->doc->description)) : ?>
@@ -65,14 +65,14 @@ $tparams = $this->item->params;
         </dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('document_show_document_created_by', 1) && !empty($this->doc->created_by)) : ?>
+	<?php if ($tparams->get('document_show_document_modified_by', 1) && !empty($this->doc->created_by)) : ?>
         <dl class="dl-horizontal">
             <dt><?php echo JText::_('COM_FIREDRIVE_CREATED_BY_LABEL'); ?></dt>
             <dd><?php echo $this->doc->created_by_name; ?></dd>
         </dl>
 	<?php endif; ?>
 
-	<?php if ($tparams->get('document_show_document_created', 1) && !empty($this->doc->created)) : ?>
+	<?php if ($tparams->get('document_show_document_modified', 1) && !empty($this->doc->created)) : ?>
         <dl class="dl-horizontal">
             <dt><?php echo JText::_('COM_FIREDRIVE_CREATED_LABEL'); ?></dt>
             <dd><?php echo $this->doc->created; ?></dd>

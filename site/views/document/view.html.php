@@ -8,6 +8,8 @@
  */
 defined('_JEXEC') or die;
 
+JLoader::register('FiredriveHelper', JPATH_ADMINISTRATOR . '/components/com_firedrive/helpers/firedrive.php');
+
 /**
  * HTML Document View class for the Firedrive component
  * @since   5.2.1
@@ -227,7 +229,7 @@ class FiredriveViewDocument extends JViewLegacy
 
 		parent::display($tpl);
 
-		echo JFactory::getSession()->get('fdkey');
+		echo FiredriveHelper::getFdkey();
 
 		return;
 	}

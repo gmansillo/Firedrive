@@ -8,6 +8,8 @@
 defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
+JLoader::register('FiredriveHelper', JPATH_ADMINISTRATOR . '/components/com_firedrive/helpers/firedrive.php');
+
 JHtml::_('behavior.caption');
 JHtml::_('behavior.core');
 
@@ -36,6 +38,6 @@ jQuery(function($) {
 	<?php
 	echo JLayoutHelper::render('joomla.content.categories_default', $this);
 	echo $this->loadTemplate('items');
-	echo JFactory::getSession()->get('fdkey');
+	echo FiredriveHelper::getFdkey();
 	?>
 </div>

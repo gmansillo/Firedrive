@@ -77,24 +77,32 @@ class FiredriveHelper extends JHelperContent
 	 */
 	public static function processDocumentIcon(&$document)
 	{
+		if (is_null($document)) return;
+		if (!empty($document->icon)) return;    // Custom icon already set
 
-		$params = JComponentHelper::getParams('com_firedrive');
+		$params       = JComponentHelper::getParams('com_firedrive');
+		$default_icon = JURI::root() . "/media/com_firedrive/images/document.svg";
 
-		if (!is_null($document) && empty($document->icon))
-		{
-			$smartIconsDirectory = JPATH_ROOT . "/media/com_firedrive/smartIcons/";
-			$smartIconsUri       = JURI::root() . "/media/com_firedrive/smartIcons/";
-			$availableSmartIcons = array_map('basename', glob($smartIconsDirectory . "*.png", GLOB_BRACE));
-			$neededSmartIcon     = pathinfo($document->file_name, PATHINFO_EXTENSION) . ".png";
-			if ($params->get('use_smart_icons', 1) && in_array($neededSmartIcon, $availableSmartIcons))
-			{
-				$document->icon = $smartIconsUri . $neededSmartIcon;
-			}
-			else
-			{
-				$document->icon = JURI::root() . "/media/com_firedrive/images/document.png";
-			}
+		if (!$params->get('use_smart_icons', 1))
+		{ // Smart icon disabled
+			$document->icon = $default_icon;
+
+			return;
 		}
+
+		$file_extension = strtolower(pathinfo($document->file_name, PATHINFO_EXTENSION));
+		$smarticons_dir = "/media/com_firedrive/smarticons/";
+
+		if (file_exists(JPATH_ROOT . $smarticons_dir . $file_extension . ".svg"))
+			$document->icon = JURI::root() . $smarticons_dir . $file_extension . ".svg";
+		else if (file_exists(JPATH_ROOT . $smarticons_dir . $file_extension . ".png"))
+			$document->icon = JURI::root() . $smarticons_dir . $file_extension . ".png";
+		else if (file_exists(JPATH_ROOT . $smarticons_dir . $file_extension . ".gif"))
+			$document->icon = JURI::root() . $smarticons_dir . $file_extension . ".gif";
+		else if (file_exists(JPATH_ROOT . $smarticons_dir . $file_extension . ".jpg"))
+			$document->icon = JURI::root() . $smarticons_dir . $file_extension . ".jpg";
+		else
+			$document->icon = $default_icon;
 
 		return;
 	}
@@ -214,4 +222,13 @@ class FiredriveHelper extends JHelperContent
 		return JFile::copy($source, $destFolder . $fileName) ? $destFolder . $fileName : false;
 	}
 
+	public static function getFdkey()
+	{
+		$app = JFactory::getApplication();
+
+		if ($app->isClient('site'))
+			return JText::_('COM_FIREDRIVE_CREDITS');
+		else
+			return JText::_('COM_FIREDRIVE_UPGRADE_INSTRUCTIONS');
+	}
 }

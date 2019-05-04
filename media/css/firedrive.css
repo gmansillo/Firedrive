@@ -1,1 +1,141 @@
-#firedrive-category-filters .pull-right{float:right}#firedrive-category-filters .element-invisible{position:absolute;padding:0;margin:0;border:0;height:1px;width:1px;overflow:hidden}#firedrive-category-filters .btn-group{position:relative;display:inline-block;vertical-align:middle}#firedrive-category-table{display:table;width:100%;margin-bottom:18px;max-width:100%;background-color:transparent;border-collapse:collapse;border-spacing:0}#firedrive-category-table.table-striped tbody>tr:nth-child(odd)>td,#firedrive-category-table.table-striped tbody>tr:nth-child(odd)>th{background-color:#f9f9f9}#firedrive-category-table.table-hover tbody tr:hover>td,#firedrive-category-table.table-hover tbody tr:hover>th{background-color:#f5f5f5}#firedrive-category-table tbody,#firedrive-category-table thead{display:table-row-group;vertical-align:middle;border-color:inherit}#firedrive-category-table tr{display:table-row;vertical-align:middle;border-color:inherit}#firedrive-category-table td,#firedrive-category-table th{text-align:left;display:table-cell;vertical-align:middle;padding:8px;line-height:18px;border-top:1px solid #ddd}#firedrive-category-table th{font-weight:400;padding:14px 8px}#firedrive-category-table .col-icon{width:1%}#firedrive-category-table .col-icon img{max-width:inherit;min-width:30px}#firedrive-category-table .col-title h3{font-weight:700;font-size:1.1em;margin-top:0;margin-bottom:0}#firedrive-category-table .col-actions{text-align:right}@media only screen and (max-width:760px),(min-device-width:768px) and (max-device-width:1024px){#firedrive-category-table,#firedrive-category-table tbody,#firedrive-category-table td,#firedrive-category-table th,#firedrive-category-table thead,#firedrive-category-table tr{display:block}#firedrive-category-table thead tr{position:absolute;top:-9999px;left:-9999px}#firedrive-category-table tr{border:1px solid #ccc;margin-bottom:3px}#firedrive-category-table td{border:none;border-bottom:1px solid #eee;position:relative;padding-left:50%;vertical-align:top}#firedrive-category-table td:before{position:absolute;top:6px;left:6px;width:45%;padding-right:10px;white-space:nowrap}#firedrive-category-table .col-title h3{margin-top:0;margin-bottom:0;size:1em}#firedrive-category-table .col-icon{display:none}#firedrive-category-table .col-actions{text-align:left}}
+#firedrive-category-filters .pull-right {
+    float: right
+}
+
+#firedrive-category-filters .element-invisible {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden
+}
+
+#firedrive-category-filters .btn-group {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle
+}
+
+#firedrive-category-table {
+    display: table;
+    width: 100%;
+    margin-bottom: 18px;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+#firedrive-category-table.table-striped tbody > tr:nth-child(odd) > td, #firedrive-category-table.table-striped tbody > tr:nth-child(odd) > th {
+    background-color: #f9f9f9
+}
+
+#firedrive-category-table.table-hover tbody tr:hover > td, #firedrive-category-table.table-hover tbody tr:hover > th {
+    background-color: #f5f5f5
+}
+
+#firedrive-category-table thead {
+    background-color: #f5f6f7;
+}
+#firedrive-category-table tbody, #firedrive-category-table thead {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit
+}
+
+#firedrive-category-table tr {
+    display: table-row;
+    vertical-align: middle;
+    border-color: inherit
+}
+
+#firedrive-category-table td, #firedrive-category-table th {
+    text-align: left;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 8px;
+    line-height: 18px;
+    border-top: 1px solid #ddd
+}
+
+#firedrive-category-table th {
+    font-weight: 400;
+    padding: 14px 8px
+}
+
+#firedrive-category-table .col-icon {
+    width: 1%
+}
+
+#firedrive-category-table .col-icon img {
+    max-width: none;
+    min-width: auto;
+    height:32px;
+    padding: 2px;
+}
+
+#firedrive-category-table .col-title h3 {
+    font-weight: 700;
+    font-size: 1.1em;
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+#firedrive-category-table .col-size, #firedrive-category-table .col-last_edit {
+    color: #90949c;
+}
+
+#firedrive-category-table .col-actions {
+    text-align: right;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px) {
+    #firedrive-category-table, #firedrive-category-table tbody, #firedrive-category-table td, #firedrive-category-table th, #firedrive-category-table thead, #firedrive-category-table tr {
+        display: block
+    }
+
+    #firedrive-category-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px
+    }
+
+    #firedrive-category-table tr {
+        border: 1px solid #ccc;
+        margin-bottom: 3px
+    }
+
+    #firedrive-category-table td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        vertical-align: top
+    }
+
+    #firedrive-category-table td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap
+    }
+
+    #firedrive-category-table .col-title h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        size: 1em
+    }
+
+    #firedrive-category-table .col-icon {
+        display: none
+    }
+
+    #firedrive-category-table .col-actions {
+        text-align: left
+    }
+}

@@ -12,10 +12,7 @@ JLoader::register('FiredriveHelperRoute', JPATH_COMPONENT . '/helpers/route.php'
 JLoader::register('FiredriveHelper', JPATH_COMPONENT_ADMINISTRATOR . '/helpers/firedrive.php');
 
 $app     = JFactory::getApplication();
-$session = JFactory::getSession();
 $input   = $app->input;
-
-$session->set('fdkey', JText::_('COM_FIREDRIVE_CREDITS'));
 
 if ($input->get('view') === 'category' && $input->get('layout') === 'modal')
 {

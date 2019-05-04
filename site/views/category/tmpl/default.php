@@ -9,6 +9,8 @@
  */
 defined('_JEXEC') or die;
 
+JLoader::register('FiredriveHelper', JPATH_ADMINISTRATOR . '/components/com_firedrive/helpers/firedrive.php');
+
 $this->subtemplatename = 'items';
 echo JLayoutHelper::render('joomla.content.category_default', $this);
-echo JFactory::getSession()->get('fdkey');
+echo FiredriveHelper::getFdkey();

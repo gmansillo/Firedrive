@@ -13,10 +13,10 @@ $document->addStyleSheet(JUri::base() . 'media/com_firedrive/css/firedrive.css')
 $listOrder = $this->escape($this->state->get('list.ordering'));
 $listDirn  = $this->escape($this->state->get('list.direction'));
 ?>
-<form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="post" name="adminForm"
+<form action="<?php echo htmlspecialchars(JUri::getInstance()->toString()); ?>" method="get" name="adminForm"
       id="adminForm">
 
-	<?php if ($this->params->get('category_show_category_description',1) == 1) : ?>
+	<?php if ($this->params->get('category_show_category_description', 1) == 1) : ?>
 		<?php echo $this->getModel()->getCategory()->description; ?>
 	<?php endif; ?>
 
@@ -109,12 +109,12 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
                 }
 
                 #firedrive-category-table .col-created:before {
-                    content: "<?php echo JText::_('COM_FIREDRIVE_CATEGORIES_DOCUMENT_CREATION_LABEL'); ?>";
+                    content: "<?php echo JText::_('COM_FIREDRIVE_CATEGORIES_DOCUMENT_LAST_EDIT_LABEL'); ?>";
                 }
             }
         </style>
 
-        <table class="table table-striped table-hover" id="firedrive-category-table" role="list">
+        <table class="table table-hover" id="firedrive-category-table" role="list">
             <thead>
             <tr>
 				<?php if ($this->params->get('category_show_document_icon') == 1): ?>
@@ -124,20 +124,18 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 					<?php echo JText::_('COM_FIREDRIVE_CATEGORIES_DOCUMENT_TITLE_LABEL'); ?>
                 </th>
 				<?php
-				$show_created_by = $this->params->get('category_show_document_created_by') == 1;
-				$show_created    = $this->params->get('category_show_document_created') == 1
+				$show_last_edit_by = $this->params->get('category_show_document_modified_by', 0) == 1;
+				$show_last_edit    = $this->params->get('category_show_document_modified', 1) == 1
 				?>
 				<?php if ($this->params->get('category_show_document_file_size') == 1): ?>
                     <th><?php echo JText::_('COM_FIREDRIVE_CATEGORIES_DOCUMENT_SIZE_LABEL'); ?></th>
 				<?php endif; ?>
-				<?php if ($show_created_by || $show_created): ?>
-                    <th><?php echo JText::_('COM_FIREDRIVE_CATEGORIES_DOCUMENT_CREATION_LABEL'); ?></th>
+				<?php if ($show_last_edit_by || $show_last_edit): ?>
+                    <th><?php echo JText::_('COM_FIREDRIVE_CATEGORIES_DOCUMENT_LAST_EDIT_LABEL'); ?></th>
 				<?php endif; ?>
-				<?php if ($this->params->get('show_download_in_category_view', 1)) : ?>
-                    <th></th>
-				<?php endif; ?>
-            </tr>
+                <th></th>
 
+            </tr>
             </thead>
 
             <tbody>
@@ -146,15 +144,13 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
                     role="listitem">
 					<?php if ($this->params->get('category_show_document_icon') == 1): ?>
                         <td class="col-icon">
-							<?php if (!empty($this->items[$i]->icon)) echo JHtml::_('image', $this->items[$i]->icon, JText::_('COM_FIREDRIVE_IMAGE_DETAILS'), array('class' => 'document-thumbnail img-thumbnail', 'alt' => '')); ?>
+							<?php echo JHtml::_('image', $this->items[$i]->icon, "", array('class' => 'document-thumbnail img-thumbnail')); ?>
                         </td>
 					<?php endif; ?>
                     <td class="col-title">
-                        <h3>
+                        <strong>
 							<?php if ($this->params->get('show_link_on_title_in_category_view', 1) == 1): ?>
-                                <a href="<?php echo JRoute::_(FiredriveHelperRoute::getDocumentRoute($item->slug, $item->catid)); ?>">
-									<?php echo $item->title; ?>
-                                </a>
+                                <a href="<?php echo JRoute::_('index.php?option=com_firedrive&amp;view=document&amp;id=' . $item->id . '&amp;format=raw'); ?>"><?php echo $item->title; ?></a>
 							<?php else: ?>
 								<?php echo $item->title; ?>
 							<?php endif; ?>
@@ -165,11 +161,11 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
                                 <span class="label label-warning"><?php echo JText::_('JUNPUBLISHED'); ?></span>
 							<?php endif; ?>
 							<?php if ($this->params->get('category_show_document_new', 1)) :
-								$created = JFactory::getDate($this->items[$i]->created)->toUnix();
+								$modified = JFactory::getDate($this->items[$i]->modified)->toUnix();
 								$limit   = JFactory::getDate('now -' . $this->params->get('new_duration_limit', 7) . ' day')->toUnix();
-								if ($created >= $limit) echo '<span class="label label-important">', JText::_('COM_FIREDRIVE_NEW'), '</span>';
+								if ($modified >= $limit) echo '<span class="label label-important">', JText::_('COM_FIREDRIVE_NEW'), '</span>';
 							endif; ?>
-                        </h3>
+                        </strong>
 						<?php if ($this->params->get('category_show_document_license') == 1 && $item->license): ?>
 							<?php echo JText::_('COM_FIREDRIVE_CATEGORIES_DOCUMENT_LICENSE_LABEL'); ?>:
 							<?php
@@ -188,18 +184,17 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
 							<?php echo FiredriveHelper::convertToReadableSize($item->file_size); ?>
                         </td>
 					<?php endif; ?>
-					<?php if ($show_created || $show_created_by): ?>
-                        <td class="col-created">
-							<?php if ($show_created) echo $item->created_by_name; ?>
-							<?php if ($show_created && $show_created_by) echo '<br>'; ?>
-							<?php if ($show_created_by) echo $item->created; ?>
+					<?php if ($show_last_edit || $show_last_edit_by): ?>
+                        <td class="col-last_edit">
+							<?php if ($show_last_edit_by) echo $item->modified_by_name; ?>
+							<?php if ($show_last_edit && $show_last_edit_by) echo '<br>'; ?>
+							<?php if ($show_last_edit) echo JHtml::_('date', $item->modified); ?>
                         </td>
 					<?php endif; ?>
-					<?php if ($this->params->get('show_download_in_category_view', 1)) : ?>
-                        <td class="col-actions">
-							<?php echo '<a href="', JRoute::_('index.php?option=com_firedrive&amp;view=document&amp;id=' . $item->id . '&amp;format=raw'), '" class="btn btn-default">', JText::_('COM_FIREDRIVE_DOWNLOAD_BUTTON'), '</a>'; ?>
-                        </td>
-					<?php endif; ?>
+                    <td class="col-actions">
+                        <a title="<?php echo JText::_("COM_FIREDRIVE_DETAILS_LABEL"); ?>" href="<?php echo JRoute::_(FiredriveHelperRoute::getDocumentRoute($item->slug, $item->catid)); ?>"
+                           class="btn btn-default btn-sm btn-small">...</a>
+                    </td>
                 </tr>
 			<?php endforeach; ?>
             </tbody>

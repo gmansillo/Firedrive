@@ -8,13 +8,14 @@
 // no direct access
 defined('_JEXEC') or die;
 
+JLoader::register('FiredriveHelper', JPATH_ADMINISTRATOR . '/components/com_firedrive/helpers/firedrive.php');
+
 JHtml::_('behavior.tabstate');
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.tooltip');
 JHtml::_('formbehavior.chosen', 'select');
 
 $doc = JFactory::getDocument();
-$doc->addScript(JUri::base() . '/components/com_firedrive/assets/js/form.js');
 $doc->addScriptDeclaration('
 	jQuery(document).ready(function ($){
 		var input = document.getElementById("jform_select_file");
@@ -38,7 +39,7 @@ $canEditState = $user->authorise('core.edit.state', 'com_firedrive');
             id="form-documentform"
             method="post"
             class="form-validate"
-            action="<?php echo JRoute::_('index.php?option=com_firedrive&task=firedrive.save'); ?>"
+            action="<?php echo JRoute::_('index.php?option=com_firedrive'); ?>"
     >
         <input type="hidden" name="jform[id]" value="<?php echo $this->item->id; ?>"/>
 
@@ -46,9 +47,11 @@ $canEditState = $user->authorise('core.edit.state', 'com_firedrive');
 
 			<?php echo $this->form->renderField('title'); ?>
 
-			<?php if ($this->item->params->get('default_category', "") == ""): ?>
+			<?php if ($this->params->get('default_category', "") == ""): ?>
 				<?php echo $this->form->renderField('catid'); ?>
-			<?php endif; ?>
+			<?php else: ?>
+                <input type="hidden" name="catid" value="<?php echo $this->params->get('default_category'); ?>" />
+            <?php endif; ?>
 
 			<?php echo $this->form->renderField('select_file'); ?>
 
@@ -68,12 +71,11 @@ $canEditState = $user->authorise('core.edit.state', 'com_firedrive');
         </a>
 
         <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-        <input type="hidden" name="task" value=""/>
         <input type="hidden" name="option" value="com_firedrive"/>
         <input type="hidden" name="task" value="documentform.save"/>
 		<?php echo JHtml::_('form.token'); ?>
     </form>
 
-	<?php echo JFactory::getSession()->get('fdkey'); ?>
+	<?php echo FiredriveHelper::getFdkey(); ?>
 
 </div>

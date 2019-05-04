@@ -24,7 +24,7 @@ class FiredriveModelDocumentForm extends JModelForm
 	/**
 	 * Method to check in an item.
 	 *
-	 * @param    integer        The id of the row to check out.
+	 * @param   integer        The id of the row to check out.
 	 *
 	 * @return    boolean        True on success, false on failure.
 	 * @since    1.6
@@ -65,7 +65,7 @@ class FiredriveModelDocumentForm extends JModelForm
 	/**
 	 * Method to check out an item for editing.
 	 *
-	 * @param    integer        The id of the row to check out.
+	 * @param   integer        The id of the row to check out.
 	 *
 	 * @return    boolean        True on success, false on failure.
 	 * @since    1.6
@@ -104,8 +104,8 @@ class FiredriveModelDocumentForm extends JModelForm
 	 *
 	 * The base form is loaded from XML
 	 *
-	 * @param    array   $data     An optional array of data for the form to interogate.
-	 * @param    boolean $loadData True if the form is to load its own data (default case), false if not.
+	 * @param   array    $data      An optional array of data for the form to interogate.
+	 * @param   boolean  $loadData  True if the form is to load its own data (default case), false if not.
 	 *
 	 * @return    JForm    A JForm object on success, false on failure
 	 * @since    1.6
@@ -125,7 +125,7 @@ class FiredriveModelDocumentForm extends JModelForm
 	/**
 	 * Method to save the form data.
 	 *
-	 * @param    array        The form data.
+	 * @param   array        The form data.
 	 *
 	 * @return    mixed        The record id on success, false on failure.
 	 * @since    1.6
@@ -149,7 +149,7 @@ class FiredriveModelDocumentForm extends JModelForm
 
 		if ($authorised !== true)
 		{
-			throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'), 403);
+			throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'));
 		}
 
 		$table = $this->getTable();
@@ -168,7 +168,7 @@ class FiredriveModelDocumentForm extends JModelForm
 		$id = (!empty($data['id'])) ? $data['id'] : (int) $this->getState('document.id');
 		if (JFactory::getUser()->authorise('core.delete', 'com_firedrive') !== true)
 		{
-			throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'), 403);
+			throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'));
 		}
 
 		$table = $this->getTable();
@@ -235,7 +235,7 @@ class FiredriveModelDocumentForm extends JModelForm
 	/**
 	 * Method to get an ojbect.
 	 *
-	 * @param    integer    The id of the object to get.
+	 * @param   integer    The id of the object to get.
 	 *
 	 * @return    mixed    Object on success, false on failure.
 	 * @since   5.2.1
@@ -268,7 +268,7 @@ class FiredriveModelDocumentForm extends JModelForm
 
 				if (!$canEdit)
 				{
-					throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'), 403);
+					throw new Exception(JText::_('JERROR_ALERTNOAUTHOR'));
 				}
 
 				// Check published state.

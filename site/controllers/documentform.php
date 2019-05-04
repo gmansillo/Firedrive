@@ -29,7 +29,7 @@ class FiredriveControllerDocumentForm extends FiredriveController
 
 		// Get the previous edit id (if any) and the current edit id.
 		$previousId = (int) $app->getUserState('com_firedrive.edit.document.id');
-		$editId     = $app->input->getInt('id', null, 'array');
+		$editId     = $app->input->getInt('id', null);
 
 		// Set the user id for the user to edit in the session.
 		$app->setUserState('com_firedrive.edit.document.id', $editId);
@@ -109,7 +109,7 @@ class FiredriveControllerDocumentForm extends FiredriveController
 			$jform = $input->get('jform', array(), 'ARRAY');
 
 			// Save the data in the session.
-			$app->setUserState('com_firedrive.edit.document.data', $jform, array());
+			$app->setUserState('com_firedrive.edit.document.data', $jform);
 
 			// Redirect back to the edit screen.
 			// TODO: Add menu param in xml for customizing redirect url
@@ -119,6 +119,9 @@ class FiredriveControllerDocumentForm extends FiredriveController
 			$this->setRedirect($redirect_url, false);
 
 			return false;
+
+			// TODO: Set redirect to the file page if file is published
+			// TODO: to create documentform_redirect param in menu item options
 		}
 
 		// Attempt to save the data.
@@ -180,7 +183,7 @@ class FiredriveControllerDocumentForm extends FiredriveController
 		{
 			if ($isNew)
 			{
-				throw new Exception(JText::_('COM_FIREDRIVE_NO_FILE_ERROR_MESSAGE'), 503);
+				throw new Exception(JText::_('COM_FIREDRIVE_NO_FILE_ERROR_MESSAGE'));
 			}
 		}
 		else
@@ -202,7 +205,7 @@ class FiredriveControllerDocumentForm extends FiredriveController
 			if (!$data["file_name"])
 			{
 				JFactory::getApplication()->enqueueMessage(JText::_('COM_FIREDRIVE_FILE_UPLOAD_ERROR_MESSAGE'), 'error');
-				parent::save($key, $urlVar);
+				parent::save();
 
 				return;
 			}

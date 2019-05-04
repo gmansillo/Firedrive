@@ -50,7 +50,7 @@ class FiredriveControllerDocument extends JControllerForm
 
 		if ($isNew && !$this->files[$uploadFieldName]["size"])
 		{
-			throw new Exception(JText::_('COM_FIREDRIVE_NO_FILE_ERROR_MESSAGE'), 403);
+			throw new Exception(JText::_('COM_FIREDRIVE_NO_FILE_ERROR_MESSAGE'));
 		}
 
 		// File management
@@ -231,33 +231,41 @@ class FiredriveControllerDocument extends JControllerForm
 
 			if (!empty($recipients))
 			{
-				$config = JFactory::getConfig();
-				$sender = [$config->get('mailfrom'), $config->get('fromname')];
-				$author = JFactory::getUser((int) $item->created_by);
+				$config       = JFactory::getConfig();
+				$sender       = [$config->get('mailfrom'), $config->get('fromname')];
+				$author       = JFactory::getUser((int) $item->created_by);
+				$default_lang = JComponentHelper::getParams('com_languages')->get('site');
+
+				JPluginHelper::importPlugin('system', 'languagefilter');
 
 				foreach ($recipients as $recipient)
 				{
+					// TODO: Check if user param sendEmail is enabled
+
+					$mailer = JFactory::getMailer();
 					$user = JFactory::getUser((int) $recipient);
 
-					// Message subject
-					$subject = JText::_('COM_FIREDRIVE_EMAIL_SUBJ');
+					$mailer->setSender($sender);
+					$mailer->addRecipient($user->email);
+					$mailer->isHTML(true);
+					$mailer->Encoding = 'base64';
 
-					// Message body
-					$body = JText::_('COM_FIREDRIVE_EMAIL_BODY');
+					$user_preferred_lang = $user->getParam('language', $default_lang); // Get user language. Default to frontend language
+
+					$lang = JLanguage::getInstance($user_preferred_lang);
+					$lang->load('com_firedrive', JPATH_ADMINISTRATOR . '/components/com_firedrive', $default_lang, false, true);
+					$lang->load('com_firedrive', JPATH_ADMINISTRATOR . '/components/com_firedrive', $lang->getTag(), false, false);
+
+					// Message contents
+					$mailer->setSubject($lang->_('COM_FIREDRIVE_EMAIL_SUBJ'));
+					$body = $lang->_('COM_FIREDRIVE_EMAIL_BODY');
 					$body = str_replace('{user_fullname}', $user->name, $body);
 					$body = str_replace('{document_title}', $item->title, $body);
 					$body = str_replace('{author_name}', $$author->name, $body);
 					$body = str_replace('{site_url}', JUri::root(), $body);
-
-					// Send email
-					$mailer = JFactory::getMailer();
-					$mailer->setSender($sender);
-					$mailer->addRecipient($user->email);
-					$mailer->setSubject($subject);
-					$mailer->isHTML(true);
-					$mailer->Encoding = 'base64';
 					$mailer->setBody($body);
 
+					// Send email
 					$send = $mailer->Send();
 
 					if (!$send)

@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://firedrive.eu/">
-    <img src="https://www.firedrive.eu/media/svg/logo_firedrive_blue_black_v.svg" alt="Firedrive" height="120">
+    <img src="https://www.firedrive.eu/assets/svg/firedrive-logo.svg" alt="Firedrive" width="80">
   </a>
 
   <p align="center">

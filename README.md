@@ -34,7 +34,7 @@
 
 Install Firedrive via the **Install from url** procedure.
 1. access to Joomla! backend then go to **Extensions > Manage > Install**
-2. active the "**Install from URL**" tab and paste the following url: `https://www.firedrive.eu/get/`
+2. active the "**Install from URL**" tab and paste the following url: `https://api.firedrive.eu/get/`
 3. click **"Check and Install"** button and wait the completion of the installation procedure.
 
 If you are experiencing issues with this procedure, try alternative installation methods as described in the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.

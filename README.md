@@ -21,23 +21,10 @@
 
 <br>
 
-
 ## Table of contents
-- [Quick start](#quick-start)
 - [Requirements](#requirements)
-- [Examples](#examples)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Creator](#creator)
-- [Feedback](#feedback)
-
-## Quick start
-
-Install Firedrive via the **Install from url** procedure.
-1. access to Joomla! backend then go to **Extensions > Manage > Install**
-2. active the "**Install from URL**" tab and paste the following url: `https://api.firedrive.eu/get/`
-3. click **"Check and Install"** button and wait the completion of the installation procedure.
-
-If you are experiencing issues with this procedure, try alternative installation methods as described in the <a href="https://docs.joomla.org/Installing_an_extension" target="_blank">official Joomla! documentation</a>.
 
 ## Requirements
 
@@ -46,19 +33,6 @@ If you are experiencing issues with this procedure, try alternative installation
 Other databases and server software are also supported (with limitations).  
 
 Complete list of system requirements is [available here](https://github.com/gmansillo/Firedrive/wiki/System-requirements).
-
-## Examples
-
-Take a look to the website of brands, agencies and associations wich already use Firedrive for creating their download centers:
-
-- [Universidad De San Buenaventura Cartagena](http://www.usbcartagena.edu.co/new/index.php/investigaciones/reglamentos)
-- [Câmara de Comércio e Indústria Luso Espanhola](https://www.portugalespanha.org/index.php/servicos/assessoria-comercial/oportunidades-de-negocio-espanha/portugal)
-- [Embassy Of Bangladesh in Beijing](http://www.bdembassybeijing.com/index.php/en/commerce-en/downloadable-content-en)
-- [Exprivia ACSYS](http://ark.acsys.it/index.php/download)
-- [Liceo "Annibal Caro" Fermo](http://www.liceoannibalcaro.gov.it/fascicolo/)
-
-You'll also find a lot of __examples__ at the [demo site](http://demo.firedrive.eu/).
-
 
 ## Bugs and feature requests
 
@@ -69,12 +43,7 @@ First search for [existing and closed issues](https://github.com/gmansillo/Fired
 ## Creator
 **Giovanni Mansillo**
 - https://github.com/gmansillo/
-- https://facebook.com/gmansillo
 
-## Feedback
 
-If you are __satisfied__ with FireDrive and if you want to __help the project__ growing up, please __leave your rating__ on the <a href="https://extensions.joomla.org/extension/firedrive/">Joomla! Extension Directory</a>! 
-
-Your Feedback is very important! :heart:
 
 
